@@ -105,19 +105,21 @@ export function AdBanner({
   // 1. Top Billboard / Leaderboard Banner (Compact, space-efficient, professional)
   if (slot === 'leaderboard') {
     return (
-      <div className={cn('w-full my-1.5 sm:my-2', className)}>
-        <div className="w-full rounded-xl border border-blue-200/70 bg-gradient-to-r from-blue-50/50 via-white to-sky-50/40 px-3 py-2 sm:px-4 sm:py-2.5 text-slate-800 shadow-xs transition-all hover:border-blue-300">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5">
-            <div className="flex items-center gap-2.5 min-w-0">
-              <span className="shrink-0 font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100/90 px-1.5 py-0.5 rounded border border-slate-200">
+      <div className={cn('w-full my-1.5 sm:my-2 overflow-hidden', className)}>
+        <div className="w-full rounded-xl border border-blue-200/80 bg-gradient-to-r from-blue-50/60 via-white to-sky-50/50 p-2 sm:px-4 sm:py-2.5 text-slate-800 shadow-xs transition-all hover:border-blue-300">
+          <div className="flex items-center justify-between gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 min-w-0 flex-1 overflow-hidden">
+              <span className="shrink-0 font-mono text-[9px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">
                 AD
               </span>
               <span className="shrink-0 hidden md:inline-flex text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200">
                 {finalBadge}
               </span>
-              <span className="shrink-0 text-xs font-bold text-slate-900">{finalSponsor}</span>
+              <span className="shrink-0 text-xs font-bold text-slate-900 truncate max-w-[110px] sm:max-w-none">
+                {finalSponsor}
+              </span>
               <span className="hidden sm:inline text-slate-300">|</span>
-              <p className="text-xs font-semibold text-slate-700 truncate">
+              <p className="hidden xs:block text-xs font-medium text-slate-600 truncate flex-1 min-w-0">
                 {finalTitle}
               </p>
             </div>
@@ -126,7 +128,7 @@ export function AdBanner({
               href={finalCtaLink}
               target="_blank"
               rel="noopener noreferrer sponsored"
-              className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white transition-all hover:bg-blue-700 active:scale-95 shadow-xs whitespace-nowrap"
+              className="shrink-0 tap-spring inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-2.5 py-1.5 sm:px-3 text-xs font-bold text-white shadow-xs hover:bg-blue-700 whitespace-nowrap"
             >
               <span>{finalCtaText}</span>
               <ExternalLink className="h-3 w-3" />

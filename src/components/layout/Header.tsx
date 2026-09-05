@@ -82,7 +82,7 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
         <button
           type="button"
           onClick={onOpenCommandPalette}
-          className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-blue-400 hover:bg-white hover:text-slate-900 transition-all shadow-xs"
+          className="tap-spring flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-blue-400 hover:bg-white hover:text-slate-900 transition-all shadow-xs"
         >
           <Search className="h-3.5 w-3.5 text-blue-600" />
           <span className="hidden md:inline">Quick Search</span>
@@ -95,7 +95,7 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
         <button
           type="button"
           onClick={handleShare}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
+          className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
           title="Share exact calculation parameters via URL"
         >
           {copiedShare ? (
@@ -115,60 +115,67 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden rounded-lg p-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+          className="tap-spring lg:hidden rounded-lg p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+          aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Backdrop */}
       {mobileMenuOpen && (
-        <div className="absolute top-14 left-0 right-0 z-30 border-b border-slate-200 bg-white p-4 lg:hidden shadow-lg">
-          <div className="space-y-2">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              All Utilities Hub
-            </Link>
-            <Link
-              href="/tools/sales-tax-calculator/california"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              US Sales Tax (50 States)
-            </Link>
-            <Link
-              href="/tools/vat-calculator/united-kingdom"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              UK VAT & HMRC Returns
-            </Link>
-            <Link
-              href="/tools/stripe-fee-calculator/usa"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              US Stripe Merchant Fees
-            </Link>
-            <Link
-              href="/tools/stripe-fee-calculator/uk"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              UK Stripe Card Fees (1.5% + 20p)
-            </Link>
-            <Link
-              href="/tools/freelance-rate-calculator/software-engineer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              Freelance & 1099 Rates
-            </Link>
+        <>
+          <div
+            className="fixed inset-0 top-14 bg-slate-900/30 backdrop-blur-xs z-25 lg:hidden animate-fade-slide"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <div className="absolute top-14 left-0 right-0 z-30 border-b border-slate-200 bg-white p-4 lg:hidden shadow-xl animate-fade-slide">
+            <div className="space-y-1.5">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                All Utilities Hub
+              </Link>
+              <Link
+                href="/tools/sales-tax-calculator/california"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                US Sales Tax (50 States)
+              </Link>
+              <Link
+                href="/tools/vat-calculator/united-kingdom"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                UK VAT & HMRC Returns
+              </Link>
+              <Link
+                href="/tools/stripe-fee-calculator/usa"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                US Stripe Merchant Fees
+              </Link>
+              <Link
+                href="/tools/stripe-fee-calculator/uk"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                UK Stripe Card Fees (1.5% + 20p)
+              </Link>
+              <Link
+                href="/tools/freelance-rate-calculator/software-engineer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                Freelance & 1099 Rates
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

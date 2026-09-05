@@ -109,9 +109,9 @@ export default function FeeKitHome() {
         </p>
       </div>
 
-      {/* Main Suite Switcher Bar (Anti-Truncation Modern Segmented Design) */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xs">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+      {/* Main Suite Switcher Bar (Responsive 2x2 on Mobile, 4x1 on Desktop) */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-2.5 shadow-xs">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
           {suites.map((s) => {
             const Icon = s.icon;
             const isSelected = activeSuite === s.id;
@@ -120,28 +120,28 @@ export default function FeeKitHome() {
                 key={s.id}
                 type="button"
                 onClick={() => setActiveSuite(s.id)}
-                className={`flex items-start gap-3 rounded-xl p-3.5 text-left transition-all ${
+                className={`tap-spring flex flex-col sm:flex-row items-start gap-2 sm:gap-3 rounded-xl p-2.5 sm:p-3.5 text-left transition-all ${
                   isSelected
-                    ? 'border-2 border-blue-600 bg-blue-50/70 text-slate-900 shadow-xs'
+                    ? 'border-2 border-blue-600 bg-blue-50/70 text-slate-900 shadow-xs ring-2 ring-blue-500/20'
                     : 'border border-slate-200 bg-slate-50/70 text-slate-600 hover:border-slate-300 hover:bg-white hover:text-slate-900'
                 }`}
               >
                 <div
-                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${
+                  className={`flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg border transition-colors ${
                     isSelected
                       ? 'border-blue-400 bg-blue-600 text-white shadow-xs'
                       : 'border-slate-200 bg-white text-slate-500'
                   }`}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-1">
-                    <span className="text-sm font-bold text-slate-900 leading-snug">
+                    <span className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
                       {s.name}
                     </span>
                   </div>
-                  <span className="inline-block text-[11px] text-blue-700 font-mono font-bold mt-0.5">
+                  <span className="inline-block text-[10px] sm:text-[11px] text-blue-700 font-mono font-bold mt-0.5">
                     {s.badge}
                   </span>
                 </div>
@@ -151,8 +151,8 @@ export default function FeeKitHome() {
         </div>
       </div>
 
-      {/* Primary Universal Live Tool Canvas */}
-      <section aria-label="Interactive Universal Calculator">
+      {/* Primary Universal Live Tool Canvas with Smooth Fade-Slide */}
+      <section aria-label="Interactive Universal Calculator" className="animate-fade-slide key={activeSuite}">
         {activeSuite === 'merchant' && (
           <MerchantFeeCalculator initialGateway="stripe" initialAmount={1000} />
         )}

@@ -76,22 +76,22 @@ Calculated via: https://usefeekit.com`;
   const euKeys = Object.keys(ALL_TAX_JURISDICTIONS).filter(k => ALL_TAX_JURISDICTIONS[k].region === 'EU');
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-sm">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
       {/* Direction & Calculation Mode Switcher */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Mode:</span>
-          <span className="font-bold text-slate-900">
-            {direction === 'add_tax' ? 'Net to Gross (Add Tax)' : 'Gross to Net (Extract Tax)'}
+          <span className="font-bold text-slate-900 truncate">
+            {direction === 'add_tax' ? 'Net → Gross (Add Tax)' : 'Gross → Net (Extract Tax)'}
           </span>
         </div>
 
         {/* Direction Switcher */}
-        <div className="flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200">
+        <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200">
           <button
             type="button"
             onClick={() => setDirection('add_tax')}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition-all ${
+            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-1.5 text-xs font-bold transition-all text-center ${
               direction === 'add_tax'
                 ? 'bg-white text-slate-900 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
@@ -102,7 +102,7 @@ Calculated via: https://usefeekit.com`;
           <button
             type="button"
             onClick={() => setDirection('remove_tax')}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition-all ${
+            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-1.5 text-xs font-bold transition-all text-center ${
               direction === 'remove_tax'
                 ? 'bg-white text-slate-900 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
@@ -224,8 +224,8 @@ Calculated via: https://usefeekit.com`;
         )}
       </div>
 
-      {/* Dynamic Results Grid */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Dynamic Results Grid (2x2 on Mobile, 4x1 on Desktop) */}
+      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <MetricCard
           label="Net Pre-Tax Amount"
           value={formatCurrency(result.netAmount, activeCurrency)}
@@ -272,7 +272,7 @@ Calculated via: https://usefeekit.com`;
         <button
           type="button"
           onClick={handleCopyBreakdown}
-          className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
+          className="tap-spring shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs w-full sm:w-auto justify-center"
         >
           {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
           <span>{copied ? 'Copied Details!' : 'Copy Tax Breakdown'}</span>

@@ -64,17 +64,17 @@ export function FreelanceRateCalculator({
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-sm">
-      <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Benchmark Role:</span>
           <span className="font-bold text-slate-900">{role}</span>
         </div>
-        <span className="text-xs text-slate-500 font-medium">Compensation & Overhead Model</span>
+        <span className="text-xs text-slate-500 font-medium hidden sm:inline">Compensation & Overhead Model</span>
       </div>
 
       {/* Inputs Grid */}
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="mt-5 sm:mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
         <div>
           <label htmlFor="freelance-target-net-income" className="block text-xs font-semibold text-slate-700 mb-2">
             Desired Annual Net Take-Home
@@ -139,9 +139,9 @@ export function FreelanceRateCalculator({
       </div>
 
       {/* Secondary Parameters */}
-      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 text-xs">
+      <div className="mt-4 sm:mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-slate-200 text-xs">
         <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-200">
-          <label htmlFor="freelance-working-weeks" className="text-slate-700 font-medium">Working Weeks Per Year (accounting for PTO):</label>
+          <label htmlFor="freelance-working-weeks" className="text-slate-700 font-medium">Working Weeks / Year (PTO):</label>
           <div className="flex items-center gap-2 font-mono font-bold text-slate-900">
             <input
               id="freelance-working-weeks"
@@ -157,7 +157,7 @@ export function FreelanceRateCalculator({
         </div>
 
         <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-200">
-          <label htmlFor="freelance-tax-rate" className="text-slate-700 font-medium">Estimated Combined Tax (SECA + Income):</label>
+          <label htmlFor="freelance-tax-rate" className="text-slate-700 font-medium">Est. Tax (SECA + Income):</label>
           <div className="flex items-center gap-2 font-mono font-bold text-slate-900">
             <input
               id="freelance-tax-rate"
@@ -173,31 +173,31 @@ export function FreelanceRateCalculator({
         </div>
       </div>
 
-      {/* Metrics Grid */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Metrics Grid (2x2 on Mobile, 4x1 on Desktop) */}
+      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <MetricCard
-          label="Recommended Hourly Rate"
+          label="Recommended Hourly"
           value={`${currencySymbol}${result.recommendedHourlyRate.toFixed(2)}/hr`}
-          subtext="Includes 15% rainy-day buffer"
+          subtext="Includes 15% buffer"
           accent="blue"
         />
 
         <MetricCard
-          label="Standard Day Rate (8h)"
+          label="Day Rate (8h)"
           value={formatCurrency(result.dayRate, currencySymbol)}
-          subtext="Best for project milestone quotes"
+          subtext="Standard 8-hour contract"
           accent="emerald"
         />
 
         <MetricCard
-          label="Monthly Advisory Retainer"
+          label="Monthly Retainer"
           value={`${formatCurrency(result.monthlyRetainer, currencySymbol)}/mo`}
-          subtext="Half-allocation dedicated retainer"
+          subtext="Half-allocation retainer"
           accent="purple"
         />
 
         <MetricCard
-          label="Annual Gross Billing Goal"
+          label="Annual Gross Goal"
           value={formatCurrency(result.grossAnnualRevenueNeeded, currencySymbol)}
           subtext={`Taxes: ~${formatCurrency(result.totalTaxesEstimated, currencySymbol)}`}
           accent="amber"

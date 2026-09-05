@@ -83,15 +83,15 @@ Calculated via: https://usefeekit.com`;
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-sm">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Platform Channel:</span>
           <span className="font-bold text-slate-900">{ECOMMERCE_PLATFORMS[platform].name}</span>
         </div>
 
-        {/* Platform Selector Buttons */}
-        <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+        {/* Platform Selector Buttons with Smooth Touch Scroll */}
+        <div className="w-full sm:w-auto min-w-0 max-w-full overflow-x-auto py-1 scrollbar-none flex gap-1.5 no-scrollbar smooth-scroll-x">
           {(Object.keys(ECOMMERCE_PLATFORMS) as EcommercePlatform[]).map((p) => {
             const isSelected = platform === p;
             return (
@@ -99,7 +99,7 @@ Calculated via: https://usefeekit.com`;
                 key={p}
                 type="button"
                 onClick={() => setPlatform(p)}
-                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
+                className={`tap-spring shrink-0 whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
                   isSelected
                     ? 'bg-blue-600 text-white shadow-xs'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -112,9 +112,9 @@ Calculated via: https://usefeekit.com`;
         </div>
       </div>
 
-      {/* Input Parameters Grid */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <div>
+      {/* Input Parameters Grid (2 columns on mobile for compact efficiency) */}
+      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div className="col-span-1">
           <label htmlFor="ecom-selling-price" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Retail Price
           </label>
@@ -129,12 +129,12 @@ Calculated via: https://usefeekit.com`;
               step="any"
               value={price}
               onChange={(e) => setPrice(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-3 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
             />
           </div>
         </div>
 
-        <div>
+        <div className="col-span-1">
           <label htmlFor="ecom-cogs" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Product COGS
           </label>
@@ -149,14 +149,14 @@ Calculated via: https://usefeekit.com`;
               step="any"
               value={cogs}
               onChange={(e) => setCogs(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-3 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
             />
           </div>
         </div>
 
-        <div>
+        <div className="col-span-1">
           <label htmlFor="ecom-freight-cost" className="block text-xs font-semibold text-slate-700 mb-1.5">
-            Landed Freight / Unit
+            Landed Freight
           </label>
           <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
             <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono">
@@ -169,12 +169,12 @@ Calculated via: https://usefeekit.com`;
               step="any"
               value={freight}
               onChange={(e) => setFreight(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-3 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
             />
           </div>
         </div>
 
-        <div>
+        <div className="col-span-1">
           <label htmlFor="ecom-packaging-cost" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Prep & Packaging
           </label>
@@ -189,12 +189,12 @@ Calculated via: https://usefeekit.com`;
               step="any"
               value={prep}
               onChange={(e) => setPrep(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-3 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
             />
           </div>
         </div>
 
-        <div>
+        <div className="col-span-2 sm:col-span-1">
           <label htmlFor="ecom-ad-spend" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Target CAC / Ad Spend
           </label>
@@ -215,34 +215,34 @@ Calculated via: https://usefeekit.com`;
         </div>
       </div>
 
-      {/* Metrics Cards */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Metrics Cards (2x2 on mobile, 4x1 on desktop) */}
+      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <MetricCard
-          label="Net Profit per Unit"
+          label="Net Profit / Unit"
           value={formatCurrency(result.netProfitPerUnit, currencySymbol)}
-          subtext={`Landed cost: ${formatCurrency(result.landedCost, currencySymbol)}`}
-          badge={result.isProfitable ? 'Profitable' : 'Loss Making'}
+          subtext={`Landed: ${formatCurrency(result.landedCost, currencySymbol)}`}
+          badge={result.isProfitable ? 'Profitable' : 'Loss'}
           accent={result.isProfitable ? 'emerald' : 'rose'}
         />
 
         <MetricCard
           label="Net Margin %"
           value={`${result.netMarginPercentage.toFixed(2)}%`}
-          subtext={`Markup on cost: ${result.markupPercentage.toFixed(1)}%`}
+          subtext={`Markup: ${result.markupPercentage.toFixed(1)}%`}
           accent="blue"
         />
 
         <MetricCard
           label="Break-Even ROAS"
           value={result.breakEvenRoas > 100 ? 'N/A' : `${result.breakEvenRoas.toFixed(2)}x`}
-          subtext="Minimum ad multiplier needed"
+          subtext="Target multiplier"
           accent="amber"
         />
 
         <MetricCard
-          label="Platform & Pick/Pack"
+          label="Platform / Pick"
           value={`-${formatCurrency(result.platformFees + result.fulfillmentFees, currencySymbol)}`}
-          subtext={ECOMMERCE_PLATFORMS[platform].tagline}
+          subtext={ECOMMERCE_PLATFORMS[platform].name}
           accent="cyan"
         />
       </div>

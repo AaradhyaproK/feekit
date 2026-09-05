@@ -67,45 +67,45 @@ Calculated on: https://usefeekit.com`;
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-sm">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
       {/* Direction & Calculation Mode Switcher */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Mode:</span>
-          <span className="font-bold text-slate-900">
-            {direction === 'forward' ? 'Forward (Charge $X → Net Received)' : 'Reverse (Need $X → Gross to Charge)'}
+          <span className="font-bold text-slate-900 truncate">
+            {direction === 'forward' ? 'Forward (Charge $X → Net)' : 'Reverse (Need $X → Charge)'}
           </span>
         </div>
 
         {/* Direction Switcher Pill */}
-        <div className="flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200">
+        <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200">
           <button
             type="button"
             onClick={() => setDirection('forward')}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition-all ${
+            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-1.5 text-xs font-bold transition-all text-center ${
               direction === 'forward'
                 ? 'bg-white text-slate-900 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Forward (I charge $X)
+            Forward (Charge $X)
           </button>
           <button
             type="button"
             onClick={() => setDirection('reverse')}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition-all ${
+            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-1.5 text-xs font-bold transition-all text-center ${
               direction === 'reverse'
                 ? 'bg-white text-slate-900 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Reverse (I need $X in bank)
+            Reverse (Need $X)
           </button>
         </div>
       </div>
 
-      {/* Gateway Selector Tabs */}
-      <div className="mt-5 flex gap-2 overflow-x-auto pb-2 scrollbar-none">
+      {/* Gateway Selector Tabs with Smooth Touch Scroll */}
+      <div className="mt-4 sm:mt-5 w-full min-w-0 max-w-full overflow-x-auto py-1 scrollbar-none flex gap-2 no-scrollbar smooth-scroll-x">
         {(Object.keys(GATEWAYS) as PaymentGatewayId[]).map((id) => {
           const g = GATEWAYS[id];
           const isSelected = gateway === id;
@@ -114,7 +114,7 @@ Calculated on: https://usefeekit.com`;
               key={id}
               type="button"
               onClick={() => setGateway(id)}
-              className={`group flex shrink-0 items-center gap-2 rounded-xl border px-3.5 py-2 text-xs font-bold transition-all ${
+              className={`tap-spring shrink-0 whitespace-nowrap group flex items-center gap-2 rounded-xl border px-3 sm:px-3.5 py-2 text-xs font-bold transition-all ${
                 isSelected
                   ? 'border-blue-500 bg-blue-50/70 text-blue-700 shadow-xs'
                   : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
@@ -122,7 +122,7 @@ Calculated on: https://usefeekit.com`;
             >
               <span>{g.name}</span>
               {g.badge && (
-                <span className={`rounded px-1.5 py-0.2 text-[9px] font-extrabold uppercase ${
+                <span className={`rounded px-1.5 py-0.5 text-[9px] font-extrabold uppercase ${
                   g.badge === 'Lowest Fee' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'
                 }`}>
                   {g.badge}
@@ -134,13 +134,13 @@ Calculated on: https://usefeekit.com`;
       </div>
 
       {/* Input Form Fields */}
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-5 items-end">
+      <div className="mt-5 sm:mt-6 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 items-end">
         <div className="md:col-span-6">
           <label htmlFor="transaction-amount-input" className="block text-xs font-semibold text-slate-700 mb-2">
             {direction === 'forward' ? 'Invoice / Transaction Amount' : 'Target Net Payout Needed in Bank'}
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 transition-all shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-lg font-bold text-slate-400">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400">
               {currencySymbol}
             </span>
             <input
@@ -148,26 +148,21 @@ Calculated on: https://usefeekit.com`;
               type="number"
               min="0"
               step="any"
-              value={amount === 0 ? '' : amount}
+              value={amount}
               onChange={(e) => setAmount(Number(e.target.value))}
-              placeholder="0.00"
-              className="w-full bg-transparent py-3.5 pl-10 pr-4 font-mono text-xl sm:text-2xl font-extrabold text-slate-900 placeholder-slate-400 focus:outline-none"
+              className="w-full bg-transparent py-3 pl-9 pr-4 font-mono text-lg font-bold text-slate-900 focus:outline-none"
+              placeholder="1000.00"
             />
           </div>
         </div>
 
-        {/* Quick Amount Presets */}
-        <div className="md:col-span-6 flex flex-wrap gap-2 items-center">
-          {[100, 250, 500, 1000, 2500, 5000].map((preset) => (
+        <div className="md:col-span-6 flex gap-2">
+          {[100, 500, 1000, 5000].map((preset) => (
             <button
               key={preset}
               type="button"
               onClick={() => setAmount(preset)}
-              className={`rounded-lg border px-3 py-2 text-xs font-mono font-semibold transition-colors ${
-                amount === preset
-                  ? 'border-blue-600 bg-blue-50 text-blue-700'
-                  : 'border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:text-slate-900'
-              }`}
+              className="tap-spring flex-1 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-mono font-bold text-slate-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-colors"
             >
               {currencySymbol}{preset.toLocaleString()}
             </button>

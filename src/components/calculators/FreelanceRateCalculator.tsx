@@ -1,0 +1,232 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { calculateFreelanceRate } from '@/lib/engines/freelance-rate';
+import { MetricCard } from '@/components/ui/MetricCard';
+import { formatCurrency } from '@/lib/utils/formatters';
+import { decodeHashData } from '@/lib/utils/hash-sync';
+import { Check, Copy, FileCheck } from 'lucide-react';
+
+interface FreelanceRateCalculatorProps {
+  initialRole?: string;
+  initialNet?: number;
+  initialOverhead?: number;
+  currencySymbol?: string;
+}
+
+export function FreelanceRateCalculator({
+  initialRole = 'Fullstack Developer',
+  initialNet = 95000,
+  initialOverhead = 10000,
+  currencySymbol = '$',
+}: FreelanceRateCalculatorProps) {
+  const [role, setRole] = useState<string>(initialRole);
+  const [netIncome, setNetIncome] = useState<number>(initialNet);
+  const [billableHours, setBillableHours] = useState<number>(25);
+  const [workingWeeks, setWorkingWeeks] = useState<number>(48);
+  const [overhead, setOverhead] = useState<number>(initialOverhead);
+  const [taxRate, setTaxRate] = useState<number>(0.28);
+  const [copied, setCopied] = useState<boolean>(false);
+
+  useEffect(() => {
+    const saved = decodeHashData<{
+      role?: string;
+      net?: number;
+      hours?: number;
+      weeks?: number;
+      overhead?: number;
+      tax?: number;
+    }>();
+    if (saved) {
+      if (saved.role) setRole(saved.role);
+      if (typeof saved.net === 'number') setNetIncome(saved.net);
+      if (typeof saved.hours === 'number') setBillableHours(saved.hours);
+      if (typeof saved.weeks === 'number') setWorkingWeeks(saved.weeks);
+      if (typeof saved.overhead === 'number') setOverhead(saved.overhead);
+      if (typeof saved.tax === 'number') setTaxRate(saved.tax);
+    }
+  }, []);
+
+  const result = calculateFreelanceRate({
+    desiredNetIncome: netIncome,
+    workingWeeksPerYear: workingWeeks,
+    billableHoursPerWeek: billableHours,
+    annualOverhead: overhead,
+    taxRateEstimated: taxRate,
+    currencySymbol,
+    roleTitle: role,
+  });
+
+  const handleCopyProposal = () => {
+    navigator.clipboard.writeText(result.invoiceProposalText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-sm">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+        <div className="flex items-center gap-2 text-xs">
+          <span className="font-semibold text-slate-500">Benchmark Role:</span>
+          <span className="font-bold text-slate-900">{role}</span>
+        </div>
+        <span className="text-xs text-slate-500 font-medium">Compensation & Overhead Model</span>
+      </div>
+
+      {/* Inputs Grid */}
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div>
+          <label htmlFor="freelance-target-net-income" className="block text-xs font-semibold text-slate-700 mb-2">
+            Desired Annual Net Take-Home
+          </label>
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400">
+              {currencySymbol}
+            </span>
+            <input
+              id="freelance-target-net-income"
+              type="number"
+              min="0"
+              step="5000"
+              value={netIncome}
+              onChange={(e) => setNetIncome(Number(e.target.value))}
+              className="w-full bg-transparent py-3 pl-9 pr-3 font-mono text-lg font-bold text-slate-900 focus:outline-none"
+            />
+          </div>
+          <span className="text-[11px] text-slate-500 mt-1 block">What hits your personal checking</span>
+        </div>
+
+        <div>
+          <label htmlFor="freelance-annual-overhead" className="block text-xs font-semibold text-slate-700 mb-2">
+            Annual Business Overhead & Tech
+          </label>
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400">
+              {currencySymbol}
+            </span>
+            <input
+              id="freelance-annual-overhead"
+              type="number"
+              min="0"
+              step="1000"
+              value={overhead}
+              onChange={(e) => setOverhead(Number(e.target.value))}
+              className="w-full bg-transparent py-3 pl-9 pr-3 font-mono text-lg font-bold text-slate-900 focus:outline-none"
+            />
+          </div>
+          <span className="text-[11px] text-slate-500 mt-1 block">SaaS, hardware, health insurance</span>
+        </div>
+
+        <div>
+          <label htmlFor="freelance-billable-hours" className="block text-xs font-semibold text-slate-700 mb-2">
+            Billable Hours Target ({billableHours} hrs/week)
+          </label>
+          <input
+            id="freelance-billable-hours"
+            type="range"
+            min="10"
+            max="45"
+            value={billableHours}
+            onChange={(e) => setBillableHours(Number(e.target.value))}
+            className="w-full accent-blue-600 mt-2"
+          />
+          <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-mono font-medium">
+            <span>15h (Heavy Admin)</span>
+            <span className="text-blue-600 font-bold">{billableHours}h / wk</span>
+            <span>40h (Maxed)</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Secondary Parameters */}
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 text-xs">
+        <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-200">
+          <label htmlFor="freelance-working-weeks" className="text-slate-700 font-medium">Working Weeks Per Year (accounting for PTO):</label>
+          <div className="flex items-center gap-2 font-mono font-bold text-slate-900">
+            <input
+              id="freelance-working-weeks"
+              type="number"
+              min="30"
+              max="52"
+              value={workingWeeks}
+              onChange={(e) => setWorkingWeeks(Number(e.target.value))}
+              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs"
+            />
+            <span>wks</span>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-200">
+          <label htmlFor="freelance-tax-rate" className="text-slate-700 font-medium">Estimated Combined Tax (SECA + Income):</label>
+          <div className="flex items-center gap-2 font-mono font-bold text-slate-900">
+            <input
+              id="freelance-tax-rate"
+              type="number"
+              min="10"
+              max="50"
+              value={Math.round(taxRate * 100)}
+              onChange={(e) => setTaxRate(Number(e.target.value) / 100)}
+              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs"
+            />
+            <span>%</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Metrics Grid */}
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <MetricCard
+          label="Recommended Hourly Rate"
+          value={`${currencySymbol}${result.recommendedHourlyRate.toFixed(2)}/hr`}
+          subtext="Includes 15% rainy-day buffer"
+          accent="blue"
+        />
+
+        <MetricCard
+          label="Standard Day Rate (8h)"
+          value={formatCurrency(result.dayRate, currencySymbol)}
+          subtext="Best for project milestone quotes"
+          accent="emerald"
+        />
+
+        <MetricCard
+          label="Monthly Advisory Retainer"
+          value={`${formatCurrency(result.monthlyRetainer, currencySymbol)}/mo`}
+          subtext="Half-allocation dedicated retainer"
+          accent="purple"
+        />
+
+        <MetricCard
+          label="Annual Gross Billing Goal"
+          value={formatCurrency(result.grossAnnualRevenueNeeded, currencySymbol)}
+          subtext={`Taxes: ~${formatCurrency(result.totalTaxesEstimated, currencySymbol)}`}
+          accent="amber"
+        />
+      </div>
+
+      {/* Ready-to-Copy Proposal Block */}
+      <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2 text-slate-900">
+            <FileCheck className="h-4 w-4 text-blue-600" />
+            <h4 className="text-xs font-bold uppercase tracking-wider">
+              Client Proposal & Invoice Copy Block
+            </h4>
+          </div>
+          <button
+            type="button"
+            onClick={handleCopyProposal}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
+          >
+            {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+            <span>{copied ? 'Copied to Clipboard!' : 'Copy Proposal Text'}</span>
+          </button>
+        </div>
+
+        <pre className="rounded-lg bg-slate-50 p-4 font-mono text-xs text-slate-800 whitespace-pre-wrap border border-slate-200 leading-relaxed overflow-x-auto shadow-inner">
+          {result.invoiceProposalText}
+        </pre>
+      </div>
+    </div>
+  );
+}

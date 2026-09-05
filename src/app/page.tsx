@@ -1,69 +1,251 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState } from 'react';
+import Link from 'next/link';
+import {
+  CreditCard,
+  Receipt,
+  Briefcase,
+  ShoppingBag,
+  ArrowRight,
+  Search,
+  Globe2,
+} from 'lucide-react';
+import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalculator';
+import { TaxCalculator } from '@/components/calculators/TaxCalculator';
+import { FreelanceRateCalculator } from '@/components/calculators/FreelanceRateCalculator';
+import { EcommerceProfitCalculator } from '@/components/calculators/EcommerceProfitCalculator';
+import { AdBanner } from '@/components/monetization/AdBanner';
+import { SponsoredAdGrid } from '@/components/monetization/SponsoredAdGrid';
+import { AffiliateCard, AffiliateKey } from '@/components/monetization/AffiliateCard';
+import { ToolGuide } from '@/components/seo/ToolGuide';
+import geoMatrix from '@/data/geo-matrix.json';
+
+type ActiveSuite = 'merchant' | 'tax' | 'freelance' | 'ecommerce';
+
+export default function FeeKitHome() {
+  const [activeSuite, setActiveSuite] = useState<ActiveSuite>('merchant');
+  const [directoryFilter, setDirectoryFilter] = useState('');
+
+  const suites = [
+    {
+      id: 'merchant' as ActiveSuite,
+      name: 'Stripe & Merchant Fees',
+      icon: CreditCard,
+      description: 'Stripe USA 2.9% + $0.30 & UK 1.5% + 20p, PayPal, Square, and Wise reverse invoice calculations',
+      badge: '40+ Gateways',
+    },
+    {
+      id: 'tax' as ActiveSuite,
+      name: 'US & UK Tax Compliance',
+      icon: Receipt,
+      description: '50 US States Sales Tax + UK HMRC VAT 20% Standard & 5% Reduced with reverse charge logic',
+      badge: '50 States + UK',
+    },
+    {
+      id: 'freelance' as ActiveSuite,
+      name: '1099 & Contractor Rates',
+      icon: Briefcase,
+      description: 'Minimum hourly rate, 8h day rates, 1099 SECA tax, and instant client invoice proposal formatter',
+      badge: '25 Roles',
+    },
+    {
+      id: 'ecommerce' as ActiveSuite,
+      name: 'E-Commerce & ROAS Hub',
+      icon: ShoppingBag,
+      description: 'Amazon FBA, Shopify DTC, Etsy, eBay unit economics, landed COGS, and break-even ROAS targets',
+      badge: '20 Niches',
+    },
+  ];
+
+  const categories = [
+    { key: 'sales-tax-calculator', label: '50 US States Sales Tax Calculators', count: 51 },
+    { key: 'vat-calculator', label: 'UK HMRC VAT & European Compliance', count: 28 },
+    { key: 'stripe-fee-calculator', label: 'Stripe Merchant Fee Calculators (US & UK)', count: 11 },
+    { key: 'paypal-fee-calculator', label: 'PayPal Processing Fee Calculators (US & UK)', count: 9 },
+    { key: 'wise-vs-stripe', label: 'Wise vs Stripe Currency & Invoice Comparisons', count: 8 },
+    { key: 'square-fee-calculator', label: 'Square Online & In-Person POS Calculators', count: 7 },
+    { key: 'authorize-net-calculator', label: 'Authorize.Net Gateway Calculators', count: 4 },
+    { key: 'freelance-rate-calculator', label: 'Freelance 1099 & Contractor Rates by Role', count: 26 },
+    { key: 'ecommerce-profit-calculator', label: 'E-Commerce & Dropshipping Profit Hubs', count: 20 },
+  ];
+
+  const filteredItems = React.useMemo(() => {
+    if (!directoryFilter.trim()) return geoMatrix as Array<any>;
+    const q = directoryFilter.toLowerCase();
+    return (geoMatrix as Array<any>).filter(
+      (x) =>
+        x.title.toLowerCase().includes(q) ||
+        x.category.toLowerCase().includes(q) ||
+        x.slug.toLowerCase().includes(q)
+    );
+  }, [directoryFilter]);
+
+  let affiliateKey: AffiliateKey = 'wise';
+  if (activeSuite === 'freelance') {
+    affiliateKey = 'deel';
+  } else if (activeSuite === 'ecommerce') {
+    affiliateKey = 'shopify';
+  } else if (activeSuite === 'tax') {
+    affiliateKey = 'taxjar';
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">
+      {/* Monetization: Top Placement A (Leaderboard) */}
+      <AdBanner slot="leaderboard" context={activeSuite} />
+
+      {/* Hero Header Section */}
+      <div className="text-center sm:text-left space-y-3">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          Financial Calculation Utilities <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent">
+            for US & UK Businesses
+          </span>
+        </h1>
+
+        <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
+          Accurate, instant payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models. Fully updated for 2026 fiscal regulations.
+        </p>
+      </div>
+
+      {/* Main Suite Switcher Bar (Anti-Truncation Modern Segmented Design) */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {suites.map((s) => {
+            const Icon = s.icon;
+            const isSelected = activeSuite === s.id;
+            return (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => setActiveSuite(s.id)}
+                className={`flex items-start gap-3 rounded-xl p-3.5 text-left transition-all ${
+                  isSelected
+                    ? 'border-2 border-blue-600 bg-blue-50/70 text-slate-900 shadow-xs'
+                    : 'border border-slate-200 bg-slate-50/70 text-slate-600 hover:border-slate-300 hover:bg-white hover:text-slate-900'
+                }`}
+              >
+                <div
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${
+                    isSelected
+                      ? 'border-blue-400 bg-blue-600 text-white shadow-xs'
+                      : 'border-slate-200 bg-white text-slate-500'
+                  }`}
+                >
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="text-sm font-bold text-slate-900 leading-snug">
+                      {s.name}
+                    </span>
+                  </div>
+                  <span className="inline-block text-[11px] text-blue-700 font-mono font-bold mt-0.5">
+                    {s.badge}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+      </div>
+
+      {/* Primary Universal Live Tool Canvas */}
+      <section aria-label="Interactive Universal Calculator">
+        {activeSuite === 'merchant' && (
+          <MerchantFeeCalculator initialGateway="stripe" initialAmount={1000} />
+        )}
+        {activeSuite === 'tax' && (
+          <TaxCalculator initialJurisdictionCode="CA" initialAmount={250} />
+        )}
+        {activeSuite === 'freelance' && (
+          <FreelanceRateCalculator initialRole="Fullstack Developer" initialNet={110000} />
+        )}
+        {activeSuite === 'ecommerce' && (
+          <EcommerceProfitCalculator initialPlatform="shopify" initialPrice={49.99} initialCogs={14.0} />
+        )}
+      </section>
+
+      {/* Monetization: High-Intent Post-Calculation Action Box */}
+      <AdBanner slot="post_calc" context={activeSuite} />
+
+      {/* Monetization: Curated 3-Box Sponsored Solutions Section */}
+      <SponsoredAdGrid context={activeSuite} />
+
+      {/* Goldmine Business Strategy & Legal Guide */}
+      <ToolGuide
+        suiteType={activeSuite}
+        title={suites.find((s) => s.id === activeSuite)?.name || 'Fintech Utility'}
+        currencySymbol="$"
+        geoRegion="US"
+      />
+
+      {/* Programmatic SEO Directory Section */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+                US & UK Utility Matrix (162 Dedicated Pages)
+              </h2>
+              <span className="rounded bg-blue-50 px-2 py-0.5 font-mono text-xs font-bold text-blue-700 border border-blue-200">
+                Geo-Targeted
+              </span>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
+              Browse dedicated calculators configured with statutory IRS and HMRC rates, mathematical formulas, and schema
+            </p>
+          </div>
+
+          {/* Quick Filter Box */}
+          <div className="relative w-full sm:w-72">
+            <Search className="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              value={directoryFilter}
+              onChange={(e) => setDirectoryFilter(e.target.value)}
+              placeholder="Filter 162 tools..."
+              className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none shadow-xs"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
+
+        {/* Directory Groups */}
+        <div className="space-y-8">
+          {categories.map((cat) => {
+            const catItems = filteredItems.filter((x) => x.category === cat.key);
+            if (catItems.length === 0) return null;
+
+            return (
+              <div key={cat.key} className="space-y-3">
+                <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-blue-600" />
+                    <span>{cat.label}</span>
+                  </div>
+                  <span className="font-mono text-slate-500">{catItems.length} Calculators</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                  {catItems.map((tool) => (
+                    <Link
+                      key={`${tool.category}-${tool.slug}`}
+                      href={`/tools/${tool.category}/${tool.slug}`}
+                      className="group flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-xs transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
+                    >
+                      <span className="font-medium text-slate-700 group-hover:text-blue-700 truncate pr-2">
+                        {tool.shortTitle || tool.title}
+                      </span>
+                      <ArrowRight className="h-3.5 w-3.5 text-slate-400 shrink-0 group-hover:translate-x-0.5 group-hover:text-blue-600 transition-all" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }

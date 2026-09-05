@@ -1,0 +1,224 @@
+import React from 'react';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import geoMatrix from '@/data/geo-matrix.json';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calculator,
+  CheckCircle2,
+  Globe,
+  Sparkles,
+} from 'lucide-react';
+import { AdBanner } from '@/components/monetization/AdBanner';
+import { SponsoredAdGrid } from '@/components/monetization/SponsoredAdGrid';
+import type { Metadata } from 'next';
+import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
+
+type Props = {
+  params: Promise<{ category: string }>;
+};
+
+const CATEGORY_NAMES: Record<string, { title: string; desc: string; defaultSlug: string }> = {
+  'stripe-fee-calculator': {
+    title: 'Stripe Fee Calculators by Region',
+    desc: 'Calculate domestic, cross-border, and payout deductions for Stripe merchants across the US, UK, Europe, Canada, and Australia.',
+    defaultSlug: 'usa',
+  },
+  'vat-calculator': {
+    title: 'UK & EU VAT Compliance Calculators',
+    desc: 'Instant VAT additions and extractions for UK HMRC MTD quarterly returns and EU cross-border B2B reverse charge invoices.',
+    defaultSlug: 'united-kingdom',
+  },
+  'sales-tax-calculator': {
+    title: 'US 50-State Sales Tax Calculators',
+    desc: 'State statutory bases, county/district discretionary surtaxes, and economic nexus threshold monitoring for remote multichannel sellers.',
+    defaultSlug: 'california',
+  },
+  'paypal-fee-calculator': {
+    title: 'PayPal Merchant Fee Calculators',
+    desc: 'Standard commercial transaction rates, micropayments, QR codes, and international cross-border surcharges.',
+    defaultSlug: 'usa',
+  },
+  'freelance-rate-calculator': {
+    title: '1099 Tax Estimator & Freelance Rate Calculators',
+    desc: 'Estimate quarterly self-employment taxes with the 15.3% SE tax rate. Know exactly how much to set aside from every invoice and avoid IRS penalty fees.',
+    defaultSlug: 'software-engineer',
+  },
+  'ecommerce-profit-calculator': {
+    title: 'Amazon FBA & E-Commerce Profit Calculators',
+    desc: 'Calculate 2024 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
+    defaultSlug: 'shopify-dropshipping',
+  },
+  'square-fee-calculator': {
+    title: 'Square Payment Processing Calculators',
+    desc: 'In-person POS tap, keyed-in virtual terminal, and online eCommerce checkout fee calculations.',
+    defaultSlug: 'usa',
+  },
+  'wise-vs-stripe': {
+    title: 'Wise vs Stripe International Transfer Calculators',
+    desc: 'Compare mid-market exchange rates and hidden FX spreads for cross-border contractor payouts and B2B invoices.',
+    defaultSlug: 'usd-to-eur',
+  },
+  'authorize-net-calculator': {
+    title: 'Authorize.Net Processing Calculators',
+    desc: 'Gateway monthly fees, per-transaction surcharges, and merchant account interchange-plus calculations.',
+    defaultSlug: 'standard-merchant',
+  },
+};
+
+export function generateStaticParams() {
+  const categories = Array.from(new Set((geoMatrix as Array<{ category: string }>).map((x) => x.category)));
+  return categories.map((category) => ({ category }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { category } = await params;
+  const customSeo = getCustomSeoMetadata(category);
+  const meta = CATEGORY_NAMES[category];
+  const title = customSeo ? customSeo.title : (meta ? `${meta.title} — FeeKit` : `${category.replace(/-/g, ' ')} Calculators — FeeKit`);
+  const description = customSeo ? customSeo.description : (meta ? meta.desc : `Free, instant client-side calculators for ${category.replace(/-/g, ' ')}.`);
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://usefeekit.com/tools/${category}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://usefeekit.com/tools/${category}`,
+      siteName: 'FeeKit',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  };
+}
+
+export default async function CategoryPage({ params }: Props) {
+  const { category } = await params;
+  const tools = (geoMatrix as Array<any>).filter((x) => x.category === category);
+
+  if (tools.length === 0) {
+    notFound();
+  }
+
+  const categoryMeta = CATEGORY_NAMES[category];
+  const title = categoryMeta?.title || `${category.replace(/-/g, ' ').toUpperCase()} CALCULATORS`;
+  const desc = categoryMeta?.desc || `Explore all ${tools.length} dedicated calculators and regional utilities in this suite.`;
+  
+  // Find flagship tool
+  const defaultSlug = categoryMeta?.defaultSlug;
+  const primaryTool = (defaultSlug && tools.find((t) => t.slug === defaultSlug)) || tools[0];
+
+  let adContext: 'merchant' | 'tax' | 'freelance' | 'ecommerce' | 'general' = 'general';
+  if (category.includes('stripe') || category.includes('paypal') || category.includes('square') || category.includes('wise')) {
+    adContext = 'merchant';
+  } else if (category.includes('tax') || category.includes('vat')) {
+    adContext = 'tax';
+  } else if (category.includes('freelance')) {
+    adContext = 'freelance';
+  } else if (category.includes('ecommerce')) {
+    adContext = 'ecommerce';
+  }
+
+  return (
+    <div className="space-y-6 animate-in fade-in duration-200">
+      {/* Top Hub Navigation & Compact Monetization */}
+      <div className="space-y-1.5">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" />
+          <span>Back to All Utilities Hub</span>
+        </Link>
+        <AdBanner slot="leaderboard" context={adContext} />
+      </div>
+
+      {/* Header */}
+      <div className="space-y-2 border-b border-slate-200 pb-6">
+        <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
+          {title}
+        </h1>
+        <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
+          {desc}
+        </p>
+      </div>
+
+      {/* Primary Flagship Launcher Card */}
+      {primaryTool && (
+        <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/70 via-white to-indigo-50/50 p-6 sm:p-8 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 uppercase tracking-wider">
+                <Sparkles className="h-4 w-4 text-blue-600" />
+                <span>Recommended Flagship Tool</span>
+              </div>
+              <h2 className="text-xl font-black text-slate-900">
+                {primaryTool.title}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+                {primaryTool.subtitle}
+              </p>
+            </div>
+            <Link
+              href={`/tools/${category}/${primaryTool.slug}`}
+              className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-xs hover:bg-blue-700 transition-colors"
+            >
+              <span>Launch Calculator</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Grid of All Tools in this Category */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+          <h3 className="text-base font-extrabold text-slate-900">
+            All Available Regional Tools & Benchmarks ({tools.length})
+          </h3>
+          <span className="text-xs text-slate-500 font-medium">Click any card to calculate</span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {tools.map((tool) => (
+            <Link
+              key={tool.slug}
+              href={`/tools/${category}/${tool.slug}`}
+              className="group rounded-xl border border-slate-200 bg-white p-4 sm:p-5 shadow-xs hover:border-blue-400 hover:shadow-sm transition-all flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-bold text-sm text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {tool.shortTitle || tool.title}
+                  </span>
+                  <span className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] font-bold text-slate-600 shrink-0">
+                    {tool.currencySymbol || '$'}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                  {tool.subtitle}
+                </p>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-blue-600 font-semibold">
+                <span>Open Calculator</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Monetization: Curated 3-Box Sponsored Solutions Section */}
+      <SponsoredAdGrid context={adContext} />
+    </div>
+  );
+}

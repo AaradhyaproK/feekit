@@ -3,6 +3,7 @@ import { formatCurrency } from '@/lib/utils/formatters';
 
 export interface TierRow {
   tierAmount: number;
+  tierLabel?: string;
   deductionOrTax: number;
   netOrTotal: number;
   effectiveRateStr?: string;
@@ -58,7 +59,7 @@ export function TierComparisonTable({
                   className="transition-colors hover:bg-slate-50/80"
                 >
                   <td className="py-3.5 px-5 font-semibold text-slate-800">
-                    {formatCurrency(row.tierAmount, currencySymbol)}
+                    {row.tierLabel || formatCurrency(row.tierAmount, currencySymbol)}
                   </td>
                   <td className="py-3.5 px-5 text-rose-600 font-semibold">
                     -{formatCurrency(row.deductionOrTax, currencySymbol)}

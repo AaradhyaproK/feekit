@@ -86,12 +86,38 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
     notFound();
   }
 
-  const tierRows = (item.sampleTiers || []).map((t: any) => ({
-    tierAmount: t.amount || t.units || 0,
-    deductionOrTax: t.tax !== undefined ? t.tax : (t.fee !== undefined ? t.fee : (t.rate ? t.rate * 8 : 0)),
-    netOrTotal: t.total !== undefined ? t.total : (t.net !== undefined ? t.net : (t.monthly || 0)),
-    effectiveRateStr: t.rate ? `${item.currencySymbol || '$'}${t.rate}/hr` : undefined,
-  }));
+  const tierRows = (item.sampleTiers || []).map((t: any) => {
+    if (item.suiteType === 'ecommerce') {
+      const units = t.units || 100;
+      const price = item.defaultPrice || 49.99;
+      const cogs = item.defaultCogs || 14;
+      const freight = item.defaultFreight || 4;
+      const prep = item.defaultPrep || 0;
+      const adSpend = item.defaultAdSpend || 18;
+      const landed = cogs + freight + prep;
+      const estPlatformFee = price * 0.029 + 0.30;
+      const netPerUnit = price - (landed + estPlatformFee + adSpend);
+      const totalRevenue = units * price;
+      const totalProfit = units * netPerUnit;
+      const totalCosts = totalRevenue - totalProfit;
+      const margin = (netPerUnit / price) * 100;
+      return {
+        tierAmount: units,
+        tierLabel: `${units.toLocaleString()} Units / mo`,
+        deductionOrTax: totalCosts,
+        netOrTotal: totalProfit,
+        effectiveRateStr: `${margin.toFixed(1)}% margin`,
+      };
+    }
+
+    return {
+      tierAmount: t.amount || t.units || 0,
+      tierLabel: t.label,
+      deductionOrTax: t.tax !== undefined ? t.tax : (t.fee !== undefined ? t.fee : (t.rate ? t.rate * 8 : 0)),
+      netOrTotal: t.total !== undefined ? t.total : (t.net !== undefined ? t.net : (t.monthly || 0)),
+      effectiveRateStr: t.rate ? `${item.currencySymbol || '$'}${t.rate}/hr` : undefined,
+    };
+  });
 
   const relatedTools = (geoMatrix as Array<any>)
     .filter((x) => x.category === category && x.slug !== slug)
@@ -225,9 +251,10 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         {tierRows.length > 0 && (
           <TierComparisonTable
             currencySymbol={item.currencySymbol || '$'}
-            amountHeader={item.suiteType === 'freelance' ? 'Annual Target Net' : 'Gross Transaction'}
-            feeHeader={item.suiteType === 'freelance' ? 'Day Rate (8h)' : (item.suiteType === 'tax' ? 'Tax Amount' : 'Deductions')}
-            payoutHeader={item.suiteType === 'freelance' ? 'Monthly Retainer' : (item.suiteType === 'tax' ? 'Gross Invoice' : 'Net Received')}
+            title={item.suiteType === 'ecommerce' ? 'Monthly Scale Projections & Profit Matrix' : 'Standard Transaction Volume Tiers'}
+            amountHeader={item.suiteType === 'ecommerce' ? 'Monthly Volume' : (item.suiteType === 'freelance' ? 'Annual Target Net' : 'Gross Transaction')}
+            feeHeader={item.suiteType === 'ecommerce' ? 'Total Costs & Spend' : (item.suiteType === 'freelance' ? 'Day Rate (8h)' : (item.suiteType === 'tax' ? 'Tax Amount' : 'Deductions'))}
+            payoutHeader={item.suiteType === 'ecommerce' ? 'Net Profit Earned' : (item.suiteType === 'freelance' ? 'Monthly Retainer' : (item.suiteType === 'tax' ? 'Gross Invoice' : 'Net Received'))}
             rows={tierRows}
           />
         )}

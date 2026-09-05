@@ -15,7 +15,12 @@ export function FormulaBreakdown({
 }: FormulaBreakdownProps) {
   let mathHtml = '';
   try {
-    mathHtml = katex.renderToString(formulaLatex, {
+    // If formula has multi-part equations with '|', stack them gracefully on separate lines
+    const formattedLatex = formulaLatex.includes('\\quad | \\quad')
+      ? `\\begin{gathered} ${formulaLatex.split(/\\quad\s*\|\s*\\quad/).join(' \\\\[10pt] ')} \\end{gathered}`
+      : formulaLatex;
+
+    mathHtml = katex.renderToString(formattedLatex, {
       throwOnError: false,
       displayMode: true,
     });
@@ -24,26 +29,33 @@ export function FormulaBreakdown({
   }
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-6 shadow-xs">
-      <div className="flex items-center gap-2.5 text-blue-600 mb-3">
-        <Sigma className="h-5 w-5" />
-        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
-          Mathematical Formula & Calculation Logic
-        </h4>
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div className="flex items-center gap-2.5 text-blue-600">
+          <Sigma className="h-5 w-5" />
+          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+            Mathematical Formula & Calculation Logic
+          </h4>
+        </div>
+        <span className="text-[11px] font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md">
+          KaTeX Formatted
+        </span>
       </div>
 
-      {/* Rendered Math Formula Display */}
-      <div className="rounded-xl border border-blue-100 bg-gradient-to-r from-blue-50/40 via-white to-indigo-50/30 p-4 sm:p-6 overflow-x-auto shadow-xs">
-        {mathHtml ? (
-          <div
-            className="text-base sm:text-lg flex justify-center items-center py-2 text-slate-900 font-medium"
-            dangerouslySetInnerHTML={{ __html: mathHtml }}
-          />
-        ) : (
-          <div className="font-mono text-sm font-semibold text-slate-800 text-center">
-            {formulaLatex}
-          </div>
-        )}
+      {/* Rendered Math Formula Display with Generous Start & End Space */}
+      <div className="relative w-full rounded-2xl border border-blue-200/80 bg-gradient-to-r from-blue-50/50 via-white to-indigo-50/40 p-4 sm:p-6 shadow-xs overflow-hidden">
+        <div className="w-full overflow-x-auto smooth-scroll-x no-scrollbar py-3 px-6 sm:px-12 md:px-16 text-center">
+          {mathHtml ? (
+            <div
+              className="inline-block min-w-fit mx-auto text-center text-sm sm:text-base md:text-lg text-slate-900 font-medium px-6 sm:px-10 py-2 select-all"
+              dangerouslySetInnerHTML={{ __html: mathHtml }}
+            />
+          ) : (
+            <div className="inline-block min-w-fit mx-auto font-mono text-sm font-semibold text-slate-800 text-center px-6 sm:px-10 py-2">
+              {formulaLatex}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Narrative Explanation */}

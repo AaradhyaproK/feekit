@@ -53,12 +53,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: {
-      canonical: `https://usefeekit.com/tools/${category}/${slug}`,
+      canonical: `https://www.usefeekit.com/tools/${category}/${slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://usefeekit.com/tools/${category}/${slug}`,
+      url: `https://www.usefeekit.com/tools/${category}/${slug}`,
       siteName: 'FeeKit',
       locale: isUK ? 'en_GB' : 'en_US',
       alternateLocale: isUK ? ['en_US'] : ['en_GB'],
@@ -116,7 +116,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
       <GeoJsonLd
         title={seoTitle}
         description={seoDesc}
-        url={`https://usefeekit.com/tools/${category}/${slug}`}
+        url={`https://www.usefeekit.com/tools/${category}/${slug}`}
         region={item.geoRegion || 'US'}
         stateName={item.stateName}
         faqs={item.faqs || []}

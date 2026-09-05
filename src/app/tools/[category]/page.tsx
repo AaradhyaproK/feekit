@@ -83,12 +83,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: `https://usefeekit.com/tools/${category}`,
+      canonical: `https://www.usefeekit.com/tools/${category}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://usefeekit.com/tools/${category}`,
+      url: `https://www.usefeekit.com/tools/${category}`,
       siteName: 'FeeKit',
       type: 'website',
     },

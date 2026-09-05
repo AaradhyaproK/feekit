@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'FeeKit Terms of Service and Financial Disclaimer: Learn about our mathematical models, accuracy standards, and terms of use.',
   alternates: {
-    canonical: 'https://usefeekit.com/terms',
+    canonical: 'https://www.usefeekit.com/terms',
   },
 };
 

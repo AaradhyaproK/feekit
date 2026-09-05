@@ -34,7 +34,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://usefeekit.com/sitemap.xml',
-    host: 'https://usefeekit.com',
+    sitemap: 'https://www.usefeekit.com/sitemap.xml',
+    host: 'https://www.usefeekit.com',
   };
 }

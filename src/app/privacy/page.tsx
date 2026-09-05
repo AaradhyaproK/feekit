@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'FeeKit Privacy Policy: We operate on 100% client-side computation with zero server tracking or retention of your business financial calculations.',
   alternates: {
-    canonical: 'https://usefeekit.com/privacy',
+    canonical: 'https://www.usefeekit.com/privacy',
   },
 };
 

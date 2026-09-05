@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     'Contact FeeKit and Snab Innovations for technical inquiries, tax rate updates, or to hire our engineering team to build personalized software and custom calculation engines.',
   alternates: {
-    canonical: 'https://usefeekit.com/contact',
+    canonical: 'https://www.usefeekit.com/contact',
   },
 };
 

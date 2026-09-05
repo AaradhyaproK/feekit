@@ -14,7 +14,7 @@ const CATEGORIES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://usefeekit.com';
+  const baseUrl = 'https://www.usefeekit.com';
   const now = new Date();
 
   // 1. Root and Core Trust Pages

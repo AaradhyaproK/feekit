@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     'Learn about FeeKit: The definitive client-side financial precision utility for US & UK merchants, contractors, and digital sellers.',
   alternates: {
-    canonical: 'https://usefeekit.com/about',
+    canonical: 'https://www.usefeekit.com/about',
   },
 };
 

@@ -4,10 +4,13 @@ import 'katex/dist/katex.min.css';
 import { AppShell } from '@/components/layout/AppShell';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.usefeekit.com'),
   title: 'FeeKit — The Definitive B2B Fintech Utility & Growth Engine',
   description:
     'Free client-side financial precision calculators for US Sales Tax, UK VAT compliance, Stripe & PayPal merchant fees, and freelance 1099 hourly rates.',
-  metadataBase: new URL('https://usefeekit.com'),
+  applicationName: 'FeeKit',
+  authors: [{ name: 'FeeKit Engineering' }],
+  generator: 'Next.js',
   keywords: [
     'fee calculator',
     'us sales tax calculator',
@@ -19,40 +22,41 @@ export const metadata: Metadata = {
     'reverse fee calculator',
     'ecommerce profit calculator',
   ],
-  authors: [{ name: 'FeeKit Engineering' }],
   openGraph: {
     title: 'FeeKit — Instant B2B Financial Precision Utilities (US & UK)',
     description:
       'High-converting, zero-latency payment processing, US sales tax, UK VAT, and e-commerce margin calculators.',
-    url: 'https://usefeekit.com',
+    url: 'https://www.usefeekit.com',
     siteName: 'FeeKit',
-    locale: 'en_US',
     images: [
       {
-        url: '/logo.png',
+        url: 'https://www.usefeekit.com/logo.png',
         width: 1200,
         height: 630,
         alt: 'FeeKit B2B Fintech Utilities',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FeeKit — The Definitive B2B Fintech Utility (US & UK)',
-    description: 'Instant client-side calculation suites for US and UK businesses, merchants, and freelancers.',
-    images: ['/logo.png'],
+    description:
+      'Instant client-side calculation suites for US and UK businesses, merchants, and freelancers.',
+    images: ['https://www.usefeekit.com/logo.png'],
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '256x256', type: 'image/x-icon' },
       { url: '/favicon.ico', sizes: 'any' },
       { url: '/logo-icon.png', sizes: '256x256', type: 'image/png' },
     ],
-    apple: '/logo-icon.png',
+    apple: [{ url: '/logo-icon.png' }],
   },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -66,7 +70,7 @@ export const metadata: Metadata = {
     yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
   },
   alternates: {
-    canonical: 'https://usefeekit.com',
+    canonical: 'https://www.usefeekit.com',
   },
   other: {
     'geo.region': 'US',

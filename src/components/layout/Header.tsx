@@ -30,13 +30,22 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
     <header className="sticky top-0 z-20 flex h-14 w-full items-center justify-between border-b border-slate-200 bg-white/95 backdrop-blur-md px-4 sm:px-6 shadow-xs">
       {/* Mobile brand & breadcrumb */}
       <div className="flex items-center gap-3">
-        <Link href="/" className="lg:hidden flex items-center py-1">
+        <Link href="/" className="flex items-center py-1 hover:opacity-85 transition-opacity">
+          <Image
+            src="/logo-icon.png"
+            alt="FeeKit"
+            width={32}
+            height={32}
+            className="hidden lg:block h-6 w-6 object-contain mr-1"
+            priority
+            unoptimized
+          />
           <Image
             src="/feekit-logo.png"
             alt="FeeKit"
-            width={140}
-            height={52}
-            className="h-8 w-auto object-contain"
+            width={130}
+            height={48}
+            className="lg:hidden h-7 w-auto object-contain"
             priority
             unoptimized
           />

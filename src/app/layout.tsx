@@ -48,11 +48,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '256x256', type: 'image/x-icon' },
-      { url: '/favicon.ico', sizes: 'any' },
       { url: '/logo-icon.png', sizes: '256x256', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
     ],
-    apple: [{ url: '/logo-icon.png' }],
+    shortcut: '/logo-icon.png',
+    apple: [{ url: '/logo-icon.png', sizes: '256x256', type: 'image/png' }],
   },
   robots: {
     index: true,
@@ -87,9 +87,10 @@ export default function RootLayout({
   return (
     <html lang="en-US" className="h-full antialiased light">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/logo-icon.png" type="image/png" sizes="256x256" />
-        <link rel="apple-touch-icon" href="/logo-icon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo-icon.png" sizes="256x256" />
+        <link rel="shortcut icon" href="/logo-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

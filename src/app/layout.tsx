@@ -73,6 +73,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.usefeekit.com',
   },
   other: {
+    'google-adsense-account': 'ca-pub-1291898061670715',
     'geo.region': 'US',
     'content-language': 'en-US, en-GB',
   },
@@ -94,6 +95,13 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+        />
+        {/* Google AdSense Verification & Script */}
+        <meta name="google-adsense-account" content="ca-pub-1291898061670715" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1291898061670715"
+          crossOrigin="anonymous"
         />
         {/* US and UK Regional indexing hints */}
         <meta name="geo.region" content="US" />

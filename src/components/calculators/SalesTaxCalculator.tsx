@@ -6,6 +6,7 @@ import { MetricCard } from '@/components/ui/MetricCard';
 import { formatCurrency } from '@/lib/utils/formatters';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FaqSchema } from '@/components/seo/FaqSchema';
+import { STATE_SOURCES } from '@/lib/seo/sources';
 import {
   Check,
   Copy,
@@ -17,6 +18,7 @@ import {
   FileSpreadsheet,
   HelpCircle,
   AlertTriangle,
+  ExternalLink,
 } from 'lucide-react';
 
 export interface StateTaxData {
@@ -522,11 +524,23 @@ Calculated via: https://usefeekit.com/tools/sales-tax-calculator/${currentState.
           <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-xs uppercase tracking-wide">
               <Building2 className="h-4 w-4 text-blue-600 shrink-0" />
-              <span>{currentState.name} Statutory Sales Tax Reference (2024/2025)</span>
+              <span>{currentState.name} Statutory Sales Tax Reference (2026 Fiscal Year)</span>
             </div>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-100/70 text-blue-800 border border-blue-200">
-              Agency: {currentState.filingAgency}
-            </span>
+            {STATE_SOURCES[currentState.slug.toLowerCase()]?.sourceUrl ? (
+              <a
+                href={STATE_SOURCES[currentState.slug.toLowerCase()].sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-100/70 text-blue-800 border border-blue-200 hover:bg-blue-200/80 transition-colors inline-flex items-center gap-1"
+              >
+                <span>Agency: {currentState.filingAgency}</span>
+                <ExternalLink className="h-2.5 w-2.5" />
+              </a>
+            ) : (
+              <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-100/70 text-blue-800 border border-blue-200">
+                Agency: {currentState.filingAgency}
+              </span>
+            )}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">

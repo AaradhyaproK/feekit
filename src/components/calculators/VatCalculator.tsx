@@ -15,6 +15,7 @@ import {
   FileCheck2,
   FileSpreadsheet,
   AlertTriangle,
+  ExternalLink,
 } from 'lucide-react';
 
 export interface VatCalculatorProps {
@@ -399,11 +400,17 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
           <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-xs uppercase tracking-wide">
               <Building2 className="h-4 w-4 text-blue-600 shrink-0" />
-              <span>UK HMRC VAT Regulatory Summary (2024–2026)</span>
+              <span>UK HMRC VAT Regulatory Summary (2026 Fiscal Rules)</span>
             </div>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-100/70 text-blue-800 border border-blue-200">
-              Agency: HMRC (UK)
-            </span>
+            <a
+              href="https://www.gov.uk/vat-rates"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-100/70 text-blue-800 border border-blue-200 hover:bg-blue-200/80 transition-colors inline-flex items-center gap-1"
+            >
+              <span>Agency: HMRC (UK)</span>
+              <ExternalLink className="h-2.5 w-2.5" />
+            </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">

@@ -29,9 +29,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.usefeekit.com'),
-  title: 'FeeKit — The Definitive B2B Fintech Utility & Growth Engine',
+  title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
   description:
-    'Free client-side financial precision calculators for US Sales Tax, UK VAT compliance, Stripe & PayPal merchant fees, and freelance 1099 hourly rates.',
+    'Free financial precision calculators for US 50-state sales tax, UK HMRC VAT compliance, Stripe, PayPal & Square merchant fees, and freelance 1099 rates. Updated for 2026 fiscal regulations.',
   applicationName: 'FeeKit',
   authors: [{ name: 'FeeKit Engineering' }],
   generator: 'Next.js',
@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     'hmrc vat return calculator',
     'reverse fee calculator',
     'ecommerce profit calculator',
+    'payment processing fee calculator',
   ],
   appleWebApp: {
     capable: true,
@@ -52,9 +53,9 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
   },
   openGraph: {
-    title: 'FeeKit — Instant B2B Financial Precision Utilities (US & UK)',
+    title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
     description:
-      'High-converting, zero-latency payment processing, US sales tax, UK VAT, and e-commerce margin calculators.',
+      'Calculate exact Stripe & PayPal merchant fees, 50-state US sales tax with local district surtaxes, and UK HMRC VAT in seconds. 100% free and client-side private.',
     url: 'https://www.usefeekit.com',
     siteName: 'FeeKit',
     images: [
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
         url: 'https://www.usefeekit.com/logo.png',
         width: 1200,
         height: 630,
-        alt: 'FeeKit B2B Fintech Utilities',
+        alt: 'FeeKit Financial & Tax Calculators',
       },
     ],
     locale: 'en_US',
@@ -70,9 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FeeKit — The Definitive B2B Fintech Utility (US & UK)',
+    title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
     description:
-      'Instant client-side calculation suites for US and UK businesses, merchants, and freelancers.',
+      'Instant, accurate financial calculation suites for US and UK businesses, merchants, and freelancers. Updated for 2026.',
     images: ['https://www.usefeekit.com/logo.png'],
   },
   icons: {

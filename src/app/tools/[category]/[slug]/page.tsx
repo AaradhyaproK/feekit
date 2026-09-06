@@ -9,6 +9,8 @@ import { FormulaBreakdown } from '@/components/ui/FormulaBreakdown';
 import { TierComparisonTable } from '@/components/ui/TierComparisonTable';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FaqSchema } from '@/components/seo/FaqSchema';
+import { DataSourceCitation } from '@/components/seo/DataSourceCitation';
+import { getDataSource } from '@/lib/seo/sources';
 import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalculator';
 import { TaxCalculator } from '@/components/calculators/TaxCalculator';
 import { SalesTaxCalculator } from '@/components/calculators/SalesTaxCalculator';
@@ -133,16 +135,19 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
   const customSeo = getCustomSeoMetadata(category, slug);
   const seoTitle = customSeo ? customSeo.title : item.title;
   const seoDesc = customSeo ? customSeo.description : item.subtitle;
+  const dataSource = getDataSource(category, slug);
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Schema.org SoftwareApplication + spatialCoverage */}
+      {/* Schema.org SoftwareApplication + spatialCoverage + isBasedOn citation */}
       <GeoJsonLd
         title={seoTitle}
         description={seoDesc}
         url={`https://www.usefeekit.com/tools/${category}/${slug}`}
         region={item.geoRegion || 'US'}
         stateName={item.stateName}
+        sourceUrl={dataSource.sourceUrl}
+        sourceName={dataSource.authorityName}
       />
 
       {/* Top Hub Navigation */}
@@ -269,6 +274,12 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           />
         )}
       </section>
+
+      {/* Official Data Source & Regulatory Provenance Citation */}
+      <DataSourceCitation
+        source={dataSource}
+        toolTitle={item.shortTitle || item.title}
+      />
 
       {/* Programmatic FAQ Accordion (5 Authoritative Questions with Schema) */}
       {/* Test schema validity at: https://search.google.com/test/rich-results */}

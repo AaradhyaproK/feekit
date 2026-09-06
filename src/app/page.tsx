@@ -10,6 +10,10 @@ import {
   ArrowRight,
   Search,
   Globe2,
+  ShieldCheck,
+  Zap,
+  Sparkles,
+  Flame,
 } from 'lucide-react';
 import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalculator';
 import { TaxCalculator } from '@/components/calculators/TaxCalculator';
@@ -17,9 +21,73 @@ import { FreelanceRateCalculator } from '@/components/calculators/FreelanceRateC
 import { EcommerceProfitCalculator } from '@/components/calculators/EcommerceProfitCalculator';
 import { LeaderboardAd, RectangleAd, InArticleAd } from '@/components/ads/AdSlots';
 import { ToolGuide } from '@/components/seo/ToolGuide';
+import { HomeJsonLd } from '@/components/seo/HomeJsonLd';
+import { FaqAccordion } from '@/components/ui/FaqAccordion';
+import { FaqSchema } from '@/components/seo/FaqSchema';
 import geoMatrix from '@/data/geo-matrix.json';
 
 type ActiveSuite = 'merchant' | 'tax' | 'freelance' | 'ecommerce';
+
+const POPULAR_TOOLS = [
+  {
+    title: 'California Sales Tax',
+    href: '/tools/sales-tax-calculator/california',
+    badge: '7.25% - 10.25%',
+  },
+  {
+    title: 'UK VAT Calculator',
+    href: '/tools/vat-calculator/united-kingdom',
+    badge: '20% & 5% MTD',
+  },
+  {
+    title: 'Stripe Fee (USA)',
+    href: '/tools/stripe-fee-calculator/usa',
+    badge: '2.9% + $0.30',
+  },
+  {
+    title: 'PayPal Merchant Fee',
+    href: '/tools/paypal-fee-calculator/usa',
+    badge: 'Standard & QR',
+  },
+  {
+    title: '1099 Freelance Rate',
+    href: '/tools/freelance-rate-calculator/software-engineer',
+    badge: '15.3% SECA',
+  },
+  {
+    title: 'Amazon FBA & Dropship',
+    href: '/tools/ecommerce-profit-calculator/shopify-dropshipping',
+    badge: 'ROAS & COGS',
+  },
+];
+
+const HOME_FAQS = [
+  {
+    question: 'What is FeeKit and what calculators does it provide?',
+    answer:
+      'FeeKit is a free, high-precision financial utility suite built for US and UK businesses, online merchants, and freelancers. It offers over 160 dedicated calculators including 50-state sales tax with local district surtaxes, UK HMRC VAT compliance (20% standard and 5% reduced), payment gateway deductions (Stripe, PayPal, Square, Wise), 1099 freelance hourly and day rates, and e-commerce margin and ROAS benchmarks.',
+  },
+  {
+    question: 'Are FeeKit fee and tax calculations completely free and private?',
+    answer:
+      'Yes, all FeeKit calculators are 100% free to use with no accounts, sign-ups, or credit cards required. Furthermore, calculations run entirely client-side in your web browser—your sensitive invoice totals, merchant revenue numbers, and customer charges are never uploaded or stored on any remote server.',
+  },
+  {
+    question: 'How accurate and up-to-date are the 2026 sales tax and VAT rates?',
+    answer:
+      'FeeKit tax matrices are continuously updated to reflect 2026 statutory changes. This includes statutory statewide base sales tax and local municipal surtax caps across all 50 US states, economic nexus thresholds post-Wayfair, and the UK HMRC £90,000 VAT registration threshold and Making Tax Digital (MTD) digital filing standards.',
+  },
+  {
+    question: 'Which payment processors and merchant gateways are supported?',
+    answer:
+      'FeeKit supports domestic and international fee models for major commercial payment processors including Stripe (card processing, ACH direct debit, international surcharge), PayPal (standard commercial, micropayments, QR code), Square (POS in-person tap, keyed-in virtual terminal, online eCommerce), and Wise vs Stripe cross-border FX comparisons.',
+  },
+  {
+    question: 'Can I reverse-calculate invoices to pass processing fees or tax to clients?',
+    answer:
+      'Yes. Every calculator on FeeKit features bidirectional computation. You can toggle between "Net to Gross" (adding fees or taxes onto your price) and "Gross to Net" (extracting fees or taxes from a total received). For freelance contractors and merchants, our reverse payout formula calculates the exact invoice figure needed to take home 100% of your target earnings.',
+  },
+];
 
 export default function FeeKitHome() {
   const [activeSuite, setActiveSuite] = useState<ActiveSuite>('merchant');
@@ -86,9 +154,17 @@ export default function FeeKitHome() {
   }, [directoryFilter, allMatrixItems]);
 
   return (
-    <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">
+    <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-200">
+      {/* Schema.org WebSite, Organization, and SoftwareApplication Structured Data */}
+      <HomeJsonLd />
+
       {/* Hero Header Section */}
       <div className="text-center sm:text-left space-y-3">
+        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/70 px-3 py-1 text-xs font-semibold text-blue-700">
+          <Sparkles className="h-3.5 w-3.5 text-blue-600" />
+          <span>Updated for 2026 US & UK Tax & Gateway Regulations</span>
+        </div>
+
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
           Financial Calculation Utilities <br className="hidden sm:inline" />
           <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent">
@@ -97,12 +173,29 @@ export default function FeeKitHome() {
         </h1>
 
         <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
-          Accurate, instant payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models. Fully updated for 2026 fiscal regulations.
+          Accurate, instant payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models. 100% client-side private, with zero sign-up required.
         </p>
-      </div>
 
-      {/* AdSense Leaderboard Unit: below hero section */}
-      <LeaderboardAd />
+        {/* Popular Tools Quick Pills */}
+        <div className="pt-2 flex flex-wrap items-center gap-2 justify-center sm:justify-start">
+          <div className="flex items-center gap-1 text-xs font-bold text-slate-500 uppercase tracking-wide mr-1">
+            <Flame className="h-3.5 w-3.5 text-amber-500" />
+            <span>Popular:</span>
+          </div>
+          {POPULAR_TOOLS.map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50/30 transition-all shadow-2xs"
+            >
+              <span>{tool.title}</span>
+              <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">
+                {tool.badge}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
 
       {/* Main Suite Switcher Bar (Responsive 2x2 on Mobile, 4x1 on Desktop) */}
       <div className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-2.5 shadow-xs">
@@ -147,7 +240,7 @@ export default function FeeKitHome() {
       </div>
 
       {/* Primary Universal Live Tool Canvas with Smooth Fade-Slide */}
-      <section aria-label="Interactive Universal Calculator" className="animate-fade-slide key={activeSuite}">
+      <section aria-label="Interactive Universal Calculator" className="animate-fade-slide">
         {activeSuite === 'merchant' && (
           <MerchantFeeCalculator initialGateway="stripe" initialAmount={1000} />
         )}
@@ -162,9 +255,52 @@ export default function FeeKitHome() {
         )}
       </section>
 
-      {/* AdSense Rectangle Unit */}
-      <div className="flex justify-center my-6">
-        <RectangleAd />
+      {/* AdSense Unit placed below interactive tool results (Compliant with AdSense Value of Inventory guidelines) */}
+      <div className="flex justify-center my-4">
+        <LeaderboardAd />
+      </div>
+
+      {/* Trust & Value Proposition Strip */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+            <ShieldCheck className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-900">100% Client-Side</div>
+            <div className="text-[11px] text-slate-500">Zero data leaves your browser</div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <Zap className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-900">2026 Fiscal Rules</div>
+            <div className="text-[11px] text-slate-500">IRS, CDTFA & HMRC compliant</div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+            <Globe2 className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-900">160+ Dedicated Tools</div>
+            <div className="text-[11px] text-slate-500">50 US States, UK & Gateways</div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
+            <Sparkles className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-900">Always Free</div>
+            <div className="text-[11px] text-slate-500">No login or card required</div>
+          </div>
+        </div>
       </div>
 
       {/* Goldmine Business Strategy & Legal Guide */}
@@ -182,7 +318,7 @@ export default function FeeKitHome() {
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
-                US & UK Utility Matrix (162 Dedicated Pages)
+                US & UK Utility Matrix ({allMatrixItems.length} Dedicated Tools)
               </h2>
               <span className="rounded bg-blue-50 px-2 py-0.5 font-mono text-xs font-bold text-blue-700 border border-blue-200">
                 Geo-Targeted
@@ -200,7 +336,7 @@ export default function FeeKitHome() {
               type="text"
               value={directoryFilter}
               onChange={(e) => setDirectoryFilter(e.target.value)}
-              placeholder="Filter 162 tools..."
+              placeholder={`Filter ${allMatrixItems.length} tools...`}
               className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none shadow-xs"
             />
           </div>
@@ -215,12 +351,22 @@ export default function FeeKitHome() {
             return (
               <React.Fragment key={cat.key}>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-blue-600" />
-                      <span>{cat.label}</span>
-                    </div>
-                    <span className="font-mono text-slate-500">{catItems.length} Calculators</span>
+                  {/* Category Header with Pillar Hub Internal Link */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
+                    <Link
+                      href={`/tools/${cat.key}`}
+                      className="group inline-flex items-center gap-2 font-bold uppercase tracking-wider text-slate-800 hover:text-blue-600 transition-colors"
+                    >
+                      <span className="h-2 w-2 rounded-full bg-blue-600 group-hover:scale-125 transition-transform" />
+                      <span className="group-hover:underline underline-offset-4">{cat.label}</span>
+                      <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all" />
+                    </Link>
+                    <Link
+                      href={`/tools/${cat.key}`}
+                      className="text-[11px] font-semibold text-blue-600 hover:text-blue-800 transition-colors self-start sm:self-auto"
+                    >
+                      View all {catItems.length} calculators →
+                    </Link>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
@@ -250,6 +396,14 @@ export default function FeeKitHome() {
           })}
         </div>
       </section>
+
+      {/* Homepage FAQ Section with FAQPage Schema.org Structured Data */}
+      {/* Test schema validity at: https://search.google.com/test/rich-results */}
+      <FaqSchema items={HOME_FAQS} />
+      <FaqAccordion
+        items={HOME_FAQS}
+        title="Frequently Asked Questions About FeeKit"
+      />
     </div>
   );
 }

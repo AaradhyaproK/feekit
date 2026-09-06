@@ -100,7 +100,7 @@ export function ToolGuide({
             <span>Fintech Strategy & Merchant Fee Analysis</span>
           </div>
           <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight">
-            How Much Does Stripe Take Per Transaction? (2024 Real Numbers)
+            How Much Does Stripe Take Per Transaction? ({currentYear} Real Numbers)
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             A line-by-line fee breakdown covering domestic processing, international cards, ACH debits, and reverse payout calculations for US and UK businesses.

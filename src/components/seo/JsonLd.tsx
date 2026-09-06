@@ -7,6 +7,8 @@ export interface GeoSchemaProps {
   region: 'US' | 'UK' | 'GLOBAL';
   stateName?: string;
   faqs?: Array<{ question: string; answer: string }>;
+  sourceUrl?: string;
+  sourceName?: string;
 }
 
 export function generateGeoSchema({
@@ -16,6 +18,8 @@ export function generateGeoSchema({
   region,
   stateName,
   faqs = [],
+  sourceUrl,
+  sourceName,
 }: GeoSchemaProps) {
   const isUK = region === 'UK';
   const placeName = isUK ? 'United Kingdom' : `${stateName || 'United States'}`;
@@ -29,25 +33,30 @@ export function generateGeoSchema({
     ? `Standard UK VAT is 20% levied on taxable supplies. To calculate gross invoice price, multiply net by 1.20. To extract VAT from a gross total, divide by 1.20 and deduct net.`
     : `In ${stateName || 'the United States'}, sales tax comprises statutory state rates plus local municipality or county surtaxes. Economic nexus thresholds obligate remote sellers once gross receipts exceed state limits.`;
 
-  const graph: any[] = [
-    {
-      '@type': 'SoftwareApplication',
-      name: title,
-      description,
-      url,
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'All',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: currency,
-      },
-      spatialCoverage: {
-        '@type': 'Place',
-        name: placeName,
-      },
+  const appSchema: Record<string, any> = {
+    '@type': 'SoftwareApplication',
+    name: title,
+    description,
+    url,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'All',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: currency,
     },
-  ];
+    spatialCoverage: {
+      '@type': 'Place',
+      name: placeName,
+    },
+  };
+
+  if (sourceUrl) {
+    appSchema.isBasedOn = sourceUrl;
+    appSchema.citation = sourceUrl;
+  }
+
+  const graph: any[] = [appSchema];
 
   if (faqs && faqs.length > 0) {
     graph.push({

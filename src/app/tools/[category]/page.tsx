@@ -46,7 +46,7 @@ const CATEGORY_NAMES: Record<string, { title: string; desc: string; defaultSlug:
   },
   'ecommerce-profit-calculator': {
     title: 'Amazon FBA & E-Commerce Profit Calculators',
-    desc: 'Calculate 2024 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
+    desc: 'Calculate 2026 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
     defaultSlug: 'shopify-dropshipping',
   },
   'square-fee-calculator': {

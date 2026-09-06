@@ -2,41 +2,19 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { AffiliateCard, AffiliateKey } from '@/components/monetization/AffiliateCard';
-import { AdBanner } from '@/components/monetization/AdBanner';
-import { ShieldCheck, ArrowRight, Zap, CheckCircle2 } from 'lucide-react';
+import { RectangleAd } from '@/components/ads/AdSlots';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export function ContextualSidebar() {
   const pathname = usePathname();
 
-  let affiliateKey: AffiliateKey = 'wise';
-  if (pathname.includes('freelance')) {
-    affiliateKey = 'deel';
-  } else if (pathname.includes('ecommerce') || pathname.includes('shopify')) {
-    affiliateKey = 'shopify';
-  } else if (pathname.includes('tax')) {
-    affiliateKey = 'taxjar';
-  } else if (pathname.includes('amazon')) {
-    affiliateKey = 'helium10';
-  }
-
   return (
     <aside className="sticky top-14 hidden xl:flex h-[calc(100vh-3.5rem)] w-80 shrink-0 flex-col gap-5 overflow-y-auto border-l border-slate-200 bg-[#F8FAFC]/50 p-5">
-      {/* Monetization Slot 1: Contextual High-Converting CPA Affiliate */}
-      <div>
-        <div className="flex items-center justify-between text-[11px] uppercase font-bold tracking-wider text-slate-500 mb-2">
-          <span>Recommended Solution</span>
-          <span className="flex items-center gap-1 text-blue-600 font-semibold">
-            <Zap className="h-3 w-3 fill-blue-600" />
-            Verified
-          </span>
-        </div>
-        <AffiliateCard affiliateKey={affiliateKey} />
+      {/* Google AdSense Display Placement */}
+      <div className="flex flex-col items-center justify-center w-full">
+        <RectangleAd />
       </div>
-
-      {/* Monetization Slot 2: Sponsored B2B Solution Ad */}
-      <AdBanner slot="sidebar" />
 
       {/* Regional Quick Jumps */}
       <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-xs">

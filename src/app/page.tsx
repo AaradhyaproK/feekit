@@ -15,9 +15,7 @@ import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalcu
 import { TaxCalculator } from '@/components/calculators/TaxCalculator';
 import { FreelanceRateCalculator } from '@/components/calculators/FreelanceRateCalculator';
 import { EcommerceProfitCalculator } from '@/components/calculators/EcommerceProfitCalculator';
-import { AdBanner } from '@/components/monetization/AdBanner';
-import { SponsoredAdGrid } from '@/components/monetization/SponsoredAdGrid';
-import { AffiliateCard, AffiliateKey } from '@/components/monetization/AffiliateCard';
+import { LeaderboardAd, RectangleAd, InArticleAd } from '@/components/ads/AdSlots';
 import { ToolGuide } from '@/components/seo/ToolGuide';
 import geoMatrix from '@/data/geo-matrix.json';
 
@@ -70,31 +68,25 @@ export default function FeeKitHome() {
     { key: 'ecommerce-profit-calculator', label: 'E-Commerce & Dropshipping Profit Hubs', count: 20 },
   ];
 
+  const allMatrixItems = React.useMemo(() => {
+    return Array.isArray(geoMatrix)
+      ? (geoMatrix as Array<any>)
+      : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);
+  }, []);
+
   const filteredItems = React.useMemo(() => {
-    if (!directoryFilter.trim()) return geoMatrix as Array<any>;
+    if (!directoryFilter.trim()) return allMatrixItems;
     const q = directoryFilter.toLowerCase();
-    return (geoMatrix as Array<any>).filter(
+    return allMatrixItems.filter(
       (x) =>
         x.title.toLowerCase().includes(q) ||
         x.category.toLowerCase().includes(q) ||
         x.slug.toLowerCase().includes(q)
     );
-  }, [directoryFilter]);
-
-  let affiliateKey: AffiliateKey = 'wise';
-  if (activeSuite === 'freelance') {
-    affiliateKey = 'deel';
-  } else if (activeSuite === 'ecommerce') {
-    affiliateKey = 'shopify';
-  } else if (activeSuite === 'tax') {
-    affiliateKey = 'taxjar';
-  }
+  }, [directoryFilter, allMatrixItems]);
 
   return (
     <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">
-      {/* Monetization: Top Placement A (Leaderboard) */}
-      <AdBanner slot="leaderboard" context={activeSuite} />
-
       {/* Hero Header Section */}
       <div className="text-center sm:text-left space-y-3">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
@@ -108,6 +100,9 @@ export default function FeeKitHome() {
           Accurate, instant payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models. Fully updated for 2026 fiscal regulations.
         </p>
       </div>
+
+      {/* AdSense Leaderboard Unit: below hero section */}
+      <LeaderboardAd />
 
       {/* Main Suite Switcher Bar (Responsive 2x2 on Mobile, 4x1 on Desktop) */}
       <div className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-2.5 shadow-xs">
@@ -167,11 +162,10 @@ export default function FeeKitHome() {
         )}
       </section>
 
-      {/* Monetization: High-Intent Post-Calculation Action Box */}
-      <AdBanner slot="post_calc" context={activeSuite} />
-
-      {/* Monetization: Curated 3-Box Sponsored Solutions Section */}
-      <SponsoredAdGrid context={activeSuite} />
+      {/* AdSense Rectangle Unit */}
+      <div className="flex justify-center my-6">
+        <RectangleAd />
+      </div>
 
       {/* Goldmine Business Strategy & Legal Guide */}
       <ToolGuide
@@ -179,6 +173,7 @@ export default function FeeKitHome() {
         title={suites.find((s) => s.id === activeSuite)?.name || 'Fintech Utility'}
         currencySymbol="$"
         geoRegion="US"
+        inArticleSlot={<InArticleAd />}
       />
 
       {/* Programmatic SEO Directory Section */}
@@ -218,30 +213,39 @@ export default function FeeKitHome() {
             if (catItems.length === 0) return null;
 
             return (
-              <div key={cat.key} className="space-y-3">
-                <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-blue-600" />
-                    <span>{cat.label}</span>
+              <React.Fragment key={cat.key}>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-700">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-blue-600" />
+                      <span>{cat.label}</span>
+                    </div>
+                    <span className="font-mono text-slate-500">{catItems.length} Calculators</span>
                   </div>
-                  <span className="font-mono text-slate-500">{catItems.length} Calculators</span>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                    {catItems.map((tool) => (
+                      <Link
+                        key={`${tool.category}-${tool.slug}`}
+                        href={`/tools/${tool.category}/${tool.slug}`}
+                        className="group flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-xs transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
+                      >
+                        <span className="font-medium text-slate-700 group-hover:text-blue-700 truncate pr-2">
+                          {tool.shortTitle || tool.title}
+                        </span>
+                        <ArrowRight className="h-3.5 w-3.5 text-slate-400 shrink-0 group-hover:translate-x-0.5 group-hover:text-blue-600 transition-all" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
-                  {catItems.map((tool) => (
-                    <Link
-                      key={`${tool.category}-${tool.slug}`}
-                      href={`/tools/${tool.category}/${tool.slug}`}
-                      className="group flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-xs transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
-                    >
-                      <span className="font-medium text-slate-700 group-hover:text-blue-700 truncate pr-2">
-                        {tool.shortTitle || tool.title}
-                      </span>
-                      <ArrowRight className="h-3.5 w-3.5 text-slate-400 shrink-0 group-hover:translate-x-0.5 group-hover:text-blue-600 transition-all" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
+                {/* AdSense Rectangle Unit: between US states grid and UK tools section */}
+                {cat.key === 'sales-tax-calculator' && (
+                  <div className="flex justify-center py-4 my-2 border-y border-slate-100">
+                    <RectangleAd />
+                  </div>
+                )}
+              </React.Fragment>
             );
           })}
         </div>

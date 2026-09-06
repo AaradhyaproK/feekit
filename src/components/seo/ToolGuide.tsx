@@ -23,6 +23,7 @@ interface ToolGuideProps {
   localRate?: number;
   maxLocalRate?: number;
   threshold?: string;
+  inArticleSlot?: React.ReactNode;
 }
 
 const STATE_AGENCIES: Record<string, string> = {
@@ -85,6 +86,7 @@ export function ToolGuide({
   localRate,
   maxLocalRate,
   threshold,
+  inArticleSlot,
 }: ToolGuideProps) {
   const currentYear = new Date().getFullYear();
 
@@ -242,6 +244,9 @@ export function ToolGuide({
             </table>
           </div>
         </div>
+
+        {/* In-Article Ad Unit */}
+        {inArticleSlot}
 
         {/* Section 3: International & FX Fees */}
         <div className="space-y-4">
@@ -569,6 +574,9 @@ export function ToolGuide({
               </ul>
             </div>
           </div>
+
+          {/* In-Article Ad Unit */}
+          {inArticleSlot}
         </section>
       );
     }
@@ -690,6 +698,9 @@ export function ToolGuide({
             </ul>
           </div>
         </div>
+
+        {/* In-Article Ad Unit */}
+        {inArticleSlot}
       </section>
     );
   }
@@ -752,6 +763,9 @@ export function ToolGuide({
             </ul>
           </div>
         </div>
+
+        {/* In-Article Ad Unit */}
+        {inArticleSlot}
       </section>
     );
   }
@@ -810,6 +824,9 @@ export function ToolGuide({
           </ul>
         </div>
       </div>
+
+      {/* In-Article Ad Unit */}
+      {inArticleSlot}
     </section>
   );
 }

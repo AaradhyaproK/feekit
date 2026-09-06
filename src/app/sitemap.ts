@@ -60,7 +60,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // 3. Programmatic Regional and Specialized Tools
-  const toolUrls: MetadataRoute.Sitemap = (geoMatrix as Array<any>).map((item) => {
+  const matrixList = Array.isArray(geoMatrix)
+    ? (geoMatrix as Array<any>)
+    : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);
+
+  const toolUrls: MetadataRoute.Sitemap = matrixList.map((item) => {
     let priority = 0.8;
     if (item.geoRegion === 'US' || item.category === 'sales-tax-calculator') {
       priority = 0.9;

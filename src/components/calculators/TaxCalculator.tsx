@@ -281,3 +281,6 @@ Calculated via: https://usefeekit.com`;
     </div>
   );
 }
+
+export { SalesTaxCalculator } from './SalesTaxCalculator';
+

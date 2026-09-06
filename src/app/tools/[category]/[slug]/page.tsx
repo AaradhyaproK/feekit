@@ -4,14 +4,13 @@ import type { Metadata } from 'next';
 import geoMatrix from '@/data/geo-matrix.json';
 import { GeoJsonLd } from '@/components/seo/JsonLd';
 import { ToolGuide } from '@/components/seo/ToolGuide';
-import { AdBanner } from '@/components/monetization/AdBanner';
-import { SponsoredAdGrid } from '@/components/monetization/SponsoredAdGrid';
-import { AffiliateCard, AffiliateKey } from '@/components/monetization/AffiliateCard';
+import { LeaderboardAd, RectangleAd, InArticleAd } from '@/components/ads/AdSlots';
 import { FormulaBreakdown } from '@/components/ui/FormulaBreakdown';
 import { TierComparisonTable } from '@/components/ui/TierComparisonTable';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalculator';
 import { TaxCalculator } from '@/components/calculators/TaxCalculator';
+import { SalesTaxCalculator } from '@/components/calculators/SalesTaxCalculator';
 import { FreelanceRateCalculator } from '@/components/calculators/FreelanceRateCalculator';
 import { EcommerceProfitCalculator } from '@/components/calculators/EcommerceProfitCalculator';
 import Link from 'next/link';
@@ -25,8 +24,14 @@ interface PageProps {
   }>;
 }
 
+const getMatrixItems = (): Array<any> => {
+  return Array.isArray(geoMatrix)
+    ? (geoMatrix as Array<any>)
+    : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>));
+};
+
 export async function generateStaticParams() {
-  return (geoMatrix as Array<any>).map((item) => ({
+  return getMatrixItems().map((item) => ({
     category: item.category,
     slug: item.slug,
   }));
@@ -34,7 +39,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
-  const item = (geoMatrix as Array<any>).find(
+  const item = getMatrixItems().find(
     (x) => x.category === category && x.slug === slug
   );
 
@@ -78,7 +83,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ProgrammaticToolPage({ params }: PageProps) {
   const { category, slug } = await params;
-  const item = (geoMatrix as Array<any>).find(
+  const item = getMatrixItems().find(
     (x) => x.category === category && x.slug === slug
   );
 
@@ -119,18 +124,9 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
     };
   });
 
-  const relatedTools = (geoMatrix as Array<any>)
+  const relatedTools = getMatrixItems()
     .filter((x) => x.category === category && x.slug !== slug)
     .slice(0, 6);
-
-  let affiliateKey: AffiliateKey = 'wise';
-  if (category.includes('freelance')) {
-    affiliateKey = 'deel';
-  } else if (category.includes('ecommerce') || category.includes('shopify')) {
-    affiliateKey = 'shopify';
-  } else if (category.includes('tax') || category.includes('vat')) {
-    affiliateKey = 'taxjar';
-  }
 
   const customSeo = getCustomSeoMetadata(category, slug);
   const seoTitle = customSeo ? customSeo.title : item.title;
@@ -148,8 +144,8 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         faqs={item.faqs || []}
       />
 
-      {/* Top Hub Navigation & Compact Monetization */}
-      <div className="space-y-1.5">
+      {/* Top Hub Navigation */}
+      <div>
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
@@ -157,7 +153,6 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           <ArrowLeft className="h-3.5 w-3.5" />
           <span>Back to All Utilities Hub</span>
         </Link>
-        <AdBanner slot="leaderboard" context={item.suiteType} />
       </div>
 
       {/* Hero Header Area */}
@@ -170,6 +165,9 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         </p>
       </div>
 
+      {/* AdSense Leaderboard Unit */}
+      <LeaderboardAd />
+
       {/* Live Interactive Calculator (Full Width, Zero Horizontal Squeeze) */}
       <section aria-label="Interactive Calculator Tool">
         {item.suiteType === 'merchant' && (
@@ -181,13 +179,18 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           />
         )}
 
-        {item.suiteType === 'tax' && (
+        {item.category === 'sales-tax-calculator' ? (
+          <SalesTaxCalculator
+            stateSlug={item.slug}
+            initialAmount={item.defaultAmount || 250}
+          />
+        ) : item.suiteType === 'tax' ? (
           <TaxCalculator
             initialJurisdictionCode={item.jurisdictionCode || 'CA'}
             initialAmount={item.defaultAmount || 250}
             currencySymbol={item.currencySymbol || '$'}
           />
-        )}
+        ) : null}
 
         {item.suiteType === 'freelance' && (
           <FreelanceRateCalculator
@@ -211,8 +214,10 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         )}
       </section>
 
-      {/* Monetization: High-Intent Post-Calculation Action Box */}
-      <AdBanner slot="post_calc" context={item.suiteType} />
+      {/* AdSense Rectangle Unit */}
+      <div className="flex justify-center my-6">
+        <RectangleAd />
+      </div>
 
       {/* Goldmine SEO Strategy & Compliance Guide */}
       <ToolGuide
@@ -225,10 +230,8 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         localRate={item.local}
         maxLocalRate={item.maxLocal}
         threshold={item.threshold}
+        inArticleSlot={<InArticleAd />}
       />
-
-      {/* Monetization: Curated 3-Box Sponsored Solutions Section */}
-      <SponsoredAdGrid context={item.suiteType} />
 
       {/* Technical Breakdown: The Google Juice */}
       <section className="space-y-6">

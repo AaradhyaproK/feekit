@@ -10,8 +10,7 @@ import {
   Globe,
   Sparkles,
 } from 'lucide-react';
-import { AdBanner } from '@/components/monetization/AdBanner';
-import { SponsoredAdGrid } from '@/components/monetization/SponsoredAdGrid';
+import { LeaderboardAd, RectangleAd } from '@/components/ads/AdSlots';
 import type { Metadata } from 'next';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 
@@ -68,7 +67,10 @@ const CATEGORY_NAMES: Record<string, { title: string; desc: string; defaultSlug:
 };
 
 export function generateStaticParams() {
-  const categories = Array.from(new Set((geoMatrix as Array<{ category: string }>).map((x) => x.category)));
+  const matrixList = Array.isArray(geoMatrix)
+    ? (geoMatrix as Array<{ category: string }>)
+    : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<{ category: string }>));
+  const categories = Array.from(new Set(matrixList.map((x) => x.category)));
   return categories.map((category) => ({ category }));
 }
 
@@ -102,7 +104,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
-  const tools = (geoMatrix as Array<any>).filter((x) => x.category === category);
+  const matrixList = Array.isArray(geoMatrix)
+    ? (geoMatrix as Array<any>)
+    : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>));
+  const tools = matrixList.filter((x) => x.category === category);
 
   if (tools.length === 0) {
     notFound();
@@ -116,21 +121,10 @@ export default async function CategoryPage({ params }: Props) {
   const defaultSlug = categoryMeta?.defaultSlug;
   const primaryTool = (defaultSlug && tools.find((t) => t.slug === defaultSlug)) || tools[0];
 
-  let adContext: 'merchant' | 'tax' | 'freelance' | 'ecommerce' | 'general' = 'general';
-  if (category.includes('stripe') || category.includes('paypal') || category.includes('square') || category.includes('wise')) {
-    adContext = 'merchant';
-  } else if (category.includes('tax') || category.includes('vat')) {
-    adContext = 'tax';
-  } else if (category.includes('freelance')) {
-    adContext = 'freelance';
-  } else if (category.includes('ecommerce')) {
-    adContext = 'ecommerce';
-  }
-
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Top Hub Navigation & Compact Monetization */}
-      <div className="space-y-1.5">
+      {/* Top Hub Navigation */}
+      <div>
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
@@ -138,7 +132,6 @@ export default async function CategoryPage({ params }: Props) {
           <ArrowLeft className="h-3.5 w-3.5" />
           <span>Back to All Utilities Hub</span>
         </Link>
-        <AdBanner slot="leaderboard" context={adContext} />
       </div>
 
       {/* Header */}
@@ -150,6 +143,9 @@ export default async function CategoryPage({ params }: Props) {
           {desc}
         </p>
       </div>
+
+      {/* AdSense Leaderboard Unit */}
+      <LeaderboardAd />
 
       {/* Primary Flagship Launcher Card */}
       {primaryTool && (
@@ -217,8 +213,10 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Monetization: Curated 3-Box Sponsored Solutions Section */}
-      <SponsoredAdGrid context={adContext} />
+      {/* AdSense Rectangle Unit */}
+      <div className="flex justify-center my-6">
+        <RectangleAd />
+      </div>
     </div>
   );
 }

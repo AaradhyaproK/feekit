@@ -44,12 +44,19 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
+  const matrixList = React.useMemo(() => {
+    return Array.isArray(geoMatrix)
+      ? (geoMatrix as unknown as Array<any>)
+      : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>));
+  }, []);
+
   const filteredItems = React.useMemo(() => {
     if (!query.trim()) {
-      return (geoMatrix as Array<any>).slice(0, 10);
+      return matrixList.slice(0, 10);
     }
     const q = query.toLowerCase();
-    return (geoMatrix as Array<any>)
+
+    return matrixList
       .filter((item) =>
         item.title.toLowerCase().includes(q) ||
         item.category.toLowerCase().includes(q) ||
@@ -57,7 +64,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         item.subtitle.toLowerCase().includes(q)
       )
       .slice(0, 12);
-  }, [query]);
+  }, [query, matrixList]);
 
   const handleSelect = (item: any) => {
     onClose();
@@ -173,7 +180,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
             <span>Use <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↑</kbd> <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↓</kbd> to navigate</span>
             <span><kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">Enter</kbd> to open</span>
           </div>
-          <span className="text-blue-600 font-bold">{geoMatrix.length} Calculators Available</span>
+          <span className="text-blue-600 font-bold">{matrixList.length} Calculators Available</span>
         </div>
       </div>
     </div>

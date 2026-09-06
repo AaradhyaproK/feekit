@@ -11,8 +11,10 @@ import {
   Building2,
   ShieldCheck,
   Scale,
-  DollarSign,
-  TrendingUp,
+  FileCheck2,
+  FileSpreadsheet,
+  HelpCircle,
+  AlertTriangle,
 } from 'lucide-react';
 
 export interface StateTaxData {
@@ -45,6 +47,302 @@ const FALLBACK_CALIFORNIA: StateTaxData = {
 };
 
 const QUICK_AMOUNTS = [50, 100, 250, 500, 1000, 5000];
+
+/**
+ * Dynamic Rate Comparison Table
+ * Computes exact tax and gross amounts for standard transaction sizes at the state base rate
+ */
+export function RateComparisonTable({
+  rate,
+  currencySymbol = '$',
+}: {
+  rate: number;
+  currencySymbol?: string;
+}) {
+  const amounts = [10, 50, 100, 500, 1000];
+
+  return (
+    <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+      <table className="w-full text-left text-xs font-sans">
+        <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+          <tr>
+            <th className="py-3 px-4">Invoice Net Subtotal</th>
+            <th className="py-3 px-4">State Sales Tax ({rate.toFixed(2)}%)</th>
+            <th className="py-3 px-4">Gross Customer Total</th>
+            <th className="py-3 px-4">Effective State Rate</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-100 font-mono">
+          {amounts.map((amount) => {
+            const tax = amount * (rate / 100);
+            const gross = amount + tax;
+            return (
+              <tr key={amount} className="hover:bg-slate-50/70 transition-colors">
+                <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">
+                  {currencySymbol}{amount.toFixed(2)}
+                </td>
+                <td className="py-2.5 px-4 text-rose-600 font-semibold">
+                  +{currencySymbol}{tax.toFixed(2)}
+                </td>
+                <td className="py-2.5 px-4 text-emerald-700 font-bold">
+                  {currencySymbol}{gross.toFixed(2)}
+                </td>
+                <td className="py-2.5 px-4 text-slate-500 font-sans">
+                  {rate.toFixed(2)}%
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
+ * Deep, CPA-grade, 800-1000 word educational and compliance guide for every US state
+ */
+export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
+  const nexusFormatted = Number(state.nexusThreshold).toLocaleString();
+  const hasLocal = state.maxLocal > state.rate;
+  const estimatedAvgLocal = hasLocal
+    ? ((state.maxLocal - state.rate) / 2).toFixed(2)
+    : '0.00';
+
+  return (
+    <article className="space-y-8 text-slate-700 leading-relaxed text-xs sm:text-sm">
+      {/* SECTION A: State Sales Tax Rate — Full Breakdown */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+        <div className="border-b border-slate-200 pb-4">
+          <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
+            <Scale className="h-5 w-5 text-blue-600 shrink-0" />
+            <h2>{state.name} Sales Tax Rate — Full Breakdown (2025)</h2>
+          </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Statutory statewide base rate, discretionary local tax jurisdictions, and invoice mathematical formulas
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <p>
+            The statutory base sales tax rate in <strong>{state.name} is {state.rate.toFixed(2)}%</strong>. Every business engaging in retail transactions, remote commerce, or leasing taxable personal property in the state must account for this baseline levy. However, computing true checkout tax liability requires evaluating local composite jurisdictions.
+          </p>
+
+          <p>
+            In {state.name}, local municipal taxing districts, county boards, and special development transit authorities levy supplementary local option sales taxes. Across all jurisdictions within {state.name}, the average local surtax is approximately <strong>{estimatedAvgLocal}%</strong>, while the maximum legal combined sales tax rate caps at <strong>{state.maxLocal.toFixed(2)}%</strong>.
+          </p>
+
+          <p>
+            <strong>Local Rate Administration:</strong> Local taxes in {state.name} are structured across three distinct administrative layers: county general taxes, municipal city taxes, and special purpose district assessments (such as transportation, public safety, and infrastructure redevelopment zones). Under {state.name} destination-sourcing statutes, remote online orders shipped to a purchaser’s residence or commercial facility must be taxed at the buyer’s delivery destination composite rate—not the seller’s fulfillment origin location.
+          </p>
+
+          <div className="space-y-2 pt-2">
+            <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+              {state.name} Transaction Rate Comparison Table ({state.rate.toFixed(2)}% Base)
+            </h3>
+            <RateComparisonTable rate={state.rate} />
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION B: Sales Tax Nexus in [State] */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+        <div className="border-b border-slate-200 pb-4">
+          <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
+            <ShieldCheck className="h-5 w-5 text-indigo-600 shrink-0" />
+            <h2>Sales Tax Nexus in {state.name}</h2>
+          </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Evaluating physical presence triggers, economic nexus thresholds, and statutory registration requirements
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <p>
+            Before collecting a single dollar of sales tax from customers in {state.name}, an enterprise must establish tax nexus. Nexus is the constitutional legal connection between an out-of-state vendor and the state taxing jurisdiction that grants {state.name} the statutory authority to mandate sales tax collection.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+            <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2">
+              <h3 className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                <Building2 className="h-4 w-4 text-blue-600" />
+                Physical Nexus Triggers
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Physical nexus in {state.name} is created when an enterprise maintains an office, retail storefront, executive suite, assembly workshop, or warehouse. Crucially for e-commerce merchants, storing merchandise inventory inside a third-party logistics facility or Amazon FBA fulfillment center within {state.name} automatically establishes physical nexus. Furthermore, having remote salaried employees, independent travelling sales contractors, or localized field technicians operating within state boundaries creates mandatory physical tax obligations.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2">
+              <h3 className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                <Scale className="h-4 w-4 text-indigo-600" />
+                Economic Nexus Threshold
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Following the historic U.S. Supreme Court ruling in <em>South Dakota v. Wayfair, Inc. (2018)</em>, states enforce economic nexus on remote out-of-state vendors with no physical footprint. In {state.name}, remote multichannel sellers trigger economic nexus upon reaching <strong>${nexusFormatted}</strong> in gross retail receipts or 200 separate taxable transactions delivered into the state during the current or immediately preceding calendar year.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            <strong>Registration & Unlawful Collection Penalties:</strong> Once economic or physical nexus is established, sellers must register for an official sales and use tax permit directly through <strong>{state.filingAgency}</strong> before billing customers. Collecting sales tax from {state.name} consumers without holding an active tax permit is a severe statutory violation. Because sales tax constitutes state trust funds held in fiduciary trust, unauthorized collection or retention can result in personal officer liability, mandatory civil fraud penalties of 10% to 50%, and potential criminal misdemeanor or felony prosecution.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION C: Exemption Certificates in [State] */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+        <div className="border-b border-slate-200 pb-4">
+          <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
+            <FileCheck2 className="h-5 w-5 text-emerald-600 shrink-0" />
+            <h2>Exemption Certificates in {state.name}</h2>
+          </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Resale certificate compliance, verification requirements, and statutory record-keeping defense
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <p>
+            Not every commercial transaction in {state.name} requires sales tax collection. The state tax code recognizes specific exemptions for qualifying purchasers and commercial transaction types, provided strictly compliant documentation is executed and archived prior to invoice settlement.
+          </p>
+
+          <p>
+            <strong>Who Qualifies for Tax Exemption:</strong> Qualified exempt purchasers in {state.name} generally encompass:
+          </p>
+          <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-600">
+            <li><strong>Wholesale Resellers:</strong> Merchants purchasing commercial goods strictly intended for resale in the regular course of business without prior retail consumption.</li>
+            <li><strong>Industrial Manufacturers:</strong> Producers acquiring raw materials, component elements, or industrial ingredients that become an integral physical part of a manufactured product.</li>
+            <li><strong>Certified Nonprofits & Educational Entities:</strong> Recognized 501(c)(3) religious, scientific, and educational organizations holding specific exemption status issued by {state.filingAgency}.</li>
+            <li><strong>Governmental Bodies:</strong> Direct purchasing departments of the United States federal government, {state.name} state agencies, and public municipal districts.</li>
+          </ul>
+
+          <p>
+            <strong>Mandatory Certificate Data:</strong> To withstand statutory state audit scrutiny, every exemption certificate presented by a buyer must contain the purchaser’s legal business entity name, verified commercial operating address, active {state.name} sales tax permit or registration ID, a specific description of property acquired, the legal reason for exemption, and the signature of an authorized corporate officer with the date of execution.
+          </p>
+
+          <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-xs text-amber-900 space-y-1.5">
+            <div className="flex items-center gap-2 font-bold text-amber-950">
+              <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0" />
+              <span>Audit Defense & Verbal Exemption Prohibition</span>
+            </div>
+            <p className="leading-relaxed">
+              Vendors must retain executed exemption certificates on file for a minimum of <strong>3 to 4 years</strong> to defend against retrospective state sales tax audit assessments. <em>Never accept a verbal exemption claim under any circumstance.</em> If an auditor discovers untaxed invoices lacking a valid, signed certificate on file, {state.filingAgency} will hold the seller personally liable for the uncollected tax plus compounding interest.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION D: Filing [State] Sales Tax Returns */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+        <div className="border-b border-slate-200 pb-4">
+          <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
+            <FileSpreadsheet className="h-5 w-5 text-purple-600 shrink-0" />
+            <h2>Filing {state.name} Sales Tax Returns</h2>
+          </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Filing schedules, official online portal remittance, statutory deadlines, and automation workflows
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <p>
+            Sales and use tax compliance in {state.name} is administered directly by <strong>{state.filingAgency}</strong>. Once registered, merchants act as state collection trustees and must remit accrued consumer tax collections on a strictly monitored schedule.
+          </p>
+
+          <p>
+            <strong>Assigned Filing Frequencies:</strong> Upon reviewing your initial permit application and anticipated monthly transaction volume, {state.filingAgency} will assign your enterprise a designated filing cadence:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-xs text-slate-600">
+            <li><strong>Monthly Filing:</strong> Assigned to enterprise retailers and high-volume e-commerce brands with regular tax liabilities exceeding statutory thresholds.</li>
+            <li><strong>Quarterly Filing:</strong> The standard assignment for small-to-midsize businesses and emerging multichannel online stores.</li>
+            <li><strong>Annual Filing:</strong> Reserved for low-volume sellers, micro-enterprises, or seasonal businesses with minimal recurring tax liabilities.</li>
+          </ul>
+
+          <p>
+            <strong>Digital Submission & Remittance Due Dates:</strong> All sales tax returns in {state.name} must be submitted electronically through {state.filingAgency}’s official online portal. Returns and payments are typically due on or before the 20th or final calendar day of the month following the close of the designated tax period. Late returns trigger mandatory statutory penalties (typically 5% to 10% of tax due, plus daily compounding interest).
+          </p>
+
+          <p>
+            <strong>The Zero Return Rule:</strong> If your business generated zero taxable sales into {state.name} during a given reporting cycle, you are still legally required to submit a timely &quot;Zero Return.&quot; Failure to file zero returns results in administrative failure-to-file fines and can trigger automatic revocation of your business sales tax permit.
+          </p>
+
+          <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-4 text-xs text-blue-900 space-y-1">
+            <span className="font-bold block">CPA Recommendation for Online Sellers:</span>
+            <p className="text-blue-800 leading-relaxed">
+              Managing varying destination rates across multiple counties and special taxing districts in {state.name} creates significant manual overhead. We strongly advise integrating automated sales tax compliance software such as TaxJar, Avalara AvaTax, or Stripe Tax directly into your e-commerce checkout to ensure seamless rate computation and auto-filing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION E: FAQ — [State] Sales Tax for Online Sellers */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+        <div className="border-b border-slate-200 pb-4">
+          <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
+            <HelpCircle className="h-5 w-5 text-amber-600 shrink-0" />
+            <h2>FAQ — {state.name} Sales Tax for Online Sellers</h2>
+          </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Direct answers to the most common search queries regarding {state.name} sales tax compliance
+          </p>
+        </div>
+
+        <div className="space-y-5">
+          {/* FAQ 1 */}
+          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900">
+              What is the sales tax rate in {state.name}?
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              The statutory base sales tax rate in {state.name} is exactly {state.rate.toFixed(2)}%. However, retail customers pay a combined rate that incorporates county, municipal, and special taxing district surtaxes. Depending on the exact shipping delivery address, the combined sales tax rate can reach up to a maximum of {state.maxLocal.toFixed(2)}%. Remote sellers must compute taxes based on the purchaser&apos;s specific street-level destination address rather than a single statewide flat rate.
+            </p>
+          </div>
+
+          {/* FAQ 2 */}
+          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900">
+              Do I need to collect sales tax in {state.name} as an out-of-state seller?
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              You are required to collect sales tax in {state.name} if your business establishes physical nexus or economic nexus. Under the <em>South Dakota v. Wayfair</em> standard, economic nexus triggers once your remote gross sales into {state.name} reach or exceed ${nexusFormatted} (or 200 separate transactions) during the current or previous calendar year. If your annual sales remain below this threshold and you maintain no employees or inventory in the state, you do not need to register.
+            </p>
+          </div>
+
+          {/* FAQ 3 */}
+          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900">
+              Are digital products taxable in {state.name}?
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              In {state.name}, the taxability of digital products, software as a service (SaaS), and downloadable digital media depends on statutory definitions of tangible personal property. Prewritten computer software delivered electronically and digital audio-visual downloads frequently trigger state sales tax liability, whereas custom software development and pure information services often remain exempt. Online businesses selling software or digital assets into {state.name} must consult {state.filingAgency}&apos;s specific digital tax rulings to determine exact SKU taxability.
+            </p>
+          </div>
+
+          {/* FAQ 4 */}
+          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900">
+              How do I get a sales tax permit in {state.name}?
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              You can obtain an official sales tax permit by submitting an online application through the digital taxpayer services portal managed by {state.filingAgency}. You must provide your Federal Employer Identification Number (FEIN) or Social Security Number, legal entity documents, business NAICS code, corporate officer details, and projected sales activity. Most applications are approved within 1 to 5 business days, after which {state.filingAgency} issues your registration certificate and establishes your assigned filing frequency.
+            </p>
+          </div>
+
+          {/* FAQ 5 */}
+          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900">
+              What happens if I collect sales tax without being registered in {state.name}?
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Collecting sales tax from {state.name} customers without holding an active sales tax permit issued by {state.filingAgency} is strictly illegal under state law. Because collected sales tax represents state trust money, collecting taxes without remittance constitutes tax fraud. Violators face civil penalties of up to 50%, personal liability for company executives, and possible criminal prosecution. If your business collected tax erroneously prior to registration, consult a state tax CPA immediately to arrange a voluntary disclosure agreement.
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+  );
+}
 
 export function SalesTaxCalculator({
   stateSlug = 'california',
@@ -309,52 +607,8 @@ Calculated via: https://usefeekit.com/tools/sales-tax-calculator/${currentState.
         </div>
       </div>
 
-      {/* SEO Content Section */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
-        <div className="border-b border-slate-200 pb-4">
-          <div className="flex items-center gap-2 text-slate-900 font-extrabold text-lg">
-            <Scale className="h-5 w-5 text-blue-600 shrink-0" />
-            <h2>{currentState.name} Sales Tax Rate & Compliance Details</h2>
-          </div>
-          <p className="text-xs text-slate-500 mt-0.5">
-            CPA-audited statutory guidelines for retail businesses, remote merchants, and marketplace sellers
-          </p>
-        </div>
-
-        <div className="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-          {currentState.slug === 'california' ? (
-            <p>
-              <strong>The California state base sales tax rate is 7.25%</strong>. Under regulations administered by the California Department of Tax and Fee Administration (CDTFA), counties, municipalities, and regional transportation districts impose supplementary district sales and use taxes (ranging from 0.10% to 3.00%), which can bring the maximum combined sales tax rate up to 10.25%.
-            </p>
-          ) : (
-            <p>
-              <strong>The {currentState.name} state base sales tax rate is {currentState.rate.toFixed(2)}%</strong>. Depending on the purchaser’s delivery jurisdiction, local municipalities and counties levy supplementary local option taxes up to a maximum combined rate of {currentState.maxLocal.toFixed(2)}%.
-            </p>
-          )}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-2">
-              <div className="flex items-center gap-2 font-bold text-slate-900">
-                <ShieldCheck className="h-4 w-4 text-indigo-600 shrink-0" />
-                <span>Economic Nexus & Remote Sellers</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Following <em>South Dakota v. Wayfair</em>, out-of-state remote merchants who generate over <strong>${Number(currentState.nexusThreshold).toLocaleString()}</strong> in gross retail sales into {currentState.name} establish economic nexus and must register to collect and remit destination sales tax.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-2">
-              <div className="flex items-center gap-2 font-bold text-slate-900">
-                <TrendingUp className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>State Tax Authority & Filing</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                All registered merchants remit collected sales and use taxes directly to <strong>{currentState.filingAgency}</strong>. Timely electronic filing is required according to your designated monthly, quarterly, or annual remittance schedule.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Comprehensive 800-1000 Word SEO & Compliance Section */}
+      <SalesTaxDeepContent state={currentState} />
     </div>
   );
 }

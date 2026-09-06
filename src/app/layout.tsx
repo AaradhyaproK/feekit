@@ -1,7 +1,31 @@
-import type { Metadata } from 'next';
+/**
+ * ==============================================================================
+ * FeeKit Root Layout & SEO Infrastructure
+ *
+ * GOOGLE SEARCH CONSOLE MANUAL POST-DEPLOYMENT CHECKLIST:
+ * 1. Submit Sitemap: Go to Google Search Console -> Sitemaps -> submit:
+ *    https://www.usefeekit.com/sitemap.xml
+ * 2. Request Indexing: Use URL Inspection on https://www.usefeekit.com and
+ *    high-traffic calculators (e.g., California Sales Tax, Stripe Fee Calculator),
+ *    then click "Request Indexing".
+ * 3. Geo-Targeting: Ensure the international targeting / geographic target is
+ *    configured for United States (US).
+ * 4. Verification Token: Replace 'google-site-verification-feekit-2026' below with
+ *    your real token from Google Search Console (or set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION).
+ * ==============================================================================
+ */
+
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import 'katex/dist/katex.min.css';
 import { AppShell } from '@/components/layout/AppShell';
+
+export const viewport: Viewport = {
+  themeColor: '#0057FF',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.usefeekit.com'),
@@ -22,6 +46,11 @@ export const metadata: Metadata = {
     'reverse fee calculator',
     'ecommerce profit calculator',
   ],
+  appleWebApp: {
+    capable: true,
+    title: 'FeeKit',
+    statusBarStyle: 'default',
+  },
   openGraph: {
     title: 'FeeKit — Instant B2B Financial Precision Utilities (US & UK)',
     description:
@@ -66,6 +95,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
+    // GOOGLE SEARCH CONSOLE MANUAL ACTION:
+    // Replace 'google-site-verification-feekit-2026' with your real verification token from GSC
+    // (GSC Property -> Settings -> Ownership verification -> HTML tag)
+    // or configure NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in your production environment variables.
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google-site-verification-feekit-2026',
     yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
   },
@@ -97,6 +130,23 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+
+        {/* Mobile Chrome & Safari Web App Chrome */}
+        <meta name="theme-color" content="#0057FF" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="FeeKit" />
+
+        {/* 
+          LCP Performance Optimization: Preload hint for core calculator JavaScript chunk
+        */}
+        <link
+          rel="preload"
+          href="/_next/static/chunks/app/page.js"
+          as="script"
+          crossOrigin="anonymous"
+        />
+
         {/* Google AdSense Verification & Script */}
         <meta name="google-adsense-account" content="ca-pub-1291898061670715" />
         <script

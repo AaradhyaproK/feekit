@@ -1,23 +1,30 @@
+/**
+ * ==============================================================================
+ * FeeKit Web App Manifest (PWA Configuration)
+ *
+ * GOOGLE SEARCH CONSOLE MANUAL ACTION CHECKLIST AFTER DEPLOYMENT:
+ * 1. Submit Sitemap: Go to Sitemaps in Google Search Console and submit
+ *    https://www.usefeekit.com/sitemap.xml
+ * 2. Request Indexing: Use URL Inspection for https://www.usefeekit.com and
+ *    click "Request Indexing".
+ * 3. Geo Targeting: Ensure primary geographic target is set to the United States (US).
+ * ==============================================================================
+ */
+
 import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'FeeKit — Financial Calculation Utilities for US & UK Operators',
+    name: 'FeeKit',
     short_name: 'FeeKit',
-    description:
-      'Precision client-side sales tax, payment processing, freelance rate, and profit margin calculators for US & UK business operators.',
+    description: 'Free fee and tax calculators for US & UK merchants',
     start_url: '/',
     display: 'standalone',
-    background_color: '#F8FAFC',
-    theme_color: '#0284C7',
+    background_color: '#ffffff',
+    theme_color: '#0057FF',
     icons: [
       {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
-      },
-      {
-        src: '/feekit-logo.png',
+        src: '/logo-icon.png',
         sizes: '192x192',
         type: 'image/png',
       },

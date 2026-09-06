@@ -1,5 +1,22 @@
+/**
+ * ==============================================================================
+ * FeeKit XML Sitemap Generator
+ *
+ * GOOGLE SEARCH CONSOLE MANUAL POST-DEPLOYMENT STEPS:
+ * 1. Submit Sitemap:
+ *    - In Google Search Console, navigate to Indexing -> Sitemaps.
+ *    - Submit: https://www.usefeekit.com/sitemap.xml
+ * 2. Request Indexing:
+ *    - Use the URL Inspection tool for https://www.usefeekit.com and key tool pages.
+ *    - Click "Request Indexing" to accelerate crawler discovery.
+ * 3. Set Geographic Target:
+ *    - Confirm international targeting / geographic target is set to the United States (US).
+ * ==============================================================================
+ */
+
 import { MetadataRoute } from 'next';
 import geoMatrix from '@/data/geo-matrix.json';
+import { US_SITE_URL } from '@/lib/seo';
 
 const CATEGORIES = [
   'sales-tax-calculator',
@@ -14,7 +31,7 @@ const CATEGORIES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.usefeekit.com';
+  const baseUrl = US_SITE_URL;
   const now = new Date();
 
   // 1. Root and Core Trust Pages
@@ -29,25 +46,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/privacy`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/terms`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.5,
     },
   ];
 
@@ -59,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.95,
   }));
 
-  // 3. Programmatic Regional and Specialized Tools
+  // 3. Programmatic Regional and Specialized Tools (all 162+ tool pages)
   const matrixList = Array.isArray(geoMatrix)
     ? (geoMatrix as Array<any>)
     : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);

@@ -8,9 +8,11 @@ import { LeaderboardAd, RectangleAd, InArticleAd } from '@/components/ads/AdSlot
 import { FormulaBreakdown } from '@/components/ui/FormulaBreakdown';
 import { TierComparisonTable } from '@/components/ui/TierComparisonTable';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
+import { FaqSchema } from '@/components/seo/FaqSchema';
 import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalculator';
 import { TaxCalculator } from '@/components/calculators/TaxCalculator';
 import { SalesTaxCalculator } from '@/components/calculators/SalesTaxCalculator';
+import { VatCalculator } from '@/components/calculators/VatCalculator';
 import { FreelanceRateCalculator } from '@/components/calculators/FreelanceRateCalculator';
 import { EcommerceProfitCalculator } from '@/components/calculators/EcommerceProfitCalculator';
 import Link from 'next/link';
@@ -134,14 +136,13 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Schema.org SoftwareApplication + spatialCoverage + FAQPage */}
+      {/* Schema.org SoftwareApplication + spatialCoverage */}
       <GeoJsonLd
         title={seoTitle}
         description={seoDesc}
         url={`https://www.usefeekit.com/tools/${category}/${slug}`}
         region={item.geoRegion || 'US'}
         stateName={item.stateName}
-        faqs={item.faqs || []}
       />
 
       {/* Top Hub Navigation */}
@@ -183,6 +184,12 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           <SalesTaxCalculator
             stateSlug={item.slug}
             initialAmount={item.defaultAmount || 250}
+          />
+        ) : item.category === 'vat-calculator' ? (
+          <VatCalculator
+            initialAmount={item.defaultAmount || 500}
+            currencySymbol={item.currencySymbol || '£'}
+            countryCode={item.jurisdictionCode || 'GB'}
           />
         ) : item.suiteType === 'tax' ? (
           <TaxCalculator
@@ -264,13 +271,15 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
       </section>
 
       {/* Programmatic FAQ Accordion (5 Authoritative Questions with Schema) */}
-      {item.faqs && item.faqs.length > 0 && (
-        <section aria-label="Frequently Asked Questions">
+      {/* Test schema validity at: https://search.google.com/test/rich-results */}
+      {item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && item.category !== 'vat-calculator' && (
+        <>
+          <FaqSchema items={item.faqs} />
           <FaqAccordion
-            faqs={item.faqs}
+            items={item.faqs}
             title={`${item.shortTitle || item.title} — Frequently Asked Questions`}
           />
-        </section>
+        </>
       )}
 
       {/* Related Category Tools Cross-Linking */}

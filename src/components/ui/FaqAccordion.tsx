@@ -1,68 +1,85 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
-import { cn } from '@/lib/utils/formatters';
 
-interface FAQ {
+export interface FaqItem {
   question: string;
   answer: string;
 }
 
-interface FaqAccordionProps {
-  faqs: FAQ[];
+export interface FaqAccordionProps {
+  items?: FaqItem[];
+  faqs?: FaqItem[];
   title?: string;
+  className?: string;
 }
 
-export function FaqAccordion({ faqs, title = 'Frequently Asked Questions' }: FaqAccordionProps) {
-  const [openIndices, setOpenIndices] = useState<number[]>([0]);
+export function FaqAccordion({
+  items,
+  faqs,
+  title = 'Frequently Asked Questions',
+  className = '',
+}: FaqAccordionProps) {
+  const list = items || faqs || [];
+  const [openStates, setOpenStates] = useState<Record<number, boolean>>({ 0: true });
 
-  const toggle = (index: number) => {
-    setOpenIndices((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
+  const handleToggle = (index: number, e: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const isOpen = e.currentTarget.open;
+    setOpenStates((prev) => ({
+      ...prev,
+      [index]: isOpen,
+    }));
   };
 
+  if (!list || list.length === 0) return null;
+
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 sm:p-6 shadow-xs">
-      <div className="flex items-center gap-2 text-blue-600 mb-5">
-        <HelpCircle className="h-5 w-5" />
-        <h3 className="text-base font-bold text-slate-900 tracking-tight">{title}</h3>
-      </div>
+    <section
+      aria-label="Frequently asked questions"
+      className={`rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs ${className}`.trim()}
+    >
+      {title && (
+        <div className="border-b border-slate-200 pb-4 mb-5">
+          <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+            {title}
+          </h2>
+          <p className="text-xs text-slate-500 mt-1">
+            Authoritative answers to common questions, regulatory rules, and compliance guidance.
+          </p>
+        </div>
+      )}
 
       <div className="space-y-3">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndices.includes(index);
+        {list.map((item, index) => {
+          const isOpen = openStates[index] ?? (index === 0);
           return (
-            <div
+            <details
               key={index}
-              className="rounded-lg border border-slate-200/80 bg-slate-50/50 transition-colors hover:border-slate-300"
+              open={isOpen}
+              onToggle={(e) => handleToggle(index, e)}
+              className="group rounded-xl border border-slate-200/90 bg-slate-50/40 transition-colors duration-200 hover:border-slate-300 open:border-blue-200 open:bg-blue-50/20"
             >
-              <button
-                type="button"
-                onClick={() => toggle(index)}
-                className="flex w-full items-center justify-between p-4 text-left font-medium text-slate-800 transition-colors"
-                aria-expanded={isOpen}
-              >
-                <span className="text-sm font-semibold text-slate-900 pr-4">
-                  {faq.question}
+              <summary className="flex cursor-pointer list-none items-center justify-between p-4 sm:p-5 font-semibold text-slate-900 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-xl select-none [&::-webkit-details-marker]:hidden">
+                <span className="text-sm sm:text-base font-semibold text-slate-900 pr-4 leading-snug">
+                  {item.question}
                 </span>
-                <ChevronDown
-                  className={cn(
-                    'h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200',
-                    isOpen && 'rotate-180 text-blue-600'
-                  )}
-                />
-              </button>
-              {isOpen && (
-                <div className="px-4 pb-4 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 text-base font-bold group-open:bg-blue-100 group-open:text-blue-700 select-none transition-colors duration-200"
+                  aria-hidden="true"
+                >
+                  <span className="group-open:hidden leading-none">+</span>
+                  <span className="hidden group-open:inline leading-none">−</span>
+                </span>
+              </summary>
+              <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100/80">
+                {item.answer}
+              </div>
+            </details>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
+
+export default FaqAccordion;

@@ -29,51 +29,43 @@ export function generateGeoSchema({
     ? `Standard UK VAT is 20% levied on taxable supplies. To calculate gross invoice price, multiply net by 1.20. To extract VAT from a gross total, divide by 1.20 and deduct net.`
     : `In ${stateName || 'the United States'}, sales tax comprises statutory state rates plus local municipality or county surtaxes. Economic nexus thresholds obligate remote sellers once gross receipts exceed state limits.`;
 
-  const faqEntities = faqs.length > 0
-    ? faqs.map((f) => ({
+  const graph: any[] = [
+    {
+      '@type': 'SoftwareApplication',
+      name: title,
+      description,
+      url,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'All',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: currency,
+      },
+      spatialCoverage: {
+        '@type': 'Place',
+        name: placeName,
+      },
+    },
+  ];
+
+  if (faqs && faqs.length > 0) {
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
         '@type': 'Question',
         name: f.question,
         acceptedAnswer: {
           '@type': 'Answer',
           text: f.answer,
         },
-      }))
-    : [
-        {
-          '@type': 'Question',
-          name: defaultFaqQuestion,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: defaultFaqAnswer,
-          },
-        },
-      ];
+      })),
+    });
+  }
 
   return {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'SoftwareApplication',
-        name: title,
-        description,
-        url,
-        applicationCategory: 'BusinessApplication',
-        operatingSystem: 'All',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: currency,
-        },
-        spatialCoverage: {
-          '@type': 'Place',
-          name: placeName,
-        },
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: faqEntities,
-      },
-    ],
+    '@graph': graph,
   };
 }
 

@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import geoMatrix from '@/data/geo-matrix.json';
 import { MetricCard } from '@/components/ui/MetricCard';
 import { formatCurrency } from '@/lib/utils/formatters';
+import { FaqAccordion } from '@/components/ui/FaqAccordion';
+import { FaqSchema } from '@/components/seo/FaqSchema';
 import {
   Check,
   Copy,
@@ -108,6 +110,29 @@ export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
   const estimatedAvgLocal = hasLocal
     ? ((state.maxLocal - state.rate) / 2).toFixed(2)
     : '0.00';
+
+  const faqItems = [
+    {
+      question: `What is the current sales tax rate in ${state.name}?`,
+      answer: `The statutory base sales tax rate in ${state.name} is exactly ${state.rate.toFixed(2)}%. Depending on your customer's local municipality, county, and special transit district, local surtaxes can bring the maximum combined rate up to ${state.maxLocal.toFixed(2)}%. Remote sellers must calculate sales tax based on the delivery destination address within ${state.name} rather than a single statewide flat rate.`,
+    },
+    {
+      question: `Do out-of-state sellers need to collect sales tax in ${state.name} (Nexus Rules)?`,
+      answer: `Under the South Dakota v. Wayfair economic nexus standard, out-of-state merchants must register and collect sales tax once their remote gross sales into ${state.name} reach $${nexusFormatted} (or the statutory transaction threshold) during the current or preceding calendar year. Additionally, having a physical presence—such as inventory stored in a local third-party fulfillment center or Amazon FBA warehouse, remote employees, or traveling sales representatives—establishes immediate physical nexus in ${state.name}.`,
+    },
+    {
+      question: `How do resale certificates and exemptions work in ${state.name}?`,
+      answer: `Wholesale purchases intended strictly for resale, industrial manufacturing materials, and sales to qualified 501(c)(3) entities or government bodies may be exempt from ${state.name} sales tax. Vendors must collect and verify an executed ${state.name} resale certificate or exemption certificate before order completion. Under ${state.filingAgency} audit defense rules, valid signed exemption certificates must be retained on file for a minimum of 3 to 4 years.`,
+    },
+    {
+      question: `How and when do I file sales tax returns in ${state.name}?`,
+      answer: `Sales tax returns must be remitted electronically through ${state.filingAgency}'s official digital taxpayer portal. Based on historical or estimated sales volume, ${state.filingAgency} assigns a monthly, quarterly, or annual filing frequency. Returns and payments are typically due on or before the 20th or the last day of the month following the reporting period. Crucially, ${state.name} enforces the 'Zero Return' rule: even if your business generated zero taxable sales in a period, you must file on time to avoid statutory failure-to-file penalties.`,
+    },
+    {
+      question: `Are digital products and SaaS taxable in ${state.name}?`,
+      answer: `In ${state.name}, the taxability of digital goods, SaaS, and downloadable software depends on state definitions of tangible personal property. Prewritten canned computer software delivered electronically and digital audio-visual media are commonly subject to sales tax under ${state.filingAgency} regulations, whereas custom software engineering and information services often qualify for exemptions. Businesses selling digital goods into ${state.name} should verify SKU classifications against ${state.filingAgency}'s published rulings.`,
+    },
+  ];
 
   return (
     <article className="space-y-8 text-slate-700 leading-relaxed text-xs sm:text-sm">
@@ -277,69 +302,12 @@ export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
       </section>
 
       {/* SECTION E: FAQ — [State] Sales Tax for Online Sellers */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
-        <div className="border-b border-slate-200 pb-4">
-          <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
-            <HelpCircle className="h-5 w-5 text-amber-600 shrink-0" />
-            <h2>FAQ — {state.name} Sales Tax for Online Sellers</h2>
-          </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Direct answers to the most common search queries regarding {state.name} sales tax compliance
-          </p>
-        </div>
-
-        <div className="space-y-5">
-          {/* FAQ 1 */}
-          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">
-              What is the sales tax rate in {state.name}?
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              The statutory base sales tax rate in {state.name} is exactly {state.rate.toFixed(2)}%. However, retail customers pay a combined rate that incorporates county, municipal, and special taxing district surtaxes. Depending on the exact shipping delivery address, the combined sales tax rate can reach up to a maximum of {state.maxLocal.toFixed(2)}%. Remote sellers must compute taxes based on the purchaser&apos;s specific street-level destination address rather than a single statewide flat rate.
-            </p>
-          </div>
-
-          {/* FAQ 2 */}
-          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">
-              Do I need to collect sales tax in {state.name} as an out-of-state seller?
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              You are required to collect sales tax in {state.name} if your business establishes physical nexus or economic nexus. Under the <em>South Dakota v. Wayfair</em> standard, economic nexus triggers once your remote gross sales into {state.name} reach or exceed ${nexusFormatted} (or 200 separate transactions) during the current or previous calendar year. If your annual sales remain below this threshold and you maintain no employees or inventory in the state, you do not need to register.
-            </p>
-          </div>
-
-          {/* FAQ 3 */}
-          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">
-              Are digital products taxable in {state.name}?
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              In {state.name}, the taxability of digital products, software as a service (SaaS), and downloadable digital media depends on statutory definitions of tangible personal property. Prewritten computer software delivered electronically and digital audio-visual downloads frequently trigger state sales tax liability, whereas custom software development and pure information services often remain exempt. Online businesses selling software or digital assets into {state.name} must consult {state.filingAgency}&apos;s specific digital tax rulings to determine exact SKU taxability.
-            </p>
-          </div>
-
-          {/* FAQ 4 */}
-          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">
-              How do I get a sales tax permit in {state.name}?
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              You can obtain an official sales tax permit by submitting an online application through the digital taxpayer services portal managed by {state.filingAgency}. You must provide your Federal Employer Identification Number (FEIN) or Social Security Number, legal entity documents, business NAICS code, corporate officer details, and projected sales activity. Most applications are approved within 1 to 5 business days, after which {state.filingAgency} issues your registration certificate and establishes your assigned filing frequency.
-            </p>
-          </div>
-
-          {/* FAQ 5 */}
-          <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">
-              What happens if I collect sales tax without being registered in {state.name}?
-            </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Collecting sales tax from {state.name} customers without holding an active sales tax permit issued by {state.filingAgency} is strictly illegal under state law. Because collected sales tax represents state trust money, collecting taxes without remittance constitutes tax fraud. Violators face civil penalties of up to 50%, personal liability for company executives, and possible criminal prosecution. If your business collected tax erroneously prior to registration, consult a state tax CPA immediately to arrange a voluntary disclosure agreement.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Test schema validity at: https://search.google.com/test/rich-results */}
+      <FaqSchema items={faqItems} />
+      <FaqAccordion
+        items={faqItems}
+        title={`Frequently Asked Questions: ${state.name} Sales Tax`}
+      />
     </article>
   );
 }

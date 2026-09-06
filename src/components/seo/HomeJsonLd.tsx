@@ -24,7 +24,7 @@ export function HomeJsonLd() {
           '@type': 'SearchAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: 'https://www.usefeekit.com/tools?q={search_term_string}',
+            urlTemplate: 'https://www.usefeekit.com/?q={search_term_string}',
           },
           'query-input': 'required name=search_term_string',
         },

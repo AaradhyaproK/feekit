@@ -75,19 +75,19 @@ export const TARGET_SEO_METADATA: Record<string, SeoMetaEntry> = {
 
   // 8. Amazon FBA Fee Calculator
   'ecommerce-profit-calculator/amazon-fba-fee-calculator': {
-    title: 'Amazon FBA Fee Calculator | 2024 Rates & Profit',
+    title: 'Amazon FBA Fee Calculator | 2026 Rates & Profit',
     description:
-      'Calculate 2024 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
+      'Calculate 2026 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
   },
   'ecommerce-profit-calculator/amazon-fba-private-label': {
-    title: 'Amazon FBA Fee Calculator | 2024 Rates & Profit',
+    title: 'Amazon FBA Fee Calculator | 2026 Rates & Profit',
     description:
-      'Calculate 2024 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
+      'Calculate 2026 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
   },
   'ecommerce-profit-calculator/amazon-fba-arbitrage': {
-    title: 'Amazon FBA Fee Calculator | 2024 Rates & Profit',
+    title: 'Amazon FBA Fee Calculator | 2026 Rates & Profit',
     description:
-      'Calculate 2024 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
+      'Calculate 2026 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
   },
 };
 

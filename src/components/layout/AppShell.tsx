@@ -32,43 +32,215 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </main>
 
         {/* Global Daylight Footer */}
-        <footer className="border-t border-slate-200 bg-white py-8 px-6 text-xs text-slate-500">
-          <div className="max-w-6xl mx-auto flex flex-col gap-5">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <footer className="border-t border-slate-200 bg-white pt-10 pb-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500">
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Top Row: Brand & Mission */}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
               <div className="flex items-center gap-3">
                 <Link href="/" className="hover:opacity-85 transition-opacity">
                   <Image
                     src="/feekit-logo.png"
                     alt="FeeKit"
-                    width={120}
-                    height={44}
+                    width={130}
+                    height={48}
                     className="h-7 w-auto object-contain"
                     unoptimized
                   />
                 </Link>
                 <span className="text-slate-300">|</span>
-                <span className="font-medium text-slate-600">Financial Calculation Utilities for US & UK Operators</span>
+                <span className="font-semibold text-slate-700">Financial Calculation Utilities for US & UK Operators</span>
               </div>
-              <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-slate-600">
-                <Link href="/about" className="hover:text-sky-600 transition-colors">About</Link>
-                <Link href="/privacy" className="hover:text-sky-600 transition-colors">Privacy Policy</Link>
-                <Link href="/terms" className="hover:text-sky-600 transition-colors">Terms of Service</Link>
-                <Link href="/contact" className="hover:text-sky-600 transition-colors">Contact</Link>
-                <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">Sitemap</a>
-              </nav>
+              <div className="flex items-center gap-2 text-slate-500 text-[11px]">
+                <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>100% Client-Side Computation • Zero Server Tracking</span>
+              </div>
             </div>
-            <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-[11px]">
-              <div className="flex flex-wrap items-center gap-3">
+
+            {/* Categorical Link Directory */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              {/* Col 1: US & UK Tax */}
+              <div className="space-y-3">
+                <div className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
+                  Tax & VAT Engines
+                </div>
+                <ul className="space-y-2 text-xs">
+                  <li>
+                    <Link href="/tools/sales-tax-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      US Sales Tax Hub (50 States)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/sales-tax-calculator/california" className="hover:text-blue-600 transition-colors">
+                      California Sales Tax (7.25% - 10.25%)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/sales-tax-calculator/texas" className="hover:text-blue-600 transition-colors">
+                      Texas Sales Tax (6.25% - 8.25%)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/sales-tax-calculator/new-york" className="hover:text-blue-600 transition-colors">
+                      New York Sales Tax (4% - 8.875%)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/sales-tax-calculator/florida" className="hover:text-blue-600 transition-colors">
+                      Florida Sales Tax (6.00% - 7.50%)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/vat-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      UK HMRC VAT Hub (MTD 2026)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/vat-calculator/united-kingdom" className="hover:text-blue-600 transition-colors">
+                      UK VAT Standard (20%) & Reduced (5%)
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Col 2: Merchant & Gateways */}
+              <div className="space-y-3">
+                <div className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
+                  Merchant Gateways
+                </div>
+                <ul className="space-y-2 text-xs">
+                  <li>
+                    <Link href="/tools/stripe-fee-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      Stripe Processing Hub
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/stripe-fee-calculator/usa" className="hover:text-blue-600 transition-colors">
+                      Stripe USA (2.9% + $0.30)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/stripe-fee-calculator/uk" className="hover:text-blue-600 transition-colors">
+                      Stripe UK (1.5% + 20p)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/paypal-fee-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      PayPal Commercial Fee Hub
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/paypal-fee-calculator/usa" className="hover:text-blue-600 transition-colors">
+                      PayPal USA (3.49% + $0.49)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/square-fee-calculator" className="hover:text-blue-600 transition-colors">
+                      Square POS & Online Checkout
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/wise-vs-stripe" className="hover:text-blue-600 transition-colors">
+                      Wise vs Stripe FX Spreads
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Col 3: Freelance & Commerce */}
+              <div className="space-y-3">
+                <div className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
+                  Freelance & Commerce
+                </div>
+                <ul className="space-y-2 text-xs">
+                  <li>
+                    <Link href="/tools/freelance-rate-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      1099 SECA Tax & Rate Hub
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/freelance-rate-calculator/software-engineer" className="hover:text-blue-600 transition-colors">
+                      Software Engineer 1099 Rate
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/ecommerce-profit-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      E-Commerce & FBA Hub
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/ecommerce-profit-calculator/shopify-dropshipping" className="hover:text-blue-600 transition-colors">
+                      Shopify Dropshipping Margin
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/ecommerce-profit-calculator/amazon-fba-private-label" className="hover:text-blue-600 transition-colors">
+                      Amazon FBA 2026 Profit
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/authorize-net-calculator" className="hover:text-blue-600 transition-colors">
+                      Authorize.Net Gateway Fees
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      All 160+ Utilities Directory
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Col 4: Trust & Company */}
+              <div className="space-y-3">
+                <div className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
+                  Company & Trust
+                </div>
+                <ul className="space-y-2 text-xs">
+                  <li>
+                    <Link href="/about" className="hover:text-blue-600 transition-colors">
+                      About FeeKit
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/privacy" className="hover:text-blue-600 transition-colors">
+                      Privacy Policy (Zero Storage)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/terms" className="hover:text-blue-600 transition-colors">
+                      Terms of Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="hover:text-blue-600 transition-colors">
+                      Contact & Software Inquiries
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                      XML Sitemap (186 Pages)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/llms.txt" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                      LLM Agent Specification (llms.txt)
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Row */}
+            <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-[11px]">
+              <div className="flex flex-wrap items-center gap-2">
                 <span>© {new Date().getFullYear()} FeeKit (usefeekit.com)</span>
-                <span>•</span>
-                <span>Instant Client-Side Computation</span>
                 <span>•</span>
                 <span>IRS & HMRC 2026 Compliant</span>
                 <span>•</span>
-                <span>Zero Server Tracking</span>
+                <span>Encrypted Client Session</span>
               </div>
               <div className="text-slate-400">
-                Independent utility. Rates updated weekly.
+                Independent financial calculation utilities. Rates verified weekly.
               </div>
             </div>
           </div>

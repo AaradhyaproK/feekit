@@ -139,13 +139,14 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Schema.org SoftwareApplication + spatialCoverage + isBasedOn citation */}
+      {/* Schema.org SoftwareApplication + spatialCoverage + isBasedOn citation + BreadcrumbList */}
       <GeoJsonLd
         title={seoTitle}
         description={seoDesc}
         url={`https://www.usefeekit.com/tools/${category}/${slug}`}
         region={item.geoRegion || 'US'}
         stateName={item.stateName}
+        category={category}
         sourceUrl={dataSource.sourceUrl}
         sourceName={dataSource.authorityName}
       />

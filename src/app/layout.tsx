@@ -138,15 +138,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="FeeKit" />
 
-        {/* 
-          LCP Performance Optimization: Preload hint for core calculator JavaScript chunk
-        */}
-        <link
-          rel="preload"
-          href="/_next/static/chunks/app/page.js"
-          as="script"
-          crossOrigin="anonymous"
-        />
 
         {/* Google AdSense Verification & Script */}
         <meta name="google-adsense-account" content="ca-pub-1291898061670715" />

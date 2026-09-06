@@ -13,6 +13,7 @@ import {
 import { LeaderboardAd, RectangleAd } from '@/components/ads/AdSlots';
 import type { Metadata } from 'next';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
+import { CategoryJsonLd } from '@/components/seo/JsonLd';
 
 type Props = {
   params: Promise<{ category: string }>;
@@ -123,6 +124,14 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
+      {/* Schema.org CollectionPage + ItemList + BreadcrumbList */}
+      <CategoryJsonLd
+        category={category}
+        title={title}
+        description={desc}
+        tools={tools.map((t) => ({ title: t.shortTitle || t.title, slug: t.slug }))}
+      />
+
       {/* Top Hub Navigation */}
       <div>
         <Link

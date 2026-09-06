@@ -9679,9 +9679,9 @@
     {
       "category": "ecommerce-profit-calculator",
       "slug": "amazon-fba-fee-calculator",
-      "title": "Amazon FBA Fee Calculator | 2024 Rates & Profit",
+      "title": "Amazon FBA Fee Calculator | 2026 Rates & Profit",
       "shortTitle": "Amazon FBA Fee Calculator",
-      "subtitle": "Calculate 2024 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.",
+      "subtitle": "Calculate 2026 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.",
       "suiteType": "ecommerce",
       "platform": "amazon_fba",
       "defaultPrice": 39.99,
@@ -9691,7 +9691,7 @@
       "defaultAdSpend": 8,
       "currencySymbol": "$",
       "formulaLatex": "\\text{Net Profit} = \\text{Price} - (\\text{Landed Cost} + \\text{Platform Fees} + \\text{Fulfillment} + \\text{CAC}) \\quad | \\quad \\text{Break-Even ROAS} = \\frac{\\text{Price}}{\\text{Gross Contribution}}",
-      "formulaExplanation": "Calculates 2024 Amazon FBA referral commission (standard 15%), pick-and-pack fulfillment fees, landed product costs, and advertising CAC to determine exact unit margin and break-even ROAS.",
+      "formulaExplanation": "Calculates 2026 Amazon FBA referral commission (standard 15%), pick-and-pack fulfillment fees, landed product costs, and advertising CAC to determine exact unit margin and break-even ROAS.",
       "sampleTiers": [
         {
           "units": 100,
@@ -9712,8 +9712,8 @@
       ],
       "faqs": [
         {
-          "question": "What are the 2024 Amazon FBA fee changes?",
-          "answer": "2024 Amazon FBA rates include updated size-tier fulfillment rates, a low-inventory-level fee for products with under 28 days of supply, and inbound placement service fee options."
+          "question": "What are the 2026 Amazon FBA fee changes?",
+          "answer": "2026 Amazon FBA rates include updated size-tier fulfillment rates, a low-inventory-level fee for products with under 28 days of supply, and inbound placement service fee options."
         },
         {
           "question": "How much is the Amazon referral fee?",

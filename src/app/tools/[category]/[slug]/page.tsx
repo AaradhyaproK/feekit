@@ -154,15 +154,15 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
       />
 
       {/* Top Navigation & Fast Search Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3.5 sm:px-0">
         <BackButton fallbackHref={`/tools/${category}`} label="Back to previous page" />
         <div className="w-full sm:w-72 md:w-80">
           <FastSearchBar placeholder="Search tools..." />
         </div>
       </div>
 
-      {/* Unified Master Container: Single unbroken card canvas matching blog design */}
-      <article className="w-full rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 lg:p-12 shadow-xs space-y-10">
+      {/* Unified Master Container: Edge-to-Edge on Mobile, Contained on Desktop */}
+      <article className="w-full rounded-none sm:rounded-3xl border-y sm:border border-slate-200 bg-white px-3.5 py-6 sm:p-10 lg:p-12 shadow-xs space-y-8 sm:space-y-10">
         {/* Header with Title, Description, and Authoritative Badges */}
         <header className="space-y-5 border-b border-slate-200 pb-8">
           <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">

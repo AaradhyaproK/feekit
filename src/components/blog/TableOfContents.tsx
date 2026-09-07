@@ -33,7 +33,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
   return (
     <nav
       aria-label="Table of contents"
-      className="my-6 rounded-2xl border border-slate-200/70 bg-slate-50/70 p-5 shadow-2xs not-prose"
+      className="my-6 rounded-xl sm:rounded-2xl border border-slate-200/70 bg-slate-50/70 p-3.5 sm:p-5 shadow-2xs not-prose"
     >
       <div className="flex items-center justify-between pb-3 border-b border-slate-200/80">
         <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">

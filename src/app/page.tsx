@@ -179,7 +179,7 @@ export default function FeeKitHome() {
       <div className="w-full overflow-hidden bg-white border-b border-slate-200/90 shadow-2xs">
         <Image
           src="/bgimage-homepage.webp"
-          alt="FeeKit Financial Calculation Utilities for US & UK Businesses"
+          alt="FeeKit — Financial Calculation Utilities for US & UK Businesses: Payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models"
           width={2172}
           height={724}
           priority
@@ -188,10 +188,13 @@ export default function FeeKitHome() {
         />
       </div>
 
-      {/* Semantic H1 for SEO Integrity */}
-      <h1 className="sr-only">
-        Financial Calculation Utilities for US & UK Businesses
-      </h1>
+      {/* Semantic SEO Text & Heading Structure for Search Engine Crawlers (Googlebot) & Screen Readers */}
+      <div className="sr-only">
+        <h1>Financial Calculation Utilities for US & UK Businesses</h1>
+        <p>
+          Updated for 2026 US & UK Tax & Gateway Regulations. Accurate, instant payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models. 100% client-side private, with zero sign-up required.
+        </p>
+      </div>
 
       {/* Main Responsive Canvas for Inner Content */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 pb-12 space-y-6 sm:space-y-8">

@@ -103,6 +103,7 @@ export function getCustomSeoMetadata(
     if (TARGET_SEO_METADATA[key]) {
       return TARGET_SEO_METADATA[key];
     }
+    return null;
   }
 
   if (TARGET_SEO_METADATA[category]) {

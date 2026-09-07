@@ -31,6 +31,7 @@ import { ToolGuide } from '@/components/seo/ToolGuide';
 import { HomeJsonLd } from '@/components/seo/HomeJsonLd';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FaqSchema } from '@/components/seo/FaqSchema';
+import { FastSearchBar } from '@/components/search/FastSearchBar';
 import geoMatrix from '@/data/geo-matrix.json';
 
 type ActiveSuite = 'merchant' | 'tax' | 'freelance' | 'ecommerce';
@@ -210,6 +211,11 @@ export default function FeeKitHome() {
         <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
           Accurate, instant payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models. 100% client-side private, with zero sign-up required.
         </p>
+
+        {/* Fast Search Bar */}
+        <div className="w-full max-w-xl pt-1">
+          <FastSearchBar placeholder="Search tools..." />
+        </div>
 
         {/* Popular Tools Quick Pills */}
         <div className="pt-2 flex flex-wrap items-center gap-2 justify-center sm:justify-start">

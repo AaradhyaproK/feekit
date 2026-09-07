@@ -17,6 +17,8 @@ import { BlogJsonLd } from '@/components/blog/BlogJsonLd';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { InArticleAd } from '@/components/ads/AdSlots';
 import { ArrowLeft, Tag, HelpCircle, ShieldCheck } from 'lucide-react';
+import { BackButton } from '@/components/ui/BackButton';
+import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 interface PageProps {
   params: Promise<{
@@ -122,18 +124,11 @@ export default async function BlogPostPage({ params }: PageProps) {
       <ReadingProgressBar />
 
       <div className="w-full space-y-6 pb-16">
-        {/* Back to Blog Navigation */}
-        <div className="flex items-center justify-between">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            <span>Back to All Guides</span>
-          </Link>
-          <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/80">
-            <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
-            <span>E-E-A-T Verified Analysis</span>
+        {/* Top Navigation & Fast Search Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <BackButton fallbackHref="/blog" label="Back to previous page" />
+          <div className="w-full sm:w-72 md:w-80">
+            <FastSearchBar placeholder="Search tools..." />
           </div>
         </div>
 

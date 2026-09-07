@@ -5,6 +5,8 @@ import { getAllPosts, getFeaturedPosts } from '@/lib/blog';
 import { FeaturedBlogCard } from '@/components/blog/FeaturedBlogCard';
 import { BlogIndexClient } from '@/components/blog/BlogIndexClient';
 import { BookOpen, ShieldCheck, ArrowRight } from 'lucide-react';
+import { BackButton } from '@/components/ui/BackButton';
+import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 export const metadata: Metadata = {
   title: 'FeeKit Blog — Payment Fee & Tax Guides for US & UK Merchants',
@@ -35,7 +37,15 @@ export default function BlogIndexPage() {
   const featuredPost = featuredPosts[0] || allPosts[0];
 
   return (
-    <div className="space-y-10 pb-12">
+    <div className="space-y-8 pb-12">
+      {/* Top Navigation & Fast Search Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <BackButton fallbackHref="/" label="Back to previous page" />
+        <div className="w-full sm:w-72 md:w-80">
+          <FastSearchBar placeholder="Search tools..." />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs">
         <div className="max-w-3xl space-y-4">

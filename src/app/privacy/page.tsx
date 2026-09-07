@@ -12,19 +12,23 @@ export const metadata: Metadata = {
   },
 };
 
+import { BackButton } from '@/components/ui/BackButton';
+import { FastSearchBar } from '@/components/search/FastSearchBar';
+
 export default function PrivacyPage() {
   const lastUpdated = 'January 2026';
 
   return (
     <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">
+      {/* Top Navigation & Fast Search Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <BackButton fallbackHref="/" label="Back to previous page" />
+        <div className="w-full sm:w-72 md:w-80">
+          <FastSearchBar placeholder="Search tools..." />
+        </div>
+      </div>
+
       <div className="space-y-2">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" />
-          <span>Back to All Utilities Hub</span>
-        </Link>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
           Privacy Policy
         </h1>

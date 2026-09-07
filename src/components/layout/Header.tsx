@@ -148,39 +148,39 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
                 All Utilities Hub
               </Link>
               <Link
-                href="/tools/sales-tax-calculator/california"
+                href="/tools/sales-tax-calculator"
                 onClick={() => setMobileMenuOpen(false)}
                 className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
               >
-                US Sales Tax (50 States)
+                US Sales Tax
               </Link>
               <Link
-                href="/tools/vat-calculator/united-kingdom"
+                href="/tools/vat-calculator"
                 onClick={() => setMobileMenuOpen(false)}
                 className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
               >
-                UK VAT & HMRC Returns
+                VAT Calculator
               </Link>
               <Link
-                href="/tools/stripe-fee-calculator/usa"
+                href="/tools/stripe-fee-calculator"
                 onClick={() => setMobileMenuOpen(false)}
                 className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
               >
-                US Stripe Merchant Fees
+                Merchant Fees
               </Link>
               <Link
-                href="/tools/stripe-fee-calculator/uk"
+                href="/tools/freelance-rate-calculator"
                 onClick={() => setMobileMenuOpen(false)}
                 className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
               >
-                UK Stripe Card Fees (1.5% + 20p)
+                Freelance Rates
               </Link>
               <Link
-                href="/tools/freelance-rate-calculator/software-engineer"
+                href="/tools/ecommerce-profit-calculator"
                 onClick={() => setMobileMenuOpen(false)}
                 className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
               >
-                Freelance & 1099 Rates
+                E-Commerce Profit
               </Link>
               <Link
                 href="/blog"

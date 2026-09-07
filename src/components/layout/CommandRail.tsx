@@ -31,27 +31,27 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
     },
     {
       name: 'US Sales Tax',
-      href: '/tools/sales-tax-calculator/california',
+      href: '/tools/sales-tax-calculator',
       icon: Receipt,
     },
     {
-      name: 'UK VAT & HMRC',
-      href: '/tools/vat-calculator/united-kingdom',
+      name: 'VAT Calculator',
+      href: '/tools/vat-calculator',
       icon: Globe2,
     },
     {
       name: 'Merchant Fees',
-      href: '/tools/stripe-fee-calculator/usa',
+      href: '/tools/stripe-fee-calculator',
       icon: CreditCard,
     },
     {
       name: 'Freelance Rates',
-      href: '/tools/freelance-rate-calculator/software-engineer',
+      href: '/tools/freelance-rate-calculator',
       icon: Briefcase,
     },
     {
       name: 'E-Commerce Profit',
-      href: '/tools/ecommerce-profit-calculator/shopify-dropshipping',
+      href: '/tools/ecommerce-profit-calculator',
       icon: ShoppingBag,
     },
     {
@@ -96,7 +96,7 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
         </div>
         {suites.map((suite) => {
           const Icon = suite.icon;
-          const isActive = pathname === suite.href || (suite.href !== '/' && pathname.startsWith(suite.href.split('/').slice(0, 3).join('/')));
+          const isActive = pathname === suite.href || (suite.href !== '/' && pathname.startsWith(suite.href));
           return (
             <Link
               key={suite.name}

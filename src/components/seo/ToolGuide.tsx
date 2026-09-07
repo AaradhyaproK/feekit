@@ -13,9 +13,13 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
+import { getVatCountry } from '@/lib/data/vat-countries';
+
 interface ToolGuideProps {
   suiteType: 'merchant' | 'tax' | 'freelance' | 'ecommerce';
   title: string;
+  category?: string;
+  countrySlug?: string;
   currencySymbol?: string;
   geoRegion?: 'US' | 'UK' | 'GLOBAL';
   stateName?: string;
@@ -80,6 +84,8 @@ const STATE_AGENCIES: Record<string, string> = {
 export function ToolGuide({
   suiteType,
   title,
+  category,
+  countrySlug,
   currencySymbol = '$',
   geoRegion = 'US',
   stateName,
@@ -460,15 +466,140 @@ export function ToolGuide({
   }
 
   if (suiteType === 'tax') {
-    const isUK = geoRegion === 'UK';
-    const state = stateName || 'US State';
-    const agencyName = (stateName && STATE_AGENCIES[stateName]) || `${state} Department of Revenue`;
-    const rateVal = baseRate ?? 6.0;
-    const maxLocalVal = maxLocalRate ?? 2.5;
-    const maxCombinedVal = (rateVal + maxLocalVal).toFixed(2);
-    const nexusLimit = threshold || '$100,000';
+    const isVat = category === 'vat-calculator' || title.toLowerCase().includes('vat') || geoRegion === 'UK';
 
-    if (isUK) {
+    if (isVat) {
+      const country = getVatCountry(countrySlug || (geoRegion === 'UK' ? 'united-kingdom' : undefined));
+      const isUK = country.code === 'GB';
+
+      if (isUK) {
+        return (
+          <section className={sectionClass}>
+            <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
+                <BookOpen className="h-5 w-5" />
+              </div>
+              <div>
+                <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
+                  UK VAT Rates & HMRC Small Business Compliance Guide ({currentYear})
+                </h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Official statutory VAT bands, the £90,000 registration threshold, reverse VAT calculation formulas, and Making Tax Digital rules
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+              {/* Section 1: UK VAT Rates */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
+                <div className="flex items-center gap-2 text-slate-900 font-bold">
+                  <Scale className="h-4 w-4 text-blue-600 shrink-0" />
+                  <h3 className="text-sm font-bold text-slate-900">UK VAT Rates in {currentYear} (HMRC)</h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  HM Revenue and Customs (HMRC) categorises commercial transactions under three primary rate bands:
+                </p>
+                <ul className="space-y-1.5 text-xs text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Standard Rate (20%):</strong> Applies to the vast majority of commercial goods and professional services, including IT consultancy, accountancy, marketing, electronics, and adult clothing.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Reduced Rate (5%):</strong> Levied on specific domestic essentials: residential gas and electricity, home insulation installations, and child car safety seats.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Zero-Rated (0%):</strong> Taxable goods charged at 0% VAT, including most grocery food, physical/digital books, and children’s clothing. Allows reclaiming input VAT on related costs.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Section 2: VAT Registration Threshold */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
+                <div className="flex items-center gap-2 text-slate-900 font-bold">
+                  <ShieldCheck className="h-4 w-4 text-indigo-600 shrink-0" />
+                  <h3 className="text-sm font-bold text-slate-900">VAT Registration Threshold (£90,000)</h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Under regulations updated for {currentYear}, the mandatory <strong>VAT registration threshold UK</strong> is <strong>£90,000</strong>:
+                </p>
+                <ul className="space-y-1.5 text-xs text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Rolling 12-Month Rule:</strong> You must register with HMRC if your cumulative taxable turnover exceeds £90,000 over any consecutive 12 months.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>30-Day Forward Rule:</strong> Mandatory registration applies if you expect cumulative turnover to cross £90,000 within a single 30-day window.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Voluntary Registration:</strong> Sole traders below £90k can register voluntarily to reclaim input VAT on business laptops, tooling, and commercial software licences.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Section 3: How to Calculate VAT */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
+                <div className="flex items-center gap-2 text-slate-900 font-bold">
+                  <TrendingUp className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <h3 className="text-sm font-bold text-slate-900">How to Calculate VAT (Standard Rate)</h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Computing standard 20% VAT on business quotes and invoices involves two mathematical operations:
+                </p>
+                <ul className="space-y-1.5 text-xs text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Add VAT (Net to Gross):</strong> Multiply your net fee by 1.20. (e.g. £500.00 × 1.20 = £600.00 gross invoice).</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Extract VAT (Gross to Net):</strong> Divide your gross receipt by 1.20. (e.g. £600.00 ÷ 1.20 = £500.00 net cost; the £100.00 difference is your reclaimable input VAT).</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>VAT Fraction Formula:</strong> To isolate just the VAT element from a gross total at 20%, multiply by 1/6 (e.g. £600.00 × 1/6 = £100.00 VAT).</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Section 4: Making Tax Digital (MTD) */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
+                <div className="flex items-center gap-2 text-slate-900 font-bold">
+                  <FileSpreadsheet className="h-4 w-4 text-purple-600 shrink-0" />
+                  <h3 className="text-sm font-bold text-slate-900">Making Tax Digital (MTD) Compliance</h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  All VAT-registered businesses must comply with HMRC’s Making Tax Digital (MTD) statutory framework:
+                </p>
+                <ul className="space-y-1.5 text-xs text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Digital Record Keeping:</strong> Invoices, sales ledgers, and expense receipts must be recorded electronically in MTD-compatible software.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Filing Deadlines:</strong> Returns and cleared payments are due <strong>1 calendar month and 7 days</strong> following quarterly period end.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>HMRC Penalties:</strong> Late submission points system triggers an automatic <strong>£200 penalty fine</strong>, plus daily interest on overdue balances.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* In-Article Ad Unit */}
+            {inArticleSlot}
+          </section>
+        );
+      }
+
+      // Dedicated European Country VAT Guide
+      const curSym = currencySymbol || country.currencySymbol;
+      const effectiveStandardRate = country.standardRate;
       return (
         <section className={sectionClass}>
           <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
@@ -477,107 +608,109 @@ export function ToolGuide({
             </div>
             <div>
               <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
-                UK VAT Rates & HMRC Small Business Compliance Guide ({currentYear})
+                {country.name} VAT Rates & Small Business Compliance Guide ({currentYear})
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                Official statutory VAT bands, the £90,000 registration threshold, reverse VAT calculation formulas, and Making Tax Digital rules
+                Official statutory {country.localVatName} bands ({effectiveStandardRate}% standard{country.reducedRate ? `, ${country.reducedRate}% reduced` : ''}), {country.registrationThreshold} registration threshold, EU Reverse Charge, and {country.authorityName} filing rules
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-            {/* Section 1: UK VAT Rates */}
+            {/* Section 1: European Country VAT Rates */}
             <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 font-bold">
                 <Scale className="h-4 w-4 text-blue-600 shrink-0" />
-                <h3 className="text-sm font-bold text-slate-900">UK VAT Rates in {currentYear} (HMRC)</h3>
+                <h3 className="text-sm font-bold text-slate-900">{country.name} VAT Rates ({country.localVatName})</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                HM Revenue and Customs (HMRC) categorises commercial transactions under three primary rate bands:
+                In {country.name}, Value Added Tax is administered by {country.authorityName} under {country.regulatoryCitation}:
               </p>
               <ul className="space-y-1.5 text-xs text-slate-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Standard Rate (20%):</strong> Applies to the vast majority of commercial goods and professional services, including IT consultancy, accountancy, marketing, electronics, and adult clothing.</span>
+                  <span><strong>Standard Rate ({effectiveStandardRate}%):</strong> Applies to the vast majority of commercial goods and professional services, including consulting, SaaS, software development, electronics, and digital tools.</span>
                 </li>
+                {country.reducedRate !== undefined && (
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Reduced Rate ({country.reducedRate}%):</strong> Applies to qualifying essential goods such as books, select food items, medical products, or public transport.</span>
+                  </li>
+                )}
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Reduced Rate (5%):</strong> Levied on specific domestic essentials: residential gas and electricity, home insulation installations, and child car safety seats.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Zero-Rated (0%):</strong> Taxable goods charged at 0% VAT, including most grocery food, physical/digital books, and children’s clothing. Allows reclaiming input VAT on related costs.</span>
+                  <span><strong>Zero-Rated (0% / Reverse Charge):</strong> Intra-Community B2B supplies to other EU member states with a valid VIES VAT ID are invoiced at 0% tax under Article 196 of the EU VAT Directive.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Section 2: VAT Registration Threshold */}
+            {/* Section 2: Registration & Threshold */}
             <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 font-bold">
                 <ShieldCheck className="h-4 w-4 text-indigo-600 shrink-0" />
-                <h3 className="text-sm font-bold text-slate-900">VAT Registration Threshold (£90,000)</h3>
+                <h3 className="text-sm font-bold text-slate-900">Registration Threshold & Exemptions</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Under regulations updated for {currentYear}, the mandatory <strong>VAT registration threshold UK</strong> is <strong>£90,000</strong>:
+                Key registration rules and small business thresholds in {country.name}:
               </p>
               <ul className="space-y-1.5 text-xs text-slate-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Rolling 12-Month Rule:</strong> You must register with HMRC if your cumulative taxable turnover exceeds £90,000 over any consecutive 12 months.</span>
+                  <span><strong>Small Business Threshold:</strong> {country.registrationThreshold}. Businesses operating beneath this limit may qualify for simplified or exempt accounting.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>30-Day Forward Rule:</strong> Mandatory registration applies if you expect cumulative turnover to cross £90,000 within a single 30-day window.</span>
+                  <span><strong>VIES Cross-Border Validation:</strong> For intra-EU trade, your VAT identification number must be active in the European Commission VIES database.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Voluntary Registration:</strong> Sole traders below £90k can register voluntarily to reclaim input VAT on business laptops, tooling, and commercial software licences.</span>
+                  <span><strong>Input VAT Recovery:</strong> Registered entities can deduct input VAT incurred on qualifying business purchases, equipment, and operating expenses against output tax liability.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Section 3: How to Calculate VAT */}
+            {/* Section 3: Calculation Formulas */}
             <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 font-bold">
                 <TrendingUp className="h-4 w-4 text-emerald-600 shrink-0" />
-                <h3 className="text-sm font-bold text-slate-900">How to Calculate VAT (Standard Rate)</h3>
+                <h3 className="text-sm font-bold text-slate-900">How to Calculate {country.name} VAT</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Computing standard 20% VAT on business quotes and invoices involves two mathematical operations:
+                Computing VAT at the statutory {effectiveStandardRate}% rate requires two standard mathematical formulas:
               </p>
               <ul className="space-y-1.5 text-xs text-slate-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Net to Gross (Adding VAT):</strong> <code className="bg-white px-1.5 py-0.5 rounded border border-slate-200 font-mono text-[11px]">Net × 1.20 = Gross</code>. Example: £500.00 fee + £100.00 VAT (20%) = <strong>£600.00 billed</strong>.</span>
+                  <span><strong>Add VAT (Net → Gross):</strong> Multiply net subtotal by (1 + {(effectiveStandardRate / 100).toFixed(2)}). Example: {curSym}500.00 × {(1 + effectiveStandardRate / 100).toFixed(2)} = {curSym}{(500 * (1 + effectiveStandardRate / 100)).toFixed(2)}.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Gross to Net (Reverse VAT):</strong> <code className="bg-white px-1.5 py-0.5 rounded border border-slate-200 font-mono text-[11px]">Gross ÷ 1.20 = Net</code>. To extract VAT directly, multiply gross total by the <strong>1/6 VAT fraction</strong>. Example: £240.00 receipt contains <strong>£40.00 VAT</strong>.</span>
+                  <span><strong>Extract VAT (Gross → Net):</strong> Divide gross total by (1 + {(effectiveStandardRate / 100).toFixed(2)}). Example: {curSym}500.00 ÷ {(1 + effectiveStandardRate / 100).toFixed(2)} = {curSym}{(500 / (1 + effectiveStandardRate / 100)).toFixed(2)} net.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Section 4: Making Tax Digital for VAT */}
+            {/* Section 4: One-Stop Shop (OSS) & Cross-Border B2B */}
             <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 font-bold">
-                <FileSpreadsheet className="h-4 w-4 text-amber-600 shrink-0" />
-                <h3 className="text-sm font-bold text-slate-900">Making Tax Digital for VAT</h3>
+                <FileSpreadsheet className="h-4 w-4 text-purple-600 shrink-0" />
+                <h3 className="text-sm font-bold text-slate-900">EU Reverse Charge & One-Stop Shop (OSS)</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Under HMRC’s Making Tax Digital (MTD) statutory framework, all VAT-registered entities must maintain electronic accounts:
+                European cross-border commercial trade follows standardized single-market directives:
               </p>
               <ul className="space-y-1.5 text-xs text-slate-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Compatible Software:</strong> Must record invoices digitally and submit returns via MTD-compliant tools (Xero, QuickBooks, FreeAgent).</span>
+                  <span><strong>Reverse Charge Mechanism:</strong> When invoicing a VAT-registered business in another EU country, charge 0% VAT and state &apos;Reverse charge: Article 196 EU VAT Directive&apos;.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Filing Deadlines:</strong> Returns and cleared payments are due <strong>1 calendar month and 7 days</strong> following quarterly period end.</span>
+                  <span><strong>One-Stop Shop (OSS):</strong> When selling digital services or goods to consumers (B2C) in other EU countries exceeding the €10,000 pan-EU threshold, file through the OSS portal.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>HMRC Penalties:</strong> Late submission points system triggers an automatic <strong>£200 penalty fine</strong>, plus daily interest on overdue balances.</span>
+                  <span><strong>Filing Authority:</strong> Electronic returns and tax remittances are submitted directly to {country.authorityName}.</span>
                 </li>
               </ul>
             </div>
@@ -588,6 +721,13 @@ export function ToolGuide({
         </section>
       );
     }
+
+    const state = stateName || 'US State';
+    const agencyName = (stateName && STATE_AGENCIES[stateName]) || `${state} Department of Revenue`;
+    const rateVal = baseRate ?? 6.0;
+    const maxLocalVal = maxLocalRate ?? 2.5;
+    const maxCombinedVal = (rateVal + maxLocalVal).toFixed(2);
+    const nexusLimit = threshold || '$100,000';
 
     return (
       <section className={sectionClass}>

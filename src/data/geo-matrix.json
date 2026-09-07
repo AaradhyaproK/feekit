@@ -3934,7 +3934,9 @@
           "question": "What is the Flat Rate Scheme (FRS) threshold?",
           "answer": "Small businesses with estimated annual turnover of £150,000 or less can apply to join the Flat Rate Scheme, paying a fixed sector-specific percentage of gross turnover to HMRC while simplifying bookkeeping."
         }
-      ]
+      ],
+      "rate": 20,
+      "reducedRate": 5
     },
     {
       "category": "stripe-fee-calculator",
@@ -4280,7 +4282,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.19 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 19,
+      "reducedRate": 7
     },
     {
       "category": "vat-calculator",
@@ -4330,7 +4334,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 20,
+      "reducedRate": 10
     },
     {
       "category": "vat-calculator",
@@ -4380,7 +4386,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.22 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 22,
+      "reducedRate": 10
     },
     {
       "category": "vat-calculator",
@@ -4430,7 +4438,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 21,
+      "reducedRate": 10
     },
     {
       "category": "vat-calculator",
@@ -4480,7 +4490,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 21,
+      "reducedRate": 9
     },
     {
       "category": "vat-calculator",
@@ -4530,7 +4542,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.23 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 23,
+      "reducedRate": 8
     },
     {
       "category": "vat-calculator",
@@ -4580,7 +4594,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 25,
+      "reducedRate": 12
     },
     {
       "category": "vat-calculator",
@@ -4630,7 +4646,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 21,
+      "reducedRate": 12
     },
     {
       "category": "vat-calculator",
@@ -4680,7 +4698,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 20,
+      "reducedRate": 10
     },
     {
       "category": "vat-calculator",
@@ -4730,7 +4750,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.23 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 23,
+      "reducedRate": 13.5
     },
     {
       "category": "vat-calculator",
@@ -4780,7 +4802,8 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 25
     },
     {
       "category": "vat-calculator",
@@ -4830,7 +4853,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 25.5,
+      "reducedRate": 14
     },
     {
       "category": "vat-calculator",
@@ -4880,7 +4905,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.23 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 23,
+      "reducedRate": 13
     },
     {
       "category": "vat-calculator",
@@ -4930,7 +4957,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.24 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 24,
+      "reducedRate": 13
     },
     {
       "category": "vat-calculator",
@@ -4980,7 +5009,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 21,
+      "reducedRate": 12
     },
     {
       "category": "vat-calculator",
@@ -5030,7 +5061,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.19 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 19,
+      "reducedRate": 9
     },
     {
       "category": "vat-calculator",
@@ -5080,7 +5113,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.27 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 27,
+      "reducedRate": 18
     },
     {
       "category": "vat-calculator",
@@ -5130,7 +5165,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 20,
+      "reducedRate": 10
     },
     {
       "category": "vat-calculator",
@@ -5180,7 +5217,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 20,
+      "reducedRate": 9
     },
     {
       "category": "vat-calculator",
@@ -5230,7 +5269,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 25,
+      "reducedRate": 13
     },
     {
       "category": "vat-calculator",
@@ -5280,7 +5321,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 21,
+      "reducedRate": 9
     },
     {
       "category": "vat-calculator",
@@ -5330,7 +5373,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.22 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 22,
+      "reducedRate": 9.5
     },
     {
       "category": "vat-calculator",
@@ -5380,7 +5425,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 21,
+      "reducedRate": 12
     },
     {
       "category": "vat-calculator",
@@ -5430,7 +5477,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.22 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 22,
+      "reducedRate": 9
     },
     {
       "category": "vat-calculator",
@@ -5480,7 +5529,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.19 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 19,
+      "reducedRate": 9
     },
     {
       "category": "vat-calculator",
@@ -5530,7 +5581,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.17 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 17,
+      "reducedRate": 14
     },
     {
       "category": "vat-calculator",
@@ -5580,7 +5633,9 @@
           "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.18 to find the net, then subtract the net from the total."
         }
       ],
-      "geoRegion": "GLOBAL"
+      "geoRegion": "GLOBAL",
+      "rate": 18,
+      "reducedRate": 7
     },
     {
       "category": "stripe-fee-calculator",

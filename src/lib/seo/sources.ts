@@ -6,6 +6,8 @@
  * Google E-E-A-T and YMYL trustworthiness.
  */
 
+import { getVatCountry } from '@/lib/data/vat-countries';
+
 export interface DataSource {
   authorityName: string;
   sourceUrl: string;
@@ -515,7 +517,18 @@ export function getDataSource(category: string, slug: string): DataSource {
   }
 
   if (category === 'vat-calculator') {
-    return UK_VAT_SOURCE;
+    if (slug === 'united-kingdom' || slug === 'gb' || slug === 'uk') {
+      return UK_VAT_SOURCE;
+    }
+    const country = getVatCountry(slug);
+    return {
+      authorityName: country.authorityName,
+      sourceUrl: country.authorityUrl,
+      citationTitle: `${country.name} Statutory ${country.localVatName} Guidelines & VAT Directives`,
+      regulatoryCode: country.regulatoryCitation,
+      dataType: `Statutory ${country.standardRate}% Standard${country.reducedRate ? `, ${country.reducedRate}% Reduced` : ''} & Threshold: ${country.registrationThreshold}`,
+      lastVerified: '2026 Fiscal Regulations (January 2026)',
+    };
   }
 
   if (category === 'stripe-fee-calculator') {

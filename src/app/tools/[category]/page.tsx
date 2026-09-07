@@ -14,6 +14,8 @@ import { LeaderboardAd, RectangleAd } from '@/components/ads/AdSlots';
 import type { Metadata } from 'next';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 import { CategoryJsonLd } from '@/components/seo/JsonLd';
+import { BackButton } from '@/components/ui/BackButton';
+import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 type Props = {
   params: Promise<{ category: string }>;
@@ -132,15 +134,12 @@ export default async function CategoryPage({ params }: Props) {
         tools={tools.map((t) => ({ title: t.shortTitle || t.title, slug: t.slug }))}
       />
 
-      {/* Top Hub Navigation */}
-      <div>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" />
-          <span>Back to All Utilities Hub</span>
-        </Link>
+      {/* Top Hub Navigation & Fast Search Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <BackButton fallbackHref="/" label="Back to previous page" />
+        <div className="w-full sm:w-72 md:w-80">
+          <FastSearchBar placeholder="Search tools..." />
+        </div>
       </div>
 
       {/* Unified Master Container: Single unbroken card canvas matching blog and tool design */}

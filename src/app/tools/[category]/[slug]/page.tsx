@@ -20,6 +20,8 @@ import { EcommerceProfitCalculator } from '@/components/calculators/EcommercePro
 import Link from 'next/link';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
+import { BackButton } from '@/components/ui/BackButton';
+import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 interface PageProps {
   params: Promise<{
@@ -151,15 +153,12 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         sourceName={dataSource.authorityName}
       />
 
-      {/* Top Hub Navigation */}
-      <div>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" />
-          <span>Back to All Utilities Hub</span>
-        </Link>
+      {/* Top Navigation & Fast Search Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <BackButton fallbackHref={`/tools/${category}`} label="Back to previous page" />
+        <div className="w-full sm:w-72 md:w-80">
+          <FastSearchBar placeholder="Search tools..." />
+        </div>
       </div>
 
       {/* Unified Master Container: Single unbroken card canvas matching blog design */}
@@ -216,8 +215,9 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           ) : item.category === 'vat-calculator' ? (
             <VatCalculator
               initialAmount={item.defaultAmount || 500}
-              currencySymbol={item.currencySymbol || '£'}
-              countryCode={item.jurisdictionCode || 'GB'}
+              currencySymbol={item.currencySymbol}
+              countryCode={item.jurisdictionCode}
+              countrySlug={item.slug}
               embedded={true}
             />
           ) : item.suiteType === 'tax' ? (
@@ -262,6 +262,8 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         <ToolGuide
           suiteType={item.suiteType}
           title={item.title}
+          category={item.category}
+          countrySlug={item.slug}
           currencySymbol={item.currencySymbol}
           geoRegion={item.geoRegion}
           stateName={item.stateName}
@@ -312,7 +314,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
 
         {/* Programmatic FAQ Accordion (5 Authoritative Questions with Schema) */}
         {/* Test schema validity at: https://search.google.com/test/rich-results */}
-        {item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && item.category !== 'vat-calculator' && (
+        {item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && (
           <>
             <FaqSchema items={item.faqs} />
             <FaqAccordion

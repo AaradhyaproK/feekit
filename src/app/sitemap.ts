@@ -17,6 +17,7 @@
 import { MetadataRoute } from 'next';
 import geoMatrix from '@/data/geo-matrix.json';
 import { US_SITE_URL } from '@/lib/seo';
+import { getAllPosts } from '@/lib/blog';
 
 const CATEGORIES = [
   'sales-tax-calculator',
@@ -41,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
@@ -97,5 +104,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticPages, ...categoryUrls, ...toolUrls];
+  // 4. Statically Generated MDX Blog Posts (Step 7: priority 0.85, monthly, https://www.usefeekit.com/blog/[slug])
+  const blogPosts = getAllPosts();
+  const blogUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `https://www.usefeekit.com/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt || post.publishedAt || now),
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }));
+
+  return [...staticPages, ...categoryUrls, ...toolUrls, ...blogUrls];
 }

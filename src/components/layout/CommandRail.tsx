@@ -12,6 +12,7 @@ import {
   Globe2,
   Search,
   LayoutGrid,
+  BookOpen,
 } from 'lucide-react';
 import { cn } from '@/lib/utils/formatters';
 
@@ -52,6 +53,11 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
       name: 'E-Commerce Profit',
       href: '/tools/ecommerce-profit-calculator/shopify-dropshipping',
       icon: ShoppingBag,
+    },
+    {
+      name: 'Blog & Guides',
+      href: '/blog',
+      icon: BookOpen,
     },
   ];
 

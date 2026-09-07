@@ -182,6 +182,13 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
               >
                 Freelance & 1099 Rates
               </Link>
+              <Link
+                href="/blog"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 border-t border-slate-100 pt-3 mt-1"
+              >
+                FeeKit Blog & Guides
+              </Link>
             </div>
           </div>
         </>

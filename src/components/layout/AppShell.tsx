@@ -197,6 +197,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 </div>
                 <ul className="space-y-2 text-xs">
                   <li>
+                    <Link href="/blog" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      FeeKit Blog & Guides
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/about" className="hover:text-blue-600 transition-colors">
                       About FeeKit
                     </Link>

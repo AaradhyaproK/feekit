@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   CreditCard,
   Receipt,
@@ -170,53 +171,55 @@ export default function FeeKitHome() {
   }, [directoryFilter, allMatrixItems]);
 
   return (
-    <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-200">
+    <div className="w-full animate-in fade-in duration-200">
       {/* Schema.org WebSite, Organization, and SoftwareApplication Structured Data */}
       <HomeJsonLd />
 
-      {/* Hero Header Section */}
-      <div className="text-center sm:text-left space-y-3">
-        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/70 px-3 py-1 text-xs font-semibold text-blue-700">
-          <Sparkles className="h-3.5 w-3.5 text-blue-600" />
-          <span>Updated for 2026 US & UK Tax & Gateway Regulations</span>
-        </div>
-
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-          Financial Calculation Utilities <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 bg-clip-text text-transparent">
-            for US & UK Businesses
-          </span>
-        </h1>
-
-        <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
-          Accurate, instant payment processing fees, 50-state sales tax, HMRC VAT compliance, and 1099 contractor rate models. 100% client-side private, with zero sign-up required.
-        </p>
-
-        {/* Fast Search Bar */}
-        <div className="w-full max-w-xl pt-1">
-          <FastSearchBar placeholder="Search tools..." />
-        </div>
-
-        {/* Popular Tools Quick Pills */}
-        <div className="pt-2 flex flex-wrap items-center gap-2 justify-center sm:justify-start">
-          <div className="flex items-center gap-1 text-xs font-bold text-slate-500 uppercase tracking-wide mr-1">
-            <Flame className="h-3.5 w-3.5 text-amber-500" />
-            <span>Popular:</span>
-          </div>
-          {POPULAR_TOOLS.map((tool) => (
-            <Link
-              key={tool.href}
-              href={tool.href}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50/30 transition-all shadow-2xs"
-            >
-              <span>{tool.title}</span>
-              <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">
-                {tool.badge}
-              </span>
-            </Link>
-          ))}
-        </div>
+      {/* Hero Banner: Full-Bleed touching top and both sides, zero rounded corners */}
+      <div className="w-full overflow-hidden bg-white border-b border-slate-200/90 shadow-2xs">
+        <Image
+          src="/bgimage-homepage.webp"
+          alt="FeeKit Financial Calculation Utilities for US & UK Businesses"
+          width={2172}
+          height={724}
+          priority
+          sizes="100vw"
+          className="w-full h-auto object-cover block rounded-none"
+        />
       </div>
+
+      {/* Semantic H1 for SEO Integrity */}
+      <h1 className="sr-only">
+        Financial Calculation Utilities for US & UK Businesses
+      </h1>
+
+      {/* Main Responsive Canvas for Inner Content */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 pb-12 space-y-6 sm:space-y-8">
+        {/* Search Bar & Popular Tools Directly Below Banner */}
+        <div className="space-y-2.5">
+          <div className="w-full max-w-xl">
+            <FastSearchBar placeholder="Search tools..." />
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="flex items-center gap-1 text-xs font-bold text-slate-500 uppercase tracking-wide mr-1">
+              <Flame className="h-3.5 w-3.5 text-amber-500" />
+              <span>Popular:</span>
+            </div>
+            {POPULAR_TOOLS.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200/90 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50/20 transition-all shadow-2xs"
+              >
+                <span>{tool.title}</span>
+                <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">
+                  {tool.badge}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
 
       {/* Primary Financial Suite Selector (Responsive 1-col on mobile, 2-col on tablet, 4-col on desktop) */}
       <div className="space-y-3">
@@ -480,6 +483,7 @@ export default function FeeKitHome() {
         items={HOME_FAQS}
         title="Frequently Asked Questions About FeeKit"
       />
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { CommandRail } from '@/components/layout/CommandRail';
 import { Header } from '@/components/layout/Header';
 import { CommandPalette } from '@/components/search/CommandPalette';
@@ -10,6 +11,8 @@ import { CookieConsent } from '@/components/layout/CookieConsent';
 import { clearUrlHash } from '@/lib/utils/hash-sync';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
 
   useEffect(() => {
@@ -26,8 +29,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <div className="lg:pl-56 flex min-h-screen flex-col flex-1">
         <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
-        {/* Spacious, Uncluttered Central Canvas */}
-        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7">
+        {/* Spacious Central Canvas (Full Bleed on Homepage for edge-to-edge banner) */}
+        <main
+          className={
+            isHomePage
+              ? 'flex-1 w-full flex flex-col'
+              : 'flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7'
+          }
+        >
           {children}
         </main>
 

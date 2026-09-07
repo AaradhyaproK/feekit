@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import geoMatrix from '@/data/geo-matrix.json';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { formatCurrency } from '@/lib/utils/formatters';
+import { formatCurrency, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FaqSchema } from '@/components/seo/FaqSchema';
 import { STATE_SOURCES } from '@/lib/seo/sources';
@@ -19,6 +19,7 @@ import {
   HelpCircle,
   AlertTriangle,
   ExternalLink,
+  X,
 } from 'lucide-react';
 
 export interface StateTaxData {
@@ -321,7 +322,7 @@ export function SalesTaxCalculator({
   className = '',
 }: SalesTaxCalculatorProps) {
   const [selectedSlug, setSelectedSlug] = useState<string>(stateSlug.toLowerCase());
-  const [amount, setAmount] = useState<number>(initialAmount);
+  const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '250');
   const [direction, setDirection] = useState<'add_tax' | 'remove_tax'>(initialDirection);
   const [includeMaxLocal, setIncludeMaxLocal] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
@@ -333,7 +334,7 @@ export function SalesTaxCalculator({
 
   // Active rate based on local tax toggle
   const appliedRate = includeMaxLocal ? currentState.maxLocal : currentState.rate;
-  const numAmount = Number(amount) || 0;
+  const numAmount = parseNumericValue(amount, 0);
 
   // Tax calculations
   let netSubtotal = 0;
@@ -438,14 +439,25 @@ Calculated via: https://usefeekit.com/tools/sales-tax-calculator/${currentState.
               </span>
               <input
                 id="sales-tax-amount-input"
-                type="number"
-                min="0"
-                step="any"
-                value={amount === 0 ? '' : amount}
-                onChange={(e) => setAmount(Number(e.target.value))}
+                type="text"
+                inputMode="decimal"
+                autoComplete="off"
+                value={amount}
+                onFocus={(e) => e.target.select()}
+                onChange={(e) => setAmount(cleanNumberInput(e.target.value))}
                 placeholder="0.00"
                 className="w-full bg-transparent py-3 pl-3 pr-2 font-mono text-xl sm:text-2xl font-extrabold text-slate-900 placeholder-slate-400 focus:outline-none"
               />
+              {amount !== '' && (
+                <button
+                  type="button"
+                  onClick={() => setAmount('')}
+                  aria-label="Clear amount"
+                  className="shrink-0 text-slate-400 hover:text-slate-600 transition-colors p-1"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -457,9 +469,9 @@ Calculated via: https://usefeekit.com/tools/sales-tax-calculator/${currentState.
             <button
               key={preset}
               type="button"
-              onClick={() => setAmount(preset)}
+              onClick={() => setAmount(String(preset))}
               className={`px-2.5 py-1 rounded-lg text-xs font-mono font-medium border transition-all ${
-                amount === preset
+                numAmount === preset
                   ? 'bg-blue-50 border-blue-400 text-blue-700 font-bold shadow-xs'
                   : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
               }`}

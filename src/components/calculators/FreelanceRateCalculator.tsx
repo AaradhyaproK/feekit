@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { calculateFreelanceRate } from '@/lib/engines/freelance-rate';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { formatCurrency } from '@/lib/utils/formatters';
+import { formatCurrency, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { decodeHashData } from '@/lib/utils/hash-sync';
-import { Check, Copy, FileCheck } from 'lucide-react';
+import { Check, Copy, FileCheck, X } from 'lucide-react';
 
 interface FreelanceRateCalculatorProps {
   initialRole?: string;
@@ -21,11 +21,11 @@ export function FreelanceRateCalculator({
   currencySymbol = '$',
 }: FreelanceRateCalculatorProps) {
   const [role, setRole] = useState<string>(initialRole);
-  const [netIncome, setNetIncome] = useState<number>(initialNet);
+  const [netIncome, setNetIncome] = useState<string>(initialNet !== undefined ? String(initialNet) : '95000');
   const [billableHours, setBillableHours] = useState<number>(25);
-  const [workingWeeks, setWorkingWeeks] = useState<number>(48);
-  const [overhead, setOverhead] = useState<number>(initialOverhead);
-  const [taxRate, setTaxRate] = useState<number>(0.28);
+  const [workingWeeks, setWorkingWeeks] = useState<string>('48');
+  const [overhead, setOverhead] = useState<string>(initialOverhead !== undefined ? String(initialOverhead) : '10000');
+  const [taxRate, setTaxRate] = useState<string>('28');
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
@@ -39,20 +39,20 @@ export function FreelanceRateCalculator({
     }>();
     if (saved) {
       if (saved.role) setRole(saved.role);
-      if (typeof saved.net === 'number') setNetIncome(saved.net);
+      if (typeof saved.net === 'number') setNetIncome(String(saved.net));
       if (typeof saved.hours === 'number') setBillableHours(saved.hours);
-      if (typeof saved.weeks === 'number') setWorkingWeeks(saved.weeks);
-      if (typeof saved.overhead === 'number') setOverhead(saved.overhead);
-      if (typeof saved.tax === 'number') setTaxRate(saved.tax);
+      if (typeof saved.weeks === 'number') setWorkingWeeks(String(saved.weeks));
+      if (typeof saved.overhead === 'number') setOverhead(String(saved.overhead));
+      if (typeof saved.tax === 'number') setTaxRate(String(Math.round(saved.tax * 100)));
     }
   }, []);
 
   const result = calculateFreelanceRate({
-    desiredNetIncome: netIncome,
-    workingWeeksPerYear: workingWeeks,
+    desiredNetIncome: parseNumericValue(netIncome, 0),
+    workingWeeksPerYear: parseNumericValue(workingWeeks, 48),
     billableHoursPerWeek: billableHours,
-    annualOverhead: overhead,
-    taxRateEstimated: taxRate,
+    annualOverhead: parseNumericValue(overhead, 0),
+    taxRateEstimated: parseNumericValue(taxRate, 28) / 100,
     currencySymbol,
     roleTitle: role,
   });
@@ -79,19 +79,31 @@ export function FreelanceRateCalculator({
           <label htmlFor="freelance-target-net-income" className="block text-xs font-semibold text-slate-700 mb-2">
             Desired Annual Net Take-Home
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400 select-none">
               {currencySymbol}
             </span>
             <input
               id="freelance-target-net-income"
-              type="number"
-              min="0"
-              step="5000"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={netIncome}
-              onChange={(e) => setNetIncome(Number(e.target.value))}
-              className="w-full bg-transparent py-3 pl-9 pr-3 font-mono text-lg font-bold text-slate-900 focus:outline-none"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setNetIncome(cleanNumberInput(e.target.value))}
+              placeholder="0.00"
+              className="w-full bg-transparent py-3 pl-9 pr-10 font-mono text-lg font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {netIncome !== '' && (
+              <button
+                type="button"
+                onClick={() => setNetIncome('')}
+                aria-label="Clear net income"
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
           <span className="text-[11px] text-slate-500 mt-1 block">What hits your personal checking</span>
         </div>
@@ -100,19 +112,31 @@ export function FreelanceRateCalculator({
           <label htmlFor="freelance-annual-overhead" className="block text-xs font-semibold text-slate-700 mb-2">
             Annual Business Overhead & Tech
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400 select-none">
               {currencySymbol}
             </span>
             <input
               id="freelance-annual-overhead"
-              type="number"
-              min="0"
-              step="1000"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={overhead}
-              onChange={(e) => setOverhead(Number(e.target.value))}
-              className="w-full bg-transparent py-3 pl-9 pr-3 font-mono text-lg font-bold text-slate-900 focus:outline-none"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setOverhead(cleanNumberInput(e.target.value))}
+              placeholder="0.00"
+              className="w-full bg-transparent py-3 pl-9 pr-10 font-mono text-lg font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {overhead !== '' && (
+              <button
+                type="button"
+                onClick={() => setOverhead('')}
+                aria-label="Clear overhead"
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
           <span className="text-[11px] text-slate-500 mt-1 block">SaaS, hardware, health insurance</span>
         </div>
@@ -145,12 +169,13 @@ export function FreelanceRateCalculator({
           <div className="flex items-center gap-2 font-mono font-bold text-slate-900">
             <input
               id="freelance-working-weeks"
-              type="number"
-              min="30"
-              max="52"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={workingWeeks}
-              onChange={(e) => setWorkingWeeks(Number(e.target.value))}
-              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setWorkingWeeks(cleanNumberInput(e.target.value))}
+              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs focus:border-blue-600 focus:outline-none"
             />
             <span>wks</span>
           </div>
@@ -161,12 +186,13 @@ export function FreelanceRateCalculator({
           <div className="flex items-center gap-2 font-mono font-bold text-slate-900">
             <input
               id="freelance-tax-rate"
-              type="number"
-              min="10"
-              max="50"
-              value={Math.round(taxRate * 100)}
-              onChange={(e) => setTaxRate(Number(e.target.value) / 100)}
-              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
+              value={taxRate}
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setTaxRate(cleanNumberInput(e.target.value))}
+              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs focus:border-blue-600 focus:outline-none"
             />
             <span>%</span>
           </div>

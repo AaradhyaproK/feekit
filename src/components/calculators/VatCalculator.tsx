@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { formatCurrency } from '@/lib/utils/formatters';
+import { formatCurrency, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FaqSchema } from '@/components/seo/FaqSchema';
 import {
@@ -16,6 +16,7 @@ import {
   FileSpreadsheet,
   AlertTriangle,
   ExternalLink,
+  X,
 } from 'lucide-react';
 
 export interface VatCalculatorProps {
@@ -110,10 +111,10 @@ export function VatCalculator({
   currencySymbol = '£',
   className = '',
 }: VatCalculatorProps) {
-  const [amount, setAmount] = useState<number>(initialAmount);
+  const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '500');
   const [direction, setDirection] = useState<'add_tax' | 'remove_tax'>(initialDirection);
   const [ratePreset, setRatePreset] = useState<'standard' | 'reduced' | 'zero' | 'custom'>('standard');
-  const [customRate, setCustomRate] = useState<number>(20);
+  const [customRate, setCustomRate] = useState<string>('20');
   const [isReverseCharge, setIsReverseCharge] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
 
@@ -121,13 +122,13 @@ export function VatCalculator({
   let activeRate = 20;
   if (ratePreset === 'reduced') activeRate = 5;
   else if (ratePreset === 'zero') activeRate = 0;
-  else if (ratePreset === 'custom') activeRate = customRate;
+  else if (ratePreset === 'custom') activeRate = parseNumericValue(customRate, 0);
 
   if (isReverseCharge) {
     activeRate = 0;
   }
 
-  const numAmount = Number(amount) || 0;
+  const numAmount = parseNumericValue(amount, 0);
 
   // Compute tax amounts
   let netAmount = 0;
@@ -206,19 +207,30 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
               {direction === 'add_tax' ? 'Net Amount (Excluding VAT)' : 'Gross Amount (Including VAT)'}
             </label>
             <div className="relative rounded-xl shadow-xs">
-              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400 font-semibold text-base">
+              <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400 font-semibold text-base select-none">
                 {currencySymbol}
               </span>
               <input
                 id="vat-amount-input"
-                type="number"
-                min="0"
-                step="any"
-                value={amount || ''}
-                onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
-                placeholder="500.00"
-                className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-9 pr-4 text-base font-bold text-slate-900 placeholder:text-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                type="text"
+                inputMode="decimal"
+                autoComplete="off"
+                value={amount}
+                onFocus={(e) => e.target.select()}
+                onChange={(e) => setAmount(cleanNumberInput(e.target.value))}
+                placeholder="0.00"
+                className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-9 pr-10 text-base font-bold text-slate-900 placeholder:text-slate-300 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-100"
               />
+              {amount !== '' && (
+                <button
+                  type="button"
+                  onClick={() => setAmount('')}
+                  aria-label="Clear amount"
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 transition-colors"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
 
             {/* Quick Amount Pills */}
@@ -228,9 +240,9 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
                 <button
                   key={val}
                   type="button"
-                  onClick={() => setAmount(val)}
+                  onClick={() => setAmount(String(val))}
                   className={`tap-spring rounded-md border px-2 py-0.5 text-xs font-medium transition-all ${
-                    amount === val
+                    numAmount === val
                       ? 'border-blue-600 bg-blue-50 text-blue-700 font-semibold'
                       : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
                   }`}
@@ -319,12 +331,13 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
                 </label>
                 <input
                   id="custom-rate-input"
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="0.1"
+                  type="text"
+                  inputMode="decimal"
+                  autoComplete="off"
                   value={customRate}
-                  onChange={(e) => setCustomRate(parseFloat(e.target.value) || 0)}
+                  onFocus={(e) => e.target.select()}
+                  onChange={(e) => setCustomRate(cleanNumberInput(e.target.value))}
+                  placeholder="0"
                   className="w-24 rounded-lg border border-slate-300 px-2 py-1 text-xs font-bold text-slate-900 focus:border-blue-600 focus:outline-none"
                 />
                 <span className="text-xs text-slate-500">%</span>

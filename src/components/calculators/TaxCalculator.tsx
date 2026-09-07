@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { calculateTax, ALL_TAX_JURISDICTIONS, TaxDirection } from '@/lib/engines/tax-compliance';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { formatCurrency, formatPercent } from '@/lib/utils/formatters';
+import { formatCurrency, formatPercent, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { decodeHashData } from '@/lib/utils/hash-sync';
-import { Check, Copy, Info } from 'lucide-react';
+import { Check, Copy, Info, X } from 'lucide-react';
 
 interface TaxCalculatorProps {
   initialJurisdictionCode?: string;
@@ -21,7 +21,7 @@ export function TaxCalculator({
   currencySymbol = '$',
 }: TaxCalculatorProps) {
   const [jurisdictionCode, setJurisdictionCode] = useState<string>(initialJurisdictionCode);
-  const [amount, setAmount] = useState<number>(initialAmount);
+  const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '250');
   const [direction, setDirection] = useState<TaxDirection>(initialDirection);
   const [includeLocal, setIncludeLocal] = useState<boolean>(true);
   const [rateType, setRateType] = useState<'standard' | 'reduced'>('standard');
@@ -37,7 +37,7 @@ export function TaxCalculator({
       reverse?: boolean;
     }>();
     if (saved) {
-      if (typeof saved.amount === 'number') setAmount(saved.amount);
+      if (saved.amount !== undefined && saved.amount !== null) setAmount(String(saved.amount));
       if (saved.jurisdiction) setJurisdictionCode(saved.jurisdiction);
       if (saved.direction) setDirection(saved.direction);
       if (typeof saved.local === 'boolean') setIncludeLocal(saved.local);
@@ -49,7 +49,7 @@ export function TaxCalculator({
   const activeCurrency = jurisdiction.currencySymbol || currencySymbol;
 
   const result = calculateTax({
-    amount: Number(amount) || 0,
+    amount: parseNumericValue(amount, 0),
     direction,
     jurisdictionCode,
     includeLocalTax: includeLocal,
@@ -159,14 +159,25 @@ Calculated via: https://usefeekit.com`;
             </span>
             <input
               id="tax-amount-input"
-              type="number"
-              min="0"
-              step="any"
-              value={amount === 0 ? '' : amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
+              value={amount}
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setAmount(cleanNumberInput(e.target.value))}
               placeholder="0.00"
               className="w-full bg-transparent py-3 pl-3 pr-2 font-mono text-xl sm:text-2xl font-extrabold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {amount !== '' && (
+              <button
+                type="button"
+                onClick={() => setAmount('')}
+                aria-label="Clear amount"
+                className="shrink-0 text-slate-400 hover:text-slate-600 transition-colors p-1"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
         </div>
       </div>

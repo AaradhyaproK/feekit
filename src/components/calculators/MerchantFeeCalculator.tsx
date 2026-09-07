@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { calculateMerchantFee, PaymentGatewayId, CalculationDirection, GATEWAYS } from '@/lib/engines/merchant-fee';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { formatCurrency, formatPercent } from '@/lib/utils/formatters';
+import { formatCurrency, formatPercent, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { decodeHashData } from '@/lib/utils/hash-sync';
-import { Check, Copy } from 'lucide-react';
+import { Check, Copy, X } from 'lucide-react';
 
 interface MerchantFeeCalculatorProps {
   initialGateway?: PaymentGatewayId;
@@ -23,7 +23,7 @@ export function MerchantFeeCalculator({
   currencySymbol = '$',
 }: MerchantFeeCalculatorProps) {
   const [gateway, setGateway] = useState<PaymentGatewayId>(initialGateway);
-  const [amount, setAmount] = useState<number>(initialAmount);
+  const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '1000');
   const [direction, setDirection] = useState<CalculationDirection>(initialDirection);
   const [isInternational, setIsInternational] = useState<boolean>(initialInternational);
   const [applyFx, setApplyFx] = useState<boolean>(false);
@@ -38,7 +38,7 @@ export function MerchantFeeCalculator({
       fx?: boolean;
     }>();
     if (saved) {
-      if (typeof saved.amount === 'number') setAmount(saved.amount);
+      if (saved.amount !== undefined && saved.amount !== null) setAmount(String(saved.amount));
       if (saved.gateway) setGateway(saved.gateway);
       if (saved.direction) setDirection(saved.direction);
       if (typeof saved.intl === 'boolean') setIsInternational(saved.intl);
@@ -46,8 +46,10 @@ export function MerchantFeeCalculator({
     }
   }, []);
 
+  const numericAmount = parseNumericValue(amount, 0);
+
   const result = calculateMerchantFee({
-    amount: Number(amount) || 0,
+    amount: numericAmount,
     gatewayId: gateway,
     direction,
     isInternational,
@@ -139,34 +141,52 @@ Calculated on: https://usefeekit.com`;
           <label htmlFor="transaction-amount-input" className="block text-xs font-semibold text-slate-700 mb-2">
             {direction === 'forward' ? 'Invoice / Transaction Amount' : 'Target Net Payout Needed in Bank'}
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-mono text-base font-bold text-slate-400 select-none">
               {currencySymbol}
             </span>
             <input
               id="transaction-amount-input"
-              type="number"
-              min="0"
-              step="any"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
-              className="w-full bg-transparent py-3 pl-9 pr-4 font-mono text-lg font-bold text-slate-900 focus:outline-none"
-              placeholder="1000.00"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setAmount(cleanNumberInput(e.target.value))}
+              className="w-full bg-transparent py-3 pl-9 pr-10 font-mono text-lg font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
+              placeholder="0.00"
             />
+            {amount !== '' && (
+              <button
+                type="button"
+                onClick={() => setAmount('')}
+                aria-label="Clear amount"
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
         </div>
 
         <div className="md:col-span-6 flex gap-2">
-          {[100, 500, 1000, 5000].map((preset) => (
-            <button
-              key={preset}
-              type="button"
-              onClick={() => setAmount(preset)}
-              className="tap-spring flex-1 rounded-xl border border-slate-200 bg-slate-50 py-2.5 text-xs font-mono font-bold text-slate-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-colors"
-            >
-              {currencySymbol}{preset.toLocaleString()}
-            </button>
-          ))}
+          {[100, 500, 1000, 5000].map((preset) => {
+            const isSelected = numericAmount === preset;
+            return (
+              <button
+                key={preset}
+                type="button"
+                onClick={() => setAmount(String(preset))}
+                className={`tap-spring flex-1 rounded-xl border py-2.5 text-xs font-mono font-bold transition-colors ${
+                  isSelected
+                    ? 'border-blue-500 bg-blue-50/70 text-blue-700 shadow-xs'
+                    : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700'
+                }`}
+              >
+                {currencySymbol}{preset.toLocaleString()}
+              </button>
+            );
+          })}
         </div>
       </div>
 

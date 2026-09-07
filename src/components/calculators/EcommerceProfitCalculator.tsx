@@ -7,9 +7,9 @@ import {
   ECOMMERCE_PLATFORMS,
 } from '@/lib/engines/ecommerce-profit';
 import { MetricCard } from '@/components/ui/MetricCard';
-import { formatCurrency, formatPercent } from '@/lib/utils/formatters';
+import { formatCurrency, formatPercent, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { decodeHashData } from '@/lib/utils/hash-sync';
-import { Check, Copy } from 'lucide-react';
+import { Check, Copy, X } from 'lucide-react';
 
 interface EcommerceProfitCalculatorProps {
   initialPlatform?: EcommercePlatform;
@@ -31,11 +31,11 @@ export function EcommerceProfitCalculator({
   currencySymbol = '$',
 }: EcommerceProfitCalculatorProps) {
   const [platform, setPlatform] = useState<EcommercePlatform>(initialPlatform);
-  const [price, setPrice] = useState<number>(initialPrice);
-  const [cogs, setCogs] = useState<number>(initialCogs);
-  const [freight, setFreight] = useState<number>(initialFreight);
-  const [prep, setPrep] = useState<number>(initialPrep);
-  const [adSpend, setAdSpend] = useState<number>(initialAdSpend);
+  const [price, setPrice] = useState<string>(initialPrice !== undefined ? String(initialPrice) : '49.99');
+  const [cogs, setCogs] = useState<string>(initialCogs !== undefined ? String(initialCogs) : '12.00');
+  const [freight, setFreight] = useState<string>(initialFreight !== undefined ? String(initialFreight) : '2.50');
+  const [prep, setPrep] = useState<string>(initialPrep !== undefined ? String(initialPrep) : '1.00');
+  const [adSpend, setAdSpend] = useState<string>(initialAdSpend !== undefined ? String(initialAdSpend) : '10.00');
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
@@ -49,20 +49,20 @@ export function EcommerceProfitCalculator({
     }>();
     if (saved) {
       if (saved.platform) setPlatform(saved.platform);
-      if (typeof saved.price === 'number') setPrice(saved.price);
-      if (typeof saved.cogs === 'number') setCogs(saved.cogs);
-      if (typeof saved.freight === 'number') setFreight(saved.freight);
-      if (typeof saved.prep === 'number') setPrep(saved.prep);
-      if (typeof saved.ad === 'number') setAdSpend(saved.ad);
+      if (typeof saved.price === 'number') setPrice(String(saved.price));
+      if (typeof saved.cogs === 'number') setCogs(String(saved.cogs));
+      if (typeof saved.freight === 'number') setFreight(String(saved.freight));
+      if (typeof saved.prep === 'number') setPrep(String(saved.prep));
+      if (typeof saved.ad === 'number') setAdSpend(String(saved.ad));
     }
   }, []);
 
   const result = calculateEcommerceProfit({
-    sellingPrice: price,
-    productCost: cogs,
-    shippingToWarehouse: freight,
-    packagingPrepCost: prep,
-    adSpendPerUnit: adSpend,
+    sellingPrice: parseNumericValue(price, 0),
+    productCost: parseNumericValue(cogs, 0),
+    shippingToWarehouse: parseNumericValue(freight, 0),
+    packagingPrepCost: parseNumericValue(prep, 0),
+    adSpendPerUnit: parseNumericValue(adSpend, 0),
     platform,
     currencySymbol,
   });
@@ -73,7 +73,7 @@ Retail Price: ${currencySymbol}${result.sellingPrice.toFixed(2)}
 Landed Cost (COGS + Freight + Prep): ${currencySymbol}${result.landedCost.toFixed(2)}
 Platform Fees: -${currencySymbol}${result.platformFees.toFixed(2)}
 Fulfillment: -${currencySymbol}${result.fulfillmentFees.toFixed(2)}
-Ad Spend (CAC): -${currencySymbol}${adSpend.toFixed(2)}
+Ad Spend (CAC): -${currencySymbol}${parseNumericValue(adSpend, 0).toFixed(2)}
 Net Profit / Unit: ${currencySymbol}${result.netProfitPerUnit.toFixed(2)} (${result.netMarginPercentage.toFixed(2)}% margin)
 Break-Even ROAS Target: ${result.breakEvenRoas.toFixed(2)}x
 Calculated via: https://usefeekit.com`;
@@ -118,19 +118,31 @@ Calculated via: https://usefeekit.com`;
           <label htmlFor="ecom-selling-price" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Retail Price
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono select-none">
               {currencySymbol}
             </span>
             <input
               id="ecom-selling-price"
-              type="number"
-              min="0"
-              step="any"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={price}
-              onChange={(e) => setPrice(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setPrice(cleanNumberInput(e.target.value))}
+              placeholder="0.00"
+              className="w-full bg-transparent py-2.5 pl-8 pr-7 font-mono text-base font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {price !== '' && (
+              <button
+                type="button"
+                onClick={() => setPrice('')}
+                aria-label="Clear retail price"
+                className="absolute inset-y-0 right-0 flex items-center pr-2 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
           </div>
         </div>
 
@@ -138,19 +150,31 @@ Calculated via: https://usefeekit.com`;
           <label htmlFor="ecom-cogs" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Product COGS
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono select-none">
               {currencySymbol}
             </span>
             <input
               id="ecom-cogs"
-              type="number"
-              min="0"
-              step="any"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={cogs}
-              onChange={(e) => setCogs(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setCogs(cleanNumberInput(e.target.value))}
+              placeholder="0.00"
+              className="w-full bg-transparent py-2.5 pl-8 pr-7 font-mono text-base font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {cogs !== '' && (
+              <button
+                type="button"
+                onClick={() => setCogs('')}
+                aria-label="Clear product cost"
+                className="absolute inset-y-0 right-0 flex items-center pr-2 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
           </div>
         </div>
 
@@ -158,19 +182,31 @@ Calculated via: https://usefeekit.com`;
           <label htmlFor="ecom-freight-cost" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Landed Freight
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono select-none">
               {currencySymbol}
             </span>
             <input
               id="ecom-freight-cost"
-              type="number"
-              min="0"
-              step="any"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={freight}
-              onChange={(e) => setFreight(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setFreight(cleanNumberInput(e.target.value))}
+              placeholder="0.00"
+              className="w-full bg-transparent py-2.5 pl-8 pr-7 font-mono text-base font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {freight !== '' && (
+              <button
+                type="button"
+                onClick={() => setFreight('')}
+                aria-label="Clear freight cost"
+                className="absolute inset-y-0 right-0 flex items-center pr-2 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
           </div>
         </div>
 
@@ -178,19 +214,31 @@ Calculated via: https://usefeekit.com`;
           <label htmlFor="ecom-packaging-cost" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Prep & Packaging
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono select-none">
               {currencySymbol}
             </span>
             <input
               id="ecom-packaging-cost"
-              type="number"
-              min="0"
-              step="any"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={prep}
-              onChange={(e) => setPrep(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-2 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setPrep(cleanNumberInput(e.target.value))}
+              placeholder="0.00"
+              className="w-full bg-transparent py-2.5 pl-8 pr-7 font-mono text-base font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {prep !== '' && (
+              <button
+                type="button"
+                onClick={() => setPrep('')}
+                aria-label="Clear packaging cost"
+                className="absolute inset-y-0 right-0 flex items-center pr-2 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
           </div>
         </div>
 
@@ -198,19 +246,31 @@ Calculated via: https://usefeekit.com`;
           <label htmlFor="ecom-ad-spend" className="block text-xs font-semibold text-slate-700 mb-1.5">
             Target CAC / Ad Spend
           </label>
-          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 shadow-xs">
-            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono">
+          <div className="relative rounded-xl border border-slate-300 bg-white focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 shadow-xs transition-all">
+            <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-bold text-slate-400 font-mono select-none">
               {currencySymbol}
             </span>
             <input
               id="ecom-ad-spend"
-              type="number"
-              min="0"
-              step="any"
+              type="text"
+              inputMode="decimal"
+              autoComplete="off"
               value={adSpend}
-              onChange={(e) => setAdSpend(Number(e.target.value))}
-              className="w-full bg-transparent py-2.5 pl-8 pr-3 font-mono text-base font-bold text-slate-900 focus:outline-none"
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => setAdSpend(cleanNumberInput(e.target.value))}
+              placeholder="0.00"
+              className="w-full bg-transparent py-2.5 pl-8 pr-7 font-mono text-base font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
             />
+            {adSpend !== '' && (
+              <button
+                type="button"
+                onClick={() => setAdSpend('')}
+                aria-label="Clear ad spend"
+                className="absolute inset-y-0 right-0 flex items-center pr-2 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
           </div>
         </div>
       </div>

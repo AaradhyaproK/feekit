@@ -109,11 +109,6 @@ export default function FeeKitHome() {
       subtitle: 'Stripe, PayPal, Wise & Square',
       description: 'USA 2.9% + $0.30, UK 1.5% + 20p, micropayments & reverse invoice payout calculations',
       badge: '40+ Gateways',
-      gradient: 'from-indigo-500 via-blue-600 to-violet-600',
-      activeBorder: 'border-indigo-600 ring-4 ring-indigo-500/10 shadow-lg shadow-indigo-500/5',
-      activeBg: 'bg-gradient-to-b from-indigo-50/50 via-white to-white',
-      badgeClass: 'bg-indigo-50 text-indigo-700 border-indigo-200/80',
-      badgeDot: 'bg-indigo-500',
       indicatorText: 'Live Gateway Engine',
     },
     {
@@ -123,11 +118,6 @@ export default function FeeKitHome() {
       subtitle: '50 States Sales Tax & HMRC VAT',
       description: '50 US States Sales Tax with district surtax caps + UK HMRC VAT 20% Standard & 5% Reduced',
       badge: '50 States + UK',
-      gradient: 'from-emerald-500 via-teal-600 to-emerald-700',
-      activeBorder: 'border-emerald-600 ring-4 ring-emerald-500/10 shadow-lg shadow-emerald-500/5',
-      activeBg: 'bg-gradient-to-b from-emerald-50/50 via-white to-white',
-      badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200/80',
-      badgeDot: 'bg-emerald-500',
       indicatorText: 'Live Tax Engine',
     },
     {
@@ -137,11 +127,6 @@ export default function FeeKitHome() {
       subtitle: 'Hourly, Day Rate & SECA Tax',
       badge: '25 Roles',
       description: 'Minimum hourly rate, 8h day rates, 15.3% SECA self-employment tax & client invoice proposal formatter',
-      gradient: 'from-amber-500 via-orange-500 to-amber-600',
-      activeBorder: 'border-amber-600 ring-4 ring-amber-500/10 shadow-lg shadow-amber-500/5',
-      activeBg: 'bg-gradient-to-b from-amber-50/50 via-white to-white',
-      badgeClass: 'bg-amber-50 text-amber-800 border-amber-200/80',
-      badgeDot: 'bg-amber-500',
       indicatorText: 'Live 1099 Engine',
     },
     {
@@ -151,11 +136,6 @@ export default function FeeKitHome() {
       subtitle: 'Amazon FBA, Shopify & ROAS',
       badge: '20 Niches',
       description: 'Amazon FBA, Shopify DTC, Etsy unit economics, landed COGS, and break-even ROAS targets',
-      gradient: 'from-blue-500 via-cyan-500 to-blue-700',
-      activeBorder: 'border-blue-600 ring-4 ring-blue-500/10 shadow-lg shadow-blue-500/5',
-      activeBg: 'bg-gradient-to-b from-blue-50/50 via-white to-white',
-      badgeClass: 'bg-blue-50 text-blue-700 border-blue-200/80',
-      badgeDot: 'bg-blue-500',
       indicatorText: 'Live ROAS Engine',
     },
   ];
@@ -261,24 +241,19 @@ export default function FeeKitHome() {
                 key={s.id}
                 type="button"
                 onClick={() => setActiveSuite(s.id)}
-                className={`group relative flex flex-col justify-between rounded-2xl border p-4 sm:p-5 text-left transition-all duration-200 cursor-pointer overflow-hidden ${
+                className={`group relative flex flex-col justify-between rounded-2xl border p-4 sm:p-5 text-left transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? `${s.activeBorder} ${s.activeBg} -translate-y-0.5`
+                    ? 'border-blue-600 bg-white ring-2 ring-blue-600/20 shadow-md -translate-y-0.5'
                     : 'border-slate-200/90 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5'
                 }`}
               >
-                {/* Glowing Top Accent Line for Active State */}
-                {isSelected && (
-                  <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${s.gradient}`} />
-                )}
-
-                {/* Top Row: Creative Icon & Dynamic Status Badge */}
+                {/* Top Row: Icon & Status Badge */}
                 <div className="flex items-start justify-between gap-2.5 mb-3.5">
                   <div
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-all duration-200 ${
                       isSelected
-                        ? `${s.badgeClass} shadow-xs ring-2 ring-current/20 scale-105`
-                        : 'border-slate-200/80 bg-slate-50/70 group-hover:border-slate-300 group-hover:bg-white group-hover:shadow-2xs group-hover:scale-105'
+                        ? 'border-blue-200 bg-blue-50/80 shadow-xs ring-2 ring-blue-500/15'
+                        : 'border-slate-200/80 bg-slate-50/70 group-hover:border-slate-300 group-hover:bg-white group-hover:shadow-2xs'
                     }`}
                   >
                     <Icon className="h-8 w-8 transition-transform duration-200" isActive={isSelected} />
@@ -287,13 +262,13 @@ export default function FeeKitHome() {
                   <span
                     className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold tracking-tight transition-colors shadow-2xs ${
                       isSelected
-                        ? `${s.badgeClass} ring-1 ring-inset ring-current/10`
+                        ? 'border-blue-200 bg-blue-50 text-blue-700'
                         : 'border-slate-200 bg-slate-50 text-slate-600 group-hover:border-slate-300 group-hover:bg-white group-hover:text-slate-900'
                     }`}
                   >
                     <span
                       className={`h-1.5 w-1.5 rounded-full ${
-                        isSelected ? `${s.badgeDot} animate-pulse` : 'bg-slate-400'
+                        isSelected ? 'bg-blue-600 animate-pulse' : 'bg-slate-400'
                       }`}
                     />
                     <span>{s.badge}</span>
@@ -302,7 +277,9 @@ export default function FeeKitHome() {
 
                 {/* Middle: Title & Subtitle */}
                 <div className="space-y-1 min-w-0">
-                  <h3 className="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight leading-snug group-hover:text-blue-600 transition-colors">
+                  <h3 className={`text-sm sm:text-base font-extrabold tracking-tight leading-snug transition-colors ${
+                    isSelected ? 'text-blue-600' : 'text-slate-900 group-hover:text-blue-600'
+                  }`}>
                     {s.name}
                   </h3>
                   <p className="text-xs font-semibold text-slate-500 group-hover:text-slate-700 transition-colors">
@@ -316,9 +293,9 @@ export default function FeeKitHome() {
                 {/* Bottom Row: Active Indicator / Quick Switch Cue */}
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                   {isSelected ? (
-                    <span className="inline-flex items-center gap-1.5 font-bold text-slate-900">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                      <span className="text-[11px] sm:text-xs text-slate-800">{s.indicatorText}</span>
+                    <span className="inline-flex items-center gap-1.5 font-bold text-blue-700">
+                      <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                      <span className="text-[11px] sm:text-xs">{s.indicatorText}</span>
                     </span>
                   ) : (
                     <span className="inline-flex items-center gap-1 font-semibold text-slate-400 group-hover:text-blue-600 transition-colors text-[11px] sm:text-xs">
@@ -326,7 +303,9 @@ export default function FeeKitHome() {
                       <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   )}
-                  <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
+                  <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
+                    isSelected ? 'text-blue-500' : 'text-slate-400'
+                  }`}>
                     2026 Live
                   </span>
                 </div>

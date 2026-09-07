@@ -5,7 +5,19 @@ import { calculateMerchantFee, PaymentGatewayId, CalculationDirection, GATEWAYS 
 import { MetricCard } from '@/components/ui/MetricCard';
 import { formatCurrency, formatPercent, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { decodeHashData } from '@/lib/utils/hash-sync';
-import { Check, Copy, X } from 'lucide-react';
+import { GatewayLogo } from '@/components/ui/GatewayLogos';
+import {
+  Check,
+  Copy,
+  X,
+  Globe2,
+  ArrowRightLeft,
+  ShieldCheck,
+  TrendingUp,
+  ArrowUpRight,
+  TrendingDown,
+  Info,
+} from 'lucide-react';
 
 interface MerchantFeeCalculatorProps {
   initialGateway?: PaymentGatewayId;
@@ -15,6 +27,8 @@ interface MerchantFeeCalculatorProps {
   currencySymbol?: string;
   embedded?: boolean;
 }
+
+const PRESET_AMOUNTS = [100, 500, 1000, 5000];
 
 export function MerchantFeeCalculator({
   initialGateway = 'stripe',
@@ -58,30 +72,34 @@ export function MerchantFeeCalculator({
     applyCurrencyConversion: applyFx,
   });
 
+  const activeGatewayConfig = GATEWAYS[gateway];
+
   const handleCopyBreakdown = () => {
-    const text = `FeeKit Calculation (${GATEWAYS[gateway].name}):
-Gross Invoice: ${currencySymbol}${result.grossAmount.toFixed(2)}
-Processing Fee: -${currencySymbol}${result.totalFee.toFixed(2)} (${result.effectiveFeeRate.toFixed(2)}%)
+    const text = `FeeKit Calculation (${activeGatewayConfig.name}):
+Calculation Mode: ${direction === 'forward' ? 'Forward (Charge $X → Net)' : 'Reverse (Need $X → Charge)'}
+You Invoice Client: ${currencySymbol}${result.grossAmount.toFixed(2)}
+Processing Fee: -${currencySymbol}${result.totalFee.toFixed(2)} (${result.effectiveFeeRate.toFixed(2)}% effective)
 Net In-Bank Payout: ${currencySymbol}${result.netAmount.toFixed(2)}
-Mode: ${direction === 'forward' ? 'Forward (Charge X, get Y)' : 'Reverse (To get X, charge Y)'}
-Calculated on: https://usefeekit.com`;
+Parameters: ${isInternational ? 'International Card (+1.5%)' : 'Domestic'}, ${applyFx ? 'FX Conversion Included' : 'No FX'}
+Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
-      {/* Direction & Calculation Mode Switcher */}
+    <div className={embedded ? 'space-y-6' : 'rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm'}>
+      {/* 1. Mode Switcher (Forward vs Reverse) */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Mode:</span>
           <span className="font-bold text-slate-900 truncate">
-            {direction === 'forward' ? 'Forward (Charge $X → Net)' : 'Reverse (Need $X → Charge)'}
+            {direction === 'forward'
+              ? 'Forward (Charge $X → Net Received in Bank)'
+              : 'Reverse (Target Net $X → Client Invoice)'}
           </span>
         </div>
 
-        {/* Direction Switcher Pill */}
         <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200">
           <button
             type="button"
@@ -108,37 +126,62 @@ Calculated on: https://usefeekit.com`;
         </div>
       </div>
 
-      {/* Gateway Selector Tabs with Smooth Touch Scroll */}
-      <div className="mt-4 sm:mt-5 w-full min-w-0 max-w-full overflow-x-auto py-1 scrollbar-none flex gap-2 no-scrollbar smooth-scroll-x">
-        {(Object.keys(GATEWAYS) as PaymentGatewayId[]).map((id) => {
-          const g = GATEWAYS[id];
-          const isSelected = gateway === id;
-          return (
-            <button
-              key={id}
-              type="button"
-              onClick={() => setGateway(id)}
-              className={`tap-spring shrink-0 whitespace-nowrap group flex items-center gap-2 rounded-xl border px-3 sm:px-3.5 py-2 text-xs font-bold transition-all ${
-                isSelected
-                  ? 'border-blue-500 bg-blue-50/70 text-blue-700 shadow-xs'
-                  : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
-              }`}
-            >
-              <span>{g.name}</span>
-              {g.badge && (
-                <span className={`rounded px-1.5 py-0.5 text-[9px] font-extrabold uppercase ${
-                  g.badge === 'Lowest Fee' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'
-                }`}>
-                  {g.badge}
-                </span>
-              )}
-            </button>
-          );
-        })}
+      {/* 2. Gateway Selector Cards with Authentic Brand Logos */}
+      <div className="space-y-2 pt-1">
+        <div className="flex items-center justify-between text-xs font-semibold text-slate-700">
+          <span>Select Payment Gateway</span>
+          <span className="text-[11px] text-slate-400 font-normal">Compare domestic & cross-border schedules</span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
+          {(Object.keys(GATEWAYS) as PaymentGatewayId[]).map((id) => {
+            const g = GATEWAYS[id];
+            const isSelected = gateway === id;
+            return (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setGateway(id)}
+                className={`tap-spring relative flex items-center gap-2.5 rounded-xl border p-2.5 sm:p-3 text-left transition-all ${
+                  isSelected
+                    ? 'border-blue-600 bg-blue-50/70 text-blue-950 ring-2 ring-blue-100 shadow-xs font-bold'
+                    : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50/70'
+                }`}
+              >
+                <div className="shrink-0 transition-transform duration-200 group-hover:scale-105">
+                  <GatewayLogo gatewayId={id} size={24} className="h-6 w-6 rounded-md shadow-2xs" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="truncate text-xs font-bold text-slate-900 leading-tight">
+                    {g.name}
+                  </div>
+                  {g.badge ? (
+                    <span
+                      className={`inline-block mt-0.5 rounded px-1.5 py-0.2 text-[9px] font-extrabold uppercase tracking-wide ${
+                        g.badge === 'Lowest Fee'
+                          ? 'bg-emerald-100 text-emerald-800'
+                          : 'bg-blue-100 text-blue-800'
+                      }`}
+                    >
+                      {g.badge}
+                    </span>
+                  ) : (
+                    <span className="text-[10px] text-slate-400 font-normal truncate block">
+                      {formatPercent(g.percentageRate * 100)} + {formatCurrency(g.fixedFee, currencySymbol)}
+                    </span>
+                  )}
+                </div>
+                {isSelected && (
+                  <span className="absolute top-1.5 right-1.5 flex h-2 w-2 rounded-full bg-blue-600 ring-2 ring-white" />
+                )}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Input Form Fields */}
-      <div className="mt-5 sm:mt-6 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 items-end">
+      {/* 3. Transaction Amount Input & Quick Selectors */}
+      <div className="mt-5 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 items-end">
         <div className="md:col-span-6">
           <label htmlFor="transaction-amount-input" className="block text-xs font-semibold text-slate-700 mb-2">
             {direction === 'forward' ? 'Invoice / Transaction Amount' : 'Target Net Payout Needed in Bank'}
@@ -171,29 +214,35 @@ Calculated on: https://usefeekit.com`;
           </div>
         </div>
 
-        <div className="md:col-span-6 flex gap-2">
-          {[100, 500, 1000, 5000].map((preset) => {
-            const isSelected = numericAmount === preset;
-            return (
-              <button
-                key={preset}
-                type="button"
-                onClick={() => setAmount(String(preset))}
-                className={`tap-spring flex-1 rounded-xl border py-2.5 text-xs font-mono font-bold transition-colors ${
-                  isSelected
-                    ? 'border-blue-500 bg-blue-50/70 text-blue-700 shadow-xs'
-                    : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700'
-                }`}
-              >
-                {currencySymbol}{preset.toLocaleString()}
-              </button>
-            );
-          })}
+        {/* Quick Amount Pills */}
+        <div className="md:col-span-6">
+          <label className="block text-xs font-semibold text-slate-700 mb-2">
+            Standard Volume Benchmarks
+          </label>
+          <div className="grid grid-cols-4 gap-2">
+            {PRESET_AMOUNTS.map((preset) => {
+              const isSelected = numericAmount === preset;
+              return (
+                <button
+                  key={preset}
+                  type="button"
+                  onClick={() => setAmount(String(preset))}
+                  className={`tap-spring rounded-xl border py-2.5 text-xs font-mono font-bold transition-all text-center ${
+                    isSelected
+                      ? 'border-blue-600 bg-blue-50 text-blue-700 shadow-xs ring-2 ring-blue-100'
+                      : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-white hover:border-slate-300 hover:text-slate-900'
+                  }`}
+                >
+                  {currencySymbol}{preset.toLocaleString()}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      {/* Checkbox Options */}
-      <div className="mt-5 flex flex-wrap gap-4 pt-4 border-t border-slate-200 text-xs">
+      {/* 4. Cross-Border & Foreign Exchange Options */}
+      <div className="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap gap-4 sm:gap-6 text-xs">
         <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700 hover:text-slate-900 font-medium">
           <input
             type="checkbox"
@@ -201,7 +250,12 @@ Calculated on: https://usefeekit.com`;
             onChange={(e) => setIsInternational(e.target.checked)}
             className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
           />
-          <span>International / Foreign Card (+{formatPercent(GATEWAYS[gateway].intlExtraPercentage * 100)})</span>
+          <span className="flex items-center gap-1.5">
+            <Globe2 className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+            <span>
+              International / Foreign Card (+{formatPercent(activeGatewayConfig.intlExtraPercentage * 100)})
+            </span>
+          </span>
         </label>
 
         <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700 hover:text-slate-900 font-medium">
@@ -211,12 +265,17 @@ Calculated on: https://usefeekit.com`;
             onChange={(e) => setApplyFx(e.target.checked)}
             className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
           />
-          <span>Currency Conversion Markup (+{formatPercent(GATEWAYS[gateway].currencyConversionRate * 100)})</span>
+          <span className="flex items-center gap-1.5">
+            <ArrowRightLeft className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+            <span>
+              Currency Conversion Spread (+{formatPercent(activeGatewayConfig.currencyConversionRate * 100)})
+            </span>
+          </span>
         </label>
       </div>
 
-      {/* Dynamic Results Grid */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* 5. Results Stat Cards */}
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <MetricCard
           label={direction === 'forward' ? 'You Invoice Client' : 'Total Amount to Charge'}
           value={formatCurrency(result.grossAmount, currencySymbol)}
@@ -227,7 +286,7 @@ Calculated on: https://usefeekit.com`;
         <MetricCard
           label="Total Processing Deductions"
           value={`-${formatCurrency(result.totalFee, currencySymbol)}`}
-          subtext={`${formatPercent((GATEWAYS[gateway].percentageRate + (isInternational ? GATEWAYS[gateway].intlExtraPercentage : 0) + (applyFx ? GATEWAYS[gateway].currencyConversionRate : 0)) * 100)} + ${formatCurrency(GATEWAYS[gateway].fixedFee, currencySymbol)} fixed`}
+          subtext={`${formatPercent((activeGatewayConfig.percentageRate + (isInternational ? activeGatewayConfig.intlExtraPercentage : 0) + (applyFx ? activeGatewayConfig.currencyConversionRate : 0)) * 100)} + ${formatCurrency(activeGatewayConfig.fixedFee, currencySymbol)} fixed`}
           accent="rose"
         />
 
@@ -246,56 +305,68 @@ Calculated on: https://usefeekit.com`;
         />
       </div>
 
-      {/* Visual Fee Deduction Bar */}
+      {/* 6. Visual Waterfall Progress Bar */}
       {result.grossAmount > 0 && (
-        <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
-          <div className="flex items-center justify-between text-xs font-semibold text-slate-600 mb-2">
-            <span>Payout Breakdown Waterfall</span>
-            <span className="font-mono">{result.netAmount > 0 ? ((result.netAmount / result.grossAmount) * 100).toFixed(1) : 0}% Net Payout vs {result.effectiveFeeRate.toFixed(1)}% Fee</span>
+        <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50/80 p-4 sm:p-5 space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
+            <span className="font-bold text-slate-900 flex items-center gap-1.5">
+              <TrendingUp className="h-4 w-4 text-blue-600" />
+              <span>Payout Breakdown Waterfall</span>
+            </span>
+            <span className="font-mono text-xs font-semibold text-slate-600">
+              {result.netAmount > 0 ? ((result.netAmount / result.grossAmount) * 100).toFixed(1) : 0}% Net Payout vs {result.effectiveFeeRate.toFixed(1)}% Fee
+            </span>
           </div>
-          <div className="h-3.5 w-full rounded-full bg-slate-200 overflow-hidden flex">
+
+          <div className="h-3.5 w-full rounded-full bg-slate-200 overflow-hidden flex shadow-inner">
             <div
               style={{ width: `${Math.max(2, (result.netAmount / (result.grossAmount || 1)) * 100)}%` }}
               className="bg-emerald-500 transition-all duration-300"
-              title={`Net: ${formatCurrency(result.netAmount, currencySymbol)}`}
+              title={`Net Payout: ${formatCurrency(result.netAmount, currencySymbol)}`}
             />
             <div
               style={{ width: `${Math.min(98, (result.totalFee / (result.grossAmount || 1)) * 100)}%` }}
               className="bg-rose-500 transition-all duration-300"
-              title={`Fee: ${formatCurrency(result.totalFee, currencySymbol)}`}
+              title={`Gateway Fee: ${formatCurrency(result.totalFee, currencySymbol)}`}
             />
           </div>
-          <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-600">
+
+          <div className="flex items-center justify-between text-xs text-slate-600 pt-0.5">
             <span className="flex items-center gap-1.5 font-medium">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 inline-block" />
-              Net Received: <strong className="text-slate-900 font-mono">{formatCurrency(result.netAmount, currencySymbol)}</strong>
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 inline-block shadow-xs" />
+              <span>Net Received:</span>
+              <strong className="text-slate-900 font-mono">{formatCurrency(result.netAmount, currencySymbol)}</strong>
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <span className="h-2 w-2 rounded-full bg-rose-500 inline-block" />
-              Gateway Fee: <strong className="text-slate-900 font-mono">-{formatCurrency(result.totalFee, currencySymbol)}</strong>
+              <span className="h-2.5 w-2.5 rounded-full bg-rose-500 inline-block shadow-xs" />
+              <span>Gateway Fee:</span>
+              <strong className="text-slate-900 font-mono">-{formatCurrency(result.totalFee, currencySymbol)}</strong>
             </span>
           </div>
         </div>
       )}
 
-      {/* Competitor Comparison Matrix */}
+      {/* 7. Competitor Comparison Matrix with Brand Logos & Instant Switching */}
       {result.competitorComparison.length > 0 && (
-        <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
             <div>
-              <h3 className="text-sm font-bold text-slate-900 tracking-wide">
-                Competitor Fee Comparison (at {formatCurrency(result.grossAmount, currencySymbol)} volume)
+              <h3 className="text-sm font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+                <span>Competitor Fee Comparison</span>
+                <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+                  at {formatCurrency(result.grossAmount, currencySymbol)} volume
+                </span>
               </h3>
-              <p className="text-xs text-slate-500">
-                See exact difference in net cash received across major merchant networks
+              <p className="text-xs text-slate-500 mt-0.5">
+                Exact net payout differences across major merchant networks. Click any card to switch.
               </p>
             </div>
             <button
               type="button"
               onClick={handleCopyBreakdown}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
+              className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
             >
-              {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+              {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 text-slate-400" />}
               <span>{copied ? 'Copied Breakdown!' : 'Copy Breakdown'}</span>
             </button>
           </div>
@@ -306,34 +377,74 @@ Calculated on: https://usefeekit.com`;
               return (
                 <div
                   key={comp.gatewayId}
-                  className={`rounded-lg border p-3.5 transition-all ${
+                  onClick={() => setGateway(comp.gatewayId)}
+                  className={`tap-spring cursor-pointer rounded-xl border p-3.5 transition-all flex flex-col justify-between ${
                     isCurrent
-                      ? 'border-blue-500 bg-blue-50/50 shadow-xs'
-                      : 'border-slate-200 bg-white hover:border-slate-300'
+                      ? 'border-blue-600 bg-blue-50/60 shadow-xs ring-2 ring-blue-100'
+                      : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/60 hover:shadow-2xs'
                   }`}
                 >
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className={isCurrent ? 'text-blue-700' : 'text-slate-700'}>{comp.name}</span>
-                    {isCurrent && (
-                      <span className="text-[10px] text-blue-700 font-mono font-extrabold">SELECTED</span>
+                  <div>
+                    {/* Brand Logo & Name */}
+                    <div className="flex items-center justify-between gap-2 mb-2.5">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <GatewayLogo gatewayId={comp.gatewayId} size={22} className="h-5.5 w-5.5 shrink-0 rounded" />
+                        <span className={`text-xs font-bold truncate ${isCurrent ? 'text-blue-950' : 'text-slate-900'}`}>
+                          {comp.name}
+                        </span>
+                      </div>
+                      {isCurrent ? (
+                        <span className="shrink-0 text-[9px] font-extrabold font-mono px-1.5 py-0.5 rounded bg-blue-600 text-white shadow-2xs">
+                          SELECTED
+                        </span>
+                      ) : (
+                        <span className="shrink-0 text-[9px] text-slate-400 group-hover:text-blue-600 transition-colors">
+                          Switch
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Net Payout Amount */}
+                    <div className="text-base sm:text-lg font-extrabold text-slate-900 font-mono tracking-tight">
+                      {formatCurrency(comp.netAmount, currencySymbol)}
+                    </div>
+
+                    {/* Fee & Effective % */}
+                    <div className="mt-1 flex items-center justify-between text-xs text-slate-500 font-medium">
+                      <span>Fee: -{formatCurrency(comp.totalFee, currencySymbol)}</span>
+                      <span className="font-mono text-[11px]">{comp.effectiveRate.toFixed(2)}%</span>
+                    </div>
+                  </div>
+
+                  {/* Savings / Cost Pill */}
+                  <div className="mt-3 pt-2 border-t border-slate-100/80">
+                    {isCurrent ? (
+                      <div className="text-[10px] font-bold text-blue-700 font-mono">
+                        Active Calculation Baseline
+                      </div>
+                    ) : comp.differenceVsSelected !== 0 ? (
+                      <div
+                        className={`text-[11px] font-bold flex items-center gap-1 ${
+                          comp.differenceVsSelected > 0 ? 'text-emerald-700' : 'text-slate-500'
+                        }`}
+                      >
+                        {comp.differenceVsSelected > 0 ? (
+                          <>
+                            <TrendingUp className="h-3 w-3 text-emerald-600 shrink-0" />
+                            <span>Save {formatCurrency(comp.differenceVsSelected, currencySymbol)}</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Costs {formatCurrency(Math.abs(comp.differenceVsSelected), currencySymbol)} more</span>
+                          </>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="text-[10px] text-slate-400 font-medium">
+                        Identical schedule
+                      </div>
                     )}
                   </div>
-                  <div className="mt-2 text-base font-extrabold text-slate-900 font-mono">
-                    {formatCurrency(comp.netAmount, currencySymbol)}
-                  </div>
-                  <div className="mt-1 flex items-center justify-between text-xs text-slate-500">
-                    <span>Fee: -{formatCurrency(comp.totalFee, currencySymbol)}</span>
-                    <span className="font-mono text-[11px] font-semibold">{comp.effectiveRate.toFixed(2)}%</span>
-                  </div>
-                  {comp.differenceVsSelected !== 0 && !isCurrent && (
-                    <div className={`mt-2 text-[11px] font-semibold ${
-                      comp.differenceVsSelected > 0 ? 'text-emerald-700 font-bold' : 'text-slate-500'
-                    }`}>
-                      {comp.differenceVsSelected > 0
-                        ? `Save ${formatCurrency(comp.differenceVsSelected, currencySymbol)} with ${comp.name}`
-                        : `Costs ${formatCurrency(Math.abs(comp.differenceVsSelected), currencySymbol)} more`}
-                    </div>
-                  )}
                 </div>
               );
             })}
@@ -343,3 +454,5 @@ Calculated on: https://usefeekit.com`;
     </div>
   );
 }
+
+export default MerchantFeeCalculator;

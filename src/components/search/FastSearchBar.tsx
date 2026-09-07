@@ -119,7 +119,7 @@ export function FastSearchBar({
             setIsOpen(true);
           }}
           onKeyDown={handleKeyDown}
-          className="w-full rounded-xl bg-transparent py-2 pl-9 pr-14 text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
+          className="w-full rounded-xl bg-transparent py-2.5 sm:py-2 pl-9 pr-14 text-base sm:text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
         />
 
         {query ? (
@@ -130,9 +130,9 @@ export function FastSearchBar({
               inputRef.current?.focus();
             }}
             aria-label="Clear search query"
-            className="absolute right-2.5 rounded p-0.5 text-slate-400 hover:text-slate-600 transition-colors"
+            className="absolute right-2.5 rounded p-1 sm:p-0.5 text-slate-400 hover:text-slate-600 transition-colors"
           >
-            <X className="h-3.5 w-3.5" />
+            <X className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
           </button>
         ) : (
           <kbd className="pointer-events-none absolute right-2.5 hidden sm:inline-flex items-center rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-slate-400 border border-slate-200 select-none">
@@ -143,7 +143,7 @@ export function FastSearchBar({
 
       {/* Instant Fast Search Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 z-50 mt-1.5 max-h-80 overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-xl py-1 divide-y divide-slate-100 animate-in fade-in zoom-in-95 duration-100">
+        <div className="absolute top-full left-0 right-0 z-50 mt-1.5 max-h-72 sm:max-h-80 overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-xl py-1 divide-y divide-slate-100 animate-in fade-in zoom-in-95 duration-100 overscroll-contain">
           {results.length === 0 ? (
             <div className="px-4 py-3 text-center text-xs text-slate-500">
               No calculators found for &quot;<span className="font-semibold text-slate-700">{query}</span>&quot;
@@ -162,7 +162,7 @@ export function FastSearchBar({
                     type="button"
                     onMouseEnter={() => setSelectedIndex(index)}
                     onClick={() => handleSelect(item)}
-                    className={`tap-spring w-full flex items-center justify-between rounded-lg px-2.5 py-2 text-left transition-all ${
+                    className={`tap-spring w-full flex items-center justify-between rounded-lg px-3 py-2.5 sm:py-2 text-left transition-all ${
                       isSelected
                         ? 'bg-blue-50 text-blue-900 font-semibold'
                         : 'text-slate-700 hover:bg-slate-50'

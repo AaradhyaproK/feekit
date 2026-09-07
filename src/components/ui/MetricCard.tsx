@@ -34,20 +34,20 @@ export function MetricCard({
   return (
     <div
       className={cn(
-        'relative rounded-xl border border-slate-200 bg-white p-5 shadow-xs transition-all duration-200 hover:border-slate-300 hover:shadow-sm flex flex-col justify-between',
+        'relative rounded-xl border border-slate-200 bg-white p-3.5 sm:p-5 shadow-xs transition-all duration-200 hover:border-slate-300 hover:shadow-sm flex flex-col justify-between overflow-hidden',
         className
       )}
     >
-      <div>
-        <div className="flex items-start justify-between gap-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 leading-snug">
+      <div className="min-w-0">
+        <div className="flex items-start justify-between gap-1.5 sm:gap-2">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 leading-tight line-clamp-2 sm:line-clamp-none">
             {label}
           </span>
           <div className="flex items-center gap-1.5 shrink-0">
             {badge && (
               <span
                 className={cn(
-                  'rounded-md border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide',
+                  'rounded-md border px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wide',
                   accentClasses[accent]
                 )}
               >
@@ -58,15 +58,15 @@ export function MetricCard({
           </div>
         </div>
 
-        <div className="mt-3 flex items-baseline gap-1">
-          <span className="text-xl sm:text-2xl lg:text-[1.7rem] font-extrabold tracking-tight text-slate-900 font-mono leading-none">
+        <div className="mt-2 sm:mt-3 flex items-baseline gap-1 min-w-0">
+          <span className="text-lg sm:text-2xl lg:text-[1.7rem] font-extrabold tracking-tight text-slate-900 font-mono leading-none truncate block w-full" title={value}>
             {value}
           </span>
         </div>
       </div>
 
       {subtext && (
-        <p className="mt-2.5 text-xs text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-2">
+        <p className="mt-2 sm:mt-2.5 text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-1.5 sm:pt-2 line-clamp-2 sm:line-clamp-none">
           {subtext}
         </p>
       )}

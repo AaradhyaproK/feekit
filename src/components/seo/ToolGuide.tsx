@@ -98,11 +98,11 @@ export function ToolGuide({
 }: ToolGuideProps) {
   const currentYear = new Date().getFullYear();
   const sectionClass = embedded
-    ? 'pt-8 sm:pt-10 border-t border-slate-200/80 space-y-8'
-    : 'rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-8 shadow-xs';
+    ? 'pt-6 sm:pt-10 border-t border-slate-200/80 space-y-6 sm:space-y-8'
+    : 'rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8 shadow-xs';
   const sectionClassCompact = embedded
-    ? 'pt-8 sm:pt-10 border-t border-slate-200/80 space-y-6'
-    : 'rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs';
+    ? 'pt-6 sm:pt-10 border-t border-slate-200/80 space-y-5 sm:space-y-6'
+    : 'rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 shadow-xs';
 
   if (suiteType === 'merchant') {
     return (

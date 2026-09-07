@@ -66,7 +66,7 @@ export function FreelanceRateCalculator({
   };
 
   return (
-    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
+    <div className={embedded ? "space-y-5 sm:space-y-6" : "rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-7 shadow-sm space-y-5"}>
       <div className="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Benchmark Role:</span>
@@ -154,7 +154,7 @@ export function FreelanceRateCalculator({
             max="45"
             value={billableHours}
             onChange={(e) => setBillableHours(Number(e.target.value))}
-            className="w-full accent-blue-600 mt-2"
+            className="w-full accent-blue-600 mt-2 h-2 cursor-pointer"
           />
           <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-mono font-medium">
             <span>15h (Heavy Admin)</span>
@@ -177,7 +177,7 @@ export function FreelanceRateCalculator({
               value={workingWeeks}
               onFocus={(e) => e.target.select()}
               onChange={(e) => setWorkingWeeks(cleanNumberInput(e.target.value))}
-              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs focus:border-blue-600 focus:outline-none"
+              className="w-14 rounded bg-white px-2 py-1 text-center text-base sm:text-xs font-bold border border-slate-300 shadow-xs focus:border-blue-600 focus:outline-none"
             />
             <span>wks</span>
           </div>
@@ -194,7 +194,7 @@ export function FreelanceRateCalculator({
               value={taxRate}
               onFocus={(e) => e.target.select()}
               onChange={(e) => setTaxRate(cleanNumberInput(e.target.value))}
-              className="w-14 rounded bg-white px-2 py-1 text-center border border-slate-300 shadow-xs focus:border-blue-600 focus:outline-none"
+              className="w-14 rounded bg-white px-2 py-1 text-center text-base sm:text-xs font-bold border border-slate-300 shadow-xs focus:border-blue-600 focus:outline-none"
             />
             <span>%</span>
           </div>
@@ -202,9 +202,9 @@ export function FreelanceRateCalculator({
       </div>
 
       {/* Metrics Grid (2x2 on Mobile, 4x1 on Desktop) */}
-      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         <MetricCard
-          label="Recommended Hourly"
+          label="Hourly Target"
           value={`${currencySymbol}${result.recommendedHourlyRate.toFixed(2)}/hr`}
           subtext="Includes 15% buffer"
           accent="blue"
@@ -233,10 +233,10 @@ export function FreelanceRateCalculator({
       </div>
 
       {/* Ready-to-Copy Proposal Block */}
-      <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
-        <div className="flex items-center justify-between mb-3">
+      <div className="mt-5 sm:mt-6 rounded-xl border border-slate-200 bg-white p-3.5 sm:p-5 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 mb-3">
           <div className="flex items-center gap-2 text-slate-900">
-            <FileCheck className="h-4 w-4 text-blue-600" />
+            <FileCheck className="h-4 w-4 text-blue-600 shrink-0" />
             <h4 className="text-xs font-bold uppercase tracking-wider">
               Client Proposal & Invoice Copy Block
             </h4>
@@ -244,14 +244,14 @@ export function FreelanceRateCalculator({
           <button
             type="button"
             onClick={handleCopyProposal}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
+            className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2 sm:py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs w-full sm:w-auto justify-center min-h-[38px] sm:min-h-0"
           >
-            {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+            {copied ? <Check className="h-3.5 w-3.5 text-emerald-600 shrink-0" /> : <Copy className="h-3.5 w-3.5 text-slate-400 shrink-0" />}
             <span>{copied ? 'Copied to Clipboard!' : 'Copy Proposal Text'}</span>
           </button>
         </div>
 
-        <pre className="rounded-lg bg-slate-50 p-4 font-mono text-xs text-slate-800 whitespace-pre-wrap border border-slate-200 leading-relaxed overflow-x-auto shadow-inner">
+        <pre className="rounded-lg bg-slate-50 p-3 sm:p-4 font-mono text-[11px] sm:text-xs text-slate-800 whitespace-pre-wrap border border-slate-200 leading-relaxed overflow-x-auto shadow-inner">
           {result.invoiceProposalText}
         </pre>
       </div>

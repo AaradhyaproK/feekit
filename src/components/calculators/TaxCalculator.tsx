@@ -78,10 +78,10 @@ Calculated via: https://usefeekit.com`;
   const euKeys = Object.keys(ALL_TAX_JURISDICTIONS).filter(k => ALL_TAX_JURISDICTIONS[k].region === 'EU');
 
   return (
-    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
+    <div className={embedded ? "space-y-5 sm:space-y-6" : "rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-7 shadow-sm space-y-5"}>
       {/* Direction & Calculation Mode Switcher */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
-        <div className="flex items-center gap-2 text-xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-3 sm:pb-4">
+        <div className="flex items-center gap-1.5 sm:gap-2 text-xs">
           <span className="font-semibold text-slate-500">Mode:</span>
           <span className="font-bold text-slate-900 truncate">
             {direction === 'add_tax' ? 'Net → Gross (Add Tax)' : 'Gross → Net (Extract Tax)'}
@@ -93,7 +93,7 @@ Calculated via: https://usefeekit.com`;
           <button
             type="button"
             onClick={() => setDirection('add_tax')}
-            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-1.5 text-xs font-bold transition-all text-center ${
+            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-2 sm:py-1.5 text-[11px] sm:text-xs font-bold transition-all text-center min-h-[36px] flex items-center justify-center ${
               direction === 'add_tax'
                 ? 'bg-white text-slate-900 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
@@ -104,7 +104,7 @@ Calculated via: https://usefeekit.com`;
           <button
             type="button"
             onClick={() => setDirection('remove_tax')}
-            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-1.5 text-xs font-bold transition-all text-center ${
+            className={`tap-spring rounded-lg px-2.5 sm:px-3.5 py-2 sm:py-1.5 text-[11px] sm:text-xs font-bold transition-all text-center min-h-[36px] flex items-center justify-center ${
               direction === 'remove_tax'
                 ? 'bg-white text-slate-900 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
@@ -116,7 +116,7 @@ Calculated via: https://usefeekit.com`;
       </div>
 
       {/* Jurisdiction Dropdown & Amount Input */}
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-5">
+      <div className="mt-5 sm:mt-6 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5">
         <div className="md:col-span-6">
           <label htmlFor="tax-jurisdiction-select" className="block text-xs font-semibold text-slate-700 mb-2">
             Select US State or UK/EU Jurisdiction
@@ -125,7 +125,7 @@ Calculated via: https://usefeekit.com`;
             id="tax-jurisdiction-select"
             value={jurisdictionCode}
             onChange={(e) => setJurisdictionCode(e.target.value)}
-            className="w-full rounded-xl border border-slate-300 bg-white py-3 px-4 text-sm font-semibold text-slate-900 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-100 shadow-xs"
+            className="w-full rounded-xl border border-slate-300 bg-white py-3 px-3.5 text-base sm:text-sm font-semibold text-slate-900 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-100 shadow-xs"
           >
             <optgroup label="United States (50 States + DC)">
               {usKeys.map((k) => (
@@ -238,7 +238,7 @@ Calculated via: https://usefeekit.com`;
       </div>
 
       {/* Dynamic Results Grid (2x2 on Mobile, 4x1 on Desktop) */}
-      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         <MetricCard
           label="Net Pre-Tax Amount"
           value={formatCurrency(result.netAmount, activeCurrency)}
@@ -247,7 +247,7 @@ Calculated via: https://usefeekit.com`;
         />
 
         <MetricCard
-          label="Tax Collected / Remitted"
+          label="Tax Remitted"
           value={`+${formatCurrency(result.taxAmount, activeCurrency)}`}
           subtext={`Rate applied: ${result.taxRatePercentage.toFixed(2)}%`}
           accent="amber"
@@ -269,9 +269,9 @@ Calculated via: https://usefeekit.com`;
       </div>
 
       {/* Compliance Callout & Copy Button */}
-      <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50/70 p-4">
-        <div className="flex items-start gap-3">
-          <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+      <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 sm:p-4">
+        <div className="flex items-start gap-2.5 sm:gap-3">
+          <Info className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 shrink-0 mt-0.5" />
           <div>
             <span className="text-xs font-bold text-slate-900 uppercase tracking-wide">
               Filing & Nexus Compliance Notice
@@ -285,9 +285,9 @@ Calculated via: https://usefeekit.com`;
         <button
           type="button"
           onClick={handleCopyBreakdown}
-          className="tap-spring shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs w-full sm:w-auto justify-center"
+          className="tap-spring shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs w-full sm:w-auto justify-center min-h-[38px] sm:min-h-0"
         >
-          {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+          {copied ? <Check className="h-3.5 w-3.5 text-emerald-600 shrink-0" /> : <Copy className="h-3.5 w-3.5 text-slate-400 shrink-0" />}
           <span>{copied ? 'Copied Details!' : 'Copy Tax Breakdown'}</span>
         </button>
       </div>

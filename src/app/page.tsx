@@ -197,15 +197,16 @@ export default function FeeKitHome() {
       </div>
 
       {/* Main Responsive Canvas for Inner Content */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 pb-12 space-y-6 sm:space-y-8">
+      <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 space-y-5 sm:space-y-8">
         {/* Search Bar & Popular Tools Directly Below Banner */}
         <div className="space-y-2.5">
           <div className="w-full max-w-xl">
             <FastSearchBar placeholder="Search tools..." />
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="flex items-center gap-1 text-xs font-bold text-slate-500 uppercase tracking-wide mr-1">
+          {/* Swipeable Popular Tools on Mobile, Wrapped on Desktop */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-3.5 px-3.5 sm:mx-0 sm:px-0 sm:flex-wrap no-scrollbar">
+            <div className="flex items-center gap-1 text-xs font-bold text-slate-500 uppercase tracking-wide mr-1 shrink-0">
               <Flame className="h-3.5 w-3.5 text-amber-500" />
               <span>Popular:</span>
             </div>
@@ -213,7 +214,7 @@ export default function FeeKitHome() {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200/90 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50/20 transition-all shadow-2xs"
+                className="tap-spring shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-slate-200/90 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50/20 transition-all shadow-2xs"
               >
                 <span>{tool.title}</span>
                 <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">
@@ -224,8 +225,8 @@ export default function FeeKitHome() {
           </div>
         </div>
 
-      {/* Primary Financial Suite Selector (Responsive 1-col on mobile, 2-col on tablet, 4-col on desktop) */}
-      <div className="space-y-3">
+      {/* Primary Financial Suite Selector (Responsive 2-col on mobile, 2-col on tablet, 4-col on desktop) */}
+      <div className="space-y-2.5 sm:space-y-3">
         <div className="flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
@@ -238,7 +239,7 @@ export default function FeeKitHome() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
           {suites.map((s) => {
             const Icon = s.icon;
             const isSelected = activeSuite === s.id;
@@ -247,26 +248,26 @@ export default function FeeKitHome() {
                 key={s.id}
                 type="button"
                 onClick={() => setActiveSuite(s.id)}
-                className={`group relative flex flex-col justify-between rounded-2xl border p-4 sm:p-5 text-left transition-all duration-200 cursor-pointer ${
+                className={`group tap-spring relative flex flex-col justify-between rounded-xl sm:rounded-2xl border p-3 sm:p-5 text-left transition-all duration-200 cursor-pointer min-h-[140px] sm:min-h-0 ${
                   isSelected
                     ? 'border-blue-600 bg-white ring-2 ring-blue-600/20 shadow-md -translate-y-0.5'
                     : 'border-slate-200/90 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5'
                 }`}
               >
                 {/* Top Row: Icon & Status Badge */}
-                <div className="flex items-start justify-between gap-2.5 mb-3.5">
+                <div className="flex items-start justify-between gap-1.5 sm:gap-2.5 mb-2 sm:mb-3.5">
                   <div
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-all duration-200 ${
+                    className={`flex h-9 w-9 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-xl border transition-all duration-200 ${
                       isSelected
                         ? 'border-blue-200 bg-blue-50/80 shadow-xs ring-2 ring-blue-500/15'
                         : 'border-slate-200/80 bg-slate-50/70 group-hover:border-slate-300 group-hover:bg-white group-hover:shadow-2xs'
                     }`}
                   >
-                    <Icon className="h-8 w-8 transition-transform duration-200" isActive={isSelected} />
+                    <Icon className="h-5 w-5 sm:h-8 sm:w-8 transition-transform duration-200" isActive={isSelected} />
                   </div>
 
                   <span
-                    className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold tracking-tight transition-colors shadow-2xs ${
+                    className={`inline-flex items-center gap-1 sm:gap-1.5 rounded-full border px-1.5 sm:px-2.5 py-0.5 sm:py-1 text-[9px] sm:text-[11px] font-bold tracking-tight transition-colors shadow-2xs ${
                       isSelected
                         ? 'border-blue-200 bg-blue-50 text-blue-700'
                         : 'border-slate-200 bg-slate-50 text-slate-600 group-hover:border-slate-300 group-hover:bg-white group-hover:text-slate-900'
@@ -282,34 +283,35 @@ export default function FeeKitHome() {
                 </div>
 
                 {/* Middle: Title & Subtitle */}
-                <div className="space-y-1 min-w-0">
-                  <h3 className={`text-sm sm:text-base font-extrabold tracking-tight leading-snug transition-colors ${
+                <div className="space-y-0.5 sm:space-y-1 min-w-0">
+                  <h3 className={`text-xs sm:text-base font-extrabold tracking-tight leading-tight transition-colors line-clamp-1 sm:line-clamp-none ${
                     isSelected ? 'text-blue-600' : 'text-slate-900 group-hover:text-blue-600'
                   }`}>
                     {s.name}
                   </h3>
-                  <p className="text-xs font-semibold text-slate-500 group-hover:text-slate-700 transition-colors">
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-500 group-hover:text-slate-700 transition-colors line-clamp-1">
                     {s.subtitle}
                   </p>
-                  <p className="text-[11px] text-slate-400 leading-relaxed line-clamp-2 pt-1">
+                  <p className="hidden sm:block text-[11px] text-slate-400 leading-relaxed line-clamp-2 pt-1">
                     {s.description}
                   </p>
                 </div>
 
                 {/* Bottom Row: Active Indicator / Quick Switch Cue */}
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <div className="mt-2.5 pt-2 sm:mt-4 sm:pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                   {isSelected ? (
-                    <span className="inline-flex items-center gap-1.5 font-bold text-blue-700">
-                      <CheckCircle2 className="h-4 w-4 text-blue-600" />
-                      <span className="text-[11px] sm:text-xs">{s.indicatorText}</span>
+                    <span className="inline-flex items-center gap-1 font-bold text-blue-700">
+                      <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-600 shrink-0" />
+                      <span className="text-[10px] sm:text-xs truncate">{s.indicatorText}</span>
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1 font-semibold text-slate-400 group-hover:text-blue-600 transition-colors text-[11px] sm:text-xs">
-                      <span>Launch calculator</span>
+                    <span className="inline-flex items-center gap-1 font-semibold text-slate-400 group-hover:text-blue-600 transition-colors text-[10px] sm:text-xs">
+                      <span className="hidden sm:inline">Launch calculator</span>
+                      <span className="sm:hidden">Select</span>
                       <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   )}
-                  <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
+                  <span className={`text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider hidden xs:inline-block ${
                     isSelected ? 'text-blue-500' : 'text-slate-400'
                   }`}>
                     2026 Live
@@ -322,7 +324,24 @@ export default function FeeKitHome() {
       </div>
 
       {/* Primary Universal Live Tool Canvas with Smooth Fade-Slide */}
-      <section aria-label="Interactive Universal Calculator" className="animate-fade-slide">
+      <section aria-label="Interactive Universal Calculator" className="animate-fade-slide space-y-3">
+        {/* Mobile-Friendly Active Engine Indicator Banner */}
+        <div className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-blue-200/80 bg-blue-50/50 text-xs">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse shrink-0" />
+            <span className="font-bold text-slate-900 truncate">
+              {suites.find((s) => s.id === activeSuite)?.name}
+            </span>
+            <span className="text-slate-400 hidden md:inline">•</span>
+            <span className="text-slate-600 hidden md:inline truncate">
+              {suites.find((s) => s.id === activeSuite)?.description}
+            </span>
+          </div>
+          <span className="shrink-0 text-[10px] font-mono font-bold uppercase tracking-wider text-blue-700 bg-white border border-blue-200 px-2 py-0.5 rounded-md shadow-2xs">
+            Live Engine
+          </span>
+        </div>
+
         {activeSuite === 'merchant' && (
           <MerchantFeeCalculator initialGateway="stripe" initialAmount={1000} />
         )}
@@ -338,49 +357,49 @@ export default function FeeKitHome() {
       </section>
 
       {/* AdSense Unit placed below interactive tool results (Compliant with AdSense Value of Inventory guidelines) */}
-      <div className="flex justify-center my-4">
+      <div className="flex justify-center my-3 sm:my-4">
         <LeaderboardAd />
       </div>
 
       {/* Trust & Value Proposition Strip */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-            <ShieldCheck className="h-5 w-5" />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
+          <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+            <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
-          <div>
-            <div className="text-xs font-bold text-slate-900">100% Client-Side</div>
-            <div className="text-[11px] text-slate-500">Zero data leaves your browser</div>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-            <Zap className="h-5 w-5" />
-          </div>
-          <div>
-            <div className="text-xs font-bold text-slate-900">2026 Fiscal Rules</div>
-            <div className="text-[11px] text-slate-500">IRS, CDTFA & HMRC compliant</div>
+          <div className="min-w-0">
+            <div className="text-xs font-bold text-slate-900 truncate">100% Client-Side</div>
+            <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">Zero data leaves browser</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-            <Globe2 className="h-5 w-5" />
+        <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
+          <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
-          <div>
-            <div className="text-xs font-bold text-slate-900">160+ Dedicated Tools</div>
-            <div className="text-[11px] text-slate-500">50 US States, UK & Gateways</div>
+          <div className="min-w-0">
+            <div className="text-xs font-bold text-slate-900 truncate">2026 Fiscal Rules</div>
+            <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">IRS & HMRC compliant</div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
-            <Sparkles className="h-5 w-5" />
+        <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
+          <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+            <Globe2 className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
-          <div>
-            <div className="text-xs font-bold text-slate-900">Always Free</div>
-            <div className="text-[11px] text-slate-500">No login or card required</div>
+          <div className="min-w-0">
+            <div className="text-xs font-bold text-slate-900 truncate">160+ Calculators</div>
+            <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">50 US States + UK & EU</div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
+          <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
+            <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
+          </div>
+          <div className="min-w-0">
+            <div className="text-xs font-bold text-slate-900 truncate">Always Free</div>
+            <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">No login or card needed</div>
           </div>
         </div>
       </div>
@@ -395,11 +414,11 @@ export default function FeeKitHome() {
       />
 
       {/* Programmatic SEO Directory Section */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-200 pb-4 sm:pb-5">
           <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-lg sm:text-2xl font-extrabold text-slate-900">
                 US & UK Utility Matrix ({allMatrixItems.length} Dedicated Tools)
               </h2>
               <span className="rounded bg-blue-50 px-2 py-0.5 font-mono text-xs font-bold text-blue-700 border border-blue-200">
@@ -419,20 +438,20 @@ export default function FeeKitHome() {
               value={directoryFilter}
               onChange={(e) => setDirectoryFilter(e.target.value)}
               placeholder={`Filter ${allMatrixItems.length} tools...`}
-              className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none shadow-xs"
+              className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-base sm:text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none shadow-xs"
             />
           </div>
         </div>
 
         {/* Directory Groups */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {categories.map((cat) => {
             const catItems = filteredItems.filter((x) => x.category === cat.key);
             if (catItems.length === 0) return null;
 
             return (
               <React.Fragment key={cat.key}>
-                <div className="space-y-3">
+                <div className="space-y-2.5 sm:space-y-3">
                   {/* Category Header with Pillar Hub Internal Link */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
                     <Link
@@ -451,17 +470,17 @@ export default function FeeKitHome() {
                     </Link>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-2.5">
                     {catItems.map((tool) => (
                       <Link
                         key={`${tool.category}-${tool.slug}`}
                         href={`/tools/${tool.category}/${tool.slug}`}
-                        className="group flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-xs transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
+                        className="group flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/60 px-2.5 py-2 text-[11px] sm:text-xs transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
                       >
-                        <span className="font-medium text-slate-700 group-hover:text-blue-700 truncate pr-2">
+                        <span className="font-medium text-slate-700 group-hover:text-blue-700 truncate pr-1">
                           {tool.shortTitle || tool.title}
                         </span>
-                        <ArrowRight className="h-3.5 w-3.5 text-slate-400 shrink-0 group-hover:translate-x-0.5 group-hover:text-blue-600 transition-all" />
+                        <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-slate-400 shrink-0 group-hover:translate-x-0.5 group-hover:text-blue-600 transition-all" />
                       </Link>
                     ))}
                   </div>

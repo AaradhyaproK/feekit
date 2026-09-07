@@ -154,12 +154,12 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
   const platformsList = Object.keys(ECOMMERCE_PLATFORMS) as EcommercePlatform[];
 
   return (
-    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm space-y-6"}>
+    <div className={embedded ? "space-y-5 sm:space-y-6" : "rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-7 shadow-sm space-y-5 sm:space-y-6"}>
       {/* Platform Selector Bar with Official Brand Logos */}
       <div>
-        <div className="flex items-center justify-between mb-3 px-0.5">
+        <div className="flex items-center justify-between mb-2.5 sm:mb-3 px-0.5">
           <div className="flex items-center gap-2">
-            <ShoppingBag className="h-4 w-4 text-blue-600" />
+            <ShoppingBag className="h-4 w-4 text-blue-600 shrink-0" />
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
               E-Commerce Selling Channel
             </span>
@@ -169,7 +169,7 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
           </span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
           {platformsList.map((p) => {
             const isSelected = platform === p;
             const cfg = ECOMMERCE_PLATFORMS[p];
@@ -178,7 +178,7 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
                 key={p}
                 type="button"
                 onClick={() => setPlatform(p)}
-                className={`relative flex items-center gap-3 p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
+                className={`tap-spring relative flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer min-h-[44px] ${
                   isSelected
                     ? 'border-blue-600 bg-blue-50/20 ring-2 ring-blue-600/20 shadow-sm'
                     : 'border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/50 hover:shadow-2xs'
@@ -419,10 +419,10 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
         </div>
       </div>
 
-      {/* Key Output Metrics (4 Stat Cards) */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      {/* Key Output Metrics (4 Stat Cards - 2x2 on Mobile, 4x1 on Desktop) */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         {/* Net Profit / Unit */}
-        <div className={`rounded-xl border p-4 sm:p-5 transition-all shadow-xs ${
+        <div className={`rounded-xl border p-3.5 sm:p-5 transition-all shadow-xs overflow-hidden ${
           result.isProfitable
             ? 'border-emerald-200 bg-emerald-50/30'
             : 'border-rose-200 bg-rose-50/30'
@@ -450,7 +450,7 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
         </div>
 
         {/* Net Margin % */}
-        <div className="rounded-xl border border-blue-200 bg-blue-50/30 p-4 sm:p-5 shadow-xs">
+        <div className="rounded-xl border border-blue-200 bg-blue-50/30 p-3.5 sm:p-5 shadow-xs overflow-hidden">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-xs font-bold text-slate-600 uppercase tracking-tight">
               Net Margin %
@@ -459,34 +459,34 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
               Target
             </span>
           </div>
-          <div className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-blue-600">
+          <div className="text-xl sm:text-3xl font-extrabold font-mono tracking-tight text-blue-600 truncate">
             {result.netMarginPercentage.toFixed(2)}%
           </div>
-          <div className="mt-1 text-xs text-slate-500 font-medium">
+          <div className="mt-1 text-xs text-slate-500 font-medium truncate">
             Markup: <span className="font-mono text-slate-700">{result.markupPercentage.toFixed(1)}%</span>
           </div>
         </div>
 
         {/* Break-Even ROAS */}
-        <div className="rounded-xl border border-amber-200 bg-amber-50/30 p-4 sm:p-5 shadow-xs">
+        <div className="rounded-xl border border-amber-200 bg-amber-50/30 p-3.5 sm:p-5 shadow-xs overflow-hidden">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-xs font-bold text-slate-600 uppercase tracking-tight">
               Break-Even ROAS
             </span>
             <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
-              Min Target
+              Target
             </span>
           </div>
-          <div className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-amber-600">
+          <div className="text-xl sm:text-3xl font-extrabold font-mono tracking-tight text-amber-600 truncate">
             {result.breakEvenRoas > 100 ? 'N/A' : `${result.breakEvenRoas.toFixed(2)}x`}
           </div>
           <div className="mt-1 text-xs text-slate-500 font-medium">
-            Target multiplier
+            Multiplier
           </div>
         </div>
 
         {/* Platform & Pick Fees */}
-        <div className="rounded-xl border border-rose-200 bg-rose-50/30 p-4 sm:p-5 shadow-xs">
+        <div className="rounded-xl border border-rose-200 bg-rose-50/30 p-3.5 sm:p-5 shadow-xs overflow-hidden">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-xs font-bold text-slate-600 uppercase tracking-tight">
               Platform / Pick
@@ -495,7 +495,7 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
               Fee
             </span>
           </div>
-          <div className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-rose-600">
+          <div className="text-xl sm:text-3xl font-extrabold font-mono tracking-tight text-rose-600 truncate">
             -{formatCurrency(result.platformFees + result.fulfillmentFees, currencySymbol)}
           </div>
           <div className="mt-1 text-xs text-slate-500 font-medium truncate">
@@ -703,9 +703,9 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
           <button
             type="button"
             onClick={handleCopyBreakdown}
-            className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-2xs self-start sm:self-auto cursor-pointer"
+            className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 sm:py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-2xs w-full sm:w-auto justify-center min-h-[38px] sm:min-h-0 cursor-pointer shrink-0"
           >
-            {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+            {copied ? <Check className="h-3.5 w-3.5 text-emerald-600 shrink-0" /> : <Copy className="h-3.5 w-3.5 text-slate-400 shrink-0" />}
             <span>{copied ? 'Copied Details!' : 'Copy Unit Economics'}</span>
           </button>
         </div>

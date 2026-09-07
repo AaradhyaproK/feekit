@@ -86,14 +86,15 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
       </div>
 
       {/* Right controls */}
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-1.5 sm:gap-2.5">
         {/* Quick Search */}
         <button
           type="button"
           onClick={onOpenCommandPalette}
-          className="tap-spring flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600 hover:border-blue-400 hover:bg-white hover:text-slate-900 transition-all shadow-xs"
+          className="tap-spring flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 p-2 sm:px-3 sm:py-1.5 text-xs font-medium text-slate-600 hover:border-blue-400 hover:bg-white hover:text-slate-900 transition-all shadow-xs min-h-[36px] min-w-[36px] justify-center"
+          aria-label="Quick Search"
         >
-          <Search className="h-3.5 w-3.5 text-blue-600" />
+          <Search className="h-4 w-4 sm:h-3.5 sm:w-3.5 text-blue-600 shrink-0" />
           <span className="hidden md:inline">Quick Search</span>
           <kbd className="hidden sm:inline rounded bg-white px-1.5 py-0.2 font-mono text-[10px] text-slate-500 border border-slate-200">
             ⌘K
@@ -104,18 +105,19 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
         <button
           type="button"
           onClick={handleShare}
-          className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs"
+          className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white p-2 sm:px-3 sm:py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs min-h-[36px]"
           title="Share exact calculation parameters via URL"
+          aria-label="Share URL"
         >
           {copiedShare ? (
             <>
-              <Check className="h-3.5 w-3.5 text-emerald-600" />
-              <span className="text-emerald-600 font-bold">Link Copied!</span>
+              <Check className="h-4 w-4 sm:h-3.5 sm:w-3.5 text-emerald-600 shrink-0" />
+              <span className="text-emerald-600 font-bold text-xs">Copied!</span>
             </>
           ) : (
             <>
-              <Share2 className="h-3.5 w-3.5 text-blue-600" />
-              <span>Share</span>
+              <Share2 className="h-4 w-4 sm:h-3.5 sm:w-3.5 text-blue-600 shrink-0" />
+              <span className="hidden sm:inline">Share</span>
             </>
           )}
         </button>
@@ -124,7 +126,7 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="tap-spring lg:hidden rounded-lg p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+          className="tap-spring lg:hidden rounded-lg p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 min-h-[38px] min-w-[38px] flex items-center justify-center"
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

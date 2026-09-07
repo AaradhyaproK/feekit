@@ -12,8 +12,31 @@ export const metadata: Metadata = {
   title: 'FeeKit Blog — Payment Fee & Tax Guides for US & UK Merchants',
   description:
     'In-depth merchant fee breakdowns, 50-state US sales tax nexus rules, UK HMRC VAT compliance guides, and 1099 freelance tax strategies. Updated for 2026 fiscal regulations.',
+  keywords: [
+    'Stripe vs PayPal fees',
+    'Square vs Stripe fees 2026',
+    'Shopify vs Amazon FBA fees',
+    '1099 self-employment tax rate',
+    'US sales tax economic nexus',
+    'UK VAT registration threshold',
+    'merchant processing fee calculator',
+    'freelance tax calculator',
+    'ecommerce profit margins',
+  ],
   alternates: {
     canonical: 'https://www.usefeekit.com/blog',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'FeeKit Blog — Payment Fee & Tax Guides for US & UK Merchants',
@@ -21,6 +44,7 @@ export const metadata: Metadata = {
       'In-depth merchant fee breakdowns, 50-state US sales tax nexus rules, UK HMRC VAT compliance guides, and 1099 freelance tax strategies. Updated for 2026.',
     url: 'https://www.usefeekit.com/blog',
     siteName: 'FeeKit',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
@@ -28,6 +52,8 @@ export const metadata: Metadata = {
     title: 'FeeKit Blog — Payment Fee & Tax Guides for US & UK Merchants',
     description:
       'In-depth merchant fee breakdowns, 50-state US sales tax nexus rules, UK HMRC VAT compliance guides, and 1099 freelance tax strategies. Updated for 2026.',
+    creator: '@usefeekit',
+    site: '@usefeekit',
   },
 };
 
@@ -36,8 +62,27 @@ export default function BlogIndexPage() {
   const featuredPosts = getFeaturedPosts();
   const featuredPost = featuredPosts[0] || allPosts[0];
 
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'FeeKit Merchant & Tax Intelligence Guides',
+    description:
+      'Audited guides on payment gateway fees, sales tax nexus, UK VAT, and freelance taxes.',
+    numberOfItems: allPosts.length,
+    itemListElement: allPosts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: post.title,
+      url: `https://www.usefeekit.com/blog/${post.slug}`,
+    })),
+  };
+
   return (
     <div className="space-y-8 pb-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <BackButton fallbackHref="/" label="Back to previous page" />

@@ -11,20 +11,25 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
     ? post.featuredImage
     : `https://www.usefeekit.com${post.featuredImage}`;
 
-  // 1. Exact Article Schema as specified in Step 6
+  // 1. Exact Article Schema enhanced for Google Rich Results
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'TechArticle',
     headline: post.title,
     description: post.description,
     url: articleUrl,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
+    inLanguage: 'en-US',
+    isAccessibleForFree: true,
+    articleSection: post.category,
+    keywords: post.tags.join(', '),
     author: {
       '@type': 'Person',
       name: post.author,
       jobTitle: post.authorTitle,
       url: 'https://www.usefeekit.com/about',
+      sameAs: 'https://www.usefeekit.com/about',
     },
     publisher: {
       '@type': 'Organization',
@@ -33,13 +38,21 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
       logo: {
         '@type': 'ImageObject',
         url: 'https://www.usefeekit.com/logo.png',
+        width: 512,
+        height: 512,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': articleUrl,
     },
-    image: imageUrl,
+    image: {
+      '@type': 'ImageObject',
+      url: imageUrl,
+      width: 1200,
+      height: 630,
+      caption: post.title,
+    },
   };
 
   // 2. BreadcrumbList Schema: Home -> Blog -> [Article Title]

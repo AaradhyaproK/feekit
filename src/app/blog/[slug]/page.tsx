@@ -44,24 +44,46 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : `https://www.usefeekit.com${post.featuredImage}`;
 
     return {
-      title: `${post.title} — FeeKit Blog`,
+      title: `${post.title} — FeeKit`,
       description: post.description,
+      keywords: post.tags,
+      category: post.category,
+      authors: [{ name: post.author, url: 'https://www.usefeekit.com/about' }],
+      creator: post.author,
+      publisher: 'FeeKit',
       alternates: {
         canonical: url,
+      },
+      robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
       },
       openGraph: {
         title: post.title,
         description: post.description,
         url,
+        siteName: 'FeeKit',
+        locale: 'en_US',
         type: 'article',
         publishedTime: post.publishedAt,
         modifiedTime: post.updatedAt || post.publishedAt,
-        authors: ['FeeKit Research Team'],
+        authors: [post.author],
+        section: post.category,
+        tags: post.tags,
         images: [
           {
             url: imageUrl,
             width: 1200,
             height: 630,
+            type: 'image/webp',
             alt: post.title,
           },
         ],
@@ -71,6 +93,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title: post.title,
         description: post.description,
         images: [imageUrl],
+        creator: '@usefeekit',
+        site: '@usefeekit',
       },
     };
   } catch {
@@ -136,6 +160,15 @@ export default async function BlogPostPage({ params }: PageProps) {
         <article className="w-full rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 lg:p-12 shadow-xs space-y-6">
           {/* Article Header & Metadata */}
           <header className="space-y-4">
+            {/* Breadcrumb Navigation for Google SEO & UX */}
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-slate-500 overflow-x-auto pb-1">
+              <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+              <span className="text-slate-300">/</span>
+              <Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
+              <span className="text-slate-300">/</span>
+              <span className="text-slate-700 font-medium">{post.category}</span>
+            </nav>
+
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-200">
                 {post.category}

@@ -13,6 +13,7 @@ interface MerchantFeeCalculatorProps {
   initialDirection?: CalculationDirection;
   initialInternational?: boolean;
   currencySymbol?: string;
+  embedded?: boolean;
 }
 
 export function MerchantFeeCalculator({
@@ -21,6 +22,7 @@ export function MerchantFeeCalculator({
   initialDirection = 'forward',
   initialInternational = false,
   currencySymbol = '$',
+  embedded = false,
 }: MerchantFeeCalculatorProps) {
   const [gateway, setGateway] = useState<PaymentGatewayId>(initialGateway);
   const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '1000');
@@ -69,7 +71,7 @@ Calculated on: https://usefeekit.com`;
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
       {/* Direction & Calculation Mode Switcher */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">

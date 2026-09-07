@@ -6,17 +6,21 @@ interface DataSourceCitationProps {
   source: DataSource;
   toolTitle?: string;
   className?: string;
+  embedded?: boolean;
 }
 
 export function DataSourceCitation({
   source,
   toolTitle = 'this calculator',
   className = '',
+  embedded = false,
 }: DataSourceCitationProps) {
   return (
     <aside
       aria-label="Official Data Source & Regulatory Provenance"
-      className={`rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs space-y-4 ${className}`.trim()}
+      className={embedded
+        ? `pt-8 sm:pt-10 border-t border-slate-200/80 space-y-4 ${className}`.trim()
+        : `rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs space-y-4 ${className}`.trim()}
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3.5">
         <div className="flex items-center gap-2 text-slate-900 font-extrabold text-sm sm:text-base">

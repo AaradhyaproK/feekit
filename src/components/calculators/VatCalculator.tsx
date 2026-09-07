@@ -25,6 +25,7 @@ export interface VatCalculatorProps {
   currencySymbol?: string;
   countryCode?: string;
   className?: string;
+  embedded?: boolean;
 }
 
 const QUICK_AMOUNTS = [50, 100, 250, 500, 1000, 5000];
@@ -110,6 +111,7 @@ export function VatCalculator({
   initialDirection = 'add_tax',
   currencySymbol = '£',
   className = '',
+  embedded = false,
 }: VatCalculatorProps) {
   const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '500');
   const [direction, setDirection] = useState<'add_tax' | 'remove_tax'>(initialDirection);
@@ -161,7 +163,7 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
 
   return (
     <div className={`space-y-8 ${className}`.trim()}>
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+      <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
         {/* Mode Switcher */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
           <div className="flex items-center gap-2 text-xs">
@@ -468,7 +470,7 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
 
       {/* Authoritative UK Educational & Rate Benchmark Content */}
       <article className="space-y-8 text-slate-700 leading-relaxed text-xs sm:text-sm">
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+        <section className={embedded ? "pt-8 sm:pt-10 border-t border-slate-200/80 space-y-5" : "rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs"}>
           <div className="border-b border-slate-200 pb-4">
             <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
               <Scale className="h-5 w-5 text-blue-600 shrink-0" />
@@ -494,7 +496,7 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
         </section>
 
         {/* MTD & DRC Compliance Guide */}
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+        <section className={embedded ? "pt-8 sm:pt-10 border-t border-slate-200/80 space-y-5" : "rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs"}>
           <div className="border-b border-slate-200 pb-4">
             <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
               <FileSpreadsheet className="h-5 w-5 text-purple-600 shrink-0" />
@@ -540,6 +542,7 @@ Calculated via: https://usefeekit.com/tools/vat-calculator/united-kingdom`;
         <FaqAccordion
           items={UK_VAT_FAQS}
           title="Frequently Asked Questions: UK VAT Compliance & Regulations"
+          embedded={embedded}
         />
       </article>
     </div>

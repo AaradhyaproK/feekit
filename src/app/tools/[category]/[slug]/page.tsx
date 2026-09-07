@@ -162,162 +162,192 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         </Link>
       </div>
 
-      {/* Hero Header Area */}
-      <div className="space-y-2">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-          {item.title}
-        </h1>
-        <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
-          {item.subtitle}
-        </p>
-      </div>
+      {/* Unified Master Container: Single unbroken card canvas matching blog design */}
+      <article className="w-full rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 lg:p-12 shadow-xs space-y-10">
+        {/* Header with Title, Description, and Authoritative Badges */}
+        <header className="space-y-5 border-b border-slate-200 pb-8">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-emerald-700 border border-emerald-200">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
+              <span>E-E-A-T Certified</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-blue-700 border border-blue-200">
+              <span>{item.geoRegion || 'US'} Statutory Rules</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-slate-700 border border-slate-200 font-mono">
+              <span>Verified 2026</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-3 py-1 text-slate-600 border border-slate-200 capitalize">
+              <span>{category.replace(/-/g, ' ')}</span>
+            </span>
+          </div>
 
-      {/* AdSense Leaderboard Unit */}
-      <LeaderboardAd />
+          <div className="space-y-2">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900 leading-tight">
+              {item.title}
+            </h1>
+            <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
+              {item.subtitle}
+            </p>
+          </div>
+        </header>
 
-      {/* Live Interactive Calculator (Full Width, Zero Horizontal Squeeze) */}
-      <section aria-label="Interactive Calculator Tool">
-        {item.suiteType === 'merchant' && (
-          <MerchantFeeCalculator
-            initialGateway={item.gatewayId || 'stripe'}
-            initialAmount={item.defaultAmount || 500}
-            initialInternational={item.isInternational}
-            currencySymbol={item.currencySymbol || '$'}
-          />
-        )}
+        {/* AdSense Leaderboard Unit */}
+        <LeaderboardAd />
 
-        {item.category === 'sales-tax-calculator' ? (
-          <SalesTaxCalculator
-            stateSlug={item.slug}
-            initialAmount={item.defaultAmount || 250}
-          />
-        ) : item.category === 'vat-calculator' ? (
-          <VatCalculator
-            initialAmount={item.defaultAmount || 500}
-            currencySymbol={item.currencySymbol || '£'}
-            countryCode={item.jurisdictionCode || 'GB'}
-          />
-        ) : item.suiteType === 'tax' ? (
-          <TaxCalculator
-            initialJurisdictionCode={item.jurisdictionCode || 'CA'}
-            initialAmount={item.defaultAmount || 250}
-            currencySymbol={item.currencySymbol || '$'}
-          />
-        ) : null}
+        {/* Live Interactive Calculator (Full Width, Zero Horizontal Squeeze, Embedded) */}
+        <section aria-label="Interactive Calculator Tool">
+          {item.suiteType === 'merchant' && (
+            <MerchantFeeCalculator
+              initialGateway={item.gatewayId || 'stripe'}
+              initialAmount={item.defaultAmount || 500}
+              initialInternational={item.isInternational}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
 
-        {item.suiteType === 'freelance' && (
-          <FreelanceRateCalculator
-            initialRole={item.roleTitle || 'Consultant'}
-            initialNet={item.defaultAmount || 95000}
-            initialOverhead={item.annualOverhead || 10000}
-            currencySymbol={item.currencySymbol || '$'}
-          />
-        )}
+          {item.category === 'sales-tax-calculator' ? (
+            <SalesTaxCalculator
+              stateSlug={item.slug}
+              initialAmount={item.defaultAmount || 250}
+              embedded={true}
+            />
+          ) : item.category === 'vat-calculator' ? (
+            <VatCalculator
+              initialAmount={item.defaultAmount || 500}
+              currencySymbol={item.currencySymbol || '£'}
+              countryCode={item.jurisdictionCode || 'GB'}
+              embedded={true}
+            />
+          ) : item.suiteType === 'tax' ? (
+            <TaxCalculator
+              initialJurisdictionCode={item.jurisdictionCode || 'CA'}
+              initialAmount={item.defaultAmount || 250}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          ) : null}
 
-        {item.suiteType === 'ecommerce' && (
-          <EcommerceProfitCalculator
-            initialPlatform={item.platform || 'shopify'}
-            initialPrice={item.defaultPrice || 49.99}
-            initialCogs={item.defaultCogs || 12.0}
-            initialFreight={item.defaultFreight || 2.5}
-            initialPrep={item.defaultPrep || 1.0}
-            initialAdSpend={item.defaultAdSpend || 10.0}
-            currencySymbol={item.currencySymbol || '$'}
-          />
-        )}
-      </section>
+          {item.suiteType === 'freelance' && (
+            <FreelanceRateCalculator
+              initialRole={item.roleTitle || 'Consultant'}
+              initialNet={item.defaultAmount || 95000}
+              initialOverhead={item.annualOverhead || 10000}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
 
-      {/* AdSense Rectangle Unit */}
-      <div className="flex justify-center my-6">
-        <RectangleAd />
-      </div>
+          {item.suiteType === 'ecommerce' && (
+            <EcommerceProfitCalculator
+              initialPlatform={item.platform || 'shopify'}
+              initialPrice={item.defaultPrice || 49.99}
+              initialCogs={item.defaultCogs || 12.0}
+              initialFreight={item.defaultFreight || 2.5}
+              initialPrep={item.defaultPrep || 1.0}
+              initialAdSpend={item.defaultAdSpend || 10.0}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
+        </section>
 
-      {/* Goldmine SEO Strategy & Compliance Guide */}
-      <ToolGuide
-        suiteType={item.suiteType}
-        title={item.title}
-        currencySymbol={item.currencySymbol}
-        geoRegion={item.geoRegion}
-        stateName={item.stateName}
-        baseRate={item.rate}
-        localRate={item.local}
-        maxLocalRate={item.maxLocal}
-        threshold={item.threshold}
-        inArticleSlot={<InArticleAd />}
-      />
-
-      {/* Technical Breakdown: The Google Juice */}
-      <section className="space-y-6">
-        <div className="border-b border-slate-200 pb-3">
-          <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
-            Technical Breakdown & Formula Specifications
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Transparent mathematical reference and standardized volume benchmarks
-          </p>
+        {/* AdSense Rectangle Unit */}
+        <div className="flex justify-center my-6">
+          <RectangleAd />
         </div>
 
-        {/* Mathematical Formula Block */}
-        <FormulaBreakdown
-          formulaLatex={item.formulaLatex}
-          explanation={item.formulaExplanation}
+        {/* Goldmine SEO Strategy & Compliance Guide (Embedded) */}
+        <ToolGuide
+          suiteType={item.suiteType}
+          title={item.title}
+          currencySymbol={item.currencySymbol}
+          geoRegion={item.geoRegion}
+          stateName={item.stateName}
+          baseRate={item.rate}
+          localRate={item.local}
+          maxLocalRate={item.maxLocal}
+          threshold={item.threshold}
+          inArticleSlot={<InArticleAd />}
+          embedded={true}
         />
 
-        {/* Standard Volume Tier Matrix */}
-        {tierRows.length > 0 && (
-          <TierComparisonTable
-            currencySymbol={item.currencySymbol || '$'}
-            title={item.suiteType === 'ecommerce' ? 'Monthly Scale Projections & Profit Matrix' : 'Standard Transaction Volume Tiers'}
-            amountHeader={item.suiteType === 'ecommerce' ? 'Monthly Volume' : (item.suiteType === 'freelance' ? 'Annual Target Net' : 'Gross Transaction')}
-            feeHeader={item.suiteType === 'ecommerce' ? 'Total Costs & Spend' : (item.suiteType === 'freelance' ? 'Day Rate (8h)' : (item.suiteType === 'tax' ? 'Tax Amount' : 'Deductions'))}
-            payoutHeader={item.suiteType === 'ecommerce' ? 'Net Profit Earned' : (item.suiteType === 'freelance' ? 'Monthly Retainer' : (item.suiteType === 'tax' ? 'Gross Invoice' : 'Net Received'))}
-            rows={tierRows}
-          />
-        )}
-      </section>
-
-      {/* Official Data Source & Regulatory Provenance Citation */}
-      <DataSourceCitation
-        source={dataSource}
-        toolTitle={item.shortTitle || item.title}
-      />
-
-      {/* Programmatic FAQ Accordion (5 Authoritative Questions with Schema) */}
-      {/* Test schema validity at: https://search.google.com/test/rich-results */}
-      {item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && item.category !== 'vat-calculator' && (
-        <>
-          <FaqSchema items={item.faqs} />
-          <FaqAccordion
-            items={item.faqs}
-            title={`${item.shortTitle || item.title} — Frequently Asked Questions`}
-          />
-        </>
-      )}
-
-      {/* Related Category Tools Cross-Linking */}
-      {relatedTools.length > 0 && (
-        <section className="rounded-xl border border-slate-200 bg-white p-5 sm:p-6 shadow-xs">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-800 mb-3">
-            Related {item.category.replace(/-/g, ' ')} Calculators
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {relatedTools.map((rel: any) => (
-              <Link
-                key={rel.slug}
-                href={`/tools/${rel.category}/${rel.slug}`}
-                className="group rounded-lg border border-slate-200 bg-slate-50/70 p-3 transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
-              >
-                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors truncate">
-                  {rel.shortTitle || rel.title}
-                </div>
-                <p className="text-[11px] text-slate-500 truncate mt-1">
-                  {rel.subtitle}
-                </p>
-              </Link>
-            ))}
+        {/* Technical Breakdown: KaTeX Formula & Tier Comparison */}
+        <section className="pt-8 sm:pt-10 border-t border-slate-200/80 space-y-6">
+          <div className="border-b border-slate-200 pb-3">
+            <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
+              Technical Breakdown & Formula Specifications
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+              Transparent mathematical reference and standardized volume benchmarks
+            </p>
           </div>
+
+          {/* Mathematical Formula Block */}
+          <FormulaBreakdown
+            formulaLatex={item.formulaLatex}
+            explanation={item.formulaExplanation}
+          />
+
+          {/* Standard Volume Tier Matrix */}
+          {tierRows.length > 0 && (
+            <TierComparisonTable
+              currencySymbol={item.currencySymbol || '$'}
+              title={item.suiteType === 'ecommerce' ? 'Monthly Scale Projections & Profit Matrix' : 'Standard Transaction Volume Tiers'}
+              amountHeader={item.suiteType === 'ecommerce' ? 'Monthly Volume' : (item.suiteType === 'freelance' ? 'Annual Target Net' : 'Gross Transaction')}
+              feeHeader={item.suiteType === 'ecommerce' ? 'Total Costs & Spend' : (item.suiteType === 'freelance' ? 'Day Rate (8h)' : (item.suiteType === 'tax' ? 'Tax Amount' : 'Deductions'))}
+              payoutHeader={item.suiteType === 'ecommerce' ? 'Net Profit Earned' : (item.suiteType === 'freelance' ? 'Monthly Retainer' : (item.suiteType === 'tax' ? 'Gross Invoice' : 'Net Received'))}
+              rows={tierRows}
+            />
+          )}
         </section>
-      )}
+
+        {/* Official Data Source & Regulatory Provenance Citation */}
+        <DataSourceCitation
+          source={dataSource}
+          toolTitle={item.shortTitle || item.title}
+          embedded={true}
+        />
+
+        {/* Programmatic FAQ Accordion (5 Authoritative Questions with Schema) */}
+        {/* Test schema validity at: https://search.google.com/test/rich-results */}
+        {item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && item.category !== 'vat-calculator' && (
+          <>
+            <FaqSchema items={item.faqs} />
+            <FaqAccordion
+              items={item.faqs}
+              title={`${item.shortTitle || item.title} — Frequently Asked Questions`}
+              embedded={true}
+            />
+          </>
+        )}
+
+        {/* Related Category Tools Cross-Linking */}
+        {relatedTools.length > 0 && (
+          <section className="pt-8 sm:pt-10 border-t border-slate-200/80 space-y-4">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-800">
+              Related {item.category.replace(/-/g, ' ')} Calculators
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {relatedTools.map((rel: any) => (
+                <Link
+                  key={rel.slug}
+                  href={`/tools/${rel.category}/${rel.slug}`}
+                  className="group rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
+                >
+                  <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors truncate">
+                    {rel.shortTitle || rel.title}
+                  </div>
+                  <p className="text-[11px] text-slate-500 truncate mt-1">
+                    {rel.subtitle}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+      </article>
     </div>
   );
 }

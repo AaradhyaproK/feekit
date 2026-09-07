@@ -24,6 +24,7 @@ interface ToolGuideProps {
   maxLocalRate?: number;
   threshold?: string;
   inArticleSlot?: React.ReactNode;
+  embedded?: boolean;
 }
 
 const STATE_AGENCIES: Record<string, string> = {
@@ -87,12 +88,19 @@ export function ToolGuide({
   maxLocalRate,
   threshold,
   inArticleSlot,
+  embedded = false,
 }: ToolGuideProps) {
   const currentYear = new Date().getFullYear();
+  const sectionClass = embedded
+    ? 'pt-8 sm:pt-10 border-t border-slate-200/80 space-y-8'
+    : 'rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-8 shadow-xs';
+  const sectionClassCompact = embedded
+    ? 'pt-8 sm:pt-10 border-t border-slate-200/80 space-y-6'
+    : 'rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs';
 
   if (suiteType === 'merchant') {
     return (
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-8 shadow-xs">
+      <section className={sectionClass}>
         {/* Article Header */}
         <div className="border-b border-slate-200 pb-5">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">
@@ -462,7 +470,7 @@ export function ToolGuide({
 
     if (isUK) {
       return (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-8 shadow-xs">
+        <section className={sectionClass}>
           <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
               <BookOpen className="h-5 w-5" />
@@ -582,7 +590,7 @@ export function ToolGuide({
     }
 
     return (
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-8 shadow-xs">
+      <section className={sectionClass}>
         <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
             <BookOpen className="h-5 w-5" />
@@ -707,7 +715,7 @@ export function ToolGuide({
 
   if (suiteType === 'freelance') {
     return (
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs">
+      <section className={sectionClassCompact}>
         <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
             <BookOpen className="h-5 w-5" />
@@ -772,7 +780,7 @@ export function ToolGuide({
 
   // Ecommerce
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs">
+    <section className={sectionClassCompact}>
       <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
           <BookOpen className="h-5 w-5" />

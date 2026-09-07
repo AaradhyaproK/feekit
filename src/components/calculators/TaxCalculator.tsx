@@ -12,6 +12,7 @@ interface TaxCalculatorProps {
   initialAmount?: number;
   initialDirection?: TaxDirection;
   currencySymbol?: string;
+  embedded?: boolean;
 }
 
 export function TaxCalculator({
@@ -19,6 +20,7 @@ export function TaxCalculator({
   initialAmount = 250,
   initialDirection = 'add_tax',
   currencySymbol = '$',
+  embedded = false,
 }: TaxCalculatorProps) {
   const [jurisdictionCode, setJurisdictionCode] = useState<string>(initialJurisdictionCode);
   const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '250');
@@ -76,7 +78,7 @@ Calculated via: https://usefeekit.com`;
   const euKeys = Object.keys(ALL_TAX_JURISDICTIONS).filter(k => ALL_TAX_JURISDICTIONS[k].region === 'EU');
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
       {/* Direction & Calculation Mode Switcher */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">

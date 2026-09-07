@@ -27,13 +27,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <Header onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 
         {/* Spacious, Uncluttered Central Canvas */}
-        <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7">
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7">
           {children}
         </main>
 
         {/* Global Daylight Footer */}
         <footer className="border-t border-slate-200 bg-white pt-10 pb-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500">
-          <div className="max-w-6xl mx-auto space-y-8">
+          <div className="max-w-7xl mx-auto space-y-8">
             {/* Top Row: Brand & Mission */}
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
               <div className="flex items-center gap-3">

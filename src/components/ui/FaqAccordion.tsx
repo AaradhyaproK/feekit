@@ -12,6 +12,7 @@ export interface FaqAccordionProps {
   faqs?: FaqItem[];
   title?: string;
   className?: string;
+  embedded?: boolean;
 }
 
 export function FaqAccordion({
@@ -19,6 +20,7 @@ export function FaqAccordion({
   faqs,
   title = 'Frequently Asked Questions',
   className = '',
+  embedded = false,
 }: FaqAccordionProps) {
   const list = items || faqs || [];
   const [openStates, setOpenStates] = useState<Record<number, boolean>>({ 0: true });
@@ -36,7 +38,9 @@ export function FaqAccordion({
   return (
     <section
       aria-label="Frequently asked questions"
-      className={`rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs ${className}`.trim()}
+      className={embedded 
+        ? `pt-8 sm:pt-10 border-t border-slate-200/80 space-y-5 ${className}`.trim()
+        : `rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs ${className}`.trim()}
     >
       {title && (
         <div className="border-b border-slate-200 pb-4 mb-5">

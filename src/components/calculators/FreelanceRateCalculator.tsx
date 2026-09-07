@@ -12,6 +12,7 @@ interface FreelanceRateCalculatorProps {
   initialNet?: number;
   initialOverhead?: number;
   currencySymbol?: string;
+  embedded?: boolean;
 }
 
 export function FreelanceRateCalculator({
@@ -19,6 +20,7 @@ export function FreelanceRateCalculator({
   initialNet = 95000,
   initialOverhead = 10000,
   currencySymbol = '$',
+  embedded = false,
 }: FreelanceRateCalculatorProps) {
   const [role, setRole] = useState<string>(initialRole);
   const [netIncome, setNetIncome] = useState<string>(initialNet !== undefined ? String(initialNet) : '95000');
@@ -64,7 +66,7 @@ export function FreelanceRateCalculator({
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
       <div className="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Benchmark Role:</span>

@@ -37,6 +37,7 @@ interface SalesTaxCalculatorProps {
   initialAmount?: number;
   initialDirection?: 'add_tax' | 'remove_tax';
   className?: string;
+  embedded?: boolean;
 }
 
 const ALL_STATES: StateTaxData[] = (geoMatrix as any).us_states || [];
@@ -107,12 +108,16 @@ export function RateComparisonTable({
 /**
  * Deep, CPA-grade, 800-1000 word educational and compliance guide for every US state
  */
-export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
+export function SalesTaxDeepContent({ state, embedded = false }: { state: StateTaxData; embedded?: boolean }) {
   const nexusFormatted = Number(state.nexusThreshold).toLocaleString();
   const hasLocal = state.maxLocal > state.rate;
   const estimatedAvgLocal = hasLocal
     ? ((state.maxLocal - state.rate) / 2).toFixed(2)
     : '0.00';
+
+  const sectionClass = embedded
+    ? 'pt-8 sm:pt-10 border-t border-slate-200/80 space-y-5'
+    : 'rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs';
 
   const faqItems = [
     {
@@ -140,7 +145,7 @@ export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
   return (
     <article className="space-y-8 text-slate-700 leading-relaxed text-xs sm:text-sm">
       {/* SECTION A: State Sales Tax Rate — Full Breakdown */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+      <section className={sectionClass}>
         <div className="border-b border-slate-200 pb-4">
           <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
             <Scale className="h-5 w-5 text-blue-600 shrink-0" />
@@ -174,7 +179,7 @@ export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
       </section>
 
       {/* SECTION B: Sales Tax Nexus in [State] */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+      <section className={sectionClass}>
         <div className="border-b border-slate-200 pb-4">
           <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
             <ShieldCheck className="h-5 w-5 text-indigo-600 shrink-0" />
@@ -219,7 +224,7 @@ export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
       </section>
 
       {/* SECTION C: Exemption Certificates in [State] */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+      <section className={sectionClass}>
         <div className="border-b border-slate-200 pb-4">
           <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
             <FileCheck2 className="h-5 w-5 text-emerald-600 shrink-0" />
@@ -262,7 +267,7 @@ export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
       </section>
 
       {/* SECTION D: Filing [State] Sales Tax Returns */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+      <section className={sectionClass}>
         <div className="border-b border-slate-200 pb-4">
           <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
             <FileSpreadsheet className="h-5 w-5 text-purple-600 shrink-0" />
@@ -310,6 +315,7 @@ export function SalesTaxDeepContent({ state }: { state: StateTaxData }) {
       <FaqAccordion
         items={faqItems}
         title={`Frequently Asked Questions: ${state.name} Sales Tax`}
+        embedded={embedded}
       />
     </article>
   );
@@ -320,6 +326,7 @@ export function SalesTaxCalculator({
   initialAmount = 250,
   initialDirection = 'add_tax',
   className = '',
+  embedded = false,
 }: SalesTaxCalculatorProps) {
   const [selectedSlug, setSelectedSlug] = useState<string>(stateSlug.toLowerCase());
   const [amount, setAmount] = useState<string>(initialAmount !== undefined ? String(initialAmount) : '250');
@@ -369,7 +376,7 @@ Calculated via: https://usefeekit.com/tools/sales-tax-calculator/${currentState.
 
   return (
     <div className={`space-y-6 ${className}`.trim()}>
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+      <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
         {/* Mode Switcher */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
           <div className="flex items-center gap-2 text-xs">
@@ -602,7 +609,7 @@ Calculated via: https://usefeekit.com/tools/sales-tax-calculator/${currentState.
       </div>
 
       {/* Comprehensive 800-1000 Word SEO & Compliance Section */}
-      <SalesTaxDeepContent state={currentState} />
+      <SalesTaxDeepContent state={currentState} embedded={embedded} />
     </div>
   );
 }

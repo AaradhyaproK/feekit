@@ -19,6 +19,7 @@ interface EcommerceProfitCalculatorProps {
   initialPrep?: number;
   initialAdSpend?: number;
   currencySymbol?: string;
+  embedded?: boolean;
 }
 
 export function EcommerceProfitCalculator({
@@ -29,6 +30,7 @@ export function EcommerceProfitCalculator({
   initialPrep = 1.0,
   initialAdSpend = 10.0,
   currencySymbol = '$',
+  embedded = false,
 }: EcommerceProfitCalculatorProps) {
   const [platform, setPlatform] = useState<EcommercePlatform>(initialPlatform);
   const [price, setPrice] = useState<string>(initialPrice !== undefined ? String(initialPrice) : '49.99');
@@ -83,7 +85,7 @@ Calculated via: https://usefeekit.com`;
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm">
+    <div className={embedded ? "space-y-6" : "rounded-2xl border border-slate-200 bg-white p-4 sm:p-7 shadow-sm"}>
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 sm:pb-4">
         <div className="flex items-center gap-2 text-xs">
           <span className="font-semibold text-slate-500">Platform Channel:</span>

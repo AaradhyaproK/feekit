@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useSyncExternalStore } from 'react';
 
 export type AdFormat = 'auto' | 'rectangle' | 'in-article';
 
@@ -12,29 +12,82 @@ export interface AdUnitProps {
 
 const PUBLISHER_ID = 'ca-pub-1291898061670715';
 
+declare global {
+  interface Window {
+    adsbygoogle?: Array<Record<string, unknown>>;
+  }
+}
+
+const emptySubscribe = () => () => {};
+
 export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
-  const [isMounted, setIsMounted] = useState(false);
+  // Official React 18/19 hydration detection (zero cascading renders)
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
   const adRef = useRef<HTMLModElement | null>(null);
   const isPushedRef = useRef(false);
 
-  // Mark mounted after initial client hydration
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  // Safely trigger adsbygoogle push after mounting
+  // Safely trigger adsbygoogle push after mounting and layout calculation
   useEffect(() => {
     if (!isMounted) return;
     if (typeof window === 'undefined') return;
     if (isPushedRef.current) return;
 
-    try {
-      if (adRef.current && !adRef.current.getAttribute('data-adsbygoogle-status')) {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        isPushedRef.current = true;
+    // Prevent AdSense TagError on localhost / local development where ads cannot serve
+    const isLocalhost =
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1';
+
+    if (isLocalhost) {
+      return;
+    }
+
+    const checkAndPushAd = () => {
+      if (isPushedRef.current) return;
+      const el = adRef.current;
+      if (!el) return;
+
+      const availableWidth = el.offsetWidth || el.parentElement?.offsetWidth || 0;
+      // Do not push if width has not yet computed (prevents "No slot size for availableWidth=0")
+      if (availableWidth <= 0) {
+        return;
       }
-    } catch (err) {
-      console.error('AdSense ad push failed:', err);
+
+      if (!el.getAttribute('data-adsbygoogle-status')) {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          isPushedRef.current = true;
+        } catch (err) {
+          console.warn('AdSense push safe catch:', err);
+        }
+      }
+    };
+
+    const el = adRef.current;
+    if (!el) return;
+
+    // Check if width is already available
+    const currentWidth = el.offsetWidth || el.parentElement?.offsetWidth || 0;
+    if (currentWidth > 0) {
+      checkAndPushAd();
+    } else if (typeof ResizeObserver !== 'undefined') {
+      // Wait for layout to compute positive width before pushing to AdSense
+      const target = el.parentElement || el;
+      const observer = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.contentRect.width > 0) {
+            checkAndPushAd();
+            observer.disconnect();
+            break;
+          }
+        }
+      });
+      observer.observe(target);
+      return () => observer.disconnect();
     }
   }, [isMounted, slot]);
 
@@ -69,18 +122,22 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     };
   }
 
-  // Show placeholder div during SSR and initial hydration so layout does not shift
-  if (!isMounted) {
+  // Show styled placeholder during SSR, initial hydration, or in local development
+  const isLocalDev =
+    typeof window !== 'undefined' &&
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
+  if (!isMounted || isLocalDev) {
     return (
       <div
-        className={`adsense-placeholder ${containerDimensions} ${placeholderHeight} flex items-center justify-center rounded-xl bg-slate-50/70 border border-dashed border-slate-200/80 p-2 text-center transition-all ${className}`.trim()}
+        className={`adsense-placeholder ${containerDimensions} ${placeholderHeight} flex items-center justify-center rounded-2xl bg-slate-50/70 border border-dashed border-slate-200 p-4 text-center transition-all ${className}`.trim()}
         aria-hidden="true"
       >
         <div className="flex flex-col items-center justify-center gap-1 text-slate-400 select-none">
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            Advertisement
+            Advertisement Slot
           </span>
-          <span className="text-[9px] text-slate-300">Google Ad Space</span>
+          <span className="text-[11px] text-slate-400">Google AdSense • {format}</span>
         </div>
       </div>
     );

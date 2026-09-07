@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* 2. Top Viewport Reading Progress Bar */}
       <ReadingProgressBar />
 
-      <article className="w-full space-y-6 pb-16">
+      <div className="w-full space-y-6 pb-16">
         {/* Back to Blog Navigation */}
         <div className="flex items-center justify-between">
           <Link
@@ -137,79 +137,84 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Main Article Header */}
-        <header className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs space-y-5">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-200">
-              {post.category}
-            </span>
-            {post.tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600"
-              >
-                <Tag className="h-3 w-3 text-slate-400" />
-                {tag}
+        {/* Unified Single Continuous Article Canvas (No Box-Inside-Box) */}
+        <article className="w-full rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 lg:p-12 shadow-xs space-y-6">
+          {/* Article Header & Metadata */}
+          <header className="space-y-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-200">
+                {post.category}
               </span>
-            ))}
+              {post.tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600"
+                >
+                  <Tag className="h-3 w-3 text-slate-400" />
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              {post.title}
+            </h1>
+
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl">
+              {post.description}
+            </p>
+
+            {/* Author Meta Line (Clean inline, zero nested box) */}
+            <AuthorBio post={post} />
+          </header>
+
+          {/* Integrated Table of Contents */}
+          <TableOfContents headings={headings} />
+
+          {/* Continuous MDX Body */}
+          <div className="prose prose-slate max-w-none pt-2">
+            <MDXContent />
+
+            {/* Frontmatter FAQ Section if available */}
+            {post.faq && post.faq.length > 0 && (
+              <section className="mt-12 pt-8 border-t border-slate-200">
+                <div className="flex items-center gap-2 mb-3 text-xs font-bold uppercase tracking-wider text-blue-700">
+                  <HelpCircle className="h-4 w-4" />
+                  <span>Frequently Asked Questions</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6">
+                  Common Inquiries & Regulations
+                </h2>
+                <div className="space-y-4 not-prose">
+                  {post.faq.map((faqItem, i) => (
+                    <div
+                      key={i}
+                      className="rounded-2xl border border-slate-200/80 bg-slate-50/60 p-5 shadow-2xs"
+                    >
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2">
+                        {faqItem.question}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {faqItem.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            {post.title}
-          </h1>
-
-          <p className="text-base text-slate-600 leading-relaxed">{post.description}</p>
-
-          {/* Author Bio Box (FeeKit Verified Desk) */}
-          <AuthorBio post={post} />
-        </header>
-
-        {/* Clean In-Content Table of Contents (Single layout, No side duplication) */}
-        <TableOfContents headings={headings} />
-
-        {/* Article MDX Body */}
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-xs prose prose-slate max-w-none">
-          <MDXContent />
-
-          {/* Frontmatter FAQ Section if available */}
-          {post.faq && post.faq.length > 0 && (
-            <section className="mt-10 pt-8 border-t border-slate-200">
-              <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-wider text-blue-700">
-                <HelpCircle className="h-4 w-4" />
-                <span>Frequently Asked Questions</span>
-              </div>
-              <h2 className="text-xl font-bold text-slate-900 mb-6">
-                Common Inquiries & Regulations
-              </h2>
-              <div className="space-y-4 not-prose">
-                {post.faq.map((faqItem, i) => (
-                  <div
-                    key={i}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/50 p-5 shadow-2xs"
-                  >
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2">
-                      {faqItem.question}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {faqItem.answer}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
-
-        {/* Slot 3: AdSense slot above footer / related calculators */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
-          <div className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-1 text-center">
-            Advertisement
+          {/* Slot 3: AdSense slot above related calculators */}
+          <div className="my-8 pt-6 border-t border-slate-100 text-center">
+            <div className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-1">
+              Advertisement
+            </div>
+            <InArticleAd className="w-full" />
           </div>
-          <InArticleAd className="w-full" />
-        </div>
 
-        {/* Related Calculators CTA Box */}
-        <RelatedCalculators calculators={post.relatedCalculators} />
+          {/* Related Calculators CTA Box */}
+          <RelatedCalculators calculators={post.relatedCalculators} />
+        </article>
 
         {/* Bottom Section: Related Articles (3 from same category or latest) */}
         {relatedPosts.length > 0 && (
@@ -238,7 +243,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </section>
         )}
-      </article>
+      </div>
     </>
   );
 }

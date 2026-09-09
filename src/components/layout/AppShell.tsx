@@ -221,6 +221,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/cookies" className="hover:text-blue-600 transition-colors">
+                      Cookie Policy & Opt-Out
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/terms" className="hover:text-blue-600 transition-colors">
                       Terms of Service
                     </Link>

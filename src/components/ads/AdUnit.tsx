@@ -28,6 +28,11 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     () => false
   );
 
+  const isDummySlot =
+    !slot ||
+    ['1234567890', '2345678901', '3456789012'].includes(slot) ||
+    slot.trim().length < 5;
+
   const adRef = useRef<HTMLModElement | null>(null);
   const isPushedRef = useRef(false);
 
@@ -35,6 +40,7 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
   useEffect(() => {
     if (!isMounted) return;
     if (typeof window === 'undefined') return;
+    if (isDummySlot) return;
     if (isPushedRef.current) return;
 
     // Prevent AdSense TagError on localhost / local development where ads cannot serve
@@ -122,25 +128,14 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     };
   }
 
-  // Show styled placeholder during SSR, initial hydration, or in local development
-  const isLocalDev =
-    typeof window !== 'undefined' &&
-    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  // If no valid ad slot is configured (e.g. before AdSense approval), do not render
+  if (isDummySlot) {
+    return null;
+  }
 
-  if (!isMounted || isLocalDev) {
-    return (
-      <div
-        className={`adsense-placeholder ${containerDimensions} ${placeholderHeight} flex items-center justify-center rounded-2xl bg-slate-50/70 border border-dashed border-slate-200 p-4 text-center transition-all ${className}`.trim()}
-        aria-hidden="true"
-      >
-        <div className="flex flex-col items-center justify-center gap-1 text-slate-400 select-none">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            Advertisement Slot
-          </span>
-          <span className="text-[11px] text-slate-400">Google AdSense • {format}</span>
-        </div>
-      </div>
-    );
+  // Prevent SSR hydration mismatch
+  if (!isMounted) {
+    return null;
   }
 
   return (
@@ -158,3 +153,4 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     </div>
   );
 }
+

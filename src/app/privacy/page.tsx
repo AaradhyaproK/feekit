@@ -69,32 +69,85 @@ export default function PrivacyPage() {
           </ul>
         </section>
 
-        {/* 2. Advertising and Third-Party Cookies */}
-        <section className="space-y-3">
-          <h2 className="text-lg font-bold text-slate-900">2. Advertising & Third-Party Cookies (Google AdSense)</h2>
+        {/* 2. Advertising and Third-Party Cookies (Google AdSense Compliant) */}
+        <section className="space-y-4">
+          <h2 className="text-lg font-bold text-slate-900">2. Advertising, Cookies & Third-Party Vendors (Google AdSense)</h2>
           <p>
-            FeeKit displays non-intrusive banner advertisements to fund free access to our financial tools. Third-party vendors, including Google, use cookies to serve ads based on prior visits to this website or other websites:
+            FeeKit displays non-intrusive banner and native advertisements to fund free access to our financial calculators. We partner with third-party advertising networks, including Google AdSense, to serve relevant advertisements when you visit our website.
           </p>
-          <ul className="space-y-2 text-xs">
-            <li className="flex items-start gap-2">
-              <Eye className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
-              <span>Google&apos;s use of advertising cookies enables it and its partners to serve ads based on your visit to FeeKit and/or other sites on the Internet.</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Eye className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
-              <span>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Google Ads Settings</a> or through <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">aboutads.info</a>.</span>
-            </li>
-          </ul>
+
+          <div className="space-y-2 text-xs">
+            <div className="font-semibold text-slate-900">Mandatory Google AdSense Disclosures:</div>
+            <ul className="space-y-2 text-xs">
+              <li className="flex items-start gap-2">
+                <Eye className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                <span><strong>Third-Party Vendors:</strong> Third-party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to FeeKit or other websites across the Internet.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Eye className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                <span><strong>DoubleClick / Advertising Cookies:</strong> Google&apos;s use of advertising cookies (such as the DoubleClick cookie) enables it and its partners to serve personalized and non-personalized ads to your browser based on visits to FeeKit and/or other sites on the Internet.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Eye className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                <span><strong>Opting Out of Personalized Advertising:</strong> You may opt out of personalized Google advertising at any time by visiting <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-medium">Google Ads Settings</a>.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Eye className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                <span><strong>Industry-Wide Opt-Out Tools:</strong> You can opt out of a third-party vendor&apos;s use of cookies for personalized advertising across participating ad networks by visiting:</span>
+              </li>
+            </ul>
+
+            <div className="pl-6 pt-1 space-y-1 text-xs">
+              <div>• Digital Advertising Alliance (DAA): <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://optout.aboutads.info/</a></div>
+              <div>• Network Advertising Initiative (NAI): <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://optout.networkadvertising.org/</a></div>
+              <div>• European Interactive Digital Advertising Alliance (EDAA - EU/UK): <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://www.youronlinechoices.eu/</a></div>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2 text-xs">
+            <div className="font-bold text-slate-900">Cookies Used on FeeKit:</div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+              <div>
+                <span className="font-semibold text-slate-800 block">Strictly Necessary</span>
+                <span className="text-slate-500 text-[11px]">Browser state, local UI theme, and cookie consent preferences. No personal tracking.</span>
+              </div>
+              <div>
+                <span className="font-semibold text-slate-800 block">Analytics & Performance</span>
+                <span className="text-slate-500 text-[11px]">Anonymous aggregated metrics to monitor page load speeds and prevent technical errors.</span>
+              </div>
+              <div>
+                <span className="font-semibold text-slate-800 block">Advertising (Google AdSense)</span>
+                <span className="text-slate-500 text-[11px]">Ad serving, fraud detection, frequency capping, and ad effectiveness measurement.</span>
+              </div>
+            </div>
+            <div className="pt-2">
+              For complete technical specifications, see our dedicated <Link href="/cookies" className="text-blue-600 underline font-semibold">Cookie Policy</Link>.
+            </div>
+          </div>
         </section>
 
         {/* 3. GDPR & CCPA Compliance */}
         <section className="space-y-3">
-          <h2 className="text-lg font-bold text-slate-900">3. Rights Under GDPR (UK & EU) and CCPA (California)</h2>
+          <h2 className="text-lg font-bold text-slate-900">3. Rights Under GDPR (UK & EU) and CCPA/CPRA (California)</h2>
           <p>
-            Under the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA), you maintain explicit data privacy rights:
+            Under the General Data Protection Regulation (GDPR), UK Data Protection Act 2018, and California Consumer Privacy Act / California Privacy Rights Act (CCPA/CPRA), visitors possess explicit rights concerning their digital privacy:
           </p>
-          <p className="text-xs text-slate-600">
-            Because we do not maintain personal profiles, sell personal data, or store user accounts, we hold no personal data linking your identity to your calculation history. For any privacy requests, questions regarding cookie consent, or data subject inquiries, you may contact our designated Data Protection officer at{' '}
+          <ul className="space-y-2 text-xs">
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>Do Not Sell or Share My Personal Information:</strong> FeeKit does not sell, rent, or trade your personal data or calculation numbers to any third party.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>Right to Access & Deletion:</strong> Because our calculation engines operate 100% client-side with zero server databases or user accounts, we maintain no identifiable records of your calculations to inspect or delete.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>Consent Revocation:</strong> You can manage or reset your cookie preferences at any time using our cookie settings banner or through your browser settings.</span>
+            </li>
+          </ul>
+          <p className="text-xs text-slate-600 pt-1">
+            For any formal data subject access requests or privacy inquiries, contact our Data Protection Officer at{' '}
             <a href="mailto:hello@snab.co.in" className="text-blue-600 underline font-medium">
               hello@snab.co.in
             </a>.

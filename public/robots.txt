@@ -1,19 +1,20 @@
 # ==============================================================================
 # FeeKit robots.txt
-#
-# GOOGLE SEARCH CONSOLE MANUAL ACTION CHECKLIST AFTER DEPLOYMENT:
-# 1. Submit Sitemap: Go to Google Search Console -> Sitemaps -> Add:
-#    https://www.usefeekit.com/sitemap.xml
-# 2. Request Indexing: Use URL Inspection for https://www.usefeekit.com and key
-#    calculator pages (e.g. /tools/sales-tax-calculator/california), then click "Request Indexing".
-# 3. Geo Targeting: Ensure geographic target is prioritized for the United States (US).
+# Configured for Googlebot, Mediapartners-Google (AdSense), and major search engines
 # ==============================================================================
 
+# Google AdSense Crawler (Explicit Access)
+User-agent: Mediapartners-Google
+Allow: /
+
+# Standard Search Crawlers (Googlebot, Bingbot, etc.)
 User-agent: *
 Allow: /
 Allow: /tools/
+Allow: /blog/
+Allow: /_next/static/
+Allow: /_next/image/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /adsense-setup/
 
 Sitemap: https://www.usefeekit.com/sitemap.xml
+

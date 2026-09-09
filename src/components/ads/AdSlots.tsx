@@ -8,15 +8,16 @@ export interface AdSlotProps {
   className?: string;
 }
 
-// Configurable slot IDs with sensible fallback IDs
-const DEFAULT_LEADERBOARD_SLOT = process.env.NEXT_PUBLIC_ADSENSE_LEADERBOARD_SLOT || '1234567890';
-const DEFAULT_RECTANGLE_SLOT = process.env.NEXT_PUBLIC_ADSENSE_RECTANGLE_SLOT || '2345678901';
-const DEFAULT_IN_ARTICLE_SLOT = process.env.NEXT_PUBLIC_ADSENSE_IN_ARTICLE_SLOT || '3456789012';
+// Configurable slot IDs via environment variables (only active once approved and set)
+const DEFAULT_LEADERBOARD_SLOT = process.env.NEXT_PUBLIC_ADSENSE_LEADERBOARD_SLOT || '';
+const DEFAULT_RECTANGLE_SLOT = process.env.NEXT_PUBLIC_ADSENSE_RECTANGLE_SLOT || '';
+const DEFAULT_IN_ARTICLE_SLOT = process.env.NEXT_PUBLIC_ADSENSE_IN_ARTICLE_SLOT || '';
 
 /**
  * Top of page, format="auto", full width responsive ad unit
  */
 export function LeaderboardAd({ slot = DEFAULT_LEADERBOARD_SLOT, className }: AdSlotProps) {
+  if (!slot) return null;
   return (
     <AdUnit
       slot={slot}
@@ -30,6 +31,7 @@ export function LeaderboardAd({ slot = DEFAULT_LEADERBOARD_SLOT, className }: Ad
  * Below calculator results, format="rectangle" (300x250) ad unit
  */
 export function RectangleAd({ slot = DEFAULT_RECTANGLE_SLOT, className }: AdSlotProps) {
+  if (!slot) return null;
   return (
     <AdUnit
       slot={slot}
@@ -43,6 +45,7 @@ export function RectangleAd({ slot = DEFAULT_RECTANGLE_SLOT, className }: AdSlot
  * Inside SEO written content section, format="in-article" fluid native ad unit
  */
 export function InArticleAd({ slot = DEFAULT_IN_ARTICLE_SLOT, className }: AdSlotProps) {
+  if (!slot) return null;
   return (
     <AdUnit
       slot={slot}
@@ -51,3 +54,4 @@ export function InArticleAd({ slot = DEFAULT_IN_ARTICLE_SLOT, className }: AdSlo
     />
   );
 }
+

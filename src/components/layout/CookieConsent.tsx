@@ -59,12 +59,21 @@ export function CookieConsent() {
         </p>
 
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-100">
-          <Link
-            href="/privacy"
-            className="text-[11px] font-semibold text-slate-500 hover:text-sky-600 underline transition-colors"
-          >
-            Privacy Policy
-          </Link>
+          <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-500">
+            <Link
+              href="/privacy"
+              className="hover:text-sky-600 underline transition-colors"
+            >
+              Privacy
+            </Link>
+            <span>•</span>
+            <Link
+              href="/cookies"
+              className="hover:text-sky-600 underline transition-colors"
+            >
+              Cookie Policy
+            </Link>
+          </div>
 
           <div className="flex items-center gap-2">
             <button

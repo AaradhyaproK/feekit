@@ -15,7 +15,7 @@ import { AuthorBio } from '@/components/blog/AuthorBio';
 import { RelatedCalculators } from '@/components/blog/RelatedCalculators';
 import { BlogJsonLd } from '@/components/blog/BlogJsonLd';
 import { BlogCard } from '@/components/blog/BlogCard';
-import { InArticleAd } from '@/components/ads/AdSlots';
+import { AdBanner } from '@/components/blog/AdBanner';
 import { ArrowLeft, Tag, HelpCircle, ShieldCheck } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
@@ -233,12 +233,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
 
           {/* Slot 3: AdSense slot above related calculators */}
-          <div className="my-8 pt-6 border-t border-slate-100 text-center">
-            <div className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-1">
-              Advertisement
-            </div>
-            <InArticleAd className="w-full" />
-          </div>
+          <AdBanner />
 
           {/* Related Calculators CTA Box */}
           <RelatedCalculators calculators={post.relatedCalculators} />

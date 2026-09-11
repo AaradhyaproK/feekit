@@ -36,6 +36,21 @@ const getMatrixItems = (): Array<any> => {
     : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>));
 };
 
+function findMatrixItem(category: string, slug: string) {
+  const items = getMatrixItems();
+  const direct = items.find((x) => x.category === category && x.slug === slug);
+  if (direct) return direct;
+
+  // Fallback aliases for Square POS
+  if (category === 'square-fee-calculator') {
+    if (slug === 'standard' || slug === 'pos') {
+      return items.find((x) => x.category === category && (x.slug === 'standard' || x.slug === 'in-person' || x.slug === 'usa'));
+    }
+  }
+
+  return undefined;
+}
+
 export async function generateStaticParams() {
   return getMatrixItems().map((item) => ({
     category: item.category,
@@ -45,9 +60,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
-  const item = getMatrixItems().find(
-    (x) => x.category === category && x.slug === slug
-  );
+  const item = findMatrixItem(category, slug);
 
   if (!item) {
     return {
@@ -89,9 +102,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ProgrammaticToolPage({ params }: PageProps) {
   const { category, slug } = await params;
-  const item = getMatrixItems().find(
-    (x) => x.category === category && x.slug === slug
-  );
+  const item = findMatrixItem(category, slug);
 
   if (!item) {
     notFound();

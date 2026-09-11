@@ -158,3 +158,33 @@ html, body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Google AdSense: Zero Reserved Space when Unfilled / Unapproved
+   Ensures no blank gaps, empty boxes, or layout shifts appear
+   ========================================================================== */
+ins.adsbygoogle[data-ad-status="unfilled"],
+ins.adsbygoogle[data-ad-status="unfilled"] * {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.adsense-wrapper:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.adsense-banner-container:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+

@@ -33,8 +33,30 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     ['1234567890', '2345678901', '3456789012'].includes(slot) ||
     slot.trim().length < 5;
 
+  const [isUnfilled, setIsUnfilled] = React.useState(false);
+
   const adRef = useRef<HTMLModElement | null>(null);
   const isPushedRef = useRef(false);
+
+  // Detect when Google AdSense marks the ad unit as unfilled
+  useEffect(() => {
+    const el = adRef.current;
+    if (!el || isDummySlot) return;
+
+    if (el.getAttribute('data-ad-status') === 'unfilled') {
+      setIsUnfilled(true);
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      if (el.getAttribute('data-ad-status') === 'unfilled') {
+        setIsUnfilled(true);
+      }
+    });
+
+    observer.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
+    return () => observer.disconnect();
+  }, [isDummySlot]);
 
   // Safely trigger adsbygoogle push after mounting and layout calculation
   useEffect(() => {
@@ -129,7 +151,7 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
   }
 
   // If no valid ad slot is configured (e.g. before AdSense approval), do not render
-  if (isDummySlot) {
+  if (isDummySlot || isUnfilled) {
     return null;
   }
 

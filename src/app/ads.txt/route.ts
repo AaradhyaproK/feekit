@@ -3,14 +3,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const content = [
-    '# ============================================================================== #',
-    '# FeeKit Google AdSense Authorized Digital Sellers (ads.txt)                     #',
-    '# Publisher ID: pub-1291898061670715                                             #',
-    '# ============================================================================== #',
-    'google.com, pub-1291898061670715, DIRECT, f08c47fec0942fa0',
-    '',
-  ].join('\n');
+  const content = 'google.com, pub-1291898061670715, DIRECT, f08c47fec0942fa0\n';
 
   return new NextResponse(content, {
     status: 200,

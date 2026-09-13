@@ -1,11 +1,1 @@
-# ==============================================================================
-# FeeKit Google AdSense Authorized Digital Sellers (ads.txt)
-# Publisher ID: ca-pub-1291898061670715
-#
-# GOOGLE SEARCH CONSOLE & ADSENSE POST-DEPLOYMENT INSTRUCTIONS:
-# 1. Submit Sitemap: In Google Search Console, submit https://www.usefeekit.com/sitemap.xml
-# 2. Request Indexing: Use URL Inspection for https://www.usefeekit.com to request indexing.
-# 3. Geo Targeting: Ensure primary geographic target is set to the United States (US).
-# 4. AdSense Status: Confirm ads.txt status in AdSense console (Sites -> usefeekit.com).
-# ==============================================================================
 google.com, pub-1291898061670715, DIRECT, f08c47fec0942fa0

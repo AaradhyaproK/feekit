@@ -14,6 +14,8 @@ import { LeaderboardAd, RectangleAd } from '@/components/ads/AdSlots';
 import type { Metadata } from 'next';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 import { CategoryJsonLd } from '@/components/seo/JsonLd';
+import { FaqSchema } from '@/components/seo/FaqSchema';
+import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 
@@ -292,6 +294,18 @@ export default async function CategoryPage({ params }: Props) {
             ))}
           </div>
         </div>
+
+        {/* Programmatic Category FAQs & Structured Data */}
+        {primaryTool?.faqs && primaryTool.faqs.length > 0 && (
+          <div className="pt-8 sm:pt-10 border-t border-slate-200/80 space-y-4">
+            <FaqSchema items={primaryTool.faqs} />
+            <FaqAccordion
+              items={primaryTool.faqs}
+              title={`${title} — Frequently Asked Questions`}
+              embedded={true}
+            />
+          </div>
+        )}
 
         {/* AdSense Rectangle Unit */}
         <div className="flex justify-center my-6">

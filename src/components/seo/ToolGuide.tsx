@@ -14,9 +14,24 @@ import {
 } from 'lucide-react';
 
 import { getVatCountry } from '@/lib/data/vat-countries';
+import { VenmoGuide } from './guides/VenmoGuide';
+import { GumroadGuide } from './guides/GumroadGuide';
+import { LemonSqueezyGuide } from './guides/LemonSqueezyGuide';
+import { ShopifyGuide } from './guides/ShopifyGuide';
+import { PayPalGuide } from './guides/PayPalGuide';
+import { SquareGuide } from './guides/SquareGuide';
+import { AuthorizeNetGuide } from './guides/AuthorizeNetGuide';
+import { WiseStripeGuide } from './guides/WiseStripeGuide';
+import { CanadaTaxGuide } from './guides/CanadaTaxGuide';
+import { GatewayComparatorGuide } from './guides/GatewayComparatorGuide';
+import { ProfitMarginGuide } from './guides/ProfitMarginGuide';
+import { BreakEvenGuide } from './guides/BreakEvenGuide';
+import { RoiGuide } from './guides/RoiGuide';
+import { QuarterlyTaxGuide } from './guides/QuarterlyTaxGuide';
+import { UkIr35Guide } from './guides/UkIr35Guide';
 
 interface ToolGuideProps {
-  suiteType: 'merchant' | 'tax' | 'freelance' | 'ecommerce';
+  suiteType: string;
   title: string;
   category?: string;
   countrySlug?: string;
@@ -103,6 +118,73 @@ export function ToolGuide({
   const sectionClassCompact = embedded
     ? 'pt-6 sm:pt-10 border-t border-slate-200/80 space-y-5 sm:space-y-6'
     : 'rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 shadow-xs';
+
+  if (category === 'venmo-fee-calculator') {
+    return <VenmoGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'gumroad-fee-calculator') {
+    return <GumroadGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'lemon-squeezy-calculator') {
+    return <LemonSqueezyGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'shopify-fee-calculator') {
+    return <ShopifyGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'paypal-fee-calculator') {
+    return <PayPalGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'square-fee-calculator') {
+    return <SquareGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'authorize-net-calculator') {
+    return <AuthorizeNetGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'wise-vs-stripe') {
+    return <WiseStripeGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'canada-sales-tax') {
+    return (
+      <CanadaTaxGuide
+        sectionClass={sectionClass}
+        stateName={stateName}
+        baseRate={baseRate}
+        inArticleSlot={inArticleSlot}
+      />
+    );
+  }
+
+  if (category === 'gateway-comparator' || suiteType === 'comparator') {
+    return <GatewayComparatorGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'profit-margin-calculator' || suiteType === 'profit_margin') {
+    return <ProfitMarginGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'break-even-calculator' || suiteType === 'break_even') {
+    return <BreakEvenGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'roi-calculator' || suiteType === 'roi') {
+    return <RoiGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'quarterly-tax-calculator' || suiteType === 'quarterly_tax') {
+    return <QuarterlyTaxGuide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
+
+  if (category === 'uk-ir35-calculator' || suiteType === 'uk_ir35') {
+    return <UkIr35Guide sectionClass={sectionClass} inArticleSlot={inArticleSlot} />;
+  }
 
   if (suiteType === 'merchant') {
     return (

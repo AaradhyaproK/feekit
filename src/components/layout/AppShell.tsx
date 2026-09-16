@@ -108,6 +108,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                       UK VAT Standard (20%) & Reduced (5%)
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/tools/canada-sales-tax" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      Canada GST/HST Hub (10 Provinces)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/canada-sales-tax/ontario" className="hover:text-blue-600 transition-colors">
+                      Ontario HST (13%)
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
@@ -118,18 +128,33 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 </div>
                 <ul className="space-y-2 text-xs">
                   <li>
+                    <Link href="/tools/gateway-comparator/stripe-paypal-square" className="hover:text-blue-600 transition-colors font-bold text-blue-600">
+                      Stripe vs PayPal vs Square Comparator
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/tools/stripe-fee-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
                       Stripe Processing Hub
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools/stripe-fee-calculator/usa" className="hover:text-blue-600 transition-colors">
-                      Stripe USA (2.9% + $0.30)
+                    <Link href="/tools/venmo-fee-calculator/standard" className="hover:text-blue-600 transition-colors">
+                      Venmo Business Fees (1.9% - 2.29%)
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools/stripe-fee-calculator/uk" className="hover:text-blue-600 transition-colors">
-                      Stripe UK (1.5% + 20p)
+                    <Link href="/tools/gumroad-fee-calculator/standard" className="hover:text-blue-600 transition-colors">
+                      Gumroad Creator Fees (10% + 2.9%)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/lemon-squeezy-calculator/standard" className="hover:text-blue-600 transition-colors">
+                      Lemon Squeezy SaaS Fees (5%)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/shopify-fee-calculator/standard" className="hover:text-blue-600 transition-colors">
+                      Shopify Payments Fee Calculator
                     </Link>
                   </li>
                   <li>
@@ -138,18 +163,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools/paypal-fee-calculator/usa" className="hover:text-blue-600 transition-colors">
-                      PayPal USA (3.49% + $0.49)
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/tools/square-fee-calculator" className="hover:text-blue-600 transition-colors">
                       Square POS & Online Checkout
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools/wise-vs-stripe" className="hover:text-blue-600 transition-colors">
-                      Wise vs Stripe FX Spreads
                     </Link>
                   </li>
                 </ul>
@@ -158,42 +173,47 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               {/* Col 3: Freelance & Commerce */}
               <div className="space-y-3">
                 <div className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
-                  Freelance & Commerce
+                  Business & Freelance
                 </div>
                 <ul className="space-y-2 text-xs">
+                  <li>
+                    <Link href="/invoice-generator" className="hover:text-blue-600 transition-colors font-bold text-blue-600">
+                      Free Invoice Generator (PDF)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/profit-margin-calculator/standard" className="hover:text-blue-600 transition-colors">
+                      Profit Margin & Markup Calculator
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/break-even-calculator/standard" className="hover:text-blue-600 transition-colors">
+                      Break-Even Point Calculator
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/roi-calculator/standard" className="hover:text-blue-600 transition-colors">
+                      ROI & Annualized CAGR Calculator
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/quarterly-tax-calculator/1040-es" className="hover:text-blue-600 transition-colors">
+                      IRS 1040-ES Quarterly Tax Vouchers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/uk-ir35-calculator/contractor" className="hover:text-blue-600 transition-colors">
+                      UK IR35 Inside vs Outside Take-Home
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/tools/freelance-rate-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
                       1099 SECA Tax & Rate Hub
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools/freelance-rate-calculator/software-engineer" className="hover:text-blue-600 transition-colors">
-                      Software Engineer 1099 Rate
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools/ecommerce-profit-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
-                      E-Commerce & FBA Hub
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools/ecommerce-profit-calculator/shopify-dropshipping" className="hover:text-blue-600 transition-colors">
-                      Shopify Dropshipping Margin
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools/ecommerce-profit-calculator/amazon-fba-private-label" className="hover:text-blue-600 transition-colors">
-                      Amazon FBA 2026 Profit
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools/authorize-net-calculator" className="hover:text-blue-600 transition-colors">
-                      Authorize.Net Gateway Fees
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
-                      All 160+ Utilities Directory
+                    <Link href="/tools/ecommerce-profit-calculator" className="hover:text-blue-600 transition-colors">
+                      Amazon FBA & Dropshipping Margin
                     </Link>
                   </li>
                 </ul>

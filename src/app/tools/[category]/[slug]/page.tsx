@@ -17,6 +17,13 @@ import { SalesTaxCalculator } from '@/components/calculators/SalesTaxCalculator'
 import { VatCalculator } from '@/components/calculators/VatCalculator';
 import { FreelanceRateCalculator } from '@/components/calculators/FreelanceRateCalculator';
 import { EcommerceProfitCalculator } from '@/components/calculators/EcommerceProfitCalculator';
+import { ProfitMarginCalculator } from '@/components/calculators/ProfitMarginCalculator';
+import { BreakEvenCalculator } from '@/components/calculators/BreakEvenCalculator';
+import { RoiCalculator } from '@/components/calculators/RoiCalculator';
+import { QuarterlyTaxCalculator } from '@/components/calculators/QuarterlyTaxCalculator';
+import { UkIr35Calculator } from '@/components/calculators/UkIr35Calculator';
+import { GatewayComparator } from '@/components/calculators/GatewayComparator';
+import { InvoiceGenerator } from '@/components/calculators/InvoiceGenerator';
 import Link from 'next/link';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
@@ -94,8 +101,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
     },
     other: {
-      'geo.region': isUK ? 'GB' : 'US',
-      'content-language': isUK ? 'en-GB' : 'en-US',
+      'geo.region': isUK ? 'GB' : (item.geoRegion === 'CA' ? 'CA' : 'US'),
+      'content-language': isUK ? 'en-GB' : (item.geoRegion === 'CA' ? 'en-CA' : 'en-US'),
     },
   };
 }
@@ -217,6 +224,57 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
             />
           )}
 
+          {item.suiteType === 'comparator' && (
+            <GatewayComparator
+              initialAmount={item.defaultAmount || 500}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
+
+          {item.suiteType === 'profit_margin' && (
+            <ProfitMarginCalculator
+              initialRevenue={item.defaultAmount || 10000}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
+
+          {item.suiteType === 'break_even' && (
+            <BreakEvenCalculator
+              initialFixedCosts={item.defaultAmount || 15000}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
+
+          {item.suiteType === 'roi' && (
+            <RoiCalculator
+              initialInvestment={item.defaultAmount || 25000}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
+
+          {item.suiteType === 'quarterly_tax' && (
+            <QuarterlyTaxCalculator
+              initialGross={item.defaultAmount || 120000}
+              currencySymbol={item.currencySymbol || '$'}
+              embedded={true}
+            />
+          )}
+
+          {item.suiteType === 'uk_ir35' && (
+            <UkIr35Calculator
+              initialDayRate={item.defaultAmount || 550}
+              embedded={true}
+            />
+          )}
+
+          {item.suiteType === 'invoice' && (
+            <InvoiceGenerator embedded={true} />
+          )}
+
           {item.category === 'sales-tax-calculator' ? (
             <SalesTaxCalculator
               stateSlug={item.slug}
@@ -233,7 +291,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
             />
           ) : item.suiteType === 'tax' ? (
             <TaxCalculator
-              initialJurisdictionCode={item.jurisdictionCode || 'CA'}
+              initialJurisdictionCode={item.jurisdictionCode || item.slug.toUpperCase()}
               initialAmount={item.defaultAmount || 250}
               currencySymbol={item.currencySymbol || '$'}
               embedded={true}

@@ -1,4 +1,14 @@
-export type PaymentGatewayId = 'stripe' | 'paypal' | 'wise' | 'square' | 'authorize_net';
+export type PaymentGatewayId =
+  | 'stripe'
+  | 'paypal'
+  | 'wise'
+  | 'square'
+  | 'authorize_net'
+  | 'venmo'
+  | 'gumroad'
+  | 'lemon_squeezy'
+  | 'paddle'
+  | 'shopify_payments';
 
 export type TransactionType = 'domestic' | 'international';
 export type CalculationDirection = 'forward' | 'reverse';
@@ -67,6 +77,61 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     intlExtraPercentage: 0.015,
     currencyConversionRate: 0.015,
     monthlyFee: 25.0, // $25/mo gateway fee
+  },
+  venmo: {
+    id: 'venmo',
+    name: 'Venmo Business',
+    tagline: 'In-person QR (1.9%) and app checkout (2.29%)',
+    badge: 'Mobile First',
+    percentageRate: 0.0229,
+    fixedFee: 0.10,
+    intlExtraPercentage: 0.015,
+    currencyConversionRate: 0.03,
+    monthlyFee: 0,
+  },
+  gumroad: {
+    id: 'gumroad',
+    name: 'Gumroad',
+    tagline: 'Creator sales: 10% platform + 2.9% processing',
+    badge: 'Creator Economy',
+    percentageRate: 0.129,
+    fixedFee: 0.30,
+    intlExtraPercentage: 0.01,
+    currencyConversionRate: 0.02,
+    monthlyFee: 0,
+  },
+  lemon_squeezy: {
+    id: 'lemon_squeezy',
+    name: 'Lemon Squeezy',
+    tagline: 'Merchant of Record for SaaS & digital files',
+    badge: 'SaaS MoR',
+    percentageRate: 0.05,
+    fixedFee: 0.50,
+    intlExtraPercentage: 0.015,
+    currencyConversionRate: 0.015,
+    monthlyFee: 0,
+  },
+  paddle: {
+    id: 'paddle',
+    name: 'Paddle',
+    tagline: 'Global Merchant of Record & SaaS billing',
+    badge: 'Enterprise MoR',
+    percentageRate: 0.05,
+    fixedFee: 0.50,
+    intlExtraPercentage: 0.015,
+    currencyConversionRate: 0.02,
+    monthlyFee: 0,
+  },
+  shopify_payments: {
+    id: 'shopify_payments',
+    name: 'Shopify Payments',
+    tagline: 'Built-in Shopify online checkout (Basic tier)',
+    badge: 'E-commerce',
+    percentageRate: 0.029,
+    fixedFee: 0.30,
+    intlExtraPercentage: 0.01,
+    currencyConversionRate: 0.015,
+    monthlyFee: 0,
   },
 };
 

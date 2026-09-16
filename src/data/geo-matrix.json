@@ -3888,9 +3888,9 @@
       "geoRegion": "UK",
       "jurisdictionCode": "GB",
       "defaultAmount": 500,
-      "currencySymbol": "\u00a3",
+      "currencySymbol": "£",
       "formulaLatex": "\\text{Gross (Inc. VAT)} = \\text{Net} \\times 1.20 \\quad | \\quad \\text{Net (Ex. VAT)} = \\frac{\\text{Gross}}{1.20}",
-      "formulaExplanation": "In the UK, HMRC mandates a standard VAT rate of 20% for most taxable goods and services, with a 5% reduced rate for domestic energy and mobility aids. Businesses with taxable turnover exceeding \u00a390,000 must register for VAT and submit quarterly digital returns under Making Tax Digital.",
+      "formulaExplanation": "In the UK, HMRC mandates a standard VAT rate of 20% for most taxable goods and services, with a 5% reduced rate for domestic energy and mobility aids. Businesses with taxable turnover exceeding £90,000 must register for VAT and submit quarterly digital returns under Making Tax Digital.",
       "sampleTiers": [
         {
           "amount": 50,
@@ -3916,11 +3916,11 @@
       "faqs": [
         {
           "question": "What is the UK VAT registration threshold in 2026?",
-          "answer": "The UK taxable turnover threshold for mandatory HMRC registration is \u00a390,000 on a rolling 12-month basis. Businesses with turnover below this threshold can voluntarily register to reclaim input VAT on business purchases."
+          "answer": "The UK taxable turnover threshold for mandatory HMRC registration is £90,000 on a rolling 12-month basis. Businesses with turnover below this threshold can voluntarily register to reclaim input VAT on business purchases."
         },
         {
           "question": "How do I extract 20% VAT from a gross price in the UK?",
-          "answer": "To remove 20% VAT from an all-inclusive gross figure, divide the gross total by 1.20 (or multiply by the VAT fraction of 1/6). For instance, an invoice total of \u00a3120.00 contains exactly \u00a3100.00 net value and \u00a320.00 VAT."
+          "answer": "To remove 20% VAT from an all-inclusive gross figure, divide the gross total by 1.20 (or multiply by the VAT fraction of 1/6). For instance, an invoice total of £120.00 contains exactly £100.00 net value and £20.00 VAT."
         },
         {
           "question": "What supplies qualify for the 5% reduced rate or 0% zero rate?",
@@ -3932,7 +3932,7 @@
         },
         {
           "question": "What is the Flat Rate Scheme (FRS) threshold?",
-          "answer": "Small businesses with estimated annual turnover of \u00a3150,000 or less can apply to join the Flat Rate Scheme, paying a fixed sector-specific percentage of gross turnover to HMRC while simplifying bookkeeping."
+          "answer": "Small businesses with estimated annual turnover of £150,000 or less can apply to join the Flat Rate Scheme, paying a fixed sector-specific percentage of gross turnover to HMRC while simplifying bookkeeping."
         }
       ],
       "rate": 20,
@@ -3948,8 +3948,8 @@
       "geoRegion": "UK",
       "gatewayId": "stripe",
       "defaultAmount": 250,
-      "currencySymbol": "\u00a3",
-      "formulaLatex": "\\text{UK Fee} = (\\text{Gross} \\times 1.5\\%) + \u00a30.20 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.20}{1 - 0.015}",
+      "currencySymbol": "£",
+      "formulaLatex": "\\text{UK Fee} = (\\text{Gross} \\times 1.5\\%) + £0.20 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.20}{1 - 0.015}",
       "formulaExplanation": "Stripe UK pricing charges 1.5% + 20p for domestic standard UK credit and debit cards. European EEA cards incur 2.5% + 20p, while international non-European cards are 3.25% + 20p. Use FeeKit reverse mode to ensure your UK bank account receives the exact net invoice amount.",
       "sampleTiers": [
         {
@@ -3980,7 +3980,7 @@
         },
         {
           "question": "How do I charge a UK client so Stripe fees are absorbed?",
-          "answer": "To receive a target net payout of \u00a3500.00, invoice \u00a3507.82. Stripe takes \u00a37.82 (1.5% + 20p), leaving you with exactly \u00a3500.00 in your UK bank account."
+          "answer": "To receive a target net payout of £500.00, invoice £507.82. Stripe takes £7.82 (1.5% + 20p), leaving you with exactly £500.00 in your UK bank account."
         },
         {
           "question": "Is Stripe fee deduction subject to UK VAT?",
@@ -4002,8 +4002,8 @@
       "geoRegion": "UK",
       "gatewayId": "paypal",
       "defaultAmount": 250,
-      "currencySymbol": "\u00a3",
-      "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times 2.9\\%) + \u00a30.30 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.30}{1 - 0.029}",
+      "currencySymbol": "£",
+      "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times 2.9\\%) + £0.30 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.30}{1 - 0.029}",
       "formulaExplanation": "PayPal standard UK commercial transactions incur 2.9% + 30p for domestic purchases. Cross-border payments carry additional percentage markups.",
       "sampleTiers": [
         {
@@ -4048,7 +4048,7 @@
       "geoRegion": "UK",
       "roleTitle": "UK Contractor",
       "defaultAmount": 75000,
-      "currencySymbol": "\u00a3",
+      "currencySymbol": "£",
       "formulaLatex": "\\text{Day Rate} = \\frac{\\text{Target Net} + \\text{Corp Tax / NICs} + \\text{Overhead}}{\\text{Working Weeks} \\times \\text{Days per Week}}",
       "formulaExplanation": "Designed for UK freelancers and Limited Company contractors balancing Director salary, dividend taxes, and business overheads.",
       "sampleTiers": [
@@ -4080,7 +4080,7 @@
       "faqs": [
         {
           "question": "How do UK contractors quote professional day rates?",
-          "answer": "Standard commercial practice is quoting an 8-hour professional day rate (typically \u00a3500\u2013\u00a3900/day for senior tech and management roles), clearly defining whether the contract is Outside IR35."
+          "answer": "Standard commercial practice is quoting an 8-hour professional day rate (typically £500–£900/day for senior tech and management roles), clearly defining whether the contract is Outside IR35."
         },
         {
           "question": "What is the financial impact of Inside IR35 vs Outside IR35?",
@@ -4188,7 +4188,7 @@
         },
         {
           "question": "How do PayPal fees compare to Stripe?",
-          "answer": "On a $500 invoice, Stripe costs $14.80 (2.9% + 30\u00a2), while PayPal costs $17.94 (3.49% + 49\u00a2). You save $3.14 per $500 transaction with Stripe."
+          "answer": "On a $500 invoice, Stripe costs $14.80 (2.9% + 30¢), while PayPal costs $17.94 (3.49% + 49¢). You save $3.14 per $500 transaction with Stripe."
         }
       ]
     },
@@ -4243,7 +4243,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "DE",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.19) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.19}",
       "formulaExplanation": "In Germany, the statutory standard VAT rate is 19% (reduced rate 7%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4279,7 +4279,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Germany?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.19 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.19 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4295,7 +4295,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "FR",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.2) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.2}",
       "formulaExplanation": "In France, the statutory standard VAT rate is 20% (reduced rate 10%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4331,7 +4331,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in France?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.20 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4347,7 +4347,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "IT",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.22) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.22}",
       "formulaExplanation": "In Italy, the statutory standard VAT rate is 22% (reduced rate 10%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4383,7 +4383,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Italy?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.22 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.22 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4399,7 +4399,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "ES",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.21) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.21}",
       "formulaExplanation": "In Spain, the statutory standard VAT rate is 21% (reduced rate 10%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4435,7 +4435,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Spain?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.21 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4451,7 +4451,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "NL",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.21) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.21}",
       "formulaExplanation": "In Netherlands, the statutory standard VAT rate is 21% (reduced rate 9%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4487,7 +4487,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Netherlands?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.21 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4503,7 +4503,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "PL",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.23) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.23}",
       "formulaExplanation": "In Poland, the statutory standard VAT rate is 23% (reduced rate 8%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4539,7 +4539,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Poland?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.23 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.23 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4555,7 +4555,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "SE",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.25) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.25}",
       "formulaExplanation": "In Sweden, the statutory standard VAT rate is 25% (reduced rate 12%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4591,7 +4591,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Sweden?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.25 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4607,7 +4607,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "BE",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.21) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.21}",
       "formulaExplanation": "In Belgium, the statutory standard VAT rate is 21% (reduced rate 12%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4643,7 +4643,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Belgium?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.21 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4659,7 +4659,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "AT",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.2) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.2}",
       "formulaExplanation": "In Austria, the statutory standard VAT rate is 20% (reduced rate 10%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4695,7 +4695,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Austria?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.20 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4711,7 +4711,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "IE",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.23) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.23}",
       "formulaExplanation": "In Ireland, the statutory standard VAT rate is 23% (reduced rate 13.5%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4747,7 +4747,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Ireland?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.23 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.23 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4763,7 +4763,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "DK",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.25) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.25}",
       "formulaExplanation": "In Denmark, the statutory standard VAT rate is 25% (reduced rate 25%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4799,7 +4799,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Denmark?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.25 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4814,7 +4814,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "FI",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.255) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.255}",
       "formulaExplanation": "In Finland, the statutory standard VAT rate is 25.5% (reduced rate 14%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4850,7 +4850,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Finland?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.25 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4866,7 +4866,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "PT",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.23) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.23}",
       "formulaExplanation": "In Portugal, the statutory standard VAT rate is 23% (reduced rate 13%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4902,7 +4902,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Portugal?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.23 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.23 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4918,7 +4918,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "GR",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.24) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.24}",
       "formulaExplanation": "In Greece, the statutory standard VAT rate is 24% (reduced rate 13%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -4954,7 +4954,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Greece?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.24 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.24 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -4970,7 +4970,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "CZ",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.21) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.21}",
       "formulaExplanation": "In Czech Republic, the statutory standard VAT rate is 21% (reduced rate 12%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5006,7 +5006,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Czech Republic?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.21 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5022,7 +5022,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "RO",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.19) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.19}",
       "formulaExplanation": "In Romania, the statutory standard VAT rate is 19% (reduced rate 9%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5058,7 +5058,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Romania?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.19 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.19 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5074,7 +5074,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "HU",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.27) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.27}",
       "formulaExplanation": "In Hungary, the statutory standard VAT rate is 27% (reduced rate 18%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5110,7 +5110,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Hungary?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.27 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.27 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5126,7 +5126,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "SK",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.2) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.2}",
       "formulaExplanation": "In Slovakia, the statutory standard VAT rate is 20% (reduced rate 10%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5162,7 +5162,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Slovakia?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.20 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5178,7 +5178,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "BG",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.2) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.2}",
       "formulaExplanation": "In Bulgaria, the statutory standard VAT rate is 20% (reduced rate 9%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5214,7 +5214,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Bulgaria?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.20 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.20 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5230,7 +5230,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "HR",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.25) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.25}",
       "formulaExplanation": "In Croatia, the statutory standard VAT rate is 25% (reduced rate 13%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5266,7 +5266,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Croatia?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.25 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.25 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5282,7 +5282,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "LT",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.21) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.21}",
       "formulaExplanation": "In Lithuania, the statutory standard VAT rate is 21% (reduced rate 9%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5318,7 +5318,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Lithuania?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.21 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5334,7 +5334,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "SI",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.22) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.22}",
       "formulaExplanation": "In Slovenia, the statutory standard VAT rate is 22% (reduced rate 9.5%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5370,7 +5370,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Slovenia?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.22 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.22 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5386,7 +5386,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "LV",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.21) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.21}",
       "formulaExplanation": "In Latvia, the statutory standard VAT rate is 21% (reduced rate 12%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5422,7 +5422,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Latvia?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.21 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.21 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5438,7 +5438,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "EE",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.22) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.22}",
       "formulaExplanation": "In Estonia, the statutory standard VAT rate is 22% (reduced rate 9%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5474,7 +5474,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Estonia?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.22 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.22 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5490,7 +5490,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "CY",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.19) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.19}",
       "formulaExplanation": "In Cyprus, the statutory standard VAT rate is 19% (reduced rate 9%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5526,7 +5526,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Cyprus?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.19 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.19 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5542,7 +5542,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "LU",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.17) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.17}",
       "formulaExplanation": "In Luxembourg, the statutory standard VAT rate is 17% (reduced rate 14%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5578,7 +5578,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Luxembourg?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.17 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.17 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5594,7 +5594,7 @@
       "suiteType": "tax",
       "jurisdictionCode": "MT",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + 0.18) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + 0.18}",
       "formulaExplanation": "In Malta, the statutory standard VAT rate is 18% (reduced rate 7%). For B2B cross-border transactions within the EU with a valid VIES VAT number, the Reverse Charge mechanism applies with 0% tax charged on invoice.",
       "sampleTiers": [
@@ -5630,7 +5630,7 @@
         },
         {
           "question": "How to reverse-calculate VAT from a total price in Malta?",
-          "answer": "To extract the net amount and VAT component from a gross total of \u20ac100, divide 100 by 1.18 to find the net, then subtract the net from the total."
+          "answer": "To extract the net amount and VAT component from a gross total of €100, divide 100 by 1.18 to find the net, then subtract the net from the total."
         }
       ],
       "geoRegion": "GLOBAL",
@@ -5692,13 +5692,13 @@
     {
       "category": "stripe-fee-calculator",
       "slug": "united-kingdom",
-      "title": "Stripe UK Fee Calculator (1.5% + \u00a30.20)",
+      "title": "Stripe UK Fee Calculator (1.5% + £0.20)",
       "shortTitle": "Stripe UK Fee Calculator",
       "subtitle": "UK domestic standard card processing fee calculator with payout breakdowns.",
       "suiteType": "merchant",
       "gatewayId": "stripe",
       "defaultAmount": 500,
-      "currencySymbol": "\u00a3",
+      "currencySymbol": "£",
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
@@ -5744,13 +5744,13 @@
     {
       "category": "stripe-fee-calculator",
       "slug": "eurozone",
-      "title": "Stripe Europe Fee Calculator (1.5% + \u20ac0.25)",
+      "title": "Stripe Europe Fee Calculator (1.5% + €0.25)",
       "shortTitle": "Stripe Europe Fee Calculator",
       "subtitle": "Standard European interchange-plus fee structure for EEA card processing.",
       "suiteType": "merchant",
       "gatewayId": "stripe",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
@@ -5906,7 +5906,7 @@
       "suiteType": "merchant",
       "gatewayId": "stripe",
       "defaultAmount": 500,
-      "currencySymbol": "\u00a5",
+      "currencySymbol": "¥",
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
@@ -6368,13 +6368,13 @@
     {
       "category": "paypal-fee-calculator",
       "slug": "eu",
-      "title": "PayPal Europe Fee Calculator (2.9% + \u20ac0.35)",
+      "title": "PayPal Europe Fee Calculator (2.9% + €0.35)",
       "shortTitle": "PayPal Europe Fee Calculator",
       "subtitle": "Euro commercial checkout fees and reverse invoice generator for PayPal EU.",
       "suiteType": "merchant",
       "gatewayId": "paypal",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
@@ -6530,7 +6530,7 @@
       "suiteType": "merchant",
       "gatewayId": "wise",
       "defaultAmount": 500,
-      "currencySymbol": "\u00a3",
+      "currencySymbol": "£",
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
@@ -6582,7 +6582,7 @@
       "suiteType": "merchant",
       "gatewayId": "wise",
       "defaultAmount": 500,
-      "currencySymbol": "\u20ac",
+      "currencySymbol": "€",
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
@@ -7313,7 +7313,7 @@
       "currencySymbol": "$",
       "annualOverhead": 12000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7368,7 +7368,7 @@
       "currencySymbol": "$",
       "annualOverhead": 10000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7423,7 +7423,7 @@
       "currencySymbol": "$",
       "annualOverhead": 8000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7478,7 +7478,7 @@
       "currencySymbol": "$",
       "annualOverhead": 10000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7533,7 +7533,7 @@
       "currencySymbol": "$",
       "annualOverhead": 18000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7588,7 +7588,7 @@
       "currencySymbol": "$",
       "annualOverhead": 14000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7643,7 +7643,7 @@
       "currencySymbol": "$",
       "annualOverhead": 9000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7698,7 +7698,7 @@
       "currencySymbol": "$",
       "annualOverhead": 10000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7753,7 +7753,7 @@
       "currencySymbol": "$",
       "annualOverhead": 6000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7808,7 +7808,7 @@
       "currencySymbol": "$",
       "annualOverhead": 5000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7863,7 +7863,7 @@
       "currencySymbol": "$",
       "annualOverhead": 11000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7918,7 +7918,7 @@
       "currencySymbol": "$",
       "annualOverhead": 12000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -7973,7 +7973,7 @@
       "currencySymbol": "$",
       "annualOverhead": 12000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8028,7 +8028,7 @@
       "currencySymbol": "$",
       "annualOverhead": 10000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8083,7 +8083,7 @@
       "currencySymbol": "$",
       "annualOverhead": 15000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8138,7 +8138,7 @@
       "currencySymbol": "$",
       "annualOverhead": 12000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8193,7 +8193,7 @@
       "currencySymbol": "$",
       "annualOverhead": 8000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8248,7 +8248,7 @@
       "currencySymbol": "$",
       "annualOverhead": 20000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8303,7 +8303,7 @@
       "currencySymbol": "$",
       "annualOverhead": 15000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8358,7 +8358,7 @@
       "currencySymbol": "$",
       "annualOverhead": 4000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8413,7 +8413,7 @@
       "currencySymbol": "$",
       "annualOverhead": 8000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8468,7 +8468,7 @@
       "currencySymbol": "$",
       "annualOverhead": 16000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8523,7 +8523,7 @@
       "currencySymbol": "$",
       "annualOverhead": 15000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8578,7 +8578,7 @@
       "currencySymbol": "$",
       "annualOverhead": 10000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -8633,7 +8633,7 @@
       "currencySymbol": "$",
       "annualOverhead": 10000,
       "formulaLatex": "\\text{Rate} = \\frac{\\frac{\\text{Target Net}}{1 - \\text{Tax Rate}} + \\text{Overhead}}{\\text{Billable Weeks} \\times \\text{Weekly Billable Hours}} \\times (1 + \\text{Margin})",
-      "formulaExplanation": "Freelancers typically achieve 20\u201325 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
+      "formulaExplanation": "Freelancers typically achieve 20–25 billable hours per week (the rest spent on client acquisition, proposals, and operations). This formula covers 15.3% SECA self-employment tax, federal income tax, tooling overhead, and a 15% rainy-day business buffer.",
       "sampleTiers": [
         {
           "amount": 50000,
@@ -9928,6 +9928,1391 @@
       ],
       "rate": 5,
       "reducedRate": 0
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "ontario",
+      "title": "Ontario Sales Tax Calculator 2026 (HST 13%)",
+      "shortTitle": "Ontario Sales Tax",
+      "subtitle": "Calculate Ontario HST (13%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Ontario",
+      "jurisdictionCode": "ONTARIO",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 13,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.13 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.13",
+      "formulaExplanation": "In Ontario, total sales tax is 13% (HST). To extract tax from a gross invoice: Net = Gross / 1.13.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 6.5,
+          "total": 56.5
+        },
+        {
+          "amount": 250,
+          "tax": 32.5,
+          "total": 282.5
+        },
+        {
+          "amount": 1000,
+          "tax": 130,
+          "total": 1130
+        },
+        {
+          "amount": 5000,
+          "tax": 650,
+          "total": 5650
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Ontario?",
+          "answer": "The total statutory rate in Ontario is 13% (HST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Ontario?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "british-columbia",
+      "title": "British Columbia Sales Tax Calculator 2026 (GST + PST 12%)",
+      "shortTitle": "British Columbia Sales Tax",
+      "subtitle": "Calculate British Columbia GST + PST (12%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "British Columbia",
+      "jurisdictionCode": "BRITISH-COLUMBIA",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 12,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.12 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.12",
+      "formulaExplanation": "In British Columbia, total sales tax is 12% (GST + PST). To extract tax from a gross invoice: Net = Gross / 1.12.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 6,
+          "total": 56
+        },
+        {
+          "amount": 250,
+          "tax": 30,
+          "total": 280
+        },
+        {
+          "amount": 1000,
+          "tax": 120,
+          "total": 1120
+        },
+        {
+          "amount": 5000,
+          "tax": 600,
+          "total": 5600
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in British Columbia?",
+          "answer": "The total statutory rate in British Columbia is 12% (GST + PST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in British Columbia?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "quebec",
+      "title": "Quebec Sales Tax Calculator 2026 (GST + QST 14.975%)",
+      "shortTitle": "Quebec Sales Tax",
+      "subtitle": "Calculate Quebec GST + QST (14.975%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Quebec",
+      "jurisdictionCode": "QUEBEC",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 14.975,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.1497 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.1498",
+      "formulaExplanation": "In Quebec, total sales tax is 14.975% (GST + QST). To extract tax from a gross invoice: Net = Gross / 1.1498.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 7.49,
+          "total": 57.49
+        },
+        {
+          "amount": 250,
+          "tax": 37.44,
+          "total": 287.44
+        },
+        {
+          "amount": 1000,
+          "tax": 149.75,
+          "total": 1149.75
+        },
+        {
+          "amount": 5000,
+          "tax": 748.75,
+          "total": 5748.75
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Quebec?",
+          "answer": "The total statutory rate in Quebec is 14.975% (GST + QST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Quebec?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "alberta",
+      "title": "Alberta Sales Tax Calculator 2026 (GST Only 5%)",
+      "shortTitle": "Alberta Sales Tax",
+      "subtitle": "Calculate Alberta GST Only (5%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Alberta",
+      "jurisdictionCode": "ALBERTA",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 5,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.05 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.05",
+      "formulaExplanation": "In Alberta, total sales tax is 5% (GST Only). To extract tax from a gross invoice: Net = Gross / 1.05.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 2.5,
+          "total": 52.5
+        },
+        {
+          "amount": 250,
+          "tax": 12.5,
+          "total": 262.5
+        },
+        {
+          "amount": 1000,
+          "tax": 50,
+          "total": 1050
+        },
+        {
+          "amount": 5000,
+          "tax": 250,
+          "total": 5250
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Alberta?",
+          "answer": "The total statutory rate in Alberta is 5% (GST Only). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Alberta?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "nova-scotia",
+      "title": "Nova Scotia Sales Tax Calculator 2026 (HST 15%)",
+      "shortTitle": "Nova Scotia Sales Tax",
+      "subtitle": "Calculate Nova Scotia HST (15%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Nova Scotia",
+      "jurisdictionCode": "NOVA-SCOTIA",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 15,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.15 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.15",
+      "formulaExplanation": "In Nova Scotia, total sales tax is 15% (HST). To extract tax from a gross invoice: Net = Gross / 1.15.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 7.5,
+          "total": 57.5
+        },
+        {
+          "amount": 250,
+          "tax": 37.5,
+          "total": 287.5
+        },
+        {
+          "amount": 1000,
+          "tax": 150,
+          "total": 1150
+        },
+        {
+          "amount": 5000,
+          "tax": 750,
+          "total": 5750
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Nova Scotia?",
+          "answer": "The total statutory rate in Nova Scotia is 15% (HST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Nova Scotia?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "new-brunswick",
+      "title": "New Brunswick Sales Tax Calculator 2026 (HST 15%)",
+      "shortTitle": "New Brunswick Sales Tax",
+      "subtitle": "Calculate New Brunswick HST (15%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "New Brunswick",
+      "jurisdictionCode": "NEW-BRUNSWICK",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 15,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.15 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.15",
+      "formulaExplanation": "In New Brunswick, total sales tax is 15% (HST). To extract tax from a gross invoice: Net = Gross / 1.15.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 7.5,
+          "total": 57.5
+        },
+        {
+          "amount": 250,
+          "tax": 37.5,
+          "total": 287.5
+        },
+        {
+          "amount": 1000,
+          "tax": 150,
+          "total": 1150
+        },
+        {
+          "amount": 5000,
+          "tax": 750,
+          "total": 5750
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in New Brunswick?",
+          "answer": "The total statutory rate in New Brunswick is 15% (HST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in New Brunswick?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "manitoba",
+      "title": "Manitoba Sales Tax Calculator 2026 (GST + PST (RST) 12%)",
+      "shortTitle": "Manitoba Sales Tax",
+      "subtitle": "Calculate Manitoba GST + PST (RST) (12%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Manitoba",
+      "jurisdictionCode": "MANITOBA",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 12,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.12 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.12",
+      "formulaExplanation": "In Manitoba, total sales tax is 12% (GST + PST (RST)). To extract tax from a gross invoice: Net = Gross / 1.12.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 6,
+          "total": 56
+        },
+        {
+          "amount": 250,
+          "tax": 30,
+          "total": 280
+        },
+        {
+          "amount": 1000,
+          "tax": 120,
+          "total": 1120
+        },
+        {
+          "amount": 5000,
+          "tax": 600,
+          "total": 5600
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Manitoba?",
+          "answer": "The total statutory rate in Manitoba is 12% (GST + PST (RST)). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Manitoba?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "saskatchewan",
+      "title": "Saskatchewan Sales Tax Calculator 2026 (GST + PST 11%)",
+      "shortTitle": "Saskatchewan Sales Tax",
+      "subtitle": "Calculate Saskatchewan GST + PST (11%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Saskatchewan",
+      "jurisdictionCode": "SASKATCHEWAN",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 11,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.11 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.11",
+      "formulaExplanation": "In Saskatchewan, total sales tax is 11% (GST + PST). To extract tax from a gross invoice: Net = Gross / 1.11.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 5.5,
+          "total": 55.5
+        },
+        {
+          "amount": 250,
+          "tax": 27.5,
+          "total": 277.5
+        },
+        {
+          "amount": 1000,
+          "tax": 110,
+          "total": 1110
+        },
+        {
+          "amount": 5000,
+          "tax": 550,
+          "total": 5550
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Saskatchewan?",
+          "answer": "The total statutory rate in Saskatchewan is 11% (GST + PST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Saskatchewan?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "prince-edward-island",
+      "title": "Prince Edward Island Sales Tax Calculator 2026 (HST 15%)",
+      "shortTitle": "Prince Edward Island Sales Tax",
+      "subtitle": "Calculate Prince Edward Island HST (15%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Prince Edward Island",
+      "jurisdictionCode": "PRINCE-EDWARD-ISLAND",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 15,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.15 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.15",
+      "formulaExplanation": "In Prince Edward Island, total sales tax is 15% (HST). To extract tax from a gross invoice: Net = Gross / 1.15.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 7.5,
+          "total": 57.5
+        },
+        {
+          "amount": 250,
+          "tax": 37.5,
+          "total": 287.5
+        },
+        {
+          "amount": 1000,
+          "tax": 150,
+          "total": 1150
+        },
+        {
+          "amount": 5000,
+          "tax": 750,
+          "total": 5750
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Prince Edward Island?",
+          "answer": "The total statutory rate in Prince Edward Island is 15% (HST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Prince Edward Island?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "canada-sales-tax",
+      "slug": "newfoundland-and-labrador",
+      "title": "Newfoundland and Labrador Sales Tax Calculator 2026 (HST 15%)",
+      "shortTitle": "Newfoundland and Labrador Sales Tax",
+      "subtitle": "Calculate Newfoundland and Labrador HST (15%). Add sales tax to net quotes or remove tax from gross invoices for CRA compliance.",
+      "suiteType": "tax",
+      "geoRegion": "CA",
+      "stateName": "Newfoundland and Labrador",
+      "jurisdictionCode": "NEWFOUNDLAND-AND-LABRADOR",
+      "defaultAmount": 250,
+      "currencySymbol": "CA$",
+      "rate": 15,
+      "formulaLatex": "\\text{Total Tax} = \\text{Net} \\times 0.15 \\quad | \\quad \\text{Gross} = \\text{Net} \\times 1.15",
+      "formulaExplanation": "In Newfoundland and Labrador, total sales tax is 15% (HST). To extract tax from a gross invoice: Net = Gross / 1.15.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "tax": 7.5,
+          "total": 57.5
+        },
+        {
+          "amount": 250,
+          "tax": 37.5,
+          "total": 287.5
+        },
+        {
+          "amount": 1000,
+          "tax": 150,
+          "total": 1150
+        },
+        {
+          "amount": 5000,
+          "tax": 750,
+          "total": 5750
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the current sales tax rate in Newfoundland and Labrador?",
+          "answer": "The total statutory rate in Newfoundland and Labrador is 15% (HST). This covers standard retail goods and commercial digital services."
+        },
+        {
+          "question": "What is the CRA small supplier threshold in Canada?",
+          "answer": "Under Canada Revenue Agency (CRA) rules, businesses with worldwide gross taxable revenues under $30,000 CAD over 4 consecutive calendar quarters are classified as small suppliers and are exempt from mandatory GST/HST registration."
+        },
+        {
+          "question": "Do remote US or overseas sellers need to charge tax in Newfoundland and Labrador?",
+          "answer": "Yes, non-resident vendors of digital products, streaming services, and SaaS selling to Canadian consumers must register under the simplified GST/HST regime once sales exceed $30,000 CAD annually."
+        }
+      ]
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "ai-prompt-engineer",
+      "title": "AI Prompt Engineer Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "AI Prompt Engineer Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance AI Prompt Engineers.",
+      "suiteType": "freelance",
+      "roleTitle": "AI Prompt Engineer",
+      "defaultAmount": 135000,
+      "currencySymbol": "$",
+      "annualOverhead": 15000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance AI Prompt Engineers budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 135000,
+          "rate": 112.5,
+          "dayRate": 900,
+          "monthly": 11250
+        },
+        {
+          "amount": 202500,
+          "rate": 168.75,
+          "dayRate": 1350,
+          "monthly": 16875
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance AI Prompt Engineer?",
+          "answer": "Experienced AI Prompt Engineers typically charge between $112.5 and $158/hour or $900+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "fractional-cmo",
+      "title": "Fractional CMO Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "Fractional CMO Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Fractional CMOs.",
+      "suiteType": "freelance",
+      "roleTitle": "Fractional CMO",
+      "defaultAmount": 160000,
+      "currencySymbol": "$",
+      "annualOverhead": 20000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance Fractional CMOs budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 160000,
+          "rate": 133.33,
+          "dayRate": 1066.64,
+          "monthly": 13333.33
+        },
+        {
+          "amount": 240000,
+          "rate": 200,
+          "dayRate": 1599.96,
+          "monthly": 20000
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance Fractional CMO?",
+          "answer": "Experienced Fractional CMOs typically charge between $133.33 and $187/hour or $1067+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "motion-graphics-designer",
+      "title": "Motion Graphics Designer Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "Motion Graphics Designer Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Motion Graphics Designers.",
+      "suiteType": "freelance",
+      "roleTitle": "Motion Graphics Designer",
+      "defaultAmount": 95000,
+      "currencySymbol": "$",
+      "annualOverhead": 14000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance Motion Graphics Designers budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 95000,
+          "rate": 79.17,
+          "dayRate": 633.36,
+          "monthly": 7916.67
+        },
+        {
+          "amount": 142500,
+          "rate": 118.75,
+          "dayRate": 950.04,
+          "monthly": 11875
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance Motion Graphics Designer?",
+          "answer": "Experienced Motion Graphics Designers typically charge between $79.17 and $111/hour or $633+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "shopify-developer",
+      "title": "Shopify Developer Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "Shopify Developer Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Shopify Developers.",
+      "suiteType": "freelance",
+      "roleTitle": "Shopify Developer",
+      "defaultAmount": 110000,
+      "currencySymbol": "$",
+      "annualOverhead": 12000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance Shopify Developers budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 110000,
+          "rate": 91.67,
+          "dayRate": 733.36,
+          "monthly": 9166.67
+        },
+        {
+          "amount": 165000,
+          "rate": 137.5,
+          "dayRate": 1100.04,
+          "monthly": 13750
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance Shopify Developer?",
+          "answer": "Experienced Shopify Developers typically charge between $91.67 and $128/hour or $733+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "cloud-architect",
+      "title": "Cloud Solutions Architect Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "Cloud Solutions Architect Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Cloud Solutions Architects.",
+      "suiteType": "freelance",
+      "roleTitle": "Cloud Solutions Architect",
+      "defaultAmount": 175000,
+      "currencySymbol": "$",
+      "annualOverhead": 22000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance Cloud Solutions Architects budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 175000,
+          "rate": 145.83,
+          "dayRate": 1166.64,
+          "monthly": 14583.33
+        },
+        {
+          "amount": 262500,
+          "rate": 218.75,
+          "dayRate": 1749.96,
+          "monthly": 21875
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance Cloud Solutions Architect?",
+          "answer": "Experienced Cloud Solutions Architects typically charge between $145.83 and $204/hour or $1167+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "ux-researcher",
+      "title": "UX Researcher Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "UX Researcher Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance UX Researchers.",
+      "suiteType": "freelance",
+      "roleTitle": "UX Researcher",
+      "defaultAmount": 105000,
+      "currencySymbol": "$",
+      "annualOverhead": 11000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance UX Researchers budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 105000,
+          "rate": 87.5,
+          "dayRate": 700,
+          "monthly": 8750
+        },
+        {
+          "amount": 157500,
+          "rate": 131.25,
+          "dayRate": 1050,
+          "monthly": 13125
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance UX Researcher?",
+          "answer": "Experienced UX Researchers typically charge between $87.5 and $122/hour or $700+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "growth-marketer",
+      "title": "Growth Marketer Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "Growth Marketer Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Growth Marketers.",
+      "suiteType": "freelance",
+      "roleTitle": "Growth Marketer",
+      "defaultAmount": 115000,
+      "currencySymbol": "$",
+      "annualOverhead": 16000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance Growth Marketers budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 115000,
+          "rate": 95.83,
+          "dayRate": 766.64,
+          "monthly": 9583.33
+        },
+        {
+          "amount": 172500,
+          "rate": 143.75,
+          "dayRate": 1149.96,
+          "monthly": 14375
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance Growth Marketer?",
+          "answer": "Experienced Growth Marketers typically charge between $95.83 and $134/hour or $767+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "podcast-editor",
+      "title": "Podcast Audio Producer Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "Podcast Audio Producer Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Podcast Audio Producers.",
+      "suiteType": "freelance",
+      "roleTitle": "Podcast Audio Producer",
+      "defaultAmount": 75000,
+      "currencySymbol": "$",
+      "annualOverhead": 9000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance Podcast Audio Producers budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 75000,
+          "rate": 62.5,
+          "dayRate": 500,
+          "monthly": 6250
+        },
+        {
+          "amount": 112500,
+          "rate": 93.75,
+          "dayRate": 750,
+          "monthly": 9375
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance Podcast Audio Producer?",
+          "answer": "Experienced Podcast Audio Producers typically charge between $62.5 and $88/hour or $500+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "no-code-developer",
+      "title": "No-Code Developer (Webflow & Bubble) Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "No-Code Developer (Webflow & Bubble) Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance No-Code Developer (Webflow & Bubble)s.",
+      "suiteType": "freelance",
+      "roleTitle": "No-Code Developer (Webflow & Bubble)",
+      "defaultAmount": 98000,
+      "currencySymbol": "$",
+      "annualOverhead": 10000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance No-Code Developer (Webflow & Bubble)s budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 98000,
+          "rate": 81.67,
+          "dayRate": 653.36,
+          "monthly": 8166.67
+        },
+        {
+          "amount": 147000,
+          "rate": 122.5,
+          "dayRate": 980.04,
+          "monthly": 12250
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance No-Code Developer (Webflow & Bubble)?",
+          "answer": "Experienced No-Code Developer (Webflow & Bubble)s typically charge between $81.67 and $114/hour or $653+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "freelance-rate-calculator",
+      "slug": "executive-coach",
+      "title": "Executive Leadership Coach Freelance Rate Calculator (2026 Benchmark)",
+      "shortTitle": "Executive Leadership Coach Rate",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Executive Leadership Coachs.",
+      "suiteType": "freelance",
+      "roleTitle": "Executive Leadership Coach",
+      "defaultAmount": 145000,
+      "currencySymbol": "$",
+      "annualOverhead": 15000,
+      "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
+      "formulaExplanation": "Top freelance Executive Leadership Coachs budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "sampleTiers": [
+        {
+          "amount": 50000,
+          "rate": 41.67,
+          "dayRate": 333.33,
+          "monthly": 4166.67
+        },
+        {
+          "amount": 145000,
+          "rate": 120.83,
+          "dayRate": 966.64,
+          "monthly": 12083.33
+        },
+        {
+          "amount": 217500,
+          "rate": 181.25,
+          "dayRate": 1449.96,
+          "monthly": 18125
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the average hourly rate for a freelance Executive Leadership Coach?",
+          "answer": "Experienced Executive Leadership Coachs typically charge between $120.83 and $169/hour or $967+ for a full-day retainer."
+        },
+        {
+          "question": "How should I structure my contracts?",
+          "answer": "High-earning contractors prefer weekly sprint retainers or value-based milestone quotes over open-ended hourly billing to protect against scope creep."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "venmo-fee-calculator",
+      "slug": "standard",
+      "title": "Venmo for Business Fee Calculator (2026 QR & App Rates)",
+      "shortTitle": "Venmo Business Fee",
+      "subtitle": "Calculate exact Venmo Business transaction deductions: 1.9% + $0.10 for QR payments and 2.29% + $0.10 for online app checkout.",
+      "suiteType": "merchant",
+      "gatewayId": "venmo",
+      "defaultAmount": 250,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Venmo Fee} = (\\text{Gross} \\times 2.29\\%) + \\$0.10 \\quad | \\quad \\text{Net Payout} = \\text{Gross} - \\text{Fee}",
+      "formulaExplanation": "Venmo charges 1.9% + $0.10 for in-person contactless QR codes and 2.29% + $0.10 for online buyer checkout through the Venmo app.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "fee": 1.25,
+          "net": 48.75
+        },
+        {
+          "amount": 250,
+          "fee": 5.83,
+          "net": 244.17
+        },
+        {
+          "amount": 1000,
+          "fee": 23,
+          "net": 977
+        },
+        {
+          "amount": 5000,
+          "fee": 114.6,
+          "net": 4885.4
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Does Venmo charge fees for personal payments?",
+          "answer": "Personal peer-to-peer transfers from linked bank accounts or debit cards are free. Commercial business transactions through business profiles carry standard merchant fees."
+        },
+        {
+          "question": "What is the fee for Venmo QR code payments?",
+          "answer": "Venmo charges a discounted rate of 1.9% + $0.10 for in-person QR code scans."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "gumroad-fee-calculator",
+      "slug": "standard",
+      "title": "Gumroad Fee Calculator (10% Creator Platform Fee + Processing)",
+      "shortTitle": "Gumroad Fee Calculator",
+      "subtitle": "Calculate net payouts for creator sales on Gumroad. Understand the flat 10% platform fee and ~2.9% + $0.30 credit card processing charge.",
+      "suiteType": "merchant",
+      "gatewayId": "gumroad",
+      "defaultAmount": 100,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Gumroad Cut} = (\\text{Gross} \\times 10\\%) + (\\text{Gross} \\times 2.9\\%) + \\$0.30 = (\\text{Gross} \\times 12.9\\%) + \\$0.30",
+      "formulaExplanation": "Gumroad levies a flat 10% platform fee plus payment processing fees (typically 2.9% + $0.30 for standard credit cards). On a $100 sale, total fees equal $13.20, leaving $86.80 net.",
+      "sampleTiers": [
+        {
+          "amount": 25,
+          "fee": 3.53,
+          "net": 21.47
+        },
+        {
+          "amount": 100,
+          "fee": 13.2,
+          "net": 86.8
+        },
+        {
+          "amount": 500,
+          "fee": 64.8,
+          "net": 435.2
+        },
+        {
+          "amount": 2000,
+          "fee": 258.3,
+          "net": 1741.7
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How much does Gumroad take from each sale?",
+          "answer": "Gumroad takes a 10% flat platform fee plus standard payment processor charges (2.9% + $0.30), amounting to approximately 12.9% + $0.30 per transaction."
+        },
+        {
+          "question": "Does Gumroad handle sales tax and VAT?",
+          "answer": "Yes, Gumroad acts as a Merchant of Record (MoR) and automatically calculates, collects, and remits worldwide sales tax and VAT on digital goods."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "lemon-squeezy-calculator",
+      "slug": "standard",
+      "title": "Lemon Squeezy Fee Calculator (5% + $0.50 Merchant of Record)",
+      "shortTitle": "Lemon Squeezy Fee",
+      "subtitle": "Calculate exact fees for selling SaaS, digital downloads, and subscriptions with Lemon Squeezy Merchant of Record (MoR).",
+      "suiteType": "merchant",
+      "gatewayId": "lemon_squeezy",
+      "defaultAmount": 200,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Lemon Squeezy Fee} = (\\text{Gross} \\times 5\\%) + \\$0.50 \\quad | \\quad \\text{Net Payout} = \\text{Gross} - \\text{Fee}",
+      "formulaExplanation": "Lemon Squeezy charges 5% + $0.50 per transaction as an MoR, fully absorbing global sales tax liability, EU VAT compliance, chargebacks, and invoicing.",
+      "sampleTiers": [
+        {
+          "amount": 29,
+          "fee": 1.95,
+          "net": 27.05
+        },
+        {
+          "amount": 99,
+          "fee": 5.45,
+          "net": 93.55
+        },
+        {
+          "amount": 299,
+          "fee": 15.45,
+          "net": 283.55
+        },
+        {
+          "amount": 1000,
+          "fee": 50.5,
+          "net": 949.5
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why use an MoR like Lemon Squeezy instead of raw Stripe?",
+          "answer": "Raw Stripe charges 2.9% + $0.30 but requires you to register and file taxes in every US state and EU country. Lemon Squeezy handles all sales tax compliance, invoicing, and cross-border currency payouts for a 5% fee."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "shopify-fee-calculator",
+      "slug": "standard",
+      "title": "Shopify Payments Fee Calculator (2026 Online & In-Person Rates)",
+      "shortTitle": "Shopify Payments Fee",
+      "subtitle": "Calculate credit card transaction fees across Shopify Basic (2.9% + $0.30), Shopify (2.6% + $0.30), and Advanced (2.4% + $0.30).",
+      "suiteType": "merchant",
+      "gatewayId": "shopify_payments",
+      "defaultAmount": 150,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Shopify Fee} = (\\text{Gross} \\times 2.9\\%) + \\$0.30 \\quad | \\quad \\text{Net} = \\text{Gross} - \\text{Fee}",
+      "formulaExplanation": "Shopify Payments charges 2.9% + $0.30 on the Basic plan, 2.6% + $0.30 on the Shopify plan, and 2.4% + $0.30 on Advanced. Using third-party processors incurs an additional 2.0% to 0.5% fee.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "fee": 1.75,
+          "net": 48.25
+        },
+        {
+          "amount": 150,
+          "fee": 4.65,
+          "net": 145.35
+        },
+        {
+          "amount": 500,
+          "fee": 14.8,
+          "net": 485.2
+        },
+        {
+          "amount": 2500,
+          "fee": 72.8,
+          "net": 2427.2
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the third-party gateway penalty on Shopify?",
+          "answer": "If you choose not to use Shopify Payments and integrate external gateways like PayPal or Authorize.Net directly, Shopify charges an extra 2.0% (Basic), 1.0% (Shopify), or 0.5% (Advanced) penalty on gross turnover."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "gateway-comparator",
+      "slug": "stripe-paypal-square",
+      "title": "Stripe vs PayPal vs Square 3-Way Fee Comparator (2026)",
+      "shortTitle": "Stripe vs PayPal vs Square",
+      "subtitle": "Side-by-side merchant fee analysis for credit card processing. Compare net payouts, international surcharges, and find the lowest fee processor.",
+      "suiteType": "comparator",
+      "defaultAmount": 500,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Spread} = \\text{Max}(\\text{Fees}) - \\text{Min}(\\text{Fees})",
+      "formulaExplanation": "Direct mathematical comparison across Stripe (2.9% + $0.30), PayPal (3.49% + $0.49), and Square (2.9% + $0.30) to pinpoint the exact payout differential per transaction volume.",
+      "sampleTiers": [
+        {
+          "amount": 100,
+          "fee": 2.9,
+          "net": 97.1
+        },
+        {
+          "amount": 500,
+          "fee": 14.8,
+          "net": 485.2
+        },
+        {
+          "amount": 2500,
+          "fee": 72.8,
+          "net": 2427.2
+        },
+        {
+          "amount": 10000,
+          "fee": 290.3,
+          "net": 9709.7
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Which gateway is cheaper: Stripe, PayPal, or Square?",
+          "answer": "For standard US credit cards, Stripe and Square tie at 2.9% + $0.30, while PayPal is significantly higher at 3.49% + $0.49. For in-person point of sale, Square (2.6% + $0.10) is cheapest."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "profit-margin-calculator",
+      "slug": "standard",
+      "title": "Profit Margin & Markup Calculator (Gross & Net Profit %)",
+      "shortTitle": "Profit Margin Calculator",
+      "subtitle": "Calculate Gross Profit Margin, Net Profit, and Markup percentage from your selling price and cost of goods sold (COGS).",
+      "suiteType": "profit_margin",
+      "defaultAmount": 10000,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Gross Margin \\%} = \\frac{\\text{Revenue} - \\text{COGS}}{\\text{Revenue}} \\times 100 \\quad | \\quad \\text{Markup \\%} = \\frac{\\text{Revenue} - \\text{COGS}}{\\text{COGS}} \\times 100",
+      "formulaExplanation": "Margin expresses profit as a percentage of total sales price, whereas Markup expresses profit as a percentage above cost of goods.",
+      "sampleTiers": [
+        {
+          "amount": 1000,
+          "fee": 400,
+          "net": 600
+        },
+        {
+          "amount": 5000,
+          "fee": 2000,
+          "net": 3000
+        },
+        {
+          "amount": 10000,
+          "fee": 4000,
+          "net": 6000
+        },
+        {
+          "amount": 50000,
+          "fee": 20000,
+          "net": 30000
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between profit margin and markup?",
+          "answer": "Profit margin is profit divided by selling price (what percentage of sales is retained). Markup is profit divided by cost of goods sold (how much cost is marked up to reach sale price)."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "break-even-calculator",
+      "slug": "standard",
+      "title": "Break-Even Point Calculator (Units, Sales Revenue & Margin)",
+      "shortTitle": "Break-Even Calculator",
+      "subtitle": "Determine the exact unit volume and revenue required to cover fixed operating costs and reach profitability.",
+      "suiteType": "break_even",
+      "defaultAmount": 15000,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Break-Even Units} = \\frac{\\text{Fixed Costs}}{\\text{Sale Price} - \\text{Variable Cost}} = \\frac{\\text{Fixed Costs}}{\\text{Contribution Margin}}",
+      "formulaExplanation": "Every unit sold provides a Contribution Margin (Price - Variable Cost) that pays down fixed costs. Once cumulative contribution margin equals fixed overhead, the business breaks even.",
+      "sampleTiers": [
+        {
+          "amount": 5000,
+          "fee": 2500,
+          "net": 2500
+        },
+        {
+          "amount": 15000,
+          "fee": 7500,
+          "net": 7500
+        },
+        {
+          "amount": 50000,
+          "fee": 25000,
+          "net": 25000
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why is the contribution margin important?",
+          "answer": "Contribution margin reveals how much revenue from each single unit contributes toward covering fixed rent, payroll, and debt."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "roi-calculator",
+      "slug": "standard",
+      "title": "ROI Calculator (Return on Investment & Annualized CAGR %)",
+      "shortTitle": "ROI Calculator",
+      "subtitle": "Calculate total return on investment percentage, annualized return rate (CAGR), and net profit multiple.",
+      "suiteType": "roi",
+      "defaultAmount": 25000,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{ROI \\%} = \\frac{\\text{Final Value} - \\text{Initial Cost}}{\\text{Initial Cost}} \\times 100 \\quad | \\quad \\text{CAGR} = \\left( \\frac{\\text{Final}}{\\text{Initial}} \\right)^{\\frac{1}{t}} - 1",
+      "formulaExplanation": "Total ROI measures overall percentage gain or loss, while Compound Annual Growth Rate (CAGR) annualizes returns over multiple years for objective benchmarking.",
+      "sampleTiers": [
+        {
+          "amount": 10000,
+          "fee": 5000,
+          "net": 15000
+        },
+        {
+          "amount": 25000,
+          "fee": 15000,
+          "net": 40000
+        },
+        {
+          "amount": 100000,
+          "fee": 75000,
+          "net": 175000
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a good ROI percentage?",
+          "answer": "In public equity markets, 7% to 10% annualized ROI is standard. In high-growth technology ventures and digital products, investors seek 20%+ annualized ROI."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "quarterly-tax-calculator",
+      "slug": "1040-es",
+      "title": "Quarterly Estimated Tax Calculator 2026 (IRS Form 1040-ES)",
+      "shortTitle": "Quarterly Tax Calculator",
+      "subtitle": "Estimate quarterly tax vouchers for freelancers and 1099 contractors. Compute Schedule SE self-employment tax and federal income tax due dates.",
+      "suiteType": "quarterly_tax",
+      "defaultAmount": 120000,
+      "currencySymbol": "$",
+      "formulaLatex": "\\text{Quarterly Voucher} = \\frac{\\text{15.3\\% SE Tax} + \\text{Federal Income Tax} - \\text{W-2 Withholding}}{4}",
+      "formulaExplanation": "The IRS requires quarterly prepayments on self-employed earnings. 92.35% of net profit is subject to 15.3% SE tax, plus marginal income tax brackets.",
+      "sampleTiers": [
+        {
+          "amount": 60000,
+          "fee": 12500,
+          "net": 47500
+        },
+        {
+          "amount": 120000,
+          "fee": 28400,
+          "net": 91600
+        },
+        {
+          "amount": 200000,
+          "fee": 54200,
+          "net": 145800
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What are the 2026 IRS quarterly tax due dates?",
+          "answer": "Q1 is due April 15, 2026; Q2 is due June 15, 2026; Q3 is due September 15, 2026; Q4 is due January 15, 2027."
+        },
+        {
+          "question": "What is the safe harbor rule for underpayment penalties?",
+          "answer": "To avoid underpayment penalties, prepay at least 90% of your current year tax liability or 100% of your prior year tax (110% if prior year AGI exceeded $150,000)."
+        }
+      ],
+      "geoRegion": "US"
+    },
+    {
+      "category": "uk-ir35-calculator",
+      "slug": "contractor",
+      "title": "UK IR35 Calculator 2026 (Inside vs Outside IR35 Take-Home Pay)",
+      "shortTitle": "UK IR35 Calculator",
+      "subtitle": "Compare Inside IR35 (umbrella company deemed employment) vs Outside IR35 (PSC limited company). Calculate employer NI, dividend tax, and net pay.",
+      "suiteType": "uk_ir35",
+      "defaultAmount": 550,
+      "currencySymbol": "£",
+      "formulaLatex": "\\text{Net Advantage} = \\text{Outside PSC Take-Home} - \\text{Inside Umbrella Take-Home}",
+      "formulaExplanation": "Inside IR35 subjects contractor turnover to 13.8% Employer NI, 0.5% Apprenticeship Levy, Employee NI, and PAYE tax. Outside IR35 allows tax-efficient director salaries and dividends.",
+      "sampleTiers": [
+        {
+          "amount": 400,
+          "fee": 160,
+          "net": 240
+        },
+        {
+          "amount": 550,
+          "fee": 215,
+          "net": 335
+        },
+        {
+          "amount": 800,
+          "fee": 310,
+          "net": 490
+        },
+        {
+          "amount": 1200,
+          "fee": 460,
+          "net": 740
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the take-home pay difference between Inside and Outside IR35?",
+          "answer": "Operating Outside IR35 typically provides 15% to 25% higher net take-home pay compared to an umbrella company inside IR35 for the identical daily rate."
+        },
+        {
+          "question": "Who determines IR35 status?",
+          "answer": "Under the Off-Payroll Working rules, medium and large private sector clients and public sector bodies are legally responsible for assessing the IR35 status of their contractors using the HMRC CEST tool."
+        }
+      ],
+      "geoRegion": "UK"
     }
   ]
 }

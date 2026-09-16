@@ -188,3 +188,19 @@ ins.adsbygoogle[data-ad-status="unfilled"] * {
   padding: 0 !important;
 }
 
+/* ==========================================================================
+   Clean Invoice & Document Print Isolation
+   Ensures browser PDF export isolates ONLY the invoice document without page chrome
+   ========================================================================== */
+@media print {
+  html, body {
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+  header, footer, aside, nav, [role="banner"], [role="navigation"], .print\:hidden {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+

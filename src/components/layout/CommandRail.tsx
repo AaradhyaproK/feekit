@@ -13,6 +13,9 @@ import {
   Search,
   LayoutGrid,
   BookOpen,
+  FileText,
+  Layers,
+  TrendingUp,
 } from 'lucide-react';
 import { cn } from '@/lib/utils/formatters';
 
@@ -28,6 +31,21 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
       name: 'All Utilities',
       href: '/',
       icon: LayoutGrid,
+    },
+    {
+      name: 'Invoice Generator',
+      href: '/invoice-generator',
+      icon: FileText,
+    },
+    {
+      name: '3-Way Comparator',
+      href: '/tools/gateway-comparator/stripe-paypal-square',
+      icon: Layers,
+    },
+    {
+      name: 'Profit Margin',
+      href: '/tools/profit-margin-calculator/standard',
+      icon: TrendingUp,
     },
     {
       name: 'US Sales Tax',

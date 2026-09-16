@@ -29,6 +29,17 @@ const CATEGORIES = [
   'square-fee-calculator',
   'wise-vs-stripe',
   'authorize-net-calculator',
+  'canada-sales-tax',
+  'venmo-fee-calculator',
+  'gumroad-fee-calculator',
+  'lemon-squeezy-calculator',
+  'shopify-fee-calculator',
+  'profit-margin-calculator',
+  'break-even-calculator',
+  'roi-calculator',
+  'quarterly-tax-calculator',
+  'uk-ir35-calculator',
+  'gateway-comparator',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -42,6 +53,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/invoice-generator`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/blog`,

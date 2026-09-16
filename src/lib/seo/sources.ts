@@ -559,6 +559,98 @@ export function getDataSource(category: string, slug: string): DataSource {
     return ECOMMERCE_SOURCE;
   }
 
+  if (category === 'canada-sales-tax') {
+    return {
+      authorityName: 'Canada Revenue Agency (CRA) & Revenu Québec',
+      sourceUrl: 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses.html',
+      citationTitle: 'Excise Tax Act (R.S.C., 1985, c. E-15) & Provincial Sales Tax Statutes',
+      dataType: 'Statutory GST (5%), HST (13%-15%), and Provincial PST/QST Schedules',
+      lastVerified: '2026 Fiscal Regulations (January 2026)',
+    };
+  }
+
+  if (category === 'quarterly-tax-calculator') {
+    return {
+      authorityName: 'Internal Revenue Service (IRS)',
+      sourceUrl: 'https://www.irs.gov/forms-pubs/about-form-1040-es',
+      citationTitle: 'IRS Form 1040-ES & Schedule SE (Self-Employment Tax Instructions)',
+      regulatoryCode: '26 U.S. Code § 1401 & § 6654',
+      dataType: 'Statutory 15.3% SECA Tax Rates & Federal Income Tax Brackets',
+      lastVerified: '2026 Tax Year (IRS Publication 505)',
+    };
+  }
+
+  if (category === 'uk-ir35-calculator') {
+    return {
+      authorityName: 'HM Revenue & Customs (HMRC)',
+      sourceUrl: 'https://www.gov.uk/guidance/understanding-off-payroll-working-ir35',
+      citationTitle: 'Finance Act 2017 & 2021 (Off-Payroll Working in the Public and Private Sectors)',
+      regulatoryCode: 'ITEPA 2003 Chapter 10',
+      dataType: 'Statutory Deemed Employment NI, Apprenticeship Levy, and PAYE Schedules',
+      lastVerified: '2025/2026 Tax Year (HMRC)',
+    };
+  }
+
+  if (category === 'venmo-fee-calculator') {
+    return {
+      authorityName: 'Venmo / PayPal Commerce Official Pricing',
+      sourceUrl: 'https://venmo.com/business/',
+      citationTitle: 'Venmo for Business Pricing & Fee Schedule',
+      dataType: '1.9% + $0.10 Contactless QR & 2.29% + $0.10 Online Checkout Rates',
+      lastVerified: '2026 Official Pricing Schedule',
+    };
+  }
+
+  if (category === 'gumroad-fee-calculator') {
+    return {
+      authorityName: 'Gumroad Official Creator Pricing',
+      sourceUrl: 'https://gumroad.com/pricing',
+      citationTitle: 'Gumroad Platform Fee Policy & Payout Terms',
+      dataType: '10% Platform Fee + Standard Payment Processing Surcharges',
+      lastVerified: '2026 Official Pricing Schedule',
+    };
+  }
+
+  if (category === 'lemon-squeezy-calculator') {
+    return {
+      authorityName: 'Lemon Squeezy Merchant of Record Terms',
+      sourceUrl: 'https://www.lemonsqueezy.com/pricing',
+      citationTitle: 'Lemon Squeezy Merchant of Record Agreement & Global Tax Remittance',
+      dataType: '5% + $0.50 Flat MoR Rate + Worldwide Tax Liability Indemnification',
+      lastVerified: '2026 Official Pricing Schedule',
+    };
+  }
+
+  if (category === 'shopify-fee-calculator') {
+    return {
+      authorityName: 'Shopify Official Merchant Plans',
+      sourceUrl: 'https://www.shopify.com/pricing',
+      citationTitle: 'Shopify Payments Terms of Service & Plan Transaction Fees',
+      dataType: 'Basic (2.9% + 30¢), Shopify (2.6% + 30¢), and External Gateway Surcharges',
+      lastVerified: '2026 Official Pricing Schedule',
+    };
+  }
+
+  if (category === 'gateway-comparator') {
+    return {
+      authorityName: 'Financial Gateway Comparative Index',
+      sourceUrl: 'https://www.usefeekit.com/about',
+      citationTitle: 'Stripe, PayPal & Square Statutory Merchant Comparison Benchmark',
+      dataType: 'Standard Domestic & Cross-Border Commercial Processing Benchmark Rates',
+      lastVerified: '2026 Official Pricing Schedule',
+    };
+  }
+
+  if (category === 'profit-margin-calculator' || category === 'break-even-calculator' || category === 'roi-calculator') {
+    return {
+      authorityName: 'Financial Accounting Standards Board (FASB)',
+      sourceUrl: 'https://www.fasb.org/',
+      citationTitle: 'Standard GAAP Financial Ratio & Cost Accounting Principles',
+      dataType: 'Standard Contribution Margin, Break-Even, and Capital Return Formulations',
+      lastVerified: '2026 Fiscal Regulations (January 2026)',
+    };
+  }
+
   return {
     authorityName: 'FeeKit Financial Research & Statutory Matrix',
     sourceUrl: 'https://www.usefeekit.com/about',

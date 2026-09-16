@@ -67,6 +67,61 @@ const CATEGORY_NAMES: Record<string, { title: string; desc: string; defaultSlug:
     desc: 'Gateway monthly fees, per-transaction surcharges, and merchant account interchange-plus calculations.',
     defaultSlug: 'standard-merchant',
   },
+  'canada-sales-tax': {
+    title: 'Canadian Provincial Sales Tax Calculators (GST/HST/PST)',
+    desc: 'Calculate GST, PST, QST, and HST across all 10 Canadian provinces with CRA small-supplier threshold tracking.',
+    defaultSlug: 'ontario',
+  },
+  'venmo-fee-calculator': {
+    title: 'Venmo for Business Fee Calculators',
+    desc: 'Calculate 1.9% + $0.10 contactless QR and 2.29% + $0.10 app checkout deductions for commercial Venmo profiles.',
+    defaultSlug: 'standard',
+  },
+  'gumroad-fee-calculator': {
+    title: 'Gumroad Creator Fee Calculators',
+    desc: 'Calculate net payouts after Gumroad 10% platform fee and credit card processing charges for digital products.',
+    defaultSlug: 'standard',
+  },
+  'lemon-squeezy-calculator': {
+    title: 'Lemon Squeezy & MoR Fee Calculators',
+    desc: 'Calculate 5% + $0.50 Merchant of Record fees for SaaS, software subscriptions, and digital assets.',
+    defaultSlug: 'standard',
+  },
+  'shopify-fee-calculator': {
+    title: 'Shopify Payments Fee Calculators',
+    desc: 'Compare Basic (2.9% + $0.30), Shopify (2.6% + $0.30), and third-party gateway penalty fees.',
+    defaultSlug: 'standard',
+  },
+  'profit-margin-calculator': {
+    title: 'Profit Margin & Markup Calculators',
+    desc: 'Calculate Gross Margin %, Net Profit, and Cost-of-Goods-Sold markups with interactive waterfall charts.',
+    defaultSlug: 'standard',
+  },
+  'break-even-calculator': {
+    title: 'Break-Even Point & Contribution Margin Calculators',
+    desc: 'Determine minimum sales units and gross revenue required to cover fixed overhead costs.',
+    defaultSlug: 'standard',
+  },
+  'roi-calculator': {
+    title: 'Return on Investment (ROI) Calculators',
+    desc: 'Calculate absolute capital return %, annualized CAGR, and net gain multiples for investments.',
+    defaultSlug: 'standard',
+  },
+  'quarterly-tax-calculator': {
+    title: 'IRS 1040-ES Quarterly Estimated Tax Calculators',
+    desc: 'Calculate Schedule SE self-employment taxes (15.3%) and 4 quarterly IRS payment vouchers.',
+    defaultSlug: '1040-es',
+  },
+  'uk-ir35-calculator': {
+    title: 'UK IR35 Contractor Calculators',
+    desc: 'Compare Inside IR35 (umbrella deemed contract) vs Outside IR35 (limited company PSC) net take-home pay.',
+    defaultSlug: 'contractor',
+  },
+  'gateway-comparator': {
+    title: 'Stripe vs PayPal vs Square 3-Way Fee Comparator',
+    desc: 'Side-by-side merchant fee analysis to find the lowest fee processor for your transaction volume.',
+    defaultSlug: 'stripe-paypal-square',
+  },
 };
 
 export function generateStaticParams() {

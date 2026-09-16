@@ -101,6 +101,27 @@ export const OTHER_VAT_TAX: Record<string, TaxJurisdiction> = {
   CAN: { code: 'CAN', name: 'Canada (GST)', region: 'GLOBAL', standardRate: 0.05, localAverageRate: 0.08, currencySymbol: 'CA$', notes: '5% federal GST + provincial PST/HST' },
   AU: { code: 'AU', name: 'Australia (GST)', region: 'GLOBAL', standardRate: 0.10, currencySymbol: 'A$', notes: '10% Goods and Services Tax' },
   JP: { code: 'JP', name: 'Japan (JCT)', region: 'GLOBAL', standardRate: 0.10, reducedRate: 0.08, currencySymbol: '¥', notes: '10% standard Japanese Consumption Tax' },
+  // Canadian Provinces (GST/HST/PST)
+  ON: { code: 'ON', name: 'Ontario', region: 'GLOBAL', standardRate: 0.13, currencySymbol: 'CA$', notes: '13% Harmonized Sales Tax (HST)' },
+  ONTARIO: { code: 'ONTARIO', name: 'Ontario', region: 'GLOBAL', standardRate: 0.13, currencySymbol: 'CA$', notes: '13% Harmonized Sales Tax (HST)' },
+  BC: { code: 'BC', name: 'British Columbia', region: 'GLOBAL', standardRate: 0.12, currencySymbol: 'CA$', notes: '5% GST + 7% PST = 12%' },
+  'BRITISH-COLUMBIA': { code: 'BRITISH-COLUMBIA', name: 'British Columbia', region: 'GLOBAL', standardRate: 0.12, currencySymbol: 'CA$', notes: '5% GST + 7% PST = 12%' },
+  QC: { code: 'QC', name: 'Quebec', region: 'GLOBAL', standardRate: 0.14975, currencySymbol: 'CA$', notes: '5% GST + 9.975% QST = 14.975%' },
+  QUEBEC: { code: 'QUEBEC', name: 'Quebec', region: 'GLOBAL', standardRate: 0.14975, currencySymbol: 'CA$', notes: '5% GST + 9.975% QST = 14.975%' },
+  AB: { code: 'AB', name: 'Alberta', region: 'GLOBAL', standardRate: 0.05, currencySymbol: 'CA$', notes: '5% federal GST only (0% PST)' },
+  ALBERTA: { code: 'ALBERTA', name: 'Alberta', region: 'GLOBAL', standardRate: 0.05, currencySymbol: 'CA$', notes: '5% federal GST only (0% PST)' },
+  NS: { code: 'NS', name: 'Nova Scotia', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
+  'NOVA-SCOTIA': { code: 'NOVA-SCOTIA', name: 'Nova Scotia', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
+  NB: { code: 'NB', name: 'New Brunswick', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
+  'NEW-BRUNSWICK': { code: 'NEW-BRUNSWICK', name: 'New Brunswick', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
+  MB: { code: 'MB', name: 'Manitoba', region: 'GLOBAL', standardRate: 0.12, currencySymbol: 'CA$', notes: '5% GST + 7% PST = 12%' },
+  MANITOBA: { code: 'MANITOBA', name: 'Manitoba', region: 'GLOBAL', standardRate: 0.12, currencySymbol: 'CA$', notes: '5% GST + 7% PST = 12%' },
+  SK: { code: 'SK', name: 'Saskatchewan', region: 'GLOBAL', standardRate: 0.11, currencySymbol: 'CA$', notes: '5% GST + 6% PST = 11%' },
+  SASKATCHEWAN: { code: 'SASKATCHEWAN', name: 'Saskatchewan', region: 'GLOBAL', standardRate: 0.11, currencySymbol: 'CA$', notes: '5% GST + 6% PST = 11%' },
+  PE: { code: 'PE', name: 'Prince Edward Island', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
+  'PRINCE-EDWARD-ISLAND': { code: 'PRINCE-EDWARD-ISLAND', name: 'Prince Edward Island', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
+  NL: { code: 'NL', name: 'Newfoundland and Labrador', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
+  'NEWFOUNDLAND-AND-LABRADOR': { code: 'NEWFOUNDLAND-AND-LABRADOR', name: 'Newfoundland and Labrador', region: 'GLOBAL', standardRate: 0.15, currencySymbol: 'CA$', notes: '15% Harmonized Sales Tax (HST)' },
 };
 
 export const ALL_TAX_JURISDICTIONS: Record<string, TaxJurisdiction> = {

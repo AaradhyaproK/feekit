@@ -1,20 +1,51 @@
 # ==============================================================================
 # FeeKit robots.txt
-# Configured for Googlebot, Mediapartners-Google (AdSense), and major search engines
+# Completely unblocked access for all Search Engines, AdSense, and AI Crawlers
 # ==============================================================================
 
-# Google AdSense Crawler (Explicit Access)
+# 1. Google AdSense Crawler (Must be allowed to review and serve ads)
 User-agent: Mediapartners-Google
 Allow: /
 
-# Standard Search Crawlers (Googlebot, Bingbot, etc.)
+# 2. Google AI / Gemini Crawler
+User-agent: Google-Extended
+Allow: /
+
+# 3. Google Search & Media Crawlers
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Googlebot-Video
+Allow: /
+
+# 4. OpenAI (ChatGPT, SearchGPT, and GPT-4 / GPT-5 models)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+Allow: /
+
+# 5. Anthropic (Claude models)
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+Allow: /
+
+# 6. Perplexity AI Search
+User-agent: PerplexityBot
+Allow: /
+
+# 7. Apple Intelligence & Siri
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# 8. Microsoft Bing & Copilot
+User-agent: Bingbot
+User-agent: msnbot
+Allow: /
+
+# 9. All other web bots, AI models, and search engines (100% unblocked)
 User-agent: *
 Allow: /
-Allow: /tools/
-Allow: /blog/
-Allow: /_next/static/
-Allow: /_next/image/
-Disallow: /api/
+Disallow:
 
+# Primary Sitemap index containing all 246 static pages
 Sitemap: https://www.usefeekit.com/sitemap.xml
-

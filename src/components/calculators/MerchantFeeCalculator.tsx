@@ -62,7 +62,40 @@ export function MerchantFeeCalculator({
     }
   }, []);
 
+  const [paypalTier, setPaypalTier] = useState<'invoicing' | 'standard_card'>('invoicing');
+  const [venmoTier, setVenmoTier] = useState<'qr' | 'app'>('qr');
+  const [stripeTier, setStripeTier] = useState<'standard' | 'premium'>('standard');
+
   const numericAmount = parseNumericValue(amount, 0);
+
+  let customRate: number | undefined = undefined;
+  let customFixed: number | undefined = undefined;
+
+  if (gateway === 'paypal') {
+    if (paypalTier === 'standard_card') {
+      customRate = 0.0299; // Standard Card Guest Checkout: 2.99% + $0.49
+      customFixed = 0.49;
+    } else {
+      customRate = 0.0349; // PayPal Invoicing / Checkout: 3.49% + $0.49
+      customFixed = 0.49;
+    }
+  } else if (gateway === 'venmo') {
+    if (venmoTier === 'app') {
+      customRate = 0.0229; // Online App Checkout: 2.29% + $0.10
+      customFixed = 0.10;
+    } else {
+      customRate = 0.019; // In-Person Contactless QR: 1.9% + $0.10
+      customFixed = 0.10;
+    }
+  } else if (gateway === 'stripe') {
+    if (stripeTier === 'premium') {
+      customRate = currencySymbol === '£' ? 0.025 : 0.034; // Premium / Commercial cards (2.5% UK / 3.4% US)
+      customFixed = currencySymbol === '£' ? 0.20 : 0.30;
+    } else {
+      customRate = currencySymbol === '£' ? 0.015 : 0.029; // Standard consumer cards (1.5% UK / 2.9% US)
+      customFixed = currencySymbol === '£' ? 0.20 : 0.30;
+    }
+  }
 
   const result = calculateMerchantFee({
     amount: numericAmount,
@@ -70,6 +103,8 @@ export function MerchantFeeCalculator({
     direction,
     isInternational,
     applyCurrencyConversion: applyFx,
+    customPercentageRate: customRate,
+    customFixedFee: customFixed,
   });
 
   const activeGatewayConfig = GATEWAYS[gateway];
@@ -180,6 +215,106 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
         </div>
       </div>
 
+      {/* Gateway Sub-Tier Selector (PayPal, Venmo, Stripe) */}
+      {gateway === 'paypal' && (
+        <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+          <div className="text-xs">
+            <span className="font-bold text-slate-900 block">PayPal Rate Schedule:</span>
+            <span className="text-slate-500 text-[11px]">Select standard invoicing or guest checkout card processing</span>
+          </div>
+          <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={() => setPaypalTier('invoicing')}
+              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                paypalTier === 'invoicing'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              PayPal Invoicing (3.49% + $0.49)
+            </button>
+            <button
+              type="button"
+              onClick={() => setPaypalTier('standard_card')}
+              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                paypalTier === 'standard_card'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              Standard Card (2.99% + $0.49)
+            </button>
+          </div>
+        </div>
+      )}
+
+      {gateway === 'venmo' && (
+        <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+          <div className="text-xs">
+            <span className="font-bold text-slate-900 block">Venmo Payment Rail:</span>
+            <span className="text-slate-500 text-[11px]">In-person QR scans vs. online app checkouts</span>
+          </div>
+          <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={() => setVenmoTier('qr')}
+              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                venmoTier === 'qr'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              Contactless QR (1.9% + $0.10)
+            </button>
+            <button
+              type="button"
+              onClick={() => setVenmoTier('app')}
+              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                venmoTier === 'app'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              App Checkout (2.29% + $0.10)
+            </button>
+          </div>
+        </div>
+      )}
+
+      {gateway === 'stripe' && (
+        <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+          <div className="text-xs">
+            <span className="font-bold text-slate-900 block">Card Classification Tier:</span>
+            <span className="text-slate-500 text-[11px]">Consumer cards vs. corporate / premium cards</span>
+          </div>
+          <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={() => setStripeTier('standard')}
+              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                stripeTier === 'standard'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              {currencySymbol === '£' ? 'UK Consumer (1.5% + 20p)' : 'Domestic Standard (2.9% + $0.30)'}
+            </button>
+            <button
+              type="button"
+              onClick={() => setStripeTier('premium')}
+              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                stripeTier === 'premium'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              {currencySymbol === '£' ? 'Premium / Non-UK (2.5% + 20p)' : 'Corporate / Keyed (3.4% + $0.30)'}
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* 3. Transaction Amount Input & Quick Selectors */}
       <div className="mt-5 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 items-end">
         <div className="md:col-span-6">
@@ -242,36 +377,74 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
       </div>
 
       {/* 4. Cross-Border & Foreign Exchange Options */}
-      <div className="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap gap-4 sm:gap-6 text-xs">
-        <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700 hover:text-slate-900 font-medium">
-          <input
-            type="checkbox"
-            checked={isInternational}
-            onChange={(e) => setIsInternational(e.target.checked)}
-            className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-          />
-          <span className="flex items-center gap-1.5">
-            <Globe2 className="h-3.5 w-3.5 text-slate-400 shrink-0" />
-            <span>
-              International / Foreign Card (+{formatPercent(activeGatewayConfig.intlExtraPercentage * 100)})
+      <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-3">
+        <div className="flex flex-wrap gap-4 sm:gap-6 text-xs">
+          <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700 hover:text-slate-900 font-medium">
+            <input
+              type="checkbox"
+              checked={isInternational}
+              onChange={(e) => setIsInternational(e.target.checked)}
+              className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+            />
+            <span className="flex items-center gap-1.5">
+              <Globe2 className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+              <span>
+                International / Foreign Card (+{formatPercent(activeGatewayConfig.intlExtraPercentage * 100)})
+              </span>
             </span>
-          </span>
-        </label>
+          </label>
 
-        <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700 hover:text-slate-900 font-medium">
-          <input
-            type="checkbox"
-            checked={applyFx}
-            onChange={(e) => setApplyFx(e.target.checked)}
-            className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-          />
-          <span className="flex items-center gap-1.5">
-            <ArrowRightLeft className="h-3.5 w-3.5 text-slate-400 shrink-0" />
-            <span>
-              Currency Conversion Spread (+{formatPercent(activeGatewayConfig.currencyConversionRate * 100)})
+          <label className="flex items-center gap-2 cursor-pointer select-none text-slate-700 hover:text-slate-900 font-medium">
+            <input
+              type="checkbox"
+              checked={applyFx}
+              onChange={(e) => setApplyFx(e.target.checked)}
+              className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+            />
+            <span className="flex items-center gap-1.5">
+              <ArrowRightLeft className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+              <span>
+                Currency Conversion Spread (+{formatPercent(activeGatewayConfig.currencyConversionRate * 100)})
+              </span>
             </span>
-          </span>
-        </label>
+          </label>
+        </div>
+
+        {/* Informational Notes for Edge Cases & Regulatory Details */}
+        {gateway === 'lemon_squeezy' && (
+          <div className="flex items-start gap-2 rounded-lg bg-amber-50/80 border border-amber-200 p-2.5 text-[11px] text-amber-900">
+            <Info className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+            <span>
+              <strong>Lemon Squeezy Surcharge Note:</strong> International transactions incur an additional +1.5%, and PayPal payments incur an additional +1.5% on top of the 5% + $0.50 base rate.
+            </span>
+          </div>
+        )}
+
+        {gateway === 'wise' && (
+          <div className="flex items-start gap-2 rounded-lg bg-teal-50/80 border border-teal-200 p-2.5 text-[11px] text-teal-900">
+            <Info className="h-4 w-4 text-teal-600 shrink-0 mt-0.5" />
+            <span>
+              <strong>Wise Pricing Note:</strong> The 0.45% rate shown is the USD benchmark estimate. Actual mid-market exchange fees vary by currency pair (0.35% – 0.65%). Check exact live rates at{' '}
+              <a
+                href="https://wise.com/gb/pricing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold underline hover:text-teal-700"
+              >
+                wise.com/gb/pricing
+              </a>.
+            </span>
+          </div>
+        )}
+
+        {gateway === 'stripe' && (
+          <div className="flex items-start gap-2 rounded-lg bg-blue-50/80 border border-blue-200 p-2.5 text-[11px] text-blue-900">
+            <Info className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+            <span>
+              <strong>Stripe Rate Clarification:</strong> Stripe UK charges 1.5% + 20p for standard UK consumer cards, and 2.5% + 20p for corporate, commercial, and premium cards. Switch tiers above to compare.
+            </span>
+          </div>
+        )}
       </div>
 
       {/* 5. Results Stat Cards (2x2 on Mobile, 4x1 on Desktop) */}

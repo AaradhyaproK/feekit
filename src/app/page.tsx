@@ -97,7 +97,7 @@ const HOME_FAQS = [
   {
     question: 'What is FeeKit and what calculators does it provide?',
     answer:
-      'FeeKit is a free, high-precision financial utility suite built for US and UK businesses, online merchants, and freelancers. It offers 164 dedicated calculators across 5 core domains: 50-state sales tax with local district surtaxes, UK HMRC VAT compliance (20% standard and 5% reduced), payment gateway deductions (Stripe, PayPal, Square, Wise, Authorize.Net), 1099 freelance hourly and day rates (accounting for 15.3% SECA tax), and e-commerce landed cost and break-even ROAS benchmarks.',
+      'FeeKit is a free, high-precision financial utility suite built for US, UK, and Canadian businesses, online merchants, and freelancers. It offers 197+ dedicated calculators across 10 core domains: 50-state sales tax with local district surtaxes, 10 Canadian provincial tax rates, UK HMRC VAT compliance (20% standard and 5% reduced), payment gateway deductions (Stripe, PayPal, Square, Venmo, Gumroad, Lemon Squeezy, Shopify Payments, Wise, Authorize.Net), 1099 freelance hourly and day rates (accounting for 15.3% SECA tax), quarterly estimated tax vouchers, and business metrics (profit margin, break-even, ROI).',
   },
   {
     question: 'Are FeeKit fee and tax calculations completely free and private?',
@@ -255,7 +255,7 @@ export default function FeeKitHome() {
         <div className="space-y-3">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="w-full max-w-xl">
-              <FastSearchBar placeholder="Search 164 tools (e.g., California, Stripe, VAT, 1099, Amazon FBA)..." />
+              <FastSearchBar placeholder="Search 197+ tools (e.g., California, Stripe, VAT, 1099, Amazon FBA)..." />
             </div>
 
             {/* Quick-Jump Suite Badges */}
@@ -472,9 +472,9 @@ export default function FeeKitHome() {
               <Globe2 className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
             <div className="min-w-0">
-              <div className="text-xs font-bold text-slate-900 truncate">164 Calculators</div>
+              <div className="text-xs font-bold text-slate-900 truncate">197+ Calculators</div>
               <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">
-                50 US States + UK & EU
+                US, Canada, UK & Global
               </div>
             </div>
           </div>
@@ -507,7 +507,7 @@ export default function FeeKitHome() {
         {/* 4. Universal Multi-Suite Knowledge & Compliance Guide */}
         <UniversalGuideHub inArticleSlot={<InArticleAd />} />
 
-        {/* 5. Programmatic 164-Tool Master Directory Section */}
+        {/* 5. Programmatic 197-Tool Master Directory Section */}
         <section className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 shadow-xs">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-200 pb-4 sm:pb-5">
             <div>

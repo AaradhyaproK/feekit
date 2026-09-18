@@ -83,7 +83,7 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     name: 'Venmo Business',
     tagline: 'In-person QR (1.9%) and app checkout (2.29%)',
     badge: 'Mobile First',
-    percentageRate: 0.0229,
+    percentageRate: 0.019, // Standard in-person QR rate (1.9% + $0.10)
     fixedFee: 0.10,
     intlExtraPercentage: 0.015,
     currencyConversionRate: 0.03,
@@ -92,10 +92,10 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
   gumroad: {
     id: 'gumroad',
     name: 'Gumroad',
-    tagline: 'Creator sales: 10% platform + 2.9% processing',
+    tagline: 'Creator sales: 10% platform + $0.50 processing',
     badge: 'Creator Economy',
-    percentageRate: 0.129,
-    fixedFee: 0.30,
+    percentageRate: 0.10, // Gumroad 10% flat rate
+    fixedFee: 0.50, // bundled MoR fee since 2025
     intlExtraPercentage: 0.01,
     currencyConversionRate: 0.02,
     monthlyFee: 0,

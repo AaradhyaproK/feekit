@@ -12045,28 +12045,28 @@
       "gatewayId": "venmo",
       "defaultAmount": 250,
       "currencySymbol": "$",
-      "formulaLatex": "\\text{Venmo Fee} = (\\text{Gross} \\times 2.29\\%) + \\$0.10 \\quad | \\quad \\text{Net Payout} = \\text{Gross} - \\text{Fee}",
+      "formulaLatex": "\\text{Venmo QR Fee} = (\\text{Gross} \\times 1.9\\%) + \\$0.10 \\quad | \\quad \\text{Net Payout} = \\text{Gross} - \\text{Fee}",
       "formulaExplanation": "Venmo charges 1.9% + $0.10 for in-person contactless QR codes and 2.29% + $0.10 for online buyer checkout through the Venmo app.",
       "sampleTiers": [
         {
           "amount": 50,
-          "fee": 1.25,
-          "net": 48.75
+          "fee": 1.05,
+          "net": 48.95
         },
         {
           "amount": 250,
-          "fee": 5.83,
-          "net": 244.17
+          "fee": 4.85,
+          "net": 245.15
         },
         {
           "amount": 1000,
-          "fee": 23,
-          "net": 977
+          "fee": 19.1,
+          "net": 980.9
         },
         {
           "amount": 5000,
-          "fee": 114.6,
-          "net": 4885.4
+          "fee": 95.1,
+          "net": 4904.9
         }
       ],
       "faqs": [
@@ -12096,35 +12096,35 @@
     {
       "category": "gumroad-fee-calculator",
       "slug": "standard",
-      "title": "Gumroad Fee Calculator (10% Creator Platform Fee + Processing)",
+      "title": "Gumroad Fee Calculator (10% Creator Platform Fee + $0.50 Processing)",
       "shortTitle": "Gumroad Fee Calculator",
-      "subtitle": "Calculate net payouts for creator sales on Gumroad. Understand the flat 10% platform fee and ~2.9% + $0.30 credit card processing charge.",
+      "subtitle": "Calculate net payouts for creator sales on Gumroad. Understand the flat 10% platform fee and $0.50 bundled MoR processing charge.",
       "suiteType": "merchant",
       "gatewayId": "gumroad",
       "defaultAmount": 100,
       "currencySymbol": "$",
-      "formulaLatex": "\\text{Gumroad Cut} = (\\text{Gross} \\times 10\\%) + (\\text{Gross} \\times 2.9\\%) + \\$0.30 = (\\text{Gross} \\times 12.9\\%) + \\$0.30",
-      "formulaExplanation": "Gumroad levies a flat 10% platform fee plus payment processing fees (typically 2.9% + $0.30 for standard credit cards). On a $100 sale, total fees equal $13.20, leaving $86.80 net.",
+      "formulaLatex": "\\text{Gumroad Fee} = (\\text{Gross} \\times 10\\%) + \\$0.50 \\quad | \\quad \\text{Net Payout} = \\text{Gross} - \\text{Fee}",
+      "formulaExplanation": "Gumroad levies a flat 10% platform fee plus $0.50 per sale with payment processing bundled. On a $100 sale, total fees equal $10.50, leaving $89.50 net.",
       "sampleTiers": [
         {
           "amount": 25,
-          "fee": 3.53,
-          "net": 21.47
+          "fee": 3,
+          "net": 22
         },
         {
           "amount": 100,
-          "fee": 13.2,
-          "net": 86.8
+          "fee": 10.5,
+          "net": 89.5
         },
         {
           "amount": 500,
-          "fee": 64.8,
-          "net": 435.2
+          "fee": 50.5,
+          "net": 449.5
         },
         {
           "amount": 2000,
-          "fee": 258.3,
-          "net": 1741.7
+          "fee": 200.5,
+          "net": 1799.5
         }
       ],
       "faqs": [

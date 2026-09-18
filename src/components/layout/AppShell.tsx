@@ -144,7 +144,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   </li>
                   <li>
                     <Link href="/tools/gumroad-fee-calculator/standard" className="hover:text-blue-600 transition-colors">
-                      Gumroad Creator Fees (10% + 2.9%)
+                      Gumroad Creator Fees (10% + $0.50)
                     </Link>
                   </li>
                   <li>

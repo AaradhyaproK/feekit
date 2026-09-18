@@ -122,7 +122,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
             </h2>
           </div>
           <p className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight mt-0.5">
-            5 Dedicated Engines. 164 Precision Calculators.
+            10 Financial Suites. 197+ Precision Calculators.
           </p>
         </div>
         <p className="text-xs text-slate-500 max-w-md hidden md:block">

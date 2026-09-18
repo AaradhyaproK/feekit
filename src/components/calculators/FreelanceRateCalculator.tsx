@@ -5,7 +5,7 @@ import { calculateFreelanceRate } from '@/lib/engines/freelance-rate';
 import { MetricCard } from '@/components/ui/MetricCard';
 import { formatCurrency, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { decodeHashData } from '@/lib/utils/hash-sync';
-import { Check, Copy, FileCheck, X } from 'lucide-react';
+import { Check, Copy, FileCheck, X, Info } from 'lucide-react';
 
 interface FreelanceRateCalculatorProps {
   initialRole?: string;
@@ -230,6 +230,14 @@ export function FreelanceRateCalculator({
           subtext={`Taxes: ~${formatCurrency(result.totalTaxesEstimated, currencySymbol)}`}
           accent="amber"
         />
+      </div>
+
+      {/* 2026 Social Security Wage Cap Clarification Note */}
+      <div className="flex items-start gap-2 rounded-xl bg-blue-50/70 border border-blue-200 p-3 text-xs text-blue-950">
+        <Info className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+        <p className="leading-relaxed">
+          <strong>2026 Social Security Wage Cap Note:</strong> The 12.4% Social Security portion of self-employment tax (SECA) applies only up to the 2026 statutory wage cap of <strong>$176,100</strong>. Net freelance earnings above $176,100 are exempt from the 12.4% Social Security tax and only incur the 2.9% Medicare tax (plus 0.9% Additional Medicare tax for single filers over $200,000 / married over $250,000). High earners pay a significantly lower effective SECA tax rate.
+        </p>
       </div>
 
       {/* Ready-to-Copy Proposal Block */}

@@ -28,7 +28,7 @@ export function GumroadGuide({ sectionClass, inArticleSlot }: GumroadGuideProps)
           Gumroad Creator Fees Explained: 10% Flat Rate & Payouts ({currentYear})
         </h2>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          A transparent breakdown of Gumroad&apos;s 10% platform fee, payment processor surcharges (~2.9% + $0.30), Merchant of Record (MoR) EU VAT handling, and Friday payouts.
+          A transparent breakdown of Gumroad&apos;s 10% + $0.50 creator pricing model with bundled payment processing, Merchant of Record (MoR) EU VAT handling, and Friday payouts.
         </p>
       </div>
 
@@ -39,7 +39,7 @@ export function GumroadGuide({ sectionClass, inArticleSlot }: GumroadGuideProps)
           <span>The Immediate Answer: What Gumroad Deducts Per Sale</span>
         </div>
         <p className="text-sm text-slate-700 leading-relaxed">
-          Gumroad charges a flat <strong>10% platform fee</strong> on every sale plus underlying payment processor charges (typically <strong>2.9% plus $0.30</strong> for credit cards or PayPal), producing a total effective deduction of approximately <strong>12.9% plus $0.30</strong> per transaction. On a $50 digital product sale, Gumroad retains $6.75 ($5.00 platform fee + $1.75 card processing) and delivers $43.25 to your creator balance.
+          Gumroad charges a flat <strong>10% platform fee plus $0.50 per sale</strong>, with standard credit card and payment processing bundled directly into the transaction fee. On a $50 digital product sale, Gumroad deducts $5.50 ($5.00 platform fee + $0.50 fixed charge) and delivers $44.50 to your creator balance.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export function GumroadGuide({ sectionClass, inArticleSlot }: GumroadGuideProps)
           Why 10% on Gumroad is Often Cheaper Than 2.9% on Raw Stripe
         </h3>
         <p className="text-sm text-slate-600 leading-relaxed">
-          New creators often ask why they should pay ~12.9% on Gumroad when raw Stripe charges 2.9% + $0.30. The difference is the <strong>Merchant of Record (MoR)</strong> model.
+          New creators often ask why they should pay 10% + $0.50 on Gumroad when raw Stripe charges 2.9% + $0.30. The difference is the <strong>Merchant of Record (MoR)</strong> model.
         </p>
         <p className="text-sm text-slate-600 leading-relaxed">
           When you sell via raw Stripe, your business is the legal merchant: you must register for sales tax in 45+ US states once economic nexus is reached, collect and file European Union VAT via the One-Stop Shop (OSS), handle chargeback representations, and host download infrastructure. Gumroad acts as the legal reseller, legally absorbing all international tax collection, VAT remittance, file delivery bandwidth, and fraud liability under their own corporate umbrella.
@@ -61,7 +61,7 @@ export function GumroadGuide({ sectionClass, inArticleSlot }: GumroadGuideProps)
         <div className="flex items-center gap-2 text-slate-900 font-bold">
           <FileSpreadsheet className="h-4 w-4 text-pink-600 shrink-0" />
           <h3 className="text-base sm:text-lg font-bold text-slate-900">
-            Data Table: Gumroad Net Creator Payouts by Product Price
+            Data Table: Gumroad Net Creator Payouts by Product Price (10% + $0.50)
           </h3>
         </div>
         <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
@@ -70,7 +70,7 @@ export function GumroadGuide({ sectionClass, inArticleSlot }: GumroadGuideProps)
               <tr className="border-b border-slate-200 bg-slate-50/80 font-bold text-slate-900">
                 <th className="py-3 px-4">Product Price</th>
                 <th className="py-3 px-4 text-pink-700">Gumroad 10% Fee</th>
-                <th className="py-3 px-4 text-slate-700">Processor Fee (~2.9% + $0.30)</th>
+                <th className="py-3 px-4 text-slate-700">Fixed MoR Fee</th>
                 <th className="py-3 px-4 text-slate-900">Total Deductions</th>
                 <th className="py-3 px-4 text-emerald-700">Net Creator Payout</th>
                 <th className="py-3 px-4 text-slate-500">Effective Fee %</th>
@@ -80,42 +80,42 @@ export function GumroadGuide({ sectionClass, inArticleSlot }: GumroadGuideProps)
               <tr>
                 <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">$5.00 (E-book)</td>
                 <td className="py-2.5 px-4 text-pink-700 font-semibold">$0.50</td>
-                <td className="py-2.5 px-4">$0.45</td>
-                <td className="py-2.5 px-4 text-rose-600 font-semibold">$0.95</td>
-                <td className="py-2.5 px-4 text-emerald-700 font-bold">$4.05</td>
-                <td className="py-2.5 px-4 font-sans text-slate-500">19.00%</td>
+                <td className="py-2.5 px-4">$0.50</td>
+                <td className="py-2.5 px-4 text-rose-600 font-semibold">$1.00</td>
+                <td className="py-2.5 px-4 text-emerald-700 font-bold">$4.00</td>
+                <td className="py-2.5 px-4 font-sans text-slate-500">20.00%</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">$20.00 (Template)</td>
                 <td className="py-2.5 px-4 text-pink-700 font-semibold">$2.00</td>
-                <td className="py-2.5 px-4">$0.88</td>
-                <td className="py-2.5 px-4 text-rose-600 font-semibold">$2.88</td>
-                <td className="py-2.5 px-4 text-emerald-700 font-bold">$17.12</td>
-                <td className="py-2.5 px-4 font-sans text-slate-500">14.40%</td>
+                <td className="py-2.5 px-4">$0.50</td>
+                <td className="py-2.5 px-4 text-rose-600 font-semibold">$2.50</td>
+                <td className="py-2.5 px-4 text-emerald-700 font-bold">$17.50</td>
+                <td className="py-2.5 px-4 font-sans text-slate-500">12.50%</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">$50.00 (Video Course)</td>
                 <td className="py-2.5 px-4 text-pink-700 font-semibold">$5.00</td>
-                <td className="py-2.5 px-4">$1.75</td>
-                <td className="py-2.5 px-4 text-rose-600 font-semibold">$6.75</td>
-                <td className="py-2.5 px-4 text-emerald-700 font-bold">$43.25</td>
-                <td className="py-2.5 px-4 font-sans text-slate-500">13.50%</td>
+                <td className="py-2.5 px-4">$0.50</td>
+                <td className="py-2.5 px-4 text-rose-600 font-semibold">$5.50</td>
+                <td className="py-2.5 px-4 text-emerald-700 font-bold">$44.50</td>
+                <td className="py-2.5 px-4 font-sans text-slate-500">11.00%</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">$100.00 (Software Toolkit)</td>
                 <td className="py-2.5 px-4 text-pink-700 font-semibold">$10.00</td>
-                <td className="py-2.5 px-4">$3.20</td>
-                <td className="py-2.5 px-4 text-rose-600 font-semibold">$13.20</td>
-                <td className="py-2.5 px-4 text-emerald-700 font-bold">$86.80</td>
-                <td className="py-2.5 px-4 font-sans text-slate-500">13.20%</td>
+                <td className="py-2.5 px-4">$0.50</td>
+                <td className="py-2.5 px-4 text-rose-600 font-semibold">$10.50</td>
+                <td className="py-2.5 px-4 text-emerald-700 font-bold">$89.50</td>
+                <td className="py-2.5 px-4 font-sans text-slate-500">10.50%</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">$500.00 (Masterclass)</td>
                 <td className="py-2.5 px-4 text-pink-700 font-semibold">$50.00</td>
-                <td className="py-2.5 px-4">$14.80</td>
-                <td className="py-2.5 px-4 text-rose-600 font-semibold">$64.80</td>
-                <td className="py-2.5 px-4 text-emerald-700 font-bold">$435.20</td>
-                <td className="py-2.5 px-4 font-sans text-slate-500">12.96%</td>
+                <td className="py-2.5 px-4">$0.50</td>
+                <td className="py-2.5 px-4 text-rose-600 font-semibold">$50.50</td>
+                <td className="py-2.5 px-4 text-emerald-700 font-bold">$449.50</td>
+                <td className="py-2.5 px-4 font-sans text-slate-500">10.10%</td>
               </tr>
             </tbody>
           </table>

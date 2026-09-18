@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Calendar, DollarSign, ShieldAlert, FileText, CheckCircle2 } from 'lucide-react';
+import { Calendar, DollarSign, ShieldAlert, FileText, CheckCircle2, Info } from 'lucide-react';
 import { calculateQuarterlyTax, FilingStatus } from '@/lib/engines/tax-quarterly-ir35';
 
 interface QuarterlyTaxProps {
@@ -156,6 +156,14 @@ export function QuarterlyTaxCalculator({
               </span>
             </div>
           ))}
+        </div>
+
+        {/* 2026 Social Security Wage Cap Clarification Note */}
+        <div className="flex items-start gap-2 rounded-xl bg-amber-100/70 border border-amber-300 p-3 text-xs text-amber-950">
+          <Info className="h-4 w-4 text-amber-700 shrink-0 mt-0.5" />
+          <p className="leading-relaxed">
+            <strong>2026 Social Security Wage Cap Note:</strong> The 12.4% Social Security portion of self-employment tax (SECA) applies only up to the 2026 statutory wage cap of <strong>$176,100</strong>. Net business profit above $176,100 is exempt from the 12.4% OASDI portion and only incurs the 2.9% Medicare tax (plus 0.9% Additional Medicare tax if Adjusted Gross Income exceeds $200k single / $250k married).
+          </p>
         </div>
       </div>
     </div>

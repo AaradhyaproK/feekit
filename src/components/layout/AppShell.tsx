@@ -257,7 +257,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   </li>
                   <li>
                     <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                      XML Sitemap (186 Pages)
+                      XML Sitemap (197+ Pages)
                     </a>
                   </li>
                   <li>

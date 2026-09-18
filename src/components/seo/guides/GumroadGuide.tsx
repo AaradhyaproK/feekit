@@ -43,6 +43,40 @@ export function GumroadGuide({ sectionClass, inArticleSlot }: GumroadGuideProps)
         </p>
       </div>
 
+      {/* Dual Perspective: Platform Fee vs All-In Seller Cost */}
+      <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-5 sm:p-6 space-y-4">
+        <div className="flex items-center gap-2 text-amber-900 font-bold text-base">
+          <AlertCircle className="h-5 w-5 text-amber-600 shrink-0" />
+          <span>Understanding Net Payouts: 10% Platform Fee vs. 12%–13% All-In Seller Cost</span>
+        </div>
+        <div className="text-sm text-slate-700 space-y-3 leading-relaxed">
+          <p>
+            When calculating creator net income, sellers often encounter two defensible figures depending on whether they examine Gumroad&apos;s headline platform fee or their total all-in operational deduction:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+            <div className="rounded-xl border border-amber-200 bg-white p-4 space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block">
+                Model A: Official MoR Platform Fee (10% + $0.50)
+              </span>
+              <p className="text-xs text-slate-600">
+                Gumroad&apos;s direct published headline pricing. Standard credit card processing is bundled directly into the MoR fee. On a <strong>$1,000</strong> gross sale, total platform deductions equal <strong>$100.50</strong>, delivering <strong>$899.50</strong> net in creator payouts.
+              </p>
+            </div>
+            <div className="rounded-xl border border-amber-200 bg-white p-4 space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block">
+                Model B: All-In Effective Seller Cost (~12%–13%)
+              </span>
+              <p className="text-xs text-slate-600">
+                When accounting for pass-through credit card processing charges, international card surcharges (+1%–2%), currency conversion spreads, or external processor rails (modeled at ~12.9% + $0.30), the seller&apos;s effective deduction lands between 12% and 13%, delivering approximately <strong>$870.70</strong> net on $1,000.
+              </p>
+            </div>
+          </div>
+          <p className="text-xs text-slate-600 italic">
+            FeeKit&apos;s interactive calculator above provides a toggle between both models so you can analyze both direct headline payouts and conservative all-in net margins.
+          </p>
+        </div>
+      </div>
+
       {/* Why Gumroad Charges 10% vs Stripe */}
       <div className="space-y-4">
         <h3 className="text-lg sm:text-xl font-bold text-slate-900">

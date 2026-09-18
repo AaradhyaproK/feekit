@@ -220,7 +220,7 @@ newItems.push(
     defaultAmount: 100,
     currencySymbol: '$',
     formulaLatex: '\\text{Gumroad Cut} = (\\text{Gross} \\times 10\\%) + (\\text{Gross} \\times 2.9\\%) + \\$0.30 = (\\text{Gross} \\times 12.9\\%) + \\$0.30',
-    formulaExplanation: 'Gumroad levies a flat 10% platform fee plus payment processing fees (typically 2.9% + $0.30 for standard credit cards). On a $100 sale, total fees equal $13.20, leaving $86.80 net.',
+    formulaExplanation: 'Gumroad levies a flat 10% platform fee plus $0.50 per sale with payment processing bundled (delivering $899.50 net on $1,000). For creators accounting for pass-through credit card processing and international interchange, the effective all-in cost is closer to 12%–13% (approx. 12.9% + $0.30).',
     sampleTiers: [
       { amount: 25, fee: 3.53, net: 21.47 },
       { amount: 100, fee: 13.20, net: 86.80 },
@@ -228,7 +228,7 @@ newItems.push(
       { amount: 2000, fee: 258.30, net: 1741.70 },
     ],
     faqs: [
-      { question: 'How much does Gumroad take from each sale?', answer: 'Gumroad takes a 10% flat platform fee plus standard payment processor charges (2.9% + $0.30), amounting to approximately 12.9% + $0.30 per transaction.' },
+      { question: 'How much does Gumroad take from each sale?', answer: 'Gumroad takes a flat 10% platform fee plus $0.50 per sale under its bundled Merchant of Record schedule (leaving $899.50 net on $1,000). When accounting for card interchange, foreign transaction fees, or direct processing rails, the all-in effective deduction typically reaches 12%–13% (approx. 12.9% + $0.30).' },
       { question: 'Does Gumroad handle sales tax and VAT?', answer: 'Yes, Gumroad acts as a Merchant of Record (MoR) and automatically calculates, collects, and remits worldwide sales tax and VAT on digital goods.' },
     ],
     geoRegion: 'US',

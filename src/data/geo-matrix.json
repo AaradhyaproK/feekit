@@ -12104,7 +12104,7 @@
       "defaultAmount": 100,
       "currencySymbol": "$",
       "formulaLatex": "\\text{Gumroad Fee} = (\\text{Gross} \\times 10\\%) + \\$0.50 \\quad | \\quad \\text{Net Payout} = \\text{Gross} - \\text{Fee}",
-      "formulaExplanation": "Gumroad levies a flat 10% platform fee plus $0.50 per sale with payment processing bundled. On a $100 sale, total fees equal $10.50, leaving $89.50 net.",
+      "formulaExplanation": "Gumroad levies a flat 10% platform fee plus $0.50 per sale with payment processing bundled (delivering $899.50 net on $1,000). For sellers accounting for credit card processing pass-throughs, foreign card fees, or external rails, the effective all-in cost typically reaches 12%–13% (approx. 12.9% + $0.30).",
       "sampleTiers": [
         {
           "amount": 25,
@@ -12130,7 +12130,7 @@
       "faqs": [
         {
           "question": "How much does Gumroad take from each sale?",
-          "answer": "Gumroad takes a 10% flat platform fee plus standard payment processor charges (2.9% + $0.30), amounting to approximately 12.9% + $0.30 per transaction."
+          "answer": "Gumroad's official published fee is a flat 10% plus $0.50 per sale with standard payment processing bundled (leaving $899.50 net on a $1,000 transaction). For creators accounting for pass-through credit card processing charges, foreign card fees, or external payment rails, the effective total cost typically lands between 12% and 13% (approximately 12.9% + $0.30)."
         },
         {
           "question": "Does Gumroad handle sales tax and VAT?",

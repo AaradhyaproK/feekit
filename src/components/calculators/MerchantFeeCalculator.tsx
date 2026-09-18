@@ -65,6 +65,7 @@ export function MerchantFeeCalculator({
   const [paypalTier, setPaypalTier] = useState<'invoicing' | 'standard_card'>('invoicing');
   const [venmoTier, setVenmoTier] = useState<'qr' | 'app'>('qr');
   const [stripeTier, setStripeTier] = useState<'standard' | 'premium'>('standard');
+  const [gumroadTier, setGumroadTier] = useState<'platform' | 'all_in'>('platform');
 
   const numericAmount = parseNumericValue(amount, 0);
 
@@ -94,6 +95,14 @@ export function MerchantFeeCalculator({
     } else {
       customRate = currencySymbol === '£' ? 0.015 : 0.029; // Standard consumer cards (1.5% UK / 2.9% US)
       customFixed = currencySymbol === '£' ? 0.20 : 0.30;
+    }
+  } else if (gateway === 'gumroad') {
+    if (gumroadTier === 'all_in') {
+      customRate = 0.129; // Estimated all-in cost: 12.9% + $0.30 (platform + pass-through card interchange)
+      customFixed = 0.30;
+    } else {
+      customRate = 0.10; // Official platform MoR schedule: 10% + $0.50 bundled
+      customFixed = 0.50;
     }
   }
 
@@ -311,6 +320,48 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
             >
               {currencySymbol === '£' ? 'Premium / Non-UK (2.5% + 20p)' : 'Corporate / Keyed (3.4% + $0.30)'}
             </button>
+          </div>
+        </div>
+      )}
+
+      {gateway === 'gumroad' && (
+        <div className="space-y-2.5">
+          <div className="rounded-xl border border-pink-200 bg-pink-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+            <div className="text-xs">
+              <span className="font-bold text-slate-900 block">Gumroad Fee Model:</span>
+              <span className="text-slate-500 text-[11px]">10% + $0.50 platform MoR fee vs. 12.9% + $0.30 all-in seller cost</span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setGumroadTier('platform')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  gumroadTier === 'platform'
+                    ? 'bg-pink-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                Platform MoR (10% + $0.50)
+              </button>
+              <button
+                type="button"
+                onClick={() => setGumroadTier('all_in')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  gumroadTier === 'all_in'
+                    ? 'bg-pink-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                All-In Cost (12.9% + $0.30)
+              </button>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-pink-100 bg-pink-50/40 p-3 text-xs text-slate-700 flex items-start gap-2.5">
+            <Info className="h-4 w-4 text-pink-600 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="text-slate-900">Platform Fee vs. All-In Seller Cost:</strong> Gumroad charges a flat 10% platform fee plus $0.50 per sale with standard payment processing bundled directly into the transaction fee (yielding {currencySymbol}899.50 net on {currencySymbol}1,000). For creators accounting for pass-through credit card processing, international card fees, or external processing rails, the total all-in deduction typically lands between <strong>12% and 13%</strong>. You can toggle between both defensible calculation models above.
+            </div>
           </div>
         </div>
       )}

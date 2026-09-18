@@ -57,7 +57,7 @@ const FAQ_BANKS = {
   'gumroad-fee-calculator': [
     {
       question: 'How much does Gumroad take from each sale?',
-      answer: 'Gumroad charges a flat 10% platform fee plus standard payment processor charges (typically 2.9% + $0.30 for credit cards), amounting to approximately 12.9% + $0.30 per sale.',
+      answer: 'Gumroad charges a flat 10% platform fee plus $0.50 per sale with standard payment processing bundled (delivering $899.50 net on a $1,000 transaction). When accounting for card interchange, foreign transaction fees, or direct processing rails, the all-in effective deduction typically reaches 12%–13% (approximately 12.9% + $0.30).',
     },
     {
       question: 'Does Gumroad handle sales tax and VAT on digital products?',

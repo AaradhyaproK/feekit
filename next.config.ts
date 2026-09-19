@@ -3,6 +3,35 @@ import createMDX from '@next/mdx';
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  async redirects() {
+    return [
+      {
+        source: '/tools/1099-tax-calculator',
+        destination: '/tools/freelance-rate-calculator/1099-tax-estimator',
+        permanent: true,
+      },
+      {
+        source: '/tools/1099-tax-calculator/:path*',
+        destination: '/tools/freelance-rate-calculator/1099-tax-estimator',
+        permanent: true,
+      },
+      {
+        source: '/tools/freelance-hourly-calculator',
+        destination: '/tools/freelance-rate-calculator',
+        permanent: true,
+      },
+      {
+        source: '/tools/freelance-hourly-calculator/:path*',
+        destination: '/tools/freelance-rate-calculator',
+        permanent: true,
+      },
+      {
+        source: '/tools/freelance-rate-calculator/usa',
+        destination: '/tools/freelance-rate-calculator/1099-tax-estimator',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({

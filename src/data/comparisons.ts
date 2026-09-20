@@ -5,6 +5,11 @@ export interface ComparisonFeature {
   notes: string;
 }
 
+export interface ComparisonFaq {
+  question: string;
+  answer: string;
+}
+
 export interface SoftwareComparison {
   slug: string;
   title: string;
@@ -18,6 +23,7 @@ export interface SoftwareComparison {
   keyDifferences: string[];
   features: ComparisonFeature[];
   evaluationQuestions: string[];
+  faqs: ComparisonFaq[];
   relatedCalculators: Array<{ label: string; href: string }>;
 }
 
@@ -73,6 +79,20 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
       'Does your external accountant or tax preparer mandate QuickBooks files?',
       'How many active clients do you invoice each month?',
     ],
+    faqs: [
+      {
+        question: 'Which is better for freelancers: FreshBooks or QuickBooks?',
+        answer: 'FreshBooks is generally more straightforward for freelancers and solo service providers due to its intuitive client invoicing, native time tracking, and minimal accounting overhead. QuickBooks Online is better suited for businesses that manage physical inventory, need complex purchase orders, or work with external CPAs who mandate QuickBooks desktop or QBO files.',
+      },
+      {
+        question: 'Can my accountant access FreshBooks if they are accustomed to QuickBooks?',
+        answer: 'Yes. FreshBooks provides standard double-entry accounting reports (General Ledger, Trial Balance, Profit and Loss, and Balance Sheet) and includes a dedicated Accountant Access portal so your CPA can review entries, adjust journals, and export year-end tax data.',
+      },
+      {
+        question: 'How do FreshBooks and QuickBooks differ in pricing structure?',
+        answer: 'FreshBooks prices its entry-level plans primarily by the number of active billable clients you invoice (e.g., 5 clients on the Lite plan), with add-on fees for extra team members. QuickBooks Online tiers its plans based on bookkeeping feature sets (e.g., Simple Start vs. Plus for inventory and project tracking) and user seat limits.',
+      },
+    ],
     relatedCalculators: [
       { label: 'Free Invoice Generator', href: '/invoice-generator' },
       { label: 'Freelance Rate Calculator', href: '/tools/freelance-rate-calculator' },
@@ -124,6 +144,20 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
       'Do you need integrated project timers to bill clients accurately?',
       'How important is live phone or email customer support for your operations?',
     ],
+    faqs: [
+      {
+        question: 'Is Wave really free compared to FreshBooks?',
+        answer: 'Wave provides free base accounting and invoicing software with no mandatory monthly subscription on its starter tier. Wave monetizes primarily through transaction fees when processing credit card and bank payments, plus optional paid payroll. FreshBooks is a subscription platform that charges a monthly or annual fee across all tiers.',
+      },
+      {
+        question: 'Why would a business pay for FreshBooks when Wave offers a free tier?',
+        answer: 'Businesses choose FreshBooks for automated late payment reminders, native project timers, billable hourly rate tracking, comprehensive mobile mileage tracking, client retainer management, and dedicated telephone/email customer support.',
+      },
+      {
+        question: 'Can I export my data from Wave if I upgrade to FreshBooks later?',
+        answer: 'Yes. You can export customer records, vendor contacts, invoices, and your chart of accounts as CSV files from Wave and import them directly into FreshBooks.',
+      },
+    ],
     relatedCalculators: [
       { label: 'Free Invoice Generator', href: '/invoice-generator' },
       { label: 'Stripe Fee Calculator', href: '/tools/stripe-fee-calculator/usa' },
@@ -169,6 +203,20 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
       'Do you require complex automation workflows or simple, rapid invoicing?',
       'Are you looking for an easy onboarding experience for non-financial staff?',
     ],
+    faqs: [
+      {
+        question: 'How does Zoho Books compare to FreshBooks for service agencies?',
+        answer: 'Zoho Books offers deeper customization for multi-app enterprise workflows and rule-based automations, particularly if your team already uses Zoho CRM. FreshBooks offers a more streamlined, client-friendly invoicing and time billing experience optimized specifically for service contractors.',
+      },
+      {
+        question: 'Does Zoho Books have a free tier?',
+        answer: 'Yes, Zoho Books offers a free tier in select jurisdictions for small enterprises with revenue below statutory thresholds ($50k USD / local equivalents). FreshBooks offers a 30-day free trial but operates as a subscription-only platform.',
+      },
+      {
+        question: 'Which platform is faster to learn for a non-accountant?',
+        answer: 'FreshBooks has a significantly gentler learning curve. Its user interface is centered around client deliverables, time tracking, and professional invoices, whereas Zoho Books features more complex menu structures and accounting configuration settings.',
+      },
+    ],
     relatedCalculators: [
       { label: 'Free Invoice Generator', href: '/invoice-generator' },
       { label: 'Profit Margin Calculator', href: '/tools/profit-margin-calculator/standard' },
@@ -213,6 +261,20 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
       'How many people on your team need access to accounting data?',
       'Do you have hundreds of bank transactions each week that need rapid categorization?',
       'Is your business heavily focused on project time billing and client invoice presentation?',
+    ],
+    faqs: [
+      {
+        question: 'What is the primary difference between FreshBooks and Xero?',
+        answer: 'The primary difference is user seat licensing and primary focus: Xero includes unlimited user seats on standard tiers and excels at high-volume bank feed reconciliations. FreshBooks prices additional team member seats separately but provides superior built-in time tracking, client retainer management, and client portal communication tools.',
+      },
+      {
+        question: 'Is Xero better than FreshBooks for international or UK businesses?',
+        answer: 'Xero has a massive presence in the UK, Australia, and New Zealand with comprehensive Making Tax Digital (MTD) and multi-currency capabilities. However, FreshBooks also supports UK VAT compliance, multi-currency invoicing, and international payments.',
+      },
+      {
+        question: 'How do entry-level plan limits compare between FreshBooks and Xero?',
+        answer: 'FreshBooks Lite limits you to 5 active billable clients but permits unlimited invoices to those clients. In contrast, Xero Early limits you to sending 20 invoices and 5 bills per month across any number of clients.',
+      },
     ],
     relatedCalculators: [
       { label: 'Free Invoice Generator', href: '/invoice-generator' },

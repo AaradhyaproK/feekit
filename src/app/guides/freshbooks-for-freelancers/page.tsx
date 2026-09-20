@@ -18,16 +18,37 @@ import {
   Scale,
   Briefcase,
   TrendingUp,
+  Layers,
 } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
+import { FaqSchema } from '@/components/seo/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'FreshBooks for Freelancers: Invoicing, Accounting & Guide | FeeKit',
   description:
     'An independent, factual guide to FreshBooks for freelancers, consultants, and service businesses. Review core features, billing workflows, alternatives, and key evaluation questions.',
+  keywords: [
+    'FreshBooks for freelancers',
+    'freelance invoicing software',
+    'cloud accounting for consultants',
+    'time tracking billing tool',
+    'FreshBooks review independent',
+    'small business bookkeeping',
+  ],
   alternates: {
     canonical: 'https://www.usefeekit.com/guides/freshbooks-for-freelancers',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'FreshBooks for Freelancers: Invoicing, Accounting & Guide | FeeKit',
@@ -35,7 +56,15 @@ export const metadata: Metadata = {
       'Neutral informational guide exploring FreshBooks invoicing, expense tracking, and accounting tools for independent contractors.',
     url: 'https://www.usefeekit.com/guides/freshbooks-for-freelancers',
     siteName: 'FeeKit',
+    locale: 'en_US',
     type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FreshBooks for Freelancers: Invoicing, Accounting & Guide | FeeKit',
+    description:
+      'Neutral informational guide exploring FreshBooks invoicing, expense tracking, and accounting tools for independent contractors.',
+    site: '@usefeekit',
   },
 };
 
@@ -87,6 +116,29 @@ export default function FreshBooksGuidePage() {
     dateModified: '2026-01-20',
   };
 
+  const freshbooksFaqs = [
+    {
+      question: 'Is FreshBooks suitable for solo freelancers and independent contractors?',
+      answer:
+        'Yes. FreshBooks was originally architected specifically for freelancers who found traditional double-entry software overly complex. Its strengths for solo operators include intuitive client invoicing, native project time tracking, automated payment reminders, and customizable client portals.',
+    },
+    {
+      question: 'Does FreshBooks include true double-entry accounting?',
+      answer:
+        'Yes. FreshBooks provides standard double-entry accounting capabilities, including a general ledger, chart of accounts, trial balance, balance sheet, and bank reconciliation to satisfy your CPA or tax preparer.',
+    },
+    {
+      question: 'Can I track billable hours and automatically convert them into invoices?',
+      answer:
+        'Yes. FreshBooks includes desktop, browser, and mobile timers. You can log hours directly to specific client projects and generate an itemized invoice of unbilled hours with a single click.',
+    },
+    {
+      question: 'How do FreshBooks subscription plans differ?',
+      answer:
+        'FreshBooks tiers its entry plans primarily by active billable client count: Lite allows up to 5 clients, Plus allows up to 50 clients, and Premium allows unlimited clients. Team member seats and advanced payment processing features are available as add-ons.',
+    },
+  ];
+
   return (
     <div className="space-y-8 pb-14 animate-in fade-in duration-200">
       <script
@@ -97,6 +149,7 @@ export default function FreshBooksGuidePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      <FaqSchema items={freshbooksFaqs} />
 
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3.5 sm:px-0">
@@ -395,6 +448,81 @@ export default function FreshBooksGuidePage() {
               <span>Data export capabilities to ensure you can retrieve your financial records if you ever switch tools.</span>
             </li>
           </ul>
+        </section>
+
+        {/* Frequently Asked Questions (Matching FAQ Schema) */}
+        <section className="space-y-4 border-t border-slate-200 pt-6">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700">
+            <HelpCircle className="h-4 w-4 text-blue-600" />
+            <span>Frequently Asked Questions</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            FreshBooks for Freelancers: Common Questions
+          </h2>
+          <div className="space-y-3">
+            {freshbooksFaqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl border border-slate-200/90 bg-slate-50/70 p-5 space-y-2"
+              >
+                <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                  {faq.question}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Accounting Software Comparisons Grid */}
+        <section className="space-y-3 border-t border-slate-200 pt-6">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <Layers className="h-4 w-4 text-blue-600" />
+            <span>Head-to-Head Comparisons</span>
+          </div>
+          <h3 className="text-base font-bold text-slate-900">
+            Compare FreshBooks to Leading Alternatives
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              {
+                slug: 'freshbooks-vs-quickbooks',
+                title: 'FreshBooks vs QuickBooks',
+                summary: 'Time billing & client invoicing vs. general ledger & retail inventory.',
+              },
+              {
+                slug: 'freshbooks-vs-wave',
+                title: 'FreshBooks vs Wave',
+                summary: 'Automated project management & retainers vs. free starter bookkeeping.',
+              },
+              {
+                slug: 'freshbooks-vs-zoho-books',
+                title: 'FreshBooks vs Zoho Books',
+                summary: 'Streamlined service invoices vs. multi-app Zoho ecosystem integrations.',
+              },
+              {
+                slug: 'freshbooks-vs-xero',
+                title: 'FreshBooks vs Xero',
+                summary: 'Built-in client portal & timers vs. unlimited user seats & banking feeds.',
+              },
+            ].map((comp) => (
+              <Link
+                key={comp.slug}
+                href={`/compare/${comp.slug}`}
+                className="group rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-300 hover:shadow-xs transition-all space-y-1"
+              >
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center justify-between">
+                  <span>{comp.title}</span>
+                  <ArrowRight className="h-3 w-3 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                  {comp.summary}
+                </p>
+              </Link>
+            ))}
+          </div>
         </section>
 
         {/* Neutral CTA Card */}

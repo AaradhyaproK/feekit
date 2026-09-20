@@ -10,10 +10,13 @@ import {
   ShieldAlert,
   ExternalLink,
   BookOpen,
+  Sparkles,
+  Layers,
 } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { COMPARISONS_DATA, type SoftwareComparison } from '@/data/comparisons';
+import { FaqSchema } from '@/components/seo/FaqSchema';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -36,15 +39,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${comparison.title} | FeeKit`,
     description: comparison.description,
+    keywords: [
+      comparison.toolAName,
+      comparison.toolBName,
+      `${comparison.toolAName} vs ${comparison.toolBName}`,
+      'accounting software comparison',
+      'small business invoicing',
+      'freelance billing',
+      'cloud bookkeeping software',
+    ],
     alternates: {
       canonical: url,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
     openGraph: {
       title: `${comparison.title} | FeeKit`,
       description: comparison.description,
       url,
       siteName: 'FeeKit',
+      locale: 'en_US',
       type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${comparison.title} | FeeKit`,
+      description: comparison.description,
+      site: '@usefeekit',
     },
   };
 }
@@ -56,6 +86,8 @@ export default async function ComparisonPage({ params }: Props) {
   if (!comparison) {
     notFound();
   }
+
+  const otherComparisons = Object.values(COMPARISONS_DATA).filter((c) => c.slug !== slug);
 
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -101,6 +133,26 @@ export default async function ComparisonPage({ params }: Props) {
     dateModified: '2026-01-20',
   };
 
+  const softwareSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${comparison.toolAName} vs ${comparison.toolBName}`,
+    itemListElement: [
+      {
+        '@type': 'SoftwareApplication',
+        name: comparison.toolAName,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web, iOS, Android',
+      },
+      {
+        '@type': 'SoftwareApplication',
+        name: comparison.toolBName,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web, iOS, Android',
+      },
+    ],
+  };
+
   return (
     <div className="space-y-8 pb-14 animate-in fade-in duration-200">
       <script
@@ -111,6 +163,11 @@ export default async function ComparisonPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <FaqSchema items={comparison.faqs} />
 
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3.5 sm:px-0">
@@ -268,10 +325,82 @@ export default async function ComparisonPage({ params }: Props) {
           </div>
         </section>
 
+        {/* Frequently Asked Questions (FAQ UI & Matching FAQ Schema) */}
+        {comparison.faqs && comparison.faqs.length > 0 && (
+          <section className="space-y-4 border-t border-slate-200 pt-6">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700">
+              <HelpCircle className="h-4 w-4 text-blue-600" />
+              <span>Frequently Asked Questions</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              {comparison.toolAName} vs {comparison.toolBName} FAQs
+            </h2>
+            <div className="space-y-3">
+              {comparison.faqs.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-200/90 bg-slate-50/70 p-5 space-y-2"
+                >
+                  <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                    {faq.question}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Compare Other Accounting Solutions */}
+        {otherComparisons.length > 0 && (
+          <section className="space-y-3 border-t border-slate-200 pt-6">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+              <Layers className="h-4 w-4 text-blue-600" />
+              <span>Explore More Comparisons</span>
+            </div>
+            <h3 className="text-base font-bold text-slate-900">
+              Compare Other Accounting Software
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {otherComparisons.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/compare/${c.slug}`}
+                  className="group rounded-xl border border-slate-200 bg-white p-4 hover:border-blue-300 hover:shadow-xs transition-all space-y-1"
+                >
+                  <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center justify-between">
+                    <span>{c.toolAName} vs {c.toolBName}</span>
+                    <ArrowRight className="h-3 w-3 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                    {c.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Related FeeKit Tools */}
         <div className="border-t border-slate-200 pt-6 space-y-3">
           <h3 className="text-sm font-bold text-slate-900">Related Calculations & Resources on FeeKit:</h3>
           <div className="flex flex-wrap gap-2 text-xs">
+            <Link
+              href="/guides/freshbooks-for-freelancers"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50/70 px-3 py-1.5 font-semibold text-blue-700 hover:border-blue-400 transition-colors"
+            >
+              <BookOpen className="h-3 w-3" />
+              <span>FreshBooks Freelancer Guide</span>
+            </Link>
+            <Link
+              href="/small-business"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-600 transition-colors"
+            >
+              <span>Small Business Hub</span>
+              <ArrowRight className="h-3 w-3" />
+            </Link>
             {comparison.relatedCalculators.map((c) => (
               <Link
                 key={c.href}

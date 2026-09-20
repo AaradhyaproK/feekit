@@ -19,8 +19,26 @@ export const metadata: Metadata = {
   title: 'Editorial Policy & Research Standards — FeeKit',
   description:
     'Discover FeeKit’s editorial policy: our research methodology, source verification standards, calculation testing, error corrections, and editorial independence.',
+  keywords: [
+    'FeeKit editorial policy',
+    'financial research standards',
+    'source verification guidelines',
+    'editorial independence',
+    'correction policy',
+  ],
   alternates: {
     canonical: 'https://www.usefeekit.com/editorial-policy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'Editorial Policy & Research Standards — FeeKit',
@@ -28,7 +46,15 @@ export const metadata: Metadata = {
       'How FeeKit researches, verifies, tests, and updates financial calculations and small business guides.',
     url: 'https://www.usefeekit.com/editorial-policy',
     siteName: 'FeeKit',
+    locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Editorial Policy & Research Standards — FeeKit',
+    description:
+      'Research standards, calculation testing, and editorial integrity protocols at FeeKit.',
+    site: '@usefeekit',
   },
 };
 
@@ -56,11 +82,11 @@ export default function EditorialPolicyPage() {
 
   const webPageJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Editorial Policy & Research Standards',
+    '@type': 'AboutPage',
+    name: 'Editorial Policy & Research Standards — FeeKit',
     url: 'https://www.usefeekit.com/editorial-policy',
     description:
-      'Editorial guidelines, mathematical validation procedures, and correction protocols on FeeKit.',
+      'Official documentation of FeeKit editorial standards, source verification rules, and calculation validation protocols.',
     publisher: {
       '@type': 'Organization',
       name: 'FeeKit',

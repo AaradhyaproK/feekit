@@ -18,17 +18,40 @@ import {
   DollarSign,
   ShieldCheck,
   Compass,
+  HelpCircle,
 } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { ProfitMarginCalculator } from '@/components/calculators/ProfitMarginCalculator';
+import { FaqSchema } from '@/components/seo/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Tools & Resources for Small Businesses — UseFeeKit',
   description:
     'Free financial calculators, invoicing templates, tax estimation models, and practical guides built for freelancers, consultants, agencies, service businesses, and online merchants.',
+  keywords: [
+    'small business financial tools',
+    'freelance invoice generator',
+    'service business profit margin calculator',
+    'small business bookkeeping guide',
+    'freelance hourly rate calculator',
+    'payment processing fee comparison',
+    'accounting software for freelancers',
+    '1099 contractor tax calculator',
+  ],
   alternates: {
     canonical: 'https://www.usefeekit.com/small-business',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'Tools & Resources for Small Businesses — UseFeeKit',
@@ -36,7 +59,15 @@ export const metadata: Metadata = {
       'Explore free calculators and educational guides for small businesses, freelancers, and service providers. 100% free, private, and client-side.',
     url: 'https://www.usefeekit.com/small-business',
     siteName: 'FeeKit',
+    locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tools & Resources for Small Businesses — UseFeeKit',
+    description:
+      'Free financial calculators, invoicing utilities, tax models, and guides for freelancers, agencies, and small businesses.',
+    site: '@usefeekit',
   },
 };
 
@@ -74,6 +105,29 @@ export default function SmallBusinessHubPage() {
     },
   };
 
+  const smallBusinessFaqs = [
+    {
+      question: 'What free financial tools does FeeKit provide for small businesses?',
+      answer:
+        'FeeKit provides 197+ dedicated, free financial calculators across payment processing fee modeling (Stripe, PayPal, Square, Wise), US state sales tax, UK VAT, freelance hourly and day rates, landed cost e-commerce profit margins, and a client-side PDF invoice generator.',
+    },
+    {
+      question: 'How does FeeKit protect sensitive business financial data?',
+      answer:
+        'All calculations on FeeKit execute 100% client-side directly in your browser. FeeKit does not collect, transmit, or store your private client details, invoicing figures, or financial balances on external servers.',
+    },
+    {
+      question: 'What is a healthy profit margin for a service-based small business?',
+      answer:
+        'Healthy service businesses typically target a gross margin between 50% and 70% and a net profit margin between 15% and 30%, depending on employee headcount, billable utilization rates, and overhead costs.',
+    },
+    {
+      question: 'When should a growing small business switch from spreadsheets to accounting software?',
+      answer:
+        'Businesses should typically transition when they issue more than 5 to 10 invoices per month, hire staff or subcontractors, carry inventory, or spend more than 4 hours each month manually reconciling bank transactions.',
+    },
+  ];
+
   return (
     <div className="space-y-8 pb-14 animate-in fade-in duration-200">
       <script
@@ -84,6 +138,7 @@ export default function SmallBusinessHubPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
+      <FaqSchema items={smallBusinessFaqs} />
 
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3.5 sm:px-0">
@@ -591,6 +646,74 @@ export default function SmallBusinessHubPage() {
               Read FreshBooks guide →
             </span>
           </Link>
+        </div>
+
+        {/* Head-to-Head Comparisons Bar */}
+        <div className="pt-4 border-t border-slate-100 space-y-2">
+          <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            Accounting Software Comparisons:
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            {[
+              {
+                slug: 'freshbooks-vs-quickbooks',
+                label: 'FreshBooks vs QuickBooks',
+              },
+              {
+                slug: 'freshbooks-vs-wave',
+                label: 'FreshBooks vs Wave',
+              },
+              {
+                slug: 'freshbooks-vs-zoho-books',
+                label: 'FreshBooks vs Zoho Books',
+              },
+              {
+                slug: 'freshbooks-vs-xero',
+                label: 'FreshBooks vs Xero',
+              },
+            ].map((c) => (
+              <Link
+                key={c.slug}
+                href={`/compare/${c.slug}`}
+                className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-600 transition-colors"
+              >
+                <span>{c.label}</span>
+                <ArrowRight className="h-3 w-3 text-slate-400" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 9: Frequently Asked Questions */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-8 space-y-6 shadow-xs">
+        <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-blue-600">
+          <HelpCircle className="h-4 w-4" />
+          <span>Section 9</span>
+        </div>
+        <div className="border-b border-slate-100 pb-3">
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            9. Frequently Asked Questions
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Answers to common questions about small business finance, fee calculations, and operational tools.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {smallBusinessFaqs.map((faq, idx) => (
+            <div
+              key={idx}
+              className="rounded-xl border border-slate-200/90 bg-slate-50/60 p-5 space-y-2"
+            >
+              <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                {faq.question}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
     </div>

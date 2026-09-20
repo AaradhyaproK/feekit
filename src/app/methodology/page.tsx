@@ -16,13 +16,33 @@ import {
 } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
+import { FaqSchema } from '@/components/seo/FaqSchema';
 
 export const metadata: Metadata = {
   title: 'Calculation Methodology & Mathematical Formulas — FeeKit',
   description:
     'Detailed mathematical methodology behind FeeKit’s financial calculators: payment processing fee formulas, 50-state US sales tax, UK VAT, 1099 freelance rates, and profit margin equations.',
+  keywords: [
+    'financial calculation methodology',
+    'payment processing fee formula',
+    'sales tax calculation engine',
+    'freelance rate mathematical model',
+    'VAT rounding standard',
+    'FeeKit calculation accuracy',
+  ],
   alternates: {
     canonical: 'https://www.usefeekit.com/methodology',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'Calculation Methodology & Mathematical Formulas — FeeKit',
@@ -30,7 +50,15 @@ export const metadata: Metadata = {
       'Transparent documentation of the mathematical formulas, data sources, and estimation models powering FeeKit calculators.',
     url: 'https://www.usefeekit.com/methodology',
     siteName: 'FeeKit',
+    locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Calculation Methodology & Mathematical Formulas — FeeKit',
+    description:
+      'Detailed mathematical formulas and rounding models powering FeeKit financial calculators.',
+    site: '@usefeekit',
   },
 };
 
@@ -70,6 +98,24 @@ export default function MethodologyPage() {
     },
   };
 
+  const methodologyFaqs = [
+    {
+      question: 'Why can payment processing fee calculations vary by 1 cent between platforms?',
+      answer:
+        'Small 1-cent variances occur across software platforms due to intermediate rounding differences in IEEE 754 floating-point arithmetic. FeeKit uses standard half-up rounding with an epsilon compensation formula (Math.round((amount + Number.EPSILON) * 100) / 100) to match the exact settlement figures produced by banking and card network processors.',
+    },
+    {
+      question: 'How often are tax rates and payment processor fees audited on FeeKit?',
+      answer:
+        'FeeKit runs automated test suites (such as npm run validate:rates) and continuous monitoring of official US state Departments of Revenue, UK HMRC bulletins, and payment processor developer schedules to keep published reference data updated.',
+    },
+    {
+      question: 'Are calculations processed on FeeKit servers or in the client browser?',
+      answer:
+        'All computations run 100% client-side in the user\'s web browser. No proprietary financial figures, turnover, invoice items, or personal numbers are ever sent across a network or stored in external databases.',
+    },
+  ];
+
   return (
     <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">
       <script
@@ -80,6 +126,7 @@ export default function MethodologyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
+      <FaqSchema items={methodologyFaqs} />
 
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -277,9 +324,29 @@ export default function MethodologyPage() {
           </div>
         </section>
 
-        {/* 7. Update Process & Corrections */}
+        {/* Frequently Asked Questions (Matching FAQ Schema) */}
+        <section className="space-y-4 border-t border-slate-200 pt-6">
+          <h2 className="text-lg font-bold text-slate-900">7. Frequently Asked Calculation Questions</h2>
+          <div className="space-y-3">
+            {methodologyFaqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className="rounded-xl border border-slate-200/90 bg-slate-50/60 p-4 space-y-1.5"
+              >
+                <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                  {faq.question}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 8. Update Process & Corrections */}
         <section className="space-y-3 border-t border-slate-200 pt-6">
-          <h2 className="text-lg font-bold text-slate-900">7. Data Updates & Reporting Inaccuracies</h2>
+          <h2 className="text-lg font-bold text-slate-900">8. Data Updates & Reporting Inaccuracies</h2>
           <p className="text-xs text-slate-600 leading-relaxed">
             Our datasets are audited weekly against regulatory and corporate publications. If you detect an update or formula discrepancy, please notify our engineering team at{' '}
             <a href="mailto:hello@snab.co.in" className="text-sky-600 underline font-semibold">

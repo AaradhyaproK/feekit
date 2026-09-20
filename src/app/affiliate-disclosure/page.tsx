@@ -17,8 +17,25 @@ export const metadata: Metadata = {
   title: 'Affiliate Disclosure & Commercial Transparency — FeeKit',
   description:
     'Read FeeKit’s affiliate disclosure. Learn how we maintain editorial independence, evaluate business software, and disclose commercial compensation.',
+  keywords: [
+    'FeeKit affiliate disclosure',
+    'commercial transparency',
+    'editorial independence',
+    'referral compensation policy',
+  ],
   alternates: {
     canonical: 'https://www.usefeekit.com/affiliate-disclosure',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: 'Affiliate Disclosure & Commercial Transparency — FeeKit',
@@ -26,7 +43,15 @@ export const metadata: Metadata = {
       'Transparent disclosure of affiliate relationships, evaluation standards, and editorial independence on FeeKit.',
     url: 'https://www.usefeekit.com/affiliate-disclosure',
     siteName: 'FeeKit',
+    locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Affiliate Disclosure & Commercial Transparency — FeeKit',
+    description:
+      'Transparent disclosure of affiliate relationships, evaluation standards, and editorial independence on FeeKit.',
+    site: '@usefeekit',
   },
 };
 

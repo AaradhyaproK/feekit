@@ -2,8 +2,8 @@
  * Official Data Sources & Regulatory Provenance Directory
  *
  * Provides verified primary sources (government departments, legal statutory codes,
- * and official platform pricing schedules) for all FeeKit calculators to bolster
- * Google E-E-A-T and YMYL trustworthiness.
+ * and official platform pricing schedules) for all FeeKit calculators to support
+ * alignment with Google E-E-A-T quality guidelines and content integrity.
  */
 
 import { getVatCountry } from '@/lib/data/vat-countries';

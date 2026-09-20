@@ -107,6 +107,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.usefeekit.com',
   },
   other: {
+    'impact-site-verification': 'c974a8df-bc8a-4870-912e-d90250862fd9',
     'google-adsense-account': 'ca-pub-1291898061670715',
     'geo.region': 'US',
     'content-language': 'en-US, en-GB',
@@ -138,6 +139,8 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="FeeKit" />
 
+        {/* Shopify / Impact.com Affiliate Site Verification */}
+        <meta name="impact-site-verification" {...({ value: 'c974a8df-bc8a-4870-912e-d90250862fd9' } as any)} content="c974a8df-bc8a-4870-912e-d90250862fd9" />
 
         {/* Google AdSense Verification & Auto Ads Script */}
         <script

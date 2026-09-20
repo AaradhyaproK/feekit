@@ -112,7 +112,7 @@ export default function AffiliateDisclosurePage() {
         <section className="space-y-3">
           <h2 className="text-lg font-bold text-slate-900">1. Purpose of Commercial Disclosures</h2>
           <p>
-            FeeKit (usefeekit.com) is committed to complete operational transparency in accordance with the United States Federal Trade Commission (FTC) Guides Concerning the Use of Endorsements and Testimonials in Advertising (16 CFR Part 255), the UK Competition and Markets Authority (CMA) guidance on digital disclosures, and global consumer protection standards.
+            FeeKit (usefeekit.com) is committed to transparency and providing clear, conspicuous disclosures regarding commercial relationships, designed to align with consumer protection guidance, including the United States Federal Trade Commission (FTC) Guides Concerning the Use of Endorsements and Testimonials in Advertising and international digital disclosure standards.
           </p>
           <p>
             Our core mission is providing free, high-precision financial calculators, tax tools, and educational guides for freelancers, consultants, service businesses, and online merchants. To keep our calculation utilities 100% free, client-side, and accessible without mandatory paywalls or subscriptions, we may earn revenue through contextual affiliate partnerships and advertising.

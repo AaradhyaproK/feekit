@@ -18,6 +18,7 @@ import { MetadataRoute } from 'next';
 import geoMatrix from '@/data/geo-matrix.json';
 import { US_SITE_URL } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog';
+import { COMPARISONS_DATA } from '@/data/comparisons';
 
 const CATEGORIES = [
   'sales-tax-calculator',
@@ -67,10 +68,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/small-business`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/guides/freshbooks-for-freelancers`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/editorial-policy`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/methodology`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/affiliate-disclosure`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/privacy`,
@@ -96,7 +127,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
-
   ];
 
   // 2. High-Intent Category Suite Hubs
@@ -137,5 +167,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...categoryUrls, ...toolUrls, ...blogUrls];
+  // 5. Statically Generated Software Comparison Pages
+  const comparisonUrls: MetadataRoute.Sitemap = Object.keys(COMPARISONS_DATA).map((slug) => ({
+    url: `${baseUrl}/compare/${slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...categoryUrls, ...toolUrls, ...blogUrls, ...comparisonUrls];
 }

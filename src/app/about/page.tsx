@@ -90,6 +90,60 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Who UseFeeKit Helps */}
+        <div className="space-y-4 border-t border-slate-200 pt-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold text-slate-900">Who UseFeeKit Helps</h2>
+            <Link
+              href="/small-business"
+              className="text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              Explore Small Business Hub →
+            </Link>
+          </div>
+          <p>
+            FeeKit is purposefully built to support independent operators and business owners who manage pricing, invoicing, taxes, and margins without an in-house finance department:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-1">
+            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-1.5 text-xs">
+              <div className="font-bold text-slate-900 text-sm">Freelancers & Contractors</div>
+              <p className="text-slate-600">
+                1099 hourly rate modeling, SECA tax estimations, contract pricing, and instant PDF client invoices.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-1.5 text-xs">
+              <div className="font-bold text-slate-900 text-sm">Consultants & Advisors</div>
+              <p className="text-slate-600">
+                Day rate calculations, retainer economics, payment fee reverse gross-ups, and expense deduction guidelines.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-1.5 text-xs">
+              <div className="font-bold text-slate-900 text-sm">Agencies & Studios</div>
+              <p className="text-slate-600">
+                Service profit margin analysis, team billable utilization targets, and payment gateway fee comparisons.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-1.5 text-xs">
+              <div className="font-bold text-slate-900 text-sm">Service Businesses</div>
+              <p className="text-slate-600">
+                Break-even calculations, markup vs margin formulas, square POS fees, and cash flow payment terms.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-1.5 text-xs">
+              <div className="font-bold text-slate-900 text-sm">Small-Business Owners</div>
+              <p className="text-slate-600">
+                Quarterly estimated tax vouchers, bookkeeping fundamentals, and software vs spreadsheet evaluations.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-1.5 text-xs">
+              <div className="font-bold text-slate-900 text-sm">Online Merchants & Sellers</div>
+              <p className="text-slate-600">
+                50-state sales tax nexus monitoring, UK VAT MTD returns, Amazon FBA fees, and Shopify landed ROAS.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Editorial Standards & Source Verification */}
         <div className="space-y-4 border-t border-slate-200 pt-6">
           <h2 className="text-lg font-bold text-slate-900">Editorial Standards & Official Data Sources</h2>

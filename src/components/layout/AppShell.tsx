@@ -177,7 +177,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 </div>
                 <ul className="space-y-2 text-xs">
                   <li>
-                    <Link href="/invoice-generator" className="hover:text-blue-600 transition-colors font-bold text-blue-600">
+                    <Link href="/small-business" className="hover:text-blue-600 transition-colors font-bold text-blue-600">
+                      Small Business Hub (Tools & Guides)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/invoice-generator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
                       Free Invoice Generator (PDF)
                     </Link>
                   </li>
@@ -192,8 +197,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools/roi-calculator/standard" className="hover:text-blue-600 transition-colors">
-                      ROI & Annualized CAGR Calculator
+                    <Link href="/tools/freelance-rate-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      1099 SECA Tax & Rate Hub
                     </Link>
                   </li>
                   <li>
@@ -202,52 +207,42 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools/uk-ir35-calculator/contractor" className="hover:text-blue-600 transition-colors">
-                      UK IR35 Inside vs Outside Take-Home
+                    <Link href="/guides/freshbooks-for-freelancers" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      FreshBooks for Freelancers Guide
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools/freelance-rate-calculator" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
-                      1099 SECA Tax & Rate Hub
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools/ecommerce-profit-calculator" className="hover:text-blue-600 transition-colors">
-                      Amazon FBA & Dropshipping Margin
+                    <Link href="/blog" className="hover:text-blue-600 transition-colors">
+                      Business Finance Blog & Guides
                     </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Col 4: Trust & Company */}
+              {/* Col 4: Trust, Policy & Company */}
               <div className="space-y-3">
                 <div className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
-                  Company & Trust
+                  Trust & Company
                 </div>
                 <ul className="space-y-2 text-xs">
                   <li>
-                    <Link href="/blog" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
-                      FeeKit Blog & Guides
+                    <Link href="/editorial-policy" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      Editorial Policy & Standards
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/methodology" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      Calculation Methodology
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/affiliate-disclosure" className="hover:text-blue-600 transition-colors font-medium text-slate-700">
+                      Affiliate Disclosure
                     </Link>
                   </li>
                   <li>
                     <Link href="/about" className="hover:text-blue-600 transition-colors">
-                      About FeeKit
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/privacy" className="hover:text-blue-600 transition-colors">
-                      Privacy Policy (Zero Storage)
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/cookies" className="hover:text-blue-600 transition-colors">
-                      Cookie Policy & Opt-Out
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/terms" className="hover:text-blue-600 transition-colors">
-                      Terms of Service
+                      About FeeKit & Snab Innovations
                     </Link>
                   </li>
                   <li>
@@ -256,13 +251,23 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     </Link>
                   </li>
                   <li>
-                    <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                      XML Sitemap (197+ Pages)
-                    </a>
+                    <Link href="/privacy" className="hover:text-blue-600 transition-colors">
+                      Privacy Policy (Zero Storage)
+                    </Link>
                   </li>
                   <li>
-                    <a href="/llms.txt" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                      LLM Agent Specification (llms.txt)
+                    <Link href="/terms" className="hover:text-blue-600 transition-colors">
+                      Terms of Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/cookies" className="hover:text-blue-600 transition-colors">
+                      Cookie Policy & Opt-Out
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                      XML Sitemap (240+ Pages)
                     </a>
                   </li>
                 </ul>
@@ -274,7 +279,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               <div className="flex flex-wrap items-center gap-2">
                 <span>© {new Date().getFullYear()} FeeKit (usefeekit.com)</span>
                 <span>•</span>
-                <span>IRS & HMRC 2026 Compliant</span>
+                <span>Calculations Based on Published 2026 IRS & HMRC Guidance</span>
                 <span>•</span>
                 <span>Encrypted Client Session</span>
               </div>

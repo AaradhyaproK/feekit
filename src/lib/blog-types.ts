@@ -1,4 +1,9 @@
 export type BlogCategory =
+  | 'Small Business'
+  | 'Invoicing'
+  | 'Freelancing'
+  | 'Business Finance'
+  | 'Accounting Software'
   | 'Payment Fees'
   | 'US Sales Tax'
   | 'UK VAT'
@@ -8,6 +13,11 @@ export type BlogCategory =
 
 export const BLOG_CATEGORIES: Array<'All' | BlogCategory> = [
   'All',
+  'Small Business',
+  'Invoicing',
+  'Freelancing',
+  'Business Finance',
+  'Accounting Software',
   'Payment Fees',
   'US Sales Tax',
   'UK VAT',

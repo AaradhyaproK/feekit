@@ -184,9 +184,9 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         {/* Header with Title, Description, and Authoritative Badges */}
         <header className="space-y-5 border-b border-slate-200 pb-8">
           <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-emerald-700 border border-emerald-200">
-              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
-              <span>E-E-A-T Certified</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-slate-700 border border-slate-200">
+              <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
+              <span>Documented Methodology</span>
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-blue-700 border border-blue-200">
               <span>{item.geoRegion || 'US'} Statutory Rules</span>

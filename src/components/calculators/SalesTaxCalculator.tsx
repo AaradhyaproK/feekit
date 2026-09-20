@@ -106,7 +106,7 @@ export function RateComparisonTable({
 }
 
 /**
- * Deep, CPA-grade, 800-1000 word educational and compliance guide for every US state
+ * Deep, documented, 800-1000 word educational and compliance guide for every US state
  */
 export function SalesTaxDeepContent({ state, embedded = false }: { state: StateTaxData; embedded?: boolean }) {
   const nexusFormatted = Number(state.nexusThreshold).toLocaleString();

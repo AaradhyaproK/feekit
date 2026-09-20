@@ -46,7 +46,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
       badgeColor: 'border-indigo-200 bg-indigo-50 text-indigo-700',
       tagline: 'State statutory bases + local district surtaxes',
       description:
-        'CPA-calibrated 2026 sales tax calculations across all 50 US States and DC, including county, municipal, and special taxing district surtax caps and post-Wayfair nexus thresholds.',
+        'Calculated from published 2026 state guidance across all 50 US States and DC, including county, municipal, and special taxing district surtax caps and post-Wayfair nexus thresholds.',
       highlights: [
         'Destination-based street-level tax calculations',
         '$100k / 200 tx economic nexus monitoring',

@@ -30,6 +30,16 @@ const nextConfig: NextConfig = {
         destination: '/tools/freelance-rate-calculator/1099-tax-estimator',
         permanent: true,
       },
+      {
+        source: '/business-tools',
+        destination: '/small-business',
+        permanent: true,
+      },
+      {
+        source: '/business-tools/:path*',
+        destination: '/small-business',
+        permanent: true,
+      },
     ];
   },
 };

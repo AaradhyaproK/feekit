@@ -73,7 +73,7 @@ export function EditorialGuidesSection() {
             </h2>
           </div>
           <p className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight mt-0.5">
-            CPA-Verified Guides & Industry Benchmark Studies
+            Independent Guides & Industry Benchmark Studies
           </p>
         </div>
         <Link

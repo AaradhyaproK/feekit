@@ -822,7 +822,7 @@ export function ToolGuide({
               {state} Sales Tax Rate & Online Seller Guide ({currentYear})
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              CPA-verified guidance on destination sourcing, economic nexus thresholds, exemption certificates, and {agencyName} filing deadlines
+              Documented guidance on destination sourcing, economic nexus thresholds, exemption certificates, and {agencyName} filing deadlines
             </p>
           </div>
         </div>

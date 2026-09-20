@@ -18,6 +18,10 @@ import {
   CheckCircle2,
   Check,
   Layers,
+  FileText,
+  TrendingUp,
+  Receipt,
+  BookOpen,
 } from 'lucide-react';
 import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalculator';
 import { TaxCalculator } from '@/components/calculators/TaxCalculator';
@@ -243,9 +247,9 @@ export default function FeeKitHome() {
 
       {/* Semantic SEO Text & Heading Structure */}
       <div className="sr-only">
-        <h1>FeeKit — Financial Calculation Utilities for US & UK Businesses</h1>
+        <h1>FeeKit — Financial Calculators & Business Tools for Freelancers, Small Businesses & Merchants</h1>
         <p>
-          Updated for 2026 US & UK Tax & Gateway Regulations. Accurate, instant payment processing fees for Stripe, PayPal, Square, Wise, 50-state sales tax, HMRC VAT compliance, 1099 contractor rate models, and e-commerce ROAS benchmarks. 100% client-side private, with zero sign-up required.
+          Practical financial calculation tools and educational resources built for freelancers, consultants, digital agencies, service businesses, and online merchants. Instant payment processing fees for Stripe, PayPal, Square, 50-state sales tax, HMRC VAT compliance, 1099 contractor rate models, and profit margin analysis. 100% free, private, and client-side.
         </p>
       </div>
 
@@ -462,7 +466,7 @@ export default function FeeKitHome() {
             <div className="min-w-0">
               <div className="text-xs font-bold text-slate-900 truncate">2026 Fiscal Rules</div>
               <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">
-                IRS & HMRC compliant
+                Published IRS & HMRC guidance
               </div>
             </div>
           </div>
@@ -491,6 +495,162 @@ export default function FeeKitHome() {
             </div>
           </div>
         </div>
+
+        {/* Built for Freelancers & Small Businesses Positioning Hub */}
+        <section aria-label="Built for Freelancers and Small Businesses" className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-blue-600" />
+                <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Tailored Workflows
+                </h2>
+              </div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight mt-0.5">
+                Built for Freelancers & Small Businesses
+              </h3>
+            </div>
+            <Link
+              href="/small-business"
+              className="text-xs font-bold text-blue-600 hover:text-blue-800 inline-flex items-center gap-1 group self-start sm:self-auto"
+            >
+              <span>Explore Small Business Hub</span>
+              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
+            Practical financial calculation tools and educational resources engineered for independent operators, service businesses, consultants, digital agencies, and online merchants.
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3 pt-1">
+            <Link
+              href="/invoice-generator"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+            >
+              <div className="space-y-1.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                  <FileText className="h-4 w-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  Invoice Generator
+                </div>
+                <div className="text-[10px] text-slate-500 leading-tight">
+                  Free PDF invoices with tax & payment terms
+                </div>
+              </div>
+              <div className="mt-2 text-[10px] font-bold text-blue-600 inline-flex items-center gap-0.5">
+                <span>Create invoice</span>
+                <ArrowRight className="h-2.5 w-2.5" />
+              </div>
+            </Link>
+
+            <Link
+              href="/tools/profit-margin-calculator/standard"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+            >
+              <div className="space-y-1.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  <TrendingUp className="h-4 w-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  Profit Margin
+                </div>
+                <div className="text-[10px] text-slate-500 leading-tight">
+                  Gross margin, markup & service economics
+                </div>
+              </div>
+              <div className="mt-2 text-[10px] font-bold text-emerald-600 inline-flex items-center gap-0.5">
+                <span>Calculate margin</span>
+                <ArrowRight className="h-2.5 w-2.5" />
+              </div>
+            </Link>
+
+            <Link
+              href="/tools/stripe-fee-calculator"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+            >
+              <div className="space-y-1.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                  <CreditCard className="h-4 w-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  Payment Fees
+                </div>
+                <div className="text-[10px] text-slate-500 leading-tight">
+                  Stripe, PayPal & Square reverse payouts
+                </div>
+              </div>
+              <div className="mt-2 text-[10px] font-bold text-indigo-600 inline-flex items-center gap-0.5">
+                <span>Check gateway fees</span>
+                <ArrowRight className="h-2.5 w-2.5" />
+              </div>
+            </Link>
+
+            <Link
+              href="/tools/sales-tax-calculator"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+            >
+              <div className="space-y-1.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                  <Receipt className="h-4 w-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  Tax Tools
+                </div>
+                <div className="text-[10px] text-slate-500 leading-tight">
+                  50-state sales tax & UK HMRC VAT
+                </div>
+              </div>
+              <div className="mt-2 text-[10px] font-bold text-amber-600 inline-flex items-center gap-0.5">
+                <span>Explore taxes</span>
+                <ArrowRight className="h-2.5 w-2.5" />
+              </div>
+            </Link>
+
+            <Link
+              href="/tools/freelance-rate-calculator"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+            >
+              <div className="space-y-1.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                  <Briefcase className="h-4 w-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  Freelancer Tools
+                </div>
+                <div className="text-[10px] text-slate-500 leading-tight">
+                  1099 hourly rates, day rates & SECA tax
+                </div>
+              </div>
+              <div className="mt-2 text-[10px] font-bold text-purple-600 inline-flex items-center gap-0.5">
+                <span>Model rates</span>
+                <ArrowRight className="h-2.5 w-2.5" />
+              </div>
+            </Link>
+
+            <Link
+              href="/blog"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+            >
+              <div className="space-y-1.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                  <BookOpen className="h-4 w-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  Business Guides
+                </div>
+                <div className="text-[10px] text-slate-500 leading-tight">
+                  Bookkeeping, invoicing & tax breakdowns
+                </div>
+              </div>
+              <div className="mt-2 text-[10px] font-bold text-sky-600 inline-flex items-center gap-0.5">
+                <span>Read guides</span>
+                <ArrowRight className="h-2.5 w-2.5" />
+              </div>
+            </Link>
+          </div>
+        </section>
 
         {/* 1. All Tool Suites Ecosystem Overview Hub */}
         <SuiteShowcaseHub

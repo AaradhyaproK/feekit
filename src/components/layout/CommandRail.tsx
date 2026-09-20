@@ -38,6 +38,11 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
       icon: FileText,
     },
     {
+      name: 'Small Business Hub',
+      href: '/small-business',
+      icon: Briefcase,
+    },
+    {
       name: '3-Way Comparator',
       href: '/tools/gateway-comparator/stripe-paypal-square',
       icon: Layers,

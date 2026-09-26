@@ -14,6 +14,7 @@ import {
   Clock,
   DollarSign,
   HelpCircle,
+  ArrowRight,
 } from 'lucide-react';
 import Link from 'next/link';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
@@ -145,7 +146,7 @@ export default function InvoiceGeneratorPage() {
                 <span>Payment Terms (Net 15 / Net 30)</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Always specify exact payment terms on your invoice. Standard terms include Net 15 (payment due within 15 days) or Net 30. Mention accepted payment methods such as direct ACH, wire transfer, Stripe link, or PayPal.
+                Always specify exact payment terms on your invoice. Standard terms include Net 15 or Net 30. Learn how to legally enforce penalties in our <Link href="/blog/late-invoice-payment-terms-guide" className="text-blue-600 underline font-semibold hover:text-blue-800">Invoice Terms & Late Fee Guide ↗</Link>.
               </p>
             </div>
 
@@ -158,6 +159,28 @@ export default function InvoiceGeneratorPage() {
                 If you are registered for sales tax in the US or VAT in the UK/EU, statutory regulations require you to display your tax registration number and state the exact tax percentage charged separately from the subtotal.
               </p>
             </div>
+          </div>
+
+          {/* Featured Editorial Invoicing Guide Banner */}
+          <div className="rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50/80 to-slate-50 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1.5 max-w-xl">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 text-blue-800 px-2.5 py-0.5 text-[11px] font-bold">
+                <span>Featured 2026 Invoicing Guide</span>
+              </div>
+              <h3 className="text-sm sm:text-base font-extrabold text-slate-900">
+                Invoice Payment Terms & Late Fees: How to Get Paid on Time
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Learn how to structure Net 15, Net 30, and Due Upon Receipt terms, understand US state usury caps and UK late payment statutory interest, and copy 3 proven overdue follow-up email scripts.
+              </p>
+            </div>
+            <Link
+              href="/blog/late-invoice-payment-terms-guide"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs hover:bg-blue-700 transition-colors shrink-0 shadow-xs"
+            >
+              <span>Read Complete Guide</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
 
           {/* High-Intent SEO FAQs with Structured Rich Snippet Data */}

@@ -7,6 +7,24 @@ import { BookOpen, ArrowRight, Clock, Tag } from 'lucide-react';
 export function EditorialGuidesSection() {
   const articles = [
     {
+      slug: 'late-invoice-payment-terms-guide',
+      title: 'Invoice Payment Terms & Late Fees: The 2026 Guide to Getting Paid on Time',
+      category: 'Invoicing',
+      readTime: '9 min read',
+      description:
+        'Master Net 15, Net 30, and Due Upon Receipt terms. State usury caps, statutory UK interest, 2/10 Net 30 discount math, and 3 copy-paste overdue email templates.',
+      badgeColor: 'border-emerald-200 bg-emerald-50 text-emerald-700',
+    },
+    {
+      slug: 'interchange-plus-pricing-vs-flat-rate-merchant-guide',
+      title: 'Interchange-Plus vs Flat-Rate Pricing: How to Cut Credit Card Processing Fees (2026)',
+      category: 'Payment Fees',
+      readTime: '10 min read',
+      description:
+        'Wholesale interchange tiers, why flat-rate aggregators overcharge on debit cards, volume break-even points, and 2026 surcharging regulations.',
+      badgeColor: 'border-indigo-200 bg-indigo-50 text-indigo-700',
+    },
+    {
       slug: 'stripe-vs-paypal-fees-2026',
       title: 'Stripe vs PayPal: 2026 Merchant Processing Fee Breakdown',
       category: 'Payment Fees',

@@ -168,6 +168,8 @@ vatCountries.forEach(c => {
 // 3. Merchant Fee Calculators (Stripe, PayPal, Wise, Square, Authorize.Net)
 const merchantVariations = [
   { category: 'stripe-fee-calculator', slug: 'usa', title: 'Stripe Fee Calculator (USA 2.9% + $0.30)', gateway: 'stripe', subtitle: 'Exact Stripe processing fees for US domestic cards. Forward & reverse payout calculations.', currency: '$' },
+  { category: 'stripe-fee-calculator', slug: 'manual-entry', title: 'Stripe Manual Keyed-In Fee Calculator (3.4% + $0.30)', gateway: 'stripe', subtitle: 'Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + $0.30) in the US.', currency: '$', percentageRate: 0.034, fixedFee: 0.30 },
+  { category: 'stripe-fee-calculator', slug: 'keyed-entry', title: 'Stripe Keyed-In Card Fee Calculator (3.4% + $0.30)', gateway: 'stripe', subtitle: 'Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + $0.30) in the US.', currency: '$', percentageRate: 0.034, fixedFee: 0.30 },
   { category: 'stripe-fee-calculator', slug: 'international', title: 'Stripe International Card Fee Calculator', gateway: 'stripe', subtitle: 'Account for the +1.5% international card fee and +1% currency conversion fee.', currency: '$', isInternational: true, applyFx: true },
   { category: 'stripe-fee-calculator', slug: 'united-kingdom', title: 'Stripe UK Fee Calculator (1.5% + £0.20)', gateway: 'stripe', subtitle: 'UK domestic standard card processing fee calculator with payout breakdowns.', currency: '£' },
   { category: 'stripe-fee-calculator', slug: 'eurozone', title: 'Stripe Europe Fee Calculator (1.5% + €0.25)', gateway: 'stripe', subtitle: 'Standard European interchange-plus fee structure for EEA card processing.', currency: '€' },

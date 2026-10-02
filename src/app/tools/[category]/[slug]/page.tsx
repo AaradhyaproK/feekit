@@ -25,7 +25,7 @@ import { UkIr35Calculator } from '@/components/calculators/UkIr35Calculator';
 import { GatewayComparator } from '@/components/calculators/GatewayComparator';
 import { InvoiceGenerator } from '@/components/calculators/InvoiceGenerator';
 import Link from 'next/link';
-import { ArrowLeft, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Info } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
@@ -52,6 +52,13 @@ function findMatrixItem(category: string, slug: string) {
   if (category === 'square-fee-calculator') {
     if (slug === 'standard' || slug === 'pos') {
       return items.find((x) => x.category === category && (x.slug === 'standard' || x.slug === 'in-person' || x.slug === 'usa'));
+    }
+  }
+
+  // Fallback aliases for Stripe manual entry
+  if (category === 'stripe-fee-calculator') {
+    if (slug === 'keyed-entry' || slug === 'manual-entry' || slug === 'manual' || slug === 'virtual-terminal') {
+      return items.find((x) => x.category === category && (x.slug === 'manual-entry' || x.slug === 'keyed-entry'));
     }
   }
 
@@ -212,6 +219,26 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         {/* AdSense Leaderboard Unit */}
         <LeaderboardAd />
 
+        {/* Above-the-fold Rate Clarification Note for PayPal */}
+        {category === 'paypal-fee-calculator' && (
+          <div className="rounded-xl border border-amber-200 bg-amber-50/90 p-3.5 text-xs sm:text-sm text-amber-950 flex items-start gap-2.5 shadow-2xs">
+            <Info className="h-4 w-4 sm:h-5 sm:w-5 text-amber-600 shrink-0 mt-0.5" />
+            <p className="leading-relaxed">
+              <strong>Rate Clarification:</strong> 3.49% + $0.49 applies to PayPal Checkout, Guest Checkout, and invoices. Standard Goods &amp; Services rate: 2.99% + $0.49.
+            </p>
+          </div>
+        )}
+
+        {/* Above-the-fold Rate Clarification Note for Stripe Keyed-In */}
+        {category === 'stripe-fee-calculator' && (slug === 'manual-entry' || slug === 'keyed-entry') && (
+          <div className="rounded-xl border border-blue-200 bg-blue-50/90 p-3.5 text-xs sm:text-sm text-blue-950 flex items-start gap-2.5 shadow-2xs">
+            <Info className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 shrink-0 mt-0.5" />
+            <p className="leading-relaxed">
+              <strong>Stripe Keyed-In Rate:</strong> Manually entered card payments (using the Stripe Dashboard Virtual Terminal or keyed-in phone orders) incur Stripe&apos;s confirmed 2026 rate of <strong>3.4% + $0.30</strong> (compared to 2.9% + $0.30 for standard online checkouts).
+            </p>
+          </div>
+        )}
+
         {/* Live Interactive Calculator (Full Width, Zero Horizontal Squeeze, Embedded) */}
         <section aria-label="Interactive Calculator Tool">
           {item.suiteType === 'merchant' && (
@@ -219,6 +246,16 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
               initialGateway={item.gatewayId || 'stripe'}
               initialAmount={item.defaultAmount || 500}
               initialInternational={item.isInternational}
+              initialStripeTier={
+                item.slug === 'manual-entry' || item.slug === 'keyed-entry'
+                  ? 'premium'
+                  : 'standard'
+              }
+              initialPaypalTier={
+                item.slug === 'standard-card'
+                  ? 'standard_card'
+                  : 'invoicing'
+              }
               currencySymbol={item.currencySymbol || '$'}
               embedded={true}
             />

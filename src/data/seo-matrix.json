@@ -4145,6 +4145,106 @@
       ]
     },
     {
+      "category": "stripe-fee-calculator",
+      "slug": "manual-entry",
+      "title": "Stripe Manual Keyed-In Fee Calculator (3.4% + zsh.30)",
+      "shortTitle": "Stripe Manual Keyed-In Fee",
+      "subtitle": "Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + zsh.30) in the US.",
+      "suiteType": "merchant",
+      "geoRegion": "US",
+      "gatewayId": "stripe",
+      "defaultAmount": 500,
+      "currencySymbol": "$",
+      "percentageRate": 0.034,
+      "fixedFee": 0.3,
+      "isInternational": false,
+      "applyCurrencyConversion": false,
+      "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times 3.4\\%) + $0.30 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.30}{1 - 0.034}",
+      "formulaExplanation": "Stripe charges 3.4% + zsh.30 per transaction for manually entered card details (Virtual Terminal or keyed-in phone orders), compared to 2.9% + zsh.30 for standard online checkout.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "fee": 2.0,
+          "net": 48.0
+        },
+        {
+          "amount": 250,
+          "fee": 8.8,
+          "net": 241.2
+        },
+        {
+          "amount": 1000,
+          "fee": 34.3,
+          "net": 965.7
+        },
+        {
+          "amount": 5000,
+          "fee": 170.3,
+          "net": 4829.7
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the Stripe fee for manually entered cards in 2026?",
+          "answer": "In the United States, Stripe charges 3.4% plus zsh.30 per transaction for manually entered card payments (using the Stripe Dashboard Virtual Terminal or custom API card-not-present keyed entry)."
+        },
+        {
+          "question": "Why is the keyed-in rate higher than the online rate on Stripe?",
+          "answer": "Card networks (Visa, Mastercard) and banks charge higher wholesale interchange fees for keyed-in transactions because they lack CVV/EMV chip security verification or 3D Secure authentication, resulting in significantly higher risk of fraud and chargebacks."
+        },
+        {
+          "question": "How do I calculate reverse invoice markup for Stripe manually keyed-in payments?",
+          "answer": "Use the reverse formula: Gross = (Desired Net + zsh.30) / (1 - 0.034). To receive exactly ,000.00 net, invoice ,035.51."
+        }
+      ]
+    },
+    {
+      "category": "stripe-fee-calculator",
+      "slug": "keyed-entry",
+      "title": "Stripe Keyed-In Card Fee Calculator (3.4% + zsh.30)",
+      "shortTitle": "Stripe Keyed-In Fee",
+      "subtitle": "Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + zsh.30) in the US.",
+      "suiteType": "merchant",
+      "geoRegion": "US",
+      "gatewayId": "stripe",
+      "defaultAmount": 500,
+      "currencySymbol": "$",
+      "percentageRate": 0.034,
+      "fixedFee": 0.3,
+      "isInternational": false,
+      "applyCurrencyConversion": false,
+      "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times 3.4\\%) + $0.30 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.30}{1 - 0.034}",
+      "formulaExplanation": "Stripe charges 3.4% + zsh.30 per transaction for manually entered card details (Virtual Terminal or keyed-in phone orders), compared to 2.9% + zsh.30 for standard online checkout.",
+      "sampleTiers": [
+        {
+          "amount": 50,
+          "fee": 2.0,
+          "net": 48.0
+        },
+        {
+          "amount": 250,
+          "fee": 8.8,
+          "net": 241.2
+        },
+        {
+          "amount": 1000,
+          "fee": 34.3,
+          "net": 965.7
+        },
+        {
+          "amount": 5000,
+          "fee": 170.3,
+          "net": 4829.7
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the Stripe fee for manually entered cards in 2026?",
+          "answer": "In the United States, Stripe charges 3.4% plus zsh.30 per transaction for manually entered card payments (using the Stripe Dashboard Virtual Terminal or custom API card-not-present keyed entry)."
+        }
+      ]
+    },
+    {
       "category": "paypal-fee-calculator",
       "slug": "usa",
       "title": "PayPal Fee Calculator USA (3.49% + $0.49 Commerce Rate)",
@@ -6951,23 +7051,23 @@
       "sampleTiers": [
         {
           "amount": 50,
-          "fee": 1.75,
-          "net": 48.25
+          "fee": 1.9,
+          "net": 48.1
         },
         {
           "amount": 250,
-          "fee": 7.55,
-          "net": 242.45
+          "fee": 8.9,
+          "net": 241.1
         },
         {
           "amount": 1000,
-          "fee": 29.3,
-          "net": 970.7
+          "fee": 35.15,
+          "net": 964.85
         },
         {
           "amount": 5000,
-          "fee": 145.3,
-          "net": 4854.7
+          "fee": 175.15,
+          "net": 4824.85
         }
       ],
       "faqs": [

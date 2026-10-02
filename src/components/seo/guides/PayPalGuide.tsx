@@ -38,7 +38,10 @@ export function PayPalGuide({ sectionClass, inArticleSlot }: PayPalGuideProps) {
           <span>The Immediate Answer: Standard PayPal Commercial Rates</span>
         </div>
         <p className="text-sm text-slate-700 leading-relaxed">
-          Standard commercial invoicing and invoicing API charges on PayPal in the US cost <strong>3.49% plus $0.49</strong> per transaction. When buyers use PayPal Checkout buttons or guest checkout on your store, the discounted rate is <strong>2.99% plus $0.49</strong>. On a $100 customer payment, PayPal deducts $3.98 (invoicing) or $3.48 (checkout). For international cross-border transactions, PayPal adds an extra <strong>1.50% fee</strong> plus a 3% to 4% currency conversion margin.
+          <strong>3.49% + $0.49 applies to PayPal Checkout, Guest Checkout, and invoices. Standard Goods &amp; Services rate: 2.99% + $0.49.</strong>
+        </p>
+        <p className="text-sm text-slate-700 leading-relaxed">
+          Standard commercial invoicing and invoicing API charges on PayPal in the US cost <strong>3.49% plus $0.49</strong> per transaction. When buyers use PayPal Checkout buttons or guest checkout on your store, the discounted rate is <strong>2.99% plus $0.49</strong>. On a $100 customer payment, PayPal deducts $3.98 (invoicing/checkout) or $3.48 (standard card). For international cross-border transactions, PayPal adds an extra <strong>1.50% fee</strong> plus a 3% to 4% currency conversion margin.
         </p>
       </div>
 

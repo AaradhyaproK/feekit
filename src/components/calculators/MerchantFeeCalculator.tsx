@@ -24,6 +24,8 @@ interface MerchantFeeCalculatorProps {
   initialAmount?: number;
   initialDirection?: CalculationDirection;
   initialInternational?: boolean;
+  initialStripeTier?: 'standard' | 'premium';
+  initialPaypalTier?: 'invoicing' | 'standard_card';
   currencySymbol?: string;
   embedded?: boolean;
 }
@@ -35,6 +37,8 @@ export function MerchantFeeCalculator({
   initialAmount = 1000,
   initialDirection = 'forward',
   initialInternational = false,
+  initialStripeTier,
+  initialPaypalTier,
   currencySymbol = '$',
   embedded = false,
 }: MerchantFeeCalculatorProps) {
@@ -62,9 +66,13 @@ export function MerchantFeeCalculator({
     }
   }, []);
 
-  const [paypalTier, setPaypalTier] = useState<'invoicing' | 'standard_card'>('invoicing');
+  const [paypalTier, setPaypalTier] = useState<'invoicing' | 'standard_card'>(
+    initialPaypalTier || 'invoicing'
+  );
   const [venmoTier, setVenmoTier] = useState<'qr' | 'app'>('qr');
-  const [stripeTier, setStripeTier] = useState<'standard' | 'premium'>('standard');
+  const [stripeTier, setStripeTier] = useState<'standard' | 'premium'>(
+    initialStripeTier || 'standard'
+  );
   const [gumroadTier, setGumroadTier] = useState<'platform' | 'all_in'>('platform');
 
   const numericAmount = parseNumericValue(amount, 0);
@@ -226,34 +234,44 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
 
       {/* Gateway Sub-Tier Selector (PayPal, Venmo, Stripe) */}
       {gateway === 'paypal' && (
-        <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
-          <div className="text-xs">
-            <span className="font-bold text-slate-900 block">PayPal Rate Schedule:</span>
-            <span className="text-slate-500 text-[11px]">Select standard invoicing or guest checkout card processing</span>
+        <div className="space-y-2">
+          <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+            <div className="text-xs">
+              <span className="font-bold text-slate-900 block">PayPal Rate Schedule:</span>
+              <span className="text-slate-500 text-[11px]">PayPal Checkout &amp; Invoicing vs. Standard Goods &amp; Services</span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setPaypalTier('invoicing')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  paypalTier === 'invoicing'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                PayPal Checkout / Invoicing (3.49% + $0.49)
+              </button>
+              <button
+                type="button"
+                onClick={() => setPaypalTier('standard_card')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  paypalTier === 'standard_card'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                Standard Goods &amp; Services (2.99% + $0.49)
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => setPaypalTier('invoicing')}
-              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
-                paypalTier === 'invoicing'
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              PayPal Invoicing (3.49% + $0.49)
-            </button>
-            <button
-              type="button"
-              onClick={() => setPaypalTier('standard_card')}
-              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
-                paypalTier === 'standard_card'
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              Standard Card (2.99% + $0.49)
-            </button>
+
+          {/* Above-the-fold Rate Clarification Note */}
+          <div className="rounded-lg border border-amber-200 bg-amber-50/90 px-3 py-2 text-xs text-amber-900 flex items-start gap-2 shadow-2xs">
+            <Info className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+            <p className="leading-relaxed">
+              <strong>Rate Clarification:</strong> 3.49% + $0.49 applies to PayPal Checkout, Guest Checkout, and invoices. Standard Goods &amp; Services rate: 2.99% + $0.49.
+            </p>
           </div>
         </div>
       )}
@@ -292,35 +310,50 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
       )}
 
       {gateway === 'stripe' && (
-        <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
-          <div className="text-xs">
-            <span className="font-bold text-slate-900 block">Card Classification Tier:</span>
-            <span className="text-slate-500 text-[11px]">Consumer cards vs. corporate / premium cards</span>
+        <div className="space-y-2">
+          <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+            <div className="text-xs">
+              <span className="font-bold text-slate-900 block">Card Classification Tier:</span>
+              <span className="text-slate-500 text-[11px]">
+                {currencySymbol === '£'
+                  ? 'UK domestic consumer cards vs. premium/EEA cards'
+                  : 'Online checkout vs. manually keyed-in / virtual terminal'}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setStripeTier('standard')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  stripeTier === 'standard'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                {currencySymbol === '£' ? 'UK Consumer (1.5% + 20p)' : 'Online Checkout (2.9% + $0.30)'}
+              </button>
+              <button
+                type="button"
+                onClick={() => setStripeTier('premium')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  stripeTier === 'premium'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                {currencySymbol === '£' ? 'Premium / Non-UK (2.5% + 20p)' : 'Manually Keyed-In (3.4% + $0.30)'}
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => setStripeTier('standard')}
-              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
-                stripeTier === 'standard'
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              {currencySymbol === '£' ? 'UK Consumer (1.5% + 20p)' : 'Domestic Standard (2.9% + $0.30)'}
-            </button>
-            <button
-              type="button"
-              onClick={() => setStripeTier('premium')}
-              className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
-                stripeTier === 'premium'
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              {currencySymbol === '£' ? 'Premium / Non-UK (2.5% + 20p)' : 'Corporate / Keyed (3.4% + $0.30)'}
-            </button>
-          </div>
+
+          {stripeTier === 'premium' && currencySymbol !== '£' && (
+            <div className="rounded-lg border border-blue-200 bg-blue-50/80 px-3 py-2 text-xs text-blue-900 flex items-start gap-2 shadow-2xs">
+              <Info className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+              <p className="leading-relaxed">
+                <strong>Stripe Keyed-In Rate:</strong> Manually entered card payments (using the Stripe Dashboard Virtual Terminal or keyed-in phone orders) incur Stripe&apos;s confirmed 2026 rate of <strong>3.4% + $0.30</strong> (compared to 2.9% + $0.30 for standard online checkouts).
+              </p>
+            </div>
+          )}
         </div>
       )}
 

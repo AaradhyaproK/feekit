@@ -93,7 +93,7 @@ const QUICK_SUITE_CHIPS = [
   { label: 'Payment Gateways', count: '40+', icon: CreditCard, suiteId: 'merchant' as ActiveSuite },
   { label: '50 US States Sales Tax', count: '51 States', icon: Building2, suiteId: 'tax' as ActiveSuite },
   { label: 'UK & Global VAT', count: '28 Countries', icon: Globe2, suiteId: 'tax' as ActiveSuite },
-  { label: '1099 Freelance Rates', count: '27 Roles', icon: Briefcase, suiteId: 'freelance' as ActiveSuite },
+  { label: '1099 Freelance Rates', count: '37 Roles', icon: Briefcase, suiteId: 'freelance' as ActiveSuite },
   { label: 'E-Commerce & ROAS', count: '21 Niches', icon: ShoppingBag, suiteId: 'ecommerce' as ActiveSuite },
 ];
 
@@ -126,7 +126,7 @@ const HOME_FAQS = [
   {
     question: 'How does the 1099 Freelance Rate Calculator account for Self-Employment Tax?',
     answer:
-      'Our freelance engine factors in the full 15.3% SECA tax (12.4% Social Security up to statutory wage caps and 2.9% Medicare) that W-2 employers normally pay half of. It also incorporates annual business overhead expenses, health insurance allowances, and realistic billable efficiency (1,000 to 1,200 annual billable hours) to derive minimum hourly and 8-hour day rates across 27 specialized tech and creative roles.',
+      'Our freelance engine factors in the full 15.3% SECA tax (12.4% Social Security up to statutory wage caps and 2.9% Medicare) that W-2 employers normally pay half of. It also incorporates annual business overhead expenses, health insurance allowances, and realistic billable efficiency (1,000 to 1,200 annual billable hours) to derive minimum hourly and 8-hour day rates across 37 specialized tech and creative roles.',
   },
   {
     question: 'How does the E-Commerce Profit & ROAS Calculator compute break-even points?',
@@ -164,7 +164,7 @@ export default function FeeKitHome() {
       name: '1099 & Contractor Rates',
       icon: FreelanceRateIcon,
       subtitle: 'Hourly, Day Rate & SECA Tax',
-      badge: '27 Roles',
+      badge: '37 Roles',
       description: 'Minimum hourly rate, 8h day rates, 15.3% SECA self-employment tax & client invoice proposal formatter',
       indicatorText: 'Live 1099 Engine',
     },

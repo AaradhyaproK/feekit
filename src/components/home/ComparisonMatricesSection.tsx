@@ -200,7 +200,7 @@ export function ComparisonMatricesSection() {
         <div className="space-y-3.5 animate-in fade-in duration-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <p className="text-slate-600">
-              Comparing standard domestic card deductions: <strong>Stripe (2.9% + $0.30)</strong> vs <strong>PayPal Commerce (3.49% + $0.49)</strong> vs <strong>Square Online (2.9% + $0.30)</strong> vs <strong>Wise Business (0.45%)</strong>.
+              Comparing standard domestic card deductions: <strong>Stripe (2.9% + $0.30 online, 3.4% + $0.30 manually keyed-in)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout/Invoicing, 2.99% + $0.49 Standard G&amp;S)</strong> vs <strong>Square Online (2.9% + $0.30)</strong> vs <strong>Wise Business (0.45%)</strong>.
             </p>
             <span className="shrink-0 font-mono font-bold text-[11px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
               2026 Statutory Rates
@@ -242,11 +242,17 @@ export function ComparisonMatricesSection() {
             </table>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 text-xs">
             <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
               <div className="font-bold text-slate-900">The 30¢ / 49¢ Fixed Surcharge Impact</div>
               <p className="text-slate-600 leading-relaxed">
                 On small purchases ($10.00), the fixed fee pushes Stripe effective deduction to <strong>5.90%</strong> and PayPal to <strong>8.39%</strong>.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
+              <div className="font-bold text-slate-900">Stripe Manually Keyed-In (3.4% + $0.30)</div>
+              <p className="text-slate-600 leading-relaxed">
+                Manually entered card payments (Virtual Terminal / phone orders) incur Stripe&apos;s confirmed 2026 rate of <strong>3.4% + $0.30</strong> vs. 2.9% + $0.30 online.
               </p>
             </div>
             <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
@@ -261,7 +267,7 @@ export function ComparisonMatricesSection() {
                 Gross = (Net + Fixed Fee) ÷ (1 − Rate)
               </p>
               <p className="text-slate-500 text-[10px]">
-                To pocket $1,000.00 via Stripe USA, invoice exactly <strong>$1,030.18</strong>.
+                To pocket $1,000.00 via Stripe USA online, invoice exactly <strong>$1,030.18</strong>.
               </p>
             </div>
           </div>
@@ -433,7 +439,7 @@ export function ComparisonMatricesSection() {
               href="/tools/freelance-rate-calculator"
               className="font-bold text-blue-600 hover:underline inline-flex items-center gap-1"
             >
-              <span>Explore all 27 role rate calculators</span>
+              <span>Explore all 37 role rate calculators</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>

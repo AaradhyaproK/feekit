@@ -78,7 +78,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
       name: '1099 Freelance & Contractor Rates',
       categorySlug: 'freelance-rate-calculator',
       icon: Briefcase,
-      badge: '27 Tech Roles',
+      badge: '37 Tech Roles',
       badgeColor: 'border-purple-200 bg-purple-50 text-purple-700',
       tagline: '15.3% SECA self-employment tax & day rates',
       description:
@@ -86,7 +86,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
       highlights: [
         '15.3% SECA self-employment tax calculator',
         'Billable efficiency factor (25-30h realistic weekly)',
-        'Pre-configured benchmarks for 27 modern roles',
+        'Pre-configured benchmarks for 37 modern roles',
       ],
       popularLink: '/tools/freelance-rate-calculator/software-engineer',
       popularLabel: 'Software Engineer Rate',

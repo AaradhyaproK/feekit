@@ -1,3 +1,9 @@
+# FeeKit ⚡
+
+> **Live Web Application:** [https://www.usefeekit.com](https://www.usefeekit.com)
+
+A modern, fast, and privacy-first in-browser fee and net payout calculator for freelancers, indie makers, and digital agencies.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

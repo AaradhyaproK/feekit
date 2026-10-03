@@ -98,6 +98,7 @@ npm run build
 * **Blog & Fee Guides:** [https://www.usefeekit.com/blog](https://www.usefeekit.com/blog)
 * **Affiliate & Commercial Policy:** [https://www.usefeekit.com/affiliate-disclosure](https://www.usefeekit.com/affiliate-disclosure)
 * **Privacy Policy:** [https://www.usefeekit.com/privacy](https://www.usefeekit.com/privacy)
+* **Official Contact:** [hello@snab.co.in](mailto:hello@snab.co.in)
 
 ---
 
@@ -109,4 +110,4 @@ This software, source code, visual components, algorithms, and fee calculation m
 
 No permission is granted to any individual or organization to copy, fork, modify, redistribute, sublicense, host, scrape, reverse engineer, or commercially exploit any part of this repository or its assets without explicit, prior written permission from the copyright owner.
 
-Refer to the complete legal terms in the [LICENSE](LICENSE) file.
+For licensing permissions or business inquiries, contact [hello@snab.co.in](mailto:hello@snab.co.in). Refer to the complete legal terms in the [LICENSE](LICENSE) file.

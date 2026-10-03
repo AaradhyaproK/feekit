@@ -19,6 +19,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import 'katex/dist/katex.min.css';
 import { AppShell } from '@/components/layout/AppShell';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 
 export const viewport: Viewport = {
   themeColor: '#0057FF',
@@ -153,6 +154,7 @@ export default function RootLayout({
         <meta httpEquiv="content-language" content="en-US, en-GB" />
       </head>
       <body className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-500/20 selection:text-blue-900">
+        <GoogleAnalytics />
         <AppShell>{children}</AppShell>
       </body>
     </html>

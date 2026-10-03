@@ -215,7 +215,9 @@ merchantVariations.forEach(m => {
     category: m.category,
     slug: m.slug,
     title: m.title,
-    shortTitle: m.title.split('(')[0].trim(),
+    shortTitle: m.category === 'wise-vs-stripe'
+      ? `Wise vs Stripe ${m.slug.split('-to-')[0].toUpperCase()} to ${m.slug.split('-to-')[1].toUpperCase()} Calculator`
+      : m.title.split('(')[0].trim(),
     subtitle: m.subtitle,
     suiteType: 'merchant',
     gatewayId: m.gateway,

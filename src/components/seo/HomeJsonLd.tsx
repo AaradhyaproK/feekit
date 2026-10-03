@@ -16,7 +16,7 @@ export function HomeJsonLd() {
         url: 'https://www.usefeekit.com',
         name: 'FeeKit',
         description:
-          'Free payment processing fee, 50-state sales tax, UK VAT, and freelance rate precision calculators for US and UK businesses.',
+          'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal & Square fee calculators, all 50 US state sales tax, UK HMRC VAT, 1099 freelance rates & free invoice generator. 100% free, no signup.',
         publisher: {
           '@id': 'https://www.usefeekit.com/#organization',
         },

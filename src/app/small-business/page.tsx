@@ -109,7 +109,7 @@ export default function SmallBusinessHubPage() {
     {
       question: 'What free financial tools does FeeKit provide for small businesses?',
       answer:
-        'FeeKit provides 197+ dedicated, free financial calculators across payment processing fee modeling (Stripe, PayPal, Square, Wise), US state sales tax, UK VAT, freelance hourly and day rates, landed cost e-commerce profit margins, and a client-side PDF invoice generator.',
+        'FeeKit provides 199+ dedicated, free financial calculators across payment processing fee modeling (Stripe, PayPal, Square, Wise), US state sales tax, UK VAT, freelance hourly and day rates, landed cost e-commerce profit margins, and a client-side PDF invoice generator.',
     },
     {
       question: 'How does FeeKit protect sensitive business financial data?',

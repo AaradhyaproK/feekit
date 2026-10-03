@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.usefeekit.com'),
   title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
   description:
-    'Free financial precision calculators for US 50-state sales tax, UK HMRC VAT compliance, Stripe, PayPal & Square merchant fees, and freelance 1099 rates. Updated for 2026 fiscal regulations.',
+    'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal & Square fee calculators, all 50 US state sales tax, UK HMRC VAT, 1099 freelance rates & free invoice generator. 100% free, no signup.',
   applicationName: 'FeeKit',
   authors: [{ name: 'FeeKit Engineering' }],
   generator: 'Next.js',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
     description:
-      'Calculate exact Stripe & PayPal merchant fees, 50-state US sales tax with local district surtaxes, and UK HMRC VAT in seconds. 100% free and client-side private.',
+      'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal & Square fee calculators, all 50 US state sales tax, UK HMRC VAT, 1099 freelance rates & free invoice generator. 100% free, no signup.',
     url: 'https://www.usefeekit.com',
     siteName: 'FeeKit',
     images: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
     description:
-      'Instant, accurate financial calculation suites for US and UK businesses, merchants, and freelancers. Updated for 2026.',
+      'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal, Square, 50-state sales tax, UK VAT, and 1099 freelance rates. 100% free, no signup.',
     images: ['https://www.usefeekit.com/logo.png'],
   },
   icons: {

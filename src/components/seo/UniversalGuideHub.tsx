@@ -379,7 +379,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
       {/* Footer Hub Links */}
       <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
         <span className="text-slate-500 font-medium">
-          Need a dedicated calculator? Choose from 197+ tools above.
+          Need a dedicated calculator? Choose from 199+ tools above.
         </span>
         <div className="flex items-center gap-3">
           <Link

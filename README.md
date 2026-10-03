@@ -2,7 +2,7 @@
 
 [![Official Website](https://img.shields.io/badge/Live_Site-www.usefeekit.com-0057FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.usefeekit.com)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16.3-black?style=for-the-badge&logo=next.js&logoColor=white)](https://www.usefeekit.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://www.usefeekit.com/terms)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=for-the-badge)](LICENSE)
 [![Client--Side Privacy](https://img.shields.io/badge/Privacy-100%25_Client--Side-emerald?style=for-the-badge&logo=shield)](https://www.usefeekit.com/privacy)
 
 > **Official Production Platform:** [**https://www.usefeekit.com**](https://www.usefeekit.com)  
@@ -101,6 +101,12 @@ npm run build
 
 ---
 
-## 📄 License
+## 📄 License & Copyright
 
-This project is licensed under the MIT License — see the [LICENSE](https://www.usefeekit.com/terms) page for details.
+**Copyright © 2026 Aaradhya Pathak ([FeeKit](https://www.usefeekit.com)). All Rights Reserved.**
+
+This software, source code, visual components, algorithms, and fee calculation matrices are **Proprietary and Confidential**.
+
+No permission is granted to any individual or organization to copy, fork, modify, redistribute, sublicense, host, scrape, reverse engineer, or commercially exploit any part of this repository or its assets without explicit, prior written permission from the copyright owner.
+
+Refer to the complete legal terms in the [LICENSE](LICENSE) file.

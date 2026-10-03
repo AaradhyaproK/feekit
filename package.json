@@ -2,6 +2,7 @@
   "name": "feekit",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
   "homepage": "https://www.usefeekit.com",
   "scripts": {
     "dev": "next dev",

@@ -40,6 +40,66 @@ const nextConfig: NextConfig = {
         destination: '/small-business',
         permanent: true,
       },
+      {
+        source: '/stripe',
+        destination: '/tools/stripe-fee-calculator/usa',
+        permanent: true,
+      },
+      {
+        source: '/paypal',
+        destination: '/tools/paypal-fee-calculator/usa',
+        permanent: true,
+      },
+      {
+        source: '/square',
+        destination: '/tools/square-fee-calculator',
+        permanent: true,
+      },
+      {
+        source: '/wise',
+        destination: '/tools/wise-vs-stripe',
+        permanent: true,
+      },
+      {
+        source: '/vat',
+        destination: '/tools/vat-calculator/united-kingdom',
+        permanent: true,
+      },
+      {
+        source: '/sales-tax',
+        destination: '/tools/sales-tax-calculator',
+        permanent: true,
+      },
+      {
+        source: '/salestax',
+        destination: '/tools/sales-tax-calculator',
+        permanent: true,
+      },
+      {
+        source: '/calculator',
+        destination: '/tools',
+        permanent: true,
+      },
+      {
+        source: '/calculators',
+        destination: '/tools',
+        permanent: true,
+      },
+      {
+        source: '/invoice',
+        destination: '/invoice-generator',
+        permanent: true,
+      },
+      {
+        source: '/invoices',
+        destination: '/invoice-generator',
+        permanent: true,
+      },
+      {
+        source: '/freelance',
+        destination: '/tools/freelance-rate-calculator',
+        permanent: true,
+      },
     ];
   },
 };

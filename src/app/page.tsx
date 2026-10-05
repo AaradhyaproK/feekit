@@ -255,6 +255,41 @@ export default function FeeKitHome() {
 
       {/* Main Responsive Canvas for Inner Content */}
       <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 space-y-6 sm:space-y-10">
+        {/* Product Hunt Featured Launch Banner */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-orange-200/90 bg-gradient-to-r from-orange-50/70 via-amber-50/40 to-white p-3.5 sm:px-5 sm:py-3.5 shadow-2xs">
+          <div className="flex items-center gap-3 text-left w-full sm:w-auto">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-white font-black text-sm shadow-xs">
+              P
+            </span>
+            <div>
+              <div className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>FeeKit is live on Product Hunt!</span>
+                <span className="rounded-full bg-orange-100 px-2 py-0.5 text-[10px] font-bold text-orange-800 border border-orange-200/60">
+                  Featured
+                </span>
+              </div>
+              <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+                Join our launch discussion and support our 199+ free financial calculation utilities.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://www.producthunt.com/products/feekit?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-feekit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 hover:opacity-90 transition-opacity self-center"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1269126&theme=light&t=1791213076508"
+              alt="FeeKit - Instant payment fee & reverse payout calculator for makers | Product Hunt"
+              width={250}
+              height={54}
+              className="h-10 sm:h-11 w-auto"
+            />
+          </a>
+        </div>
+
         {/* Search Bar & Quick Suite Navigation Chips */}
         <div className="space-y-3">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">

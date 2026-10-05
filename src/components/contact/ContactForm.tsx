@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -88,11 +88,8 @@ export function ContactForm() {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
       <div className="space-y-1">
-        <div className="flex items-center justify-between">
+        <div>
           <h2 className="text-lg font-bold text-slate-900">Send Us a Direct Message</h2>
-          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-md border border-sky-100">
-            <Sparkles className="h-3 w-3" /> Formspree Connected
-          </span>
         </div>
         <p className="text-xs text-slate-600 leading-relaxed">
           Inquire about custom software development with Snab Innovations, report a tax rate correction, or request new features:
@@ -226,7 +223,7 @@ export function ContactForm() {
           {status === 'submitting' ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              <span>Submitting to Formspree...</span>
+              <span>Sending Message...</span>
             </>
           ) : (
             <>
@@ -237,7 +234,7 @@ export function ContactForm() {
         </button>
 
         <p className="text-[11px] text-center text-slate-400 font-normal">
-          Submissions are delivered directly to Snab Innovations via Formspree encrypted endpoint.
+          Submissions are delivered directly to Snab Innovations via secure encrypted transmission.
         </p>
       </form>
     </div>

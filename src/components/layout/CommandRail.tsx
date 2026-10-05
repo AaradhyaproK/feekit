@@ -108,7 +108,7 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
           className="flex w-full items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-xs text-slate-500 hover:border-blue-400 hover:bg-white hover:text-slate-900 transition-all shadow-2xs"
         >
           <Search className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-          <span className="font-medium truncate">Search tools...</span>
+          <span className="font-medium truncate">Search 199+ tools...</span>
         </button>
       </div>
 

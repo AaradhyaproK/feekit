@@ -156,7 +156,7 @@ export default function BlogIndexPage() {
             Need real-time calculation on your numbers?
           </h3>
           <p className="mt-1 text-xs sm:text-sm text-slate-600">
-            Use our 160+ interactive calculators for Stripe, PayPal, US sales tax by state, and UK VAT.
+            Use our 199+ interactive calculators for Stripe, PayPal, US sales tax by state, and UK VAT.
           </p>
         </div>
         <Link

@@ -106,7 +106,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            placeholder="Search 162 tools (e.g. California, UK VAT, Stripe USA, 1099 Contractor)..."
+            placeholder="Search 199+ tools (e.g. California, UK VAT, Stripe USA, 1099 Contractor)..."
             className="w-full bg-transparent text-sm sm:text-base font-medium text-slate-900 placeholder-slate-400 focus:outline-none"
           />
           <button
@@ -180,7 +180,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
             <span>Use <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↑</kbd> <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↓</kbd> to navigate</span>
             <span><kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">Enter</kbd> to open</span>
           </div>
-          <span className="text-blue-600 font-bold">{matrixList.length} Calculators Available</span>
+          <span className="text-blue-600 font-bold">{matrixList.length}+ Calculators Available</span>
         </div>
       </div>
     </div>

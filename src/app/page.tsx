@@ -673,7 +673,7 @@ export default function FeeKitHome() {
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <h2 className="text-lg sm:text-2xl font-extrabold text-slate-900">
-                  US & UK Utility Matrix ({allMatrixItems.length} Dedicated Tools)
+                  US & UK Utility Matrix ({allMatrixItems.length}+ Dedicated Tools)
                 </h2>
                 <span className="rounded bg-blue-50 px-2 py-0.5 font-mono text-xs font-bold text-blue-700 border border-blue-200">
                   Geo-Targeted
@@ -691,7 +691,7 @@ export default function FeeKitHome() {
                 type="text"
                 value={directoryFilter}
                 onChange={(e) => setDirectoryFilter(e.target.value)}
-                placeholder={`Filter ${allMatrixItems.length} tools...`}
+                placeholder={`Filter ${allMatrixItems.length}+ tools...`}
                 className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-base sm:text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none shadow-xs"
               />
             </div>
@@ -708,7 +708,7 @@ export default function FeeKitHome() {
                   : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
               }`}
             >
-              All Tools ({allMatrixItems.length})
+              All Tools ({allMatrixItems.length}+)
             </button>
             <button
               type="button"

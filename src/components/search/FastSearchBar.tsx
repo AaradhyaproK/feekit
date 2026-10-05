@@ -12,7 +12,7 @@ export interface FastSearchBarProps {
 }
 
 export function FastSearchBar({
-  placeholder = 'Search tools...',
+  placeholder = 'Search 199+ tools...',
   className = '',
   autoFocus = false,
 }: FastSearchBarProps) {

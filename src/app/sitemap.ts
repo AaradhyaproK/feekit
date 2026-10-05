@@ -137,7 +137,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.95,
   }));
 
-  // 3. Programmatic Regional and Specialized Tools (all 162+ tool pages)
+  // 3. Programmatic Regional and Specialized Tools (all 199+ tool pages)
   const matrixList = Array.isArray(geoMatrix)
     ? (geoMatrix as Array<any>)
     : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);

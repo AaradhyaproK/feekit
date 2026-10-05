@@ -148,7 +148,7 @@ export default function AboutPage() {
         <div className="space-y-4 border-t border-slate-200 pt-6">
           <h2 className="text-lg font-bold text-slate-900">Editorial Standards & Official Data Sources</h2>
           <p>
-            All benchmarks and formulas across our 160+ dedicated tools are verified against primary financial and governmental records:
+            All benchmarks and formulas across our 199+ dedicated tools are verified against primary financial and governmental records:
           </p>
           <ul className="space-y-2 text-xs">
             <li className="flex items-start gap-2">

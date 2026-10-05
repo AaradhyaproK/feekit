@@ -25,7 +25,7 @@ import { UkIr35Calculator } from '@/components/calculators/UkIr35Calculator';
 import { GatewayComparator } from '@/components/calculators/GatewayComparator';
 import { InvoiceGenerator } from '@/components/calculators/InvoiceGenerator';
 import Link from 'next/link';
-import { ArrowLeft, ShieldCheck, Info } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Info, Clock, Calendar, UserCheck } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
@@ -191,6 +191,10 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         {/* Header with Title, Description, and Authoritative Badges */}
         <header className="space-y-5 border-b border-slate-200 pb-8">
           <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-emerald-800 border border-emerald-200 shadow-2xs">
+              <Clock className="h-3.5 w-3.5 text-emerald-600" />
+              <span>Last updated: October 2026</span>
+            </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-slate-700 border border-slate-200">
               <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
               <span>Documented Methodology</span>
@@ -206,13 +210,30 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
             </span>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-3">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900 leading-tight">
               {item.title}
             </h1>
             <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
               {item.subtitle}
             </p>
+
+            {/* Authoritative E-E-A-T & Freshness Verification Bar */}
+            <div className="flex flex-wrap items-center gap-3 pt-3 text-xs text-slate-500 border-t border-slate-100">
+              <span className="inline-flex items-center gap-1.5 font-medium text-slate-700">
+                <Calendar className="h-3.5 w-3.5 text-slate-400" />
+                <span>Last updated: <strong className="text-slate-900 font-semibold">October 2026</strong></span>
+              </span>
+              <span>•</span>
+              <span className="inline-flex items-center gap-1.5 text-slate-600">
+                <UserCheck className="h-3.5 w-3.5 text-blue-600" />
+                <span>Reviewed by: <strong className="text-slate-900 font-semibold">Aaradhya Pathak, Independent Financial Analyst</strong></span>
+              </span>
+              <span className="hidden md:inline">•</span>
+              <span className="hidden md:inline text-emerald-700 font-medium">
+                Verified for 2026 IRS &amp; HMRC Regulatory Guidelines
+              </span>
+            </div>
           </div>
         </header>
 

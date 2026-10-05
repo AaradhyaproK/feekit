@@ -263,7 +263,7 @@ const freelanceRoles = [
   { slug: 'copywriter', title: 'Direct-Response Copywriter Rate Calculator', role: 'Senior Copywriter', defaultNet: 85000, overhead: 6000 },
   { slug: 'technical-writer', title: 'Technical Documentation Writer Rate Calculator', role: 'Technical Writer', defaultNet: 80000, overhead: 5000 },
   { slug: 'seo-specialist', title: 'SEO Consultant & Strategist Rate Calculator', role: 'SEO Strategist', defaultNet: 90000, overhead: 11000 },
-  { slug: 'digital-marketer', title: 'Growth & Digital Marketing Consultant Rate Calculator', role: 'Growth Marketer', defaultNet: 95000, overhead: 12000 },
+  { slug: 'digital-marketer', title: 'Digital Marketing Strategist Rate Calculator', role: 'Digital Marketing Strategist', defaultNet: 95000, overhead: 12000 },
   { slug: 'video-editor', title: 'Video Editor & Motion Designer Rate Calculator', role: 'Motion Designer', defaultNet: 75000, overhead: 12000 },
   { slug: 'mobile-app-developer', title: 'iOS / Android Mobile Developer Freelance Rate', role: 'Mobile App Developer', defaultNet: 110000, overhead: 10000 },
   { slug: 'smart-contract-developer', title: 'Web3 & Solidity Smart Contract Auditor Rate', role: 'Smart Contract Auditor', defaultNet: 160000, overhead: 15000 },

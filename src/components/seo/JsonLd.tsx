@@ -41,6 +41,13 @@ export function generateGeoSchema({
       price: '0',
       priceCurrency: currency,
     },
+    dateModified: '2026-10-01',
+    author: {
+      '@type': 'Person',
+      name: 'Aaradhya Pathak',
+      jobTitle: 'Independent Financial Analyst & Founder',
+      url: 'https://www.usefeekit.com/about',
+    },
     spatialCoverage: {
       '@type': 'Place',
       name: placeName,

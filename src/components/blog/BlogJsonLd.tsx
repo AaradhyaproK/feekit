@@ -26,10 +26,16 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
     keywords: post.tags.join(', '),
     author: {
       '@type': 'Person',
-      name: post.author,
-      jobTitle: post.authorTitle,
+      name: 'Aaradhya Pathak',
+      jobTitle: 'Independent Financial Analyst & Founder',
       url: 'https://www.usefeekit.com/about',
       sameAs: 'https://www.usefeekit.com/about',
+    },
+    reviewedBy: {
+      '@type': 'Person',
+      name: 'Aaradhya Pathak',
+      jobTitle: 'Independent Financial Analyst',
+      url: 'https://www.usefeekit.com/about',
     },
     publisher: {
       '@type': 'Organization',

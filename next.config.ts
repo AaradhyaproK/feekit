@@ -125,6 +125,16 @@ const nextConfig: NextConfig = {
         destination: '/about',
         permanent: true,
       },
+      {
+        source: '/announcements',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/announcements/:path*',
+        destination: '/blog',
+        permanent: true,
+      },
     ];
   },
 };

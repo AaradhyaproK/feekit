@@ -100,6 +100,31 @@ const nextConfig: NextConfig = {
         destination: '/tools/freelance-rate-calculator',
         permanent: true,
       },
+      {
+        source: '/about-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/careers',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/careers/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/company/careers',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/company/careers/:path*',
+        destination: '/about',
+        permanent: true,
+      },
     ];
   },
 };

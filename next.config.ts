@@ -135,6 +135,150 @@ const nextConfig: NextConfig = {
         destination: '/blog',
         permanent: true,
       },
+      // Legal & Compliance Aliases
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy/:path*',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/terms-of-service',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/terms-of-service/:path*',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/terms-and-conditions',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/terms-and-conditions/:path*',
+        destination: '/terms',
+        permanent: true,
+      },
+      // Corporate, Career & Team Crawlers
+      {
+        source: '/hiring',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/hiring/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/jobs',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/jobs/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/join',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/join/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/work-with-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/work-with-us/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/team',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/team/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/customers',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/customers/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/pricing',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/pricing/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/press',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/press/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      // Media & News Crawlers
+      {
+        source: '/news',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/news/:path*',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/newsroom',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/newsroom/:path*',
+        destination: '/blog',
+        permanent: true,
+      },
+      // Integration & Tools Crawlers
+      {
+        source: '/integrations',
+        destination: '/tools',
+        permanent: true,
+      },
+      {
+        source: '/integrations/:path*',
+        destination: '/tools',
+        permanent: true,
+      },
     ];
   },
 };

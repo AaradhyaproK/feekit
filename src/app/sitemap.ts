@@ -20,34 +20,11 @@ import { US_SITE_URL } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog';
 import { COMPARISONS_DATA } from '@/data/comparisons';
 
-const CATEGORIES = [
-  'sales-tax-calculator',
-  'vat-calculator',
-  'stripe-fee-calculator',
-  'paypal-fee-calculator',
-  'freelance-rate-calculator',
-  'ecommerce-profit-calculator',
-  'square-fee-calculator',
-  'wise-vs-stripe',
-  'authorize-net-calculator',
-  'canada-sales-tax',
-  'venmo-fee-calculator',
-  'gumroad-fee-calculator',
-  'lemon-squeezy-calculator',
-  'shopify-fee-calculator',
-  'profit-margin-calculator',
-  'break-even-calculator',
-  'roi-calculator',
-  'quarterly-tax-calculator',
-  'uk-ir35-calculator',
-  'gateway-comparator',
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = US_SITE_URL;
   const now = new Date();
 
-  // 1. Root and Core Trust Pages
+  // 1. Root and Core Hub & Trust Pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -129,18 +106,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 2. High-Intent Category Suite Hubs
-  const categoryUrls: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
+  // 2. Programmatic Regional and Specialized Tools (all 199+ tool pages)
+  const matrixList = Array.isArray(geoMatrix)
+    ? (geoMatrix as Array<any>)
+    : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);
+
+  // Dynamically extract every category suite hub from the tool matrix
+  const categories = Array.from(new Set(matrixList.map((x) => x.category)));
+  const categoryUrls: MetadataRoute.Sitemap = categories.map((cat) => ({
     url: `${baseUrl}/tools/${cat}`,
     lastModified: now,
     changeFrequency: 'daily',
     priority: 0.95,
   }));
-
-  // 3. Programmatic Regional and Specialized Tools (all 199+ tool pages)
-  const matrixList = Array.isArray(geoMatrix)
-    ? (geoMatrix as Array<any>)
-    : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);
 
   const toolUrls: MetadataRoute.Sitemap = matrixList.map((item) => {
     let priority = 0.8;
@@ -158,16 +136,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // 4. Statically Generated MDX Blog Posts (Step 7: priority 0.85, monthly, https://www.usefeekit.com/blog/[slug])
+  // 3. Statically Generated MDX Blog Posts (all published guides)
   const blogPosts = getAllPosts();
   const blogUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `https://www.usefeekit.com/blog/${post.slug}`,
+    url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.updatedAt || post.publishedAt || now),
     changeFrequency: 'monthly',
     priority: 0.85,
   }));
 
-  // 5. Statically Generated Software Comparison Pages
+  // 4. Statically Generated Software Comparison Pages
   const comparisonUrls: MetadataRoute.Sitemap = Object.keys(COMPARISONS_DATA).map((slug) => ({
     url: `${baseUrl}/compare/${slug}`,
     lastModified: now,
@@ -175,5 +153,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...categoryUrls, ...toolUrls, ...blogUrls, ...comparisonUrls];
+  // Combine and deduplicate by URL to guarantee 100% unique, complete index
+  const allEntries = [...staticPages, ...categoryUrls, ...toolUrls, ...blogUrls, ...comparisonUrls];
+  const seenUrls = new Set<string>();
+  const deduplicatedEntries: MetadataRoute.Sitemap = [];
+
+  for (const entry of allEntries) {
+    if (!seenUrls.has(entry.url)) {
+      seenUrls.add(entry.url);
+      deduplicatedEntries.push(entry);
+    }
+  }
+
+  return deduplicatedEntries;
 }

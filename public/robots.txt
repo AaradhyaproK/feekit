@@ -47,5 +47,5 @@ User-agent: *
 Allow: /
 Disallow:
 
-# Primary Sitemap index containing all 246 static pages
+# Primary Sitemap index containing all 262+ static pages
 Sitemap: https://www.usefeekit.com/sitemap.xml

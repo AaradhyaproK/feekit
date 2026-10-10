@@ -34,7 +34,9 @@ export const metadata: Metadata = {
   description:
     'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal & Square fee calculators, all 50 US state sales tax, UK HMRC VAT, 1099 freelance rates & free invoice generator. 100% free, no signup.',
   applicationName: 'FeeKit',
-  authors: [{ name: 'FeeKit Engineering' }],
+  authors: [{ name: 'Aaradhya Pathak', url: 'https://www.usefeekit.com/about' }],
+  creator: 'Aaradhya Pathak',
+  publisher: 'FeeKit',
   generator: 'Next.js',
   keywords: [
     'fee calculator',

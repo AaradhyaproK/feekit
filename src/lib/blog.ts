@@ -75,20 +75,32 @@ export function getAllPosts(): BlogPost[] {
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
 
-      const computedReadTime = readingTime(content).text;
+      const words = content.trim().split(/\s+/).filter(Boolean).length;
+      const readTimeMinutes = Math.max(1, Math.ceil(words / 200));
+      const computedReadTime = `${readTimeMinutes} min read`;
+
+      const published = typeof data.datePublished === 'string'
+        ? data.datePublished
+        : (typeof data.publishedAt === 'string' ? data.publishedAt : '2026-09-07');
+      const modified = typeof data.dateModified === 'string'
+        ? data.dateModified
+        : (typeof data.updatedAt === 'string' ? data.updatedAt : published);
 
       const post: BlogPost = {
         slug,
         title: typeof data.title === 'string' ? data.title : 'Untitled Article',
         description: typeof data.description === 'string' ? data.description : '',
-        publishedAt: typeof data.publishedAt === 'string' ? data.publishedAt : '2026-09-07',
-        updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : (data.publishedAt || '2026-09-07'),
-        author: typeof data.author === 'string' ? data.author : 'FeeKit Research Team',
+        publishedAt: published,
+        datePublished: published,
+        updatedAt: modified,
+        dateModified: modified,
+        author: typeof data.author === 'string' ? data.author : 'Aaradhya Pathak',
         authorTitle:
           typeof data.authorTitle === 'string'
             ? data.authorTitle
-            : 'Financial Engineering & Tax Analysis',
-        readTime: typeof data.readTime === 'string' ? data.readTime : computedReadTime,
+            : 'Independent Financial Analyst',
+        readTime: computedReadTime,
+        wordCount: words,
         category: (data.category as BlogCategory) || 'Guides',
         tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
         featuredImage:
@@ -130,20 +142,32 @@ export function getPostBySlug(slug: string): BlogPostWithContent {
 
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
-  const computedReadTime = readingTime(content).text;
+  const words = content.trim().split(/\s+/).filter(Boolean).length;
+  const readTimeMinutes = Math.max(1, Math.ceil(words / 200));
+  const computedReadTime = `${readTimeMinutes} min read`;
+
+  const published = typeof data.datePublished === 'string'
+    ? data.datePublished
+    : (typeof data.publishedAt === 'string' ? data.publishedAt : '2026-09-07');
+  const modified = typeof data.dateModified === 'string'
+    ? data.dateModified
+    : (typeof data.updatedAt === 'string' ? data.updatedAt : published);
 
   const post: BlogPostWithContent = {
     slug,
     title: typeof data.title === 'string' ? data.title : 'Untitled Article',
     description: typeof data.description === 'string' ? data.description : '',
-    publishedAt: typeof data.publishedAt === 'string' ? data.publishedAt : '2026-09-07',
-    updatedAt: typeof data.updatedAt === 'string' ? data.updatedAt : (data.publishedAt || '2026-09-07'),
-    author: typeof data.author === 'string' ? data.author : 'FeeKit Research Team',
+    publishedAt: published,
+    datePublished: published,
+    updatedAt: modified,
+    dateModified: modified,
+    author: typeof data.author === 'string' ? data.author : 'Aaradhya Pathak',
     authorTitle:
       typeof data.authorTitle === 'string'
         ? data.authorTitle
-        : 'Financial Engineering & Tax Analysis',
-    readTime: typeof data.readTime === 'string' ? data.readTime : computedReadTime,
+        : 'Independent Financial Analyst',
+    readTime: computedReadTime,
+    wordCount: words,
     category: (data.category as BlogCategory) || 'Guides',
     tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
     featuredImage:

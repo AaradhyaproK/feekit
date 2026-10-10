@@ -16,6 +16,7 @@ import { RelatedCalculators } from '@/components/blog/RelatedCalculators';
 import { BlogJsonLd } from '@/components/blog/BlogJsonLd';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { AdBanner } from '@/components/blog/AdBanner';
+import { NewsletterSignup } from '@/components/shared/NewsletterSignup';
 import { ArrowLeft, Tag, HelpCircle, ShieldCheck } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
@@ -238,6 +239,11 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Related Calculators CTA Box */}
           <RelatedCalculators calculators={post.relatedCalculators} />
         </article>
+
+        {/* Weekly Fee Rate & Tax Updates Newsletter Section */}
+        <div className="px-3.5 sm:px-0">
+          <NewsletterSignup source={`Blog: ${post.title}`} />
+        </div>
 
         {/* Bottom Section: Related Articles (3 from same category or latest) */}
         {relatedPosts.length > 0 && (

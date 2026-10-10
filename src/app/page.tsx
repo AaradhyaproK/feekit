@@ -43,6 +43,7 @@ import { SuiteShowcaseHub } from '@/components/home/SuiteShowcaseHub';
 import { ComparisonMatricesSection } from '@/components/home/ComparisonMatricesSection';
 import { EditorialGuidesSection } from '@/components/home/EditorialGuidesSection';
 import { UniversalGuideHub } from '@/components/seo/UniversalGuideHub';
+import { NewsletterSignup } from '@/components/shared/NewsletterSignup';
 import geoMatrix from '@/data/geo-matrix.json';
 
 type ActiveSuite = 'merchant' | 'tax' | 'freelance' | 'ecommerce';
@@ -872,6 +873,9 @@ export default function FeeKitHome() {
           items={HOME_FAQS}
           title="Frequently Asked Questions About FeeKit"
         />
+
+        {/* Weekly Fee Rate & Tax Updates Newsletter Section */}
+        <NewsletterSignup source="Homepage Bottom" />
       </div>
     </div>
   );

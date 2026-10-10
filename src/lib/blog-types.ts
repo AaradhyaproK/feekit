@@ -41,10 +41,13 @@ export interface BlogPost {
   title: string;
   description: string;
   publishedAt: string; // ISO date string "2026-09-07"
+  datePublished?: string;
   updatedAt: string;
+  dateModified?: string;
   author: string;
   authorTitle: string;
   readTime: string; // "8 min read"
+  wordCount?: number;
   category: BlogCategory;
   tags: string[];
   featuredImage: string; // "/blog/images/stripe-vs-paypal.png"

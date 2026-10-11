@@ -425,7 +425,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    <span>XML Sitemap (270+ Pages)</span>
+                    <span>XML Sitemap (274+ Pages)</span>
                     <ExternalLink className="h-3 w-3 text-slate-400" aria-hidden="true" />
                     <span className="sr-only">(opens in new window)</span>
                   </a>

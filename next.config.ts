@@ -98,12 +98,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/calculator',
-        destination: '/tools',
+        destination: '/',
         permanent: true,
       },
       {
         source: '/calculators',
-        destination: '/tools',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/tools',
+        destination: '/',
         permanent: true,
       },
       {
@@ -292,12 +297,12 @@ const nextConfig: NextConfig = {
       // Integration & Tools Crawlers
       {
         source: '/integrations',
-        destination: '/tools',
+        destination: '/',
         permanent: true,
       },
       {
         source: '/integrations/:path*',
-        destination: '/tools',
+        destination: '/',
         permanent: true,
       },
     ];

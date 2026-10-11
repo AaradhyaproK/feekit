@@ -22,19 +22,33 @@ export function NewsletterSignup({
     setStatus('submitting');
 
     try {
-      await fetch('https://formspree.io/f/mgawlaan', {
+      const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           email,
-          formType: 'Weekly Fee Rate & Tax Updates Newsletter',
           source,
-          timestamp: new Date().toISOString(),
         }),
       });
+
+      if (!res.ok) {
+        // Fallback to Formspree if local API experienced an issue
+        await fetch('https://formspree.io/f/mgawlaan', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            formType: 'Weekly Fee Rate & Tax Updates Newsletter',
+            source,
+            timestamp: new Date().toISOString(),
+          }),
+        }).catch(() => {});
+      }
     } catch {
       // Graceful fallback: still acknowledge subscription for client UX
     } finally {

@@ -1,8 +1,8 @@
 # FeeKit
 
-> Precision client-side financial calculation utilities for US and UK business operators, freelancers, and ecommerce merchants.
+> Precision client-side financial calculation utilities and research guides for US and UK business operators, freelancers, and ecommerce merchants.
 
-FeeKit provides 100% private, instant client-side calculators for sales tax, payment processing fees (Stripe, PayPal, Square), UK VAT, self-employment 1099 taxes, and profit margins.
+FeeKit provides 100% private, instant client-side calculators for sales tax, payment processing fees (Stripe, PayPal, Square, Venmo), UK VAT, self-employment 1099 taxes, and profit margins.
 
 ## Primary Tools & Calculator Suites
 
@@ -18,18 +18,54 @@ FeeKit provides 100% private, instant client-side calculators for sales tax, pay
 ## Categories
 
 - [Sales Tax Calculators](https://www.usefeekit.com/tools/sales-tax-calculator): All 50 US states and major municipal tax jurisdictions.
-- [Payment Processing Fees](https://www.usefeekit.com/tools/stripe-fee-calculator): Stripe, PayPal, Square, Shopify Payments.
+- [Payment Processing Fees](https://www.usefeekit.com/tools/stripe-fee-calculator): Stripe, PayPal, Square, Shopify Payments, Venmo.
 - [UK Tax & Business](https://www.usefeekit.com/tools/uk-vat-calculator): VAT, dividend taxes, corporation tax.
 - [Freelance & Contracting](https://www.usefeekit.com/tools/freelance-rate-calculator): Day rate, billable hours, and tax deductions.
 - [Ecommerce & Margin Tools](https://www.usefeekit.com/tools/ecommerce-profit-calculator): COGS, ROAS, and net margin analysis.
 
+## In-Depth Research & Blog Guides (28 Published Articles)
+
+FeeKit publishes independent, audited research on payment fees, Merchant of Record models, sales tax economic nexus, and freelance tax compliance:
+
+- [Gumroad vs Lemon Squeezy Fees: Complete Creator Comparison 2026](https://www.usefeekit.com/blog/gumroad-vs-lemon-squeezy-fees-2026): Complete 2026 fee comparison between Gumroad and Lemon Squeezy for digital creators. In-depth analysis of Gumroad's 10% cut vs Lemon Squeezy's 5% + $0.50, Merchant of Record tax handling, payout schedules, and net profit models.
+- [Venmo Business vs PayPal: Which Is Cheaper for Small Businesses in 2026?](https://www.usefeekit.com/blog/venmo-business-vs-paypal-2026): Compare 2026 merchant fees for Venmo Business Profiles vs PayPal. Detailed breakdown of in-person QR rates (1.9% + $0.10), online checkout, seller protection, instant transfer costs, and transaction break-even math.
+- [Stripe's Hidden Fees in 2026: 9 Charges You Won't Find on the 2.9% + 30¢ Pricing Page](https://www.usefeekit.com/blog/stripe-hidden-fees-2026): The brutal mathematical truth of Stripe's real take-rate in 2026. Complete line-by-line breakdown of international card surcharges, 2% FX conversion spreads, Stripe Billing cuts, Radar fees, and the $15 non-refundable dispute penalty.
+- [Accounting Software vs Spreadsheet: What Should a Small Business Use?](https://www.usefeekit.com/blog/accounting-software-vs-spreadsheet): Compare spreadsheets vs dedicated accounting software for small businesses and freelancers. Learn transaction thresholds, audit risks, time trade-offs, and when to upgrade.
+- [ACH vs Wire Transfer vs Credit Card Fees: The B2B Payment Cost Guide (2026)](https://www.usefeekit.com/blog/ach-vs-wire-vs-credit-card-fees-guide): Compare ACH Direct Debit vs bank wire vs credit card processing fees. Discover Stripe ACH fee caps (0.8% with $5 max), settlement speeds, reversal windows, and invoicing fee routing.
+- [Shopify Payments vs Stripe: Real Processing Fees & Hidden Costs (2026)](https://www.usefeekit.com/blog/shopify-payments-vs-stripe-fees-2026): Compare Shopify Payments vs direct Stripe processing fees. Detailed breakdown of Shopify's 0.6%–2.0% third-party penalty, FX spreads, chargeback rules, and volume break-even math.
+- [How to Calculate Profit Margin for a Service Business: Formulas & Benchmarks](https://www.usefeekit.com/blog/service-business-profit-margin): Learn how to calculate gross and net profit margins for a service business, consulting firm, or agency. Understand direct labor COGS, overhead allocation, and healthy margin benchmarks.
+- [Interchange-Plus vs Flat-Rate Pricing: How to Cut Credit Card Processing Fees (2026)](https://www.usefeekit.com/blog/interchange-plus-pricing-vs-flat-rate-merchant-guide): Understand the differences between flat-rate processing (Stripe, Square) and Interchange-Plus pricing. Volume break-even models, hidden processor markups, debit card spreads, and surcharging rules.
+- [Invoice Payment Terms & Late Fees: The 2026 Guide to Getting Paid on Time](https://www.usefeekit.com/blog/late-invoice-payment-terms-guide): Master Net 15, Net 30, and Due Upon Receipt invoice terms. In-depth analysis of legal late fee caps across the US and UK, 2/10 Net 30 discount math, and copy-paste collection email scripts.
+- [Small Business Bookkeeping Basics: A Practical Beginner's Guide](https://www.usefeekit.com/blog/small-business-bookkeeping-basics): Master bookkeeping fundamentals for small businesses and freelancers. Learn single vs double-entry accounting, cash vs accrual, the chart of accounts, and month-end reconciliations.
+- [How to Track Business Expenses as a Freelancer: The Complete Tax Deduction Guide](https://www.usefeekit.com/blog/how-to-track-business-expenses-freelancer): Learn how to track and categorize business expenses as a freelancer. Maximize Schedule C tax write-offs, the home office deduction, mileage, and software expenses.
+- [How Much Does a $100,000 Freelancer Actually Keep? (The Brutal 2026 Tax & Fee Reality)](https://www.usefeekit.com/blog/how-much-100k-freelancer-actually-makes-2026): The shocking math of making $100k as a 1099 independent contractor. Complete 2026 breakdown of SECA self-employment tax, federal and state brackets, healthcare, software overhead, and the exact formula to calculate true take-home pay.
+- [Net 30 vs Net 15 Payment Terms: What Freelancers and Small Businesses Should Know](https://www.usefeekit.com/blog/net-30-vs-net-15): Compare Net 30 and Net 15 payment terms. Learn how invoice timing impacts cash flow velocity, client relationships, early payment discounts (2/10 Net 30), and late fee enforcement.
+- [Invoice vs Receipt: What's the Difference and When to Use Each](https://www.usefeekit.com/blog/invoice-vs-receipt): Understand the legal and accounting differences between an invoice and a receipt. Learn when to issue each document, tax recordkeeping requirements, and audit trail rules.
+- [LLC vs S-Corp for Freelancers (2026): The Exact Profit Threshold to Save on Taxes](https://www.usefeekit.com/blog/llc-vs-scorp-freelance-tax-guide): Master the LLC vs S-Corp decision for 2026. Calculate the 15.3% self-employment tax savings, IRS reasonable salary rules, payroll overhead, and the exact net profit break-even threshold.
+- [Gumroad vs Stripe vs Lemon Squeezy (2026): Creator Fees & Merchant of Record Guide](https://www.usefeekit.com/blog/gumroad-vs-stripe-vs-lemon-squeezy-2026): Compare 2026 fees for Gumroad, Lemon Squeezy, and Stripe. In-depth analysis of Merchant of Record (MoR) models, global sales tax and VAT compliance, and net profit margins.
+- [Upwork vs Fiverr Fees in 2026: Platform Cuts, Client Surcharges & Take-Home Pay Compared](https://www.usefeekit.com/blog/upwork-vs-fiverr-fees-2026): Comprehensive 2026 comparison of Upwork vs Fiverr platform fees. Compare Upwork's 10% flat cut & contract initiation fees against Fiverr's 20% commission, buyer surcharges, and payout FX costs.
+- [Etsy vs Shopify Fees: 2026 Seller Cost Breakdown & Profit Margin Comparison](https://www.usefeekit.com/blog/etsy-vs-shopify-fees-2026): Uncover true 2026 seller fees for Etsy vs Shopify. Detailed breakdown of Etsy's 6.5% transaction fee, $0.20 listing fee, 15% Offsite Ads, vs Shopify subscription and payment rates.
+- [Freelance Hourly Rate Formula: How to Calculate Your True Billable Rate in 2026](https://www.usefeekit.com/blog/freelance-hourly-rate-formula-guide): Master the freelance hourly rate formula for 2026. Calculate billable hours, self-employment tax (15.3%), overhead, unpaid leave, and target profit margins.
+- [Wise vs Stripe: 2026 Hidden FX Fees, International Transfer & Payout Comparison](https://www.usefeekit.com/blog/wise-vs-stripe-fees-2026): Compare 2026 international transfer & cross-border fees between Wise and Stripe. Detailed comparison of mid-market FX rates, Stripe 1-2% markups, payout speeds, and multi-currency banking.
+- [How to Create an Invoice for Freelance Work: Step-by-Step Guide & Checklist](https://www.usefeekit.com/blog/how-to-create-an-invoice-for-freelance-work): Learn how to format, itemize, and issue a professional freelance invoice. Includes mandatory fields, payment terms, sales tax rules, late fee clauses, and invoice generation tools.
+- [1099 vs W-2 Tax Rate Breakdown: Freelance Self-Employment Tax Guide (2026)](https://www.usefeekit.com/blog/1099-vs-w2-tax-rate-freelance-guide): Complete 2026 guide comparing 1099 independent contractor taxes vs W-2 employees. Calculate the 15.3% self-employment tax, the 1.3x hourly rate formula, Schedule C deductions, and quarterly IRS deadlines.
+- [Shopify vs Amazon FBA Fees: 2026 Profit Margin & True Cost Breakdown](https://www.usefeekit.com/blog/shopify-vs-amazon-fba-fees-2026): Compare 2026 seller fees between Shopify and Amazon FBA. Detailed breakdown of Amazon referral rates (8%-15%), FBA pick & pack, low-inventory surcharges vs Shopify plan tiers, payment processing, and app overhead.
+- [Square vs Stripe: 2026 In-Person POS & Online Merchant Fee Comparison](https://www.usefeekit.com/blog/square-vs-stripe-fees-2026): In-depth 2026 fee comparison between Square and Stripe. Compare Square's 2.6% + 10¢ in-person POS rate vs Stripe Terminal's 2.7% + 5¢, online checkout spreads, hardware costs, and dispute fees.
+- [Stripe vs PayPal: 2026 Merchant Processing Fee Breakdown](https://www.usefeekit.com/blog/stripe-vs-paypal-fees-2026): Compare 2026 processing fees between Stripe and PayPal for US & UK ecommerce. In-depth rate tables, international surcharges, chargeback costs, and interchange-plus analysis.
+- [How to Calculate Your Freelance Hourly Rate: The Complete Mathematical Formula](https://www.usefeekit.com/blog/how-to-calculate-freelance-hourly-rate): Step-by-step formula to calculate your freelance hourly rate. Account for the 15.3% SECA self-employment tax, realistic billable hours, business overhead, and healthcare reserves.
+- [UK HMRC VAT Compliance & MTD Rules: 2026 Edition](https://www.usefeekit.com/blog/uk-vat-guide-freelancers-merchants): Essential guide to the UK HMRC £90,000 VAT registration threshold, Making Tax Digital (MTD) digital links compliance, and standard vs reduced rate calculation.
+- [US Sales Tax Economic Nexus: 50-State Threshold Guide (2026)](https://www.usefeekit.com/blog/us-sales-tax-economic-nexus-guide): Complete 2026 multi-state economic nexus thresholds, marketplace facilitator laws, and local district surtaxes for remote ecommerce brands and digital sellers.
+
 ## Key Principles & Trust
 
-- **Zero Server Tracking**: All calculations run locally in the user's browser runtime. No financial figures are logged or stored.
+- **Zero Server Tracking**: All calculations run locally in the user browser runtime. No financial figures are logged or stored.
 - **Accurate 2026 Statutory Rates**: Calibrated to California CDTFA, Texas Comptroller, New York DTF, UK HMRC, and US IRS regulations.
 - **Parent Company & Governance**: Snab Innovations (https://snab.co.in/), Nashik, Maharashtra, India 422005 (Contact: hello@snab.co.in)
+- **Founder & Lead Developer**: Aaradhya Pathak (https://www.usefeekit.com/about)
 - **Privacy Policy**: https://www.usefeekit.com/privacy
 - **Terms of Service**: https://www.usefeekit.com/terms
+- **Editorial Policy**: https://www.usefeekit.com/editorial-policy
+- **Calculation Methodology**: https://www.usefeekit.com/methodology
 - **About FeeKit**: https://www.usefeekit.com/about
 - **Contact & Feedback**: https://www.usefeekit.com/contact
-- **Sitemap**: https://www.usefeekit.com/sitemap.xml
+- **Sitemap XML**: https://www.usefeekit.com/sitemap.xml

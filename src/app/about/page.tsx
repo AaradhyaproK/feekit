@@ -33,7 +33,7 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Aaradhya Pathak',
-    jobTitle: 'Financial Systems Developer',
+    jobTitle: 'Independent Financial Analyst & Full-Stack Developer',
     email: 'mailto:aaradhya1774@gmail.com',
     worksFor: {
       '@type': 'Organization',
@@ -48,7 +48,7 @@ export default function AboutPage() {
       'https://github.com/AaradhyaproK',
     ],
     description:
-      'Founder and lead developer of FeeKit. Expert in client-side financial computation engines, payment gateway fee models, and IRS/HMRC tax statutory algorithms.',
+      'Founder and lead developer of FeeKit, and Co-Founder & Full-Stack Developer at Snab Innovations. Expert in client-side financial computation engines, payment gateway fee models, and IRS/HMRC tax statutory algorithms.',
   };
 
   const aboutPageSchema = {
@@ -155,7 +155,7 @@ export default function AboutPage() {
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  Aaradhya Pathak is the founder and lead developer of FeeKit. With expertise in financial systems, Next.js development, and IRS/HMRC tax compliance, he built FeeKit to give freelancers and merchants the precise financial tools that expensive accounting software keeps behind paywalls. All calculators are manually verified against official IRS, HMRC, and payment gateway documentation.
+                  Aaradhya Pathak is the founder and lead developer of FeeKit, and Co-Founder &amp; Full-Stack Developer at Snab Innovations. With expertise in financial systems, Next.js development, and IRS/HMRC tax compliance, he built FeeKit to give freelancers and merchants the precise financial tools that expensive accounting software keeps behind paywalls. All calculators are manually verified against official IRS, HMRC, and payment gateway documentation.
                 </p>
 
                 {/* Creator Links */}

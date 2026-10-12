@@ -46,7 +46,7 @@ export function AuthorBio({ post }: AuthorBioProps) {
           </Link>
           <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-bold text-blue-700 border border-blue-200 shadow-2xs">
             <UserCheck className="h-3 w-3 text-blue-600" />
-            Independent Financial Analyst
+            Co-Founder &amp; Full-Stack Developer
           </span>
         </div>
       </div>

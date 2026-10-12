@@ -22,7 +22,6 @@ import {
   TrendingUp,
   Receipt,
   BookOpen,
-  Users,
 } from 'lucide-react';
 import { MerchantFeeCalculator } from '@/components/calculators/MerchantFeeCalculator';
 import { TaxCalculator } from '@/components/calculators/TaxCalculator';
@@ -318,14 +317,6 @@ export default function FeeKitHome() {
                   </button>
                 );
               })}
-            </div>
-          </div>
-
-          {/* Social Proof Trust Badge */}
-          <div className="flex items-center pt-0.5">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/90 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 shadow-2xs">
-              <Users className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-              <span>Trusted by 3,200+ merchants, freelancers &amp; accountants</span>
             </div>
           </div>
 

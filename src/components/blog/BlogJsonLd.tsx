@@ -27,7 +27,7 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
     author: {
       '@type': 'Person',
       name: 'Aaradhya Pathak',
-      jobTitle: 'Independent Financial Analyst & Founder',
+      jobTitle: 'Co-Founder & Full-Stack Developer',
       email: 'mailto:aaradhya1774@gmail.com',
       url: 'https://www.usefeekit.com/about',
       sameAs: [
@@ -41,7 +41,7 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
     reviewedBy: {
       '@type': 'Person',
       name: 'Aaradhya Pathak',
-      jobTitle: 'Independent Financial Analyst',
+      jobTitle: 'Co-Founder & Full-Stack Developer',
       url: 'https://www.usefeekit.com/about',
     },
     publisher: {

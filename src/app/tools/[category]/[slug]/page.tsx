@@ -227,7 +227,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
               <span>•</span>
               <span className="inline-flex items-center gap-1.5 text-slate-600">
                 <UserCheck className="h-3.5 w-3.5 text-blue-600" />
-                <span>Reviewed by: <strong className="text-slate-900 font-semibold">Aaradhya Pathak, Independent Financial Analyst</strong></span>
+                <span>Reviewed by: <strong className="text-slate-900 font-semibold">Aaradhya Pathak, Co-Founder &amp; Full-Stack Developer</strong></span>
               </span>
               <span className="hidden md:inline">•</span>
               <span className="hidden md:inline text-emerald-700 font-medium">

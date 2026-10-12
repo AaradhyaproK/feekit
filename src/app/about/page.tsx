@@ -33,7 +33,7 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Aaradhya Pathak',
-    jobTitle: 'Independent Financial Analyst & Full-Stack Developer',
+    jobTitle: 'Co-Founder & Full-Stack Developer',
     email: 'mailto:aaradhya1774@gmail.com',
     worksFor: {
       '@type': 'Organization',
@@ -150,7 +150,7 @@ export default function AboutPage() {
                     Aaradhya Pathak
                   </h2>
                   <p className="text-xs sm:text-sm font-semibold text-blue-700">
-                    Independent Financial Analyst &amp; Full-Stack Developer
+                    Co-Founder &amp; Full-Stack Developer
                   </p>
                 </div>
 

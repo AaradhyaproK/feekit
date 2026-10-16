@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     siteName: 'FeeKit',
     images: [
       {
-        url: 'https://www.usefeekit.com/logo.png',
+        url: 'https://www.usefeekit.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'FeeKit Financial & Tax Calculators',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: 'FeeKit — Free Payment Fee, Sales Tax & VAT Calculators',
     description:
       'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
-    images: ['https://www.usefeekit.com/logo.png'],
+    images: ['https://www.usefeekit.com/og-image.png'],
   },
   icons: {
     icon: [

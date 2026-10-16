@@ -14,7 +14,7 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
   // 1. Exact Article Schema enhanced for Google Rich Results
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'TechArticle',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
     url: articleUrl,

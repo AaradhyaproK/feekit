@@ -43,7 +43,7 @@ import { ComparisonMatricesSection } from '@/components/home/ComparisonMatricesS
 import { EditorialGuidesSection } from '@/components/home/EditorialGuidesSection';
 import { UniversalGuideHub } from '@/components/seo/UniversalGuideHub';
 import { NewsletterSignup } from '@/components/shared/NewsletterSignup';
-import geoMatrix from '@/data/geo-matrix.json';
+import toolsIndex from '@/data/tools-index.json';
 
 type ActiveSuite = 'merchant' | 'tax' | 'freelance' | 'ecommerce';
 
@@ -192,11 +192,7 @@ export default function FeeKitHome() {
     { key: 'ecommerce-profit-calculator', label: 'E-Commerce & Dropshipping Profit Hubs', count: 21, group: 'ecommerce' },
   ];
 
-  const allMatrixItems = useMemo(() => {
-    return Array.isArray(geoMatrix)
-      ? (geoMatrix as Array<any>)
-      : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);
-  }, []);
+  const allMatrixItems = toolsIndex;
 
   const filteredItems = useMemo(() => {
     let list = allMatrixItems;

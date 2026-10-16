@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, Calculator, ArrowRight, X } from 'lucide-react';
-import geoMatrix from '@/data/geo-matrix.json';
+import toolsIndex from '@/data/tools-index.json';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -44,11 +44,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  const matrixList = React.useMemo(() => {
-    return Array.isArray(geoMatrix)
-      ? (geoMatrix as unknown as Array<any>)
-      : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>));
-  }, []);
+  const matrixList = toolsIndex;
 
   const filteredItems = React.useMemo(() => {
     if (!query.trim()) {

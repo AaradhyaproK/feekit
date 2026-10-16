@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, X, ArrowRight, Calculator } from 'lucide-react';
-import geoMatrix from '@/data/geo-matrix.json';
+import toolsIndex from '@/data/tools-index.json';
 
 export interface FastSearchBarProps {
   placeholder?: string;
@@ -23,11 +23,7 @@ export function FastSearchBar({
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const matrixList = useMemo(() => {
-    return Array.isArray(geoMatrix)
-      ? (geoMatrix as unknown as Array<any>)
-      : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>));
-  }, []);
+  const matrixList = toolsIndex;
 
   const results = useMemo(() => {
     if (!query.trim()) {

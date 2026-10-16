@@ -8,6 +8,7 @@ import { CommandPalette } from '@/components/search/CommandPalette';
 import { Footer } from '@/components/layout/Footer';
 import { CookieConsent } from '@/components/layout/CookieConsent';
 import { clearUrlHash } from '@/lib/utils/hash-sync';
+import { NavigationProgressBar } from '@/components/layout/NavigationProgressBar';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -21,6 +22,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col font-sans">
+      <React.Suspense fallback={null}>
+        <NavigationProgressBar />
+      </React.Suspense>
       {/* Sticky Left Rail for Large Screens */}
       <CommandRail onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
 

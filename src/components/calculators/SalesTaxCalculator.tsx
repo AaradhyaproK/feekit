@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import geoMatrix from '@/data/geo-matrix.json';
+import usStates from '@/data/us-states.json';
 import { MetricCard } from '@/components/ui/MetricCard';
 import { formatCurrency, cleanNumberInput, parseNumericValue } from '@/lib/utils/formatters';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
@@ -40,7 +40,7 @@ interface SalesTaxCalculatorProps {
   embedded?: boolean;
 }
 
-const ALL_STATES: StateTaxData[] = (geoMatrix as any).us_states || [];
+const ALL_STATES: StateTaxData[] = (usStates as unknown as StateTaxData[]) || [];
 
 const FALLBACK_CALIFORNIA: StateTaxData = {
   slug: 'california',

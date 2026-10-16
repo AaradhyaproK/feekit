@@ -30,7 +30,7 @@ export interface SoftwareComparison {
 export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
   'freshbooks-vs-quickbooks': {
     slug: 'freshbooks-vs-quickbooks',
-    title: 'FreshBooks vs QuickBooks Online: Small Business Accounting Comparison',
+    title: 'FreshBooks vs QuickBooks Online (2026 Comparison)',
     toolAName: 'FreshBooks',
     toolBName: 'QuickBooks Online',
     description:
@@ -101,7 +101,7 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
   },
   'freshbooks-vs-wave': {
     slug: 'freshbooks-vs-wave',
-    title: 'FreshBooks vs Wave: Small Business Accounting & Invoicing Comparison',
+    title: 'FreshBooks vs Wave: 2026 Small Business Comparison',
     toolAName: 'FreshBooks',
     toolBName: 'Wave Accounting',
     description:
@@ -138,6 +138,12 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
         toolB: 'Manual reminder capabilities or limited automation',
         notes: 'Automated chasing helps accelerate client payment turnaround.',
       },
+      {
+        feature: 'Primary Workflow Focus',
+        toolA: 'Service time billing, client projects, milestone invoices',
+        toolB: 'General bookkeeping, bank reconciliation, payment processing',
+        notes: 'Wave is better for general ledger on a budget; FreshBooks is better for billable hours.',
+      },
     ],
     evaluationQuestions: [
       'Is your current administrative budget zero, or can you invest in paid automation?',
@@ -166,7 +172,7 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
   },
   'freshbooks-vs-zoho-books': {
     slug: 'freshbooks-vs-zoho-books',
-    title: 'FreshBooks vs Zoho Books: Small Business Accounting Comparison',
+    title: 'FreshBooks vs Zoho Books: 2026 Comparison',
     toolAName: 'FreshBooks',
     toolBName: 'Zoho Books',
     description:
@@ -225,7 +231,7 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
   },
   'freshbooks-vs-xero': {
     slug: 'freshbooks-vs-xero',
-    title: 'FreshBooks vs Xero: Small Business Accounting Comparison',
+    title: 'FreshBooks vs Xero: 2026 Small Business Comparison',
     toolAName: 'FreshBooks',
     toolBName: 'Xero',
     description:

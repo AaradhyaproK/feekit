@@ -26,9 +26,9 @@ import { ProfitMarginCalculator } from '@/components/calculators/ProfitMarginCal
 import { FaqSchema } from '@/components/seo/FaqSchema';
 
 export const metadata: Metadata = {
-  title: 'Tools & Resources for Small Businesses — UseFeeKit',
+  title: 'Small Business Tools & Calculators | FeeKit',
   description:
-    'Free financial calculators, invoicing templates, tax estimation models, and practical guides built for freelancers, consultants, agencies, service businesses, and online merchants.',
+    'Free financial calculators, invoicing tools, and tax estimation models built for small businesses, freelancers, agencies, and online merchants.',
   keywords: [
     'small business financial tools',
     'freelance invoice generator',

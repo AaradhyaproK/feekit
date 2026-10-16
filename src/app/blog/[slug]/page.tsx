@@ -34,6 +34,61 @@ export async function generateStaticParams() {
   }));
 }
 
+function formatBlogSeoTitle(rawTitle: string): string {
+  let clean = rawTitle.replace(/\s*—\s*FeeKit/g, '').trim();
+  clean = clean.replace(/\s*\([^)]*(reality|brutal|truth|complete)[^)]*\)/gi, '').trim();
+  clean = clean.replace(/Freelance Self-Employment Tax Guide \(2026\)/gi, 'Freelance Tax Guide');
+  clean = clean.replace(/The B2B Payment Cost Guide \(2026\)/gi, 'B2B Payment Fees');
+  clean = clean.replace(/2026 Seller Cost Breakdown & Profit Margin Comparison/gi, '2026 Seller Fees & Margins');
+  clean = clean.replace(/How to Calculate Your True Billable Rate in 2026/gi, 'Billable Rate Formula 2026');
+  clean = clean.replace(/Complete Creator Comparison 2026/gi, '2026 Creator Fees');
+  clean = clean.replace(/Creator Fees & Merchant of Record Guide/gi, 'Creator Fees & MoR Guide');
+  clean = clean.replace(/The Complete Mathematical Formula/gi, 'Formula & Benchmarks');
+  clean = clean.replace(/Step-by-Step Guide & Checklist/gi, 'Step-by-Step Guide');
+  clean = clean.replace(/The Complete Tax Deduction Guide/gi, 'Complete Tax Guide');
+  clean = clean.replace(/How to Cut Credit Card Processing Fees \(2026\)/gi, 'Processing Fee Guide');
+  clean = clean.replace(/The 2026 Guide to Getting Paid on Time/gi, 'Late Payment Guide 2026');
+  clean = clean.replace(/The Exact Profit Threshold to Save on Taxes/gi, 'Profit Savings Threshold');
+  clean = clean.replace(/What Freelancers and Small Businesses Should Know/gi, 'Invoicing Guide');
+  clean = clean.replace(/How to Calculate Profit Margin for a Service Business: Formulas & Benchmarks/gi, 'Service Business Profit Margin: Formulas & Benchmarks');
+  clean = clean.replace(/Real Processing Fees & Hidden Costs \(2026\)/gi, '2026 Processing Fees');
+  clean = clean.replace(/2026 Profit Margin & True Cost Breakdown/gi, '2026 Cost & Profit Breakdown');
+  clean = clean.replace(/A Practical Beginner\'s Guide/gi, 'Beginner\'s Guide');
+  clean = clean.replace(/2026 In-Person POS & Online Merchant Fee Comparison/gi, 'POS & Online Fee Comparison');
+  clean = clean.replace(/9 Charges You Won\'t Find on the 2.9% \+ 30¢ Pricing Page/gi, '9 Hidden Costs Explained');
+  clean = clean.replace(/2026 Merchant Processing Fee Breakdown/gi, '2026 Fee Breakdown');
+  clean = clean.replace(/Platform Cuts, Client Surcharges & Take-Home Pay Compared/gi, '2026 Fees Compared');
+  clean = clean.replace(/Which Is Cheaper for Small Businesses in 2026\?/gi, 'Small Business Comparison');
+  clean = clean.replace(/2026 Hidden FX Fees, International Transfer & Payout Comparison/gi, 'FX & Transfer Fees');
+
+  let candidate = `${clean} | FeeKit`;
+  if (candidate.length <= 58) return candidate;
+
+  let candidateNoBrand = clean;
+  if (candidateNoBrand.length <= 58) return candidateNoBrand;
+
+  let truncated = candidate.slice(0, 46);
+  let lastSpace = truncated.lastIndexOf(' ');
+  return `${truncated.slice(0, lastSpace)}... | FeeKit`;
+}
+
+function formatBlogSeoDescription(rawDesc: string): string {
+  let clean = rawDesc.replace(/\s+/g, ' ').trim();
+  if (clean.length >= 135 && clean.length <= 158) {
+    return clean;
+  }
+  if (clean.length > 158) {
+    let truncated = clean.slice(0, 154);
+    let lastPeriod = truncated.lastIndexOf('.');
+    if (lastPeriod > 110) {
+      return truncated.slice(0, lastPeriod + 1);
+    }
+    let lastSpace = truncated.lastIndexOf(' ');
+    return `${truncated.slice(0, lastSpace)}.`;
+  }
+  return clean;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
 
@@ -44,9 +99,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ? post.featuredImage
       : `https://www.usefeekit.com${post.featuredImage}`;
 
+    const seoTitle = formatBlogSeoTitle(post.title);
+    const seoDescription = formatBlogSeoDescription(post.description);
+
     return {
-      title: `${post.title} — FeeKit`,
-      description: post.description,
+      title: seoTitle,
+      description: seoDescription,
       keywords: post.tags,
       category: post.category,
       authors: [{ name: post.author, url: 'https://www.usefeekit.com/about' }],
@@ -68,8 +126,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
       },
       openGraph: {
-        title: post.title,
-        description: post.description,
+        title: seoTitle,
+        description: seoDescription,
         url,
         siteName: 'FeeKit',
         locale: 'en_US',
@@ -91,8 +149,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
       twitter: {
         card: 'summary_large_image',
-        title: post.title,
-        description: post.description,
+        title: seoTitle,
+        description: seoDescription,
         images: [imageUrl],
         creator: '@usefeekit',
         site: '@usefeekit',

@@ -114,24 +114,24 @@ export const TARGET_SEO_METADATA: Record<string, SeoMetaEntry> = {
 
   // 10. Profit Margin & Markup Calculator
   'profit-margin-calculator/standard': {
-    title: 'Profit Margin Calculator: Gross Margin %, Net Profit & Markup',
+    title: 'Profit Margin Calculator: Gross & Net Margin %',
     description:
       'Free profit margin calculator. Calculate gross profit margin, net profit margin, and markup percentage from your revenue and cost of goods sold (COGS).',
   },
   'profit-margin-calculator': {
-    title: 'Profit Margin & Markup Calculator | Free Online Business Tool',
+    title: 'Profit Margin & Markup Calculator | Free Business Tool',
     description:
       'Calculate gross profit margin, net profit, and markup multipliers. Understand your pricing structure and maximize your business profitability.',
   },
 
   // 11. Break-Even Point Calculator
   'break-even-calculator/standard': {
-    title: 'Break-Even Point Calculator: Calculate Units & Sales Revenue',
+    title: 'Break-Even Point Calculator: Units & Sales Revenue',
     description:
       'Calculate your exact break-even point in units and sales volume. Enter fixed costs, unit price, and variable costs to determine profitability.',
   },
   'break-even-calculator': {
-    title: 'Break-Even Calculator | Units, Revenue & Contribution Margin',
+    title: 'Break-Even Calculator | Units & Contribution Margin',
     description:
       'Calculate break-even units and sales revenue needed to cover fixed overhead. Free, instant, and private business planning calculator.',
   },
@@ -232,7 +232,7 @@ export const TARGET_SEO_METADATA: Record<string, SeoMetaEntry> = {
       'Calculate British Columbia sales tax with 5% federal GST and 7% provincial PST. Instant net-to-gross and gross-to-net reverse calculations.',
   },
   'canada-sales-tax/quebec': {
-    title: 'Quebec Sales Tax Calculator: 14.975% GST (5%) + QST (9.975%)',
+    title: 'Quebec Sales Tax Calculator: 14.975% Combined Rate',
     description:
       'Calculate Quebec sales tax with 5% federal GST and 9.975% QST. Accurately invoice customers and ensure Revenu Québec compliance.',
   },
@@ -242,7 +242,7 @@ export const TARGET_SEO_METADATA: Record<string, SeoMetaEntry> = {
       'Calculate Alberta sales tax at the statutory 5% federal GST rate. Alberta has 0% provincial sales tax. Get instant invoice calculations.',
   },
   'canada-sales-tax': {
-    title: 'Canada Sales Tax Calculator: GST, HST & PST for 10 Provinces',
+    title: 'Canada Sales Tax Calculator: GST, HST & PST Rates',
     description:
       'Calculate sales tax across all 10 Canadian provinces and territories. Handles 13%–15% HST, 5% GST, and provincial PST/QST with CRA compliance.',
   },

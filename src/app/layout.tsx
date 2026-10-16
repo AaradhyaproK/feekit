@@ -30,9 +30,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.usefeekit.com'),
-  title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
+  title: 'FeeKit — Free Payment Fee, Sales Tax & VAT Calculators',
   description:
-    'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal & Square fee calculators, all 50 US state sales tax, UK HMRC VAT, 1099 freelance rates & free invoice generator. 100% free, no signup.',
+    'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
   applicationName: 'FeeKit',
   authors: [{ name: 'Aaradhya Pathak', url: 'https://www.usefeekit.com/about' }],
   creator: 'Aaradhya Pathak',
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
   },
   openGraph: {
-    title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
+    title: 'FeeKit — Free Payment Fee, Sales Tax & VAT Calculators',
     description:
-      'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal & Square fee calculators, all 50 US state sales tax, UK HMRC VAT, 1099 freelance rates & free invoice generator. 100% free, no signup.',
+      'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
     url: 'https://www.usefeekit.com',
     siteName: 'FeeKit',
     images: [
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FeeKit — Free Payment Fee, US Sales Tax & UK VAT Calculators',
+    title: 'FeeKit — Free Payment Fee, Sales Tax & VAT Calculators',
     description:
-      'FeeKit: 199+ free financial calculators for US merchants, UK businesses & freelancers. Stripe, PayPal, Square, 50-state sales tax, UK VAT, and 1099 freelance rates. 100% free, no signup.',
+      'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
     images: ['https://www.usefeekit.com/logo.png'],
   },
   icons: {

@@ -9,7 +9,7 @@ import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 export const metadata: Metadata = {
-  title: 'FeeKit Blog — Payment Fee & Tax Guides for US & UK Merchants',
+  title: 'FeeKit Blog — Payment Fee & Tax Guides for Merchants',
   description:
     'In-depth merchant fee breakdowns, 50-state US sales tax nexus rules, UK HMRC VAT compliance guides, and 1099 freelance tax strategies. Updated for 2026 fiscal regulations.',
   keywords: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'FeeKit Blog — Payment Fee & Tax Guides for US & UK Merchants',
+    title: 'FeeKit Blog — Payment Fee & Tax Guides for Merchants',
     description:
       'In-depth merchant fee breakdowns, 50-state US sales tax nexus rules, UK HMRC VAT compliance guides, and 1099 freelance tax strategies. Updated for 2026.',
     url: 'https://www.usefeekit.com/blog',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FeeKit Blog — Payment Fee & Tax Guides for US & UK Merchants',
+    title: 'FeeKit Blog — Payment Fee & Tax Guides for Merchants',
     description:
       'In-depth merchant fee breakdowns, 50-state US sales tax nexus rules, UK HMRC VAT compliance guides, and 1099 freelance tax strategies. Updated for 2026.',
     creator: '@usefeekit',

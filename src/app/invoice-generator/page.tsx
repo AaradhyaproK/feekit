@@ -21,14 +21,14 @@ import { FaqAccordion } from '@/components/ui/FaqAccordion';
 import { FaqSchema } from '@/components/seo/FaqSchema';
 
 export const metadata: Metadata = {
-  title: 'Free Invoice Generator — Create & Download PDF Invoices Online | FeeKit',
+  title: 'Free Invoice Generator — Create & Download PDF Invoices',
   description:
-    '100% free online invoice generator. Create, customize, and download professional PDF invoices in seconds. Zero watermarks, zero registration required, and 100% client-side private.',
+    '100% free online invoice generator. Create, customize, and download professional PDF invoices in seconds. No watermarks, no signup, 100% private.',
   alternates: {
     canonical: 'https://www.usefeekit.com/invoice-generator',
   },
   openGraph: {
-    title: 'Free Invoice Generator — Professional PDF Invoices Online',
+    title: 'Free Invoice Generator — Create & Download PDF Invoices',
     description:
       'Generate and download professional PDF invoices instantly. Free for freelancers, consultants, contractors, and agencies. 100% private.',
     url: 'https://www.usefeekit.com/invoice-generator',
@@ -38,8 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Invoice Generator — Download Clean PDF Invoices',
-    description: 'Instant, free professional invoice creator with zero watermarks or signup.',
+    title: 'Free Invoice Generator — Create & Download PDF Invoices',
+    description:
+      'Generate and download professional PDF invoices instantly. Free for freelancers, consultants, contractors, and agencies with zero watermarks.',
   },
 };
 

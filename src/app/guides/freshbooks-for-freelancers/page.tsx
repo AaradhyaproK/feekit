@@ -25,9 +25,9 @@ import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { FaqSchema } from '@/components/seo/FaqSchema';
 
 export const metadata: Metadata = {
-  title: 'FreshBooks for Freelancers: Invoicing, Accounting & Guide | FeeKit',
+  title: 'FreshBooks for Freelancers: Complete 2026 Guide | FeeKit',
   description:
-    'An independent, factual guide to FreshBooks for freelancers, consultants, and service businesses. Review core features, billing workflows, alternatives, and key evaluation questions.',
+    'An independent guide to FreshBooks for freelancers and consultants. Review core invoicing, time billing workflows, pricing tiers, and top alternatives.',
   keywords: [
     'FreshBooks for freelancers',
     'freelance invoicing software',

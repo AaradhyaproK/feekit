@@ -72,6 +72,49 @@ export async function generateStaticParams() {
   }));
 }
 
+function formatProgrammaticTitle(rawTitle: string): string {
+  let clean = rawTitle.replace(/\s*\([^)]*\)/g, '').trim();
+  clean = clean.replace(/\s+2026$/g, '').trim();
+  clean = clean.replace(/Freelance Rate Calculator/g, 'Freelance Rate');
+  clean = clean.replace(/Profit Margin Calculator/g, 'Profit Margin');
+  clean = clean.replace(/Profit & Fee Calculator/g, 'Fee Calculator');
+  clean = clean.replace(/Profit & Commission Calculator/g, 'Profit Calculator');
+  clean = clean.replace(/Profit & Listing Fee Calculator/g, 'Profit Calculator');
+
+  let candidate = `${clean} (2026) | FeeKit`;
+  if (candidate.length <= 58) return candidate;
+
+  candidate = `${clean} | FeeKit`;
+  if (candidate.length <= 58) return candidate;
+
+  const truncated = candidate.slice(0, 48);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return `${truncated.slice(0, lastSpace)}... | FeeKit`;
+}
+
+function formatProgrammaticDescription(subtitle?: string): string {
+  const raw = (subtitle || '').trim();
+  if (raw.length >= 135 && raw.length <= 158) {
+    return raw;
+  }
+  if (raw.length > 158) {
+    const truncated = raw.slice(0, 154);
+    const lastPeriod = truncated.lastIndexOf('.');
+    if (lastPeriod > 110) {
+      return truncated.slice(0, lastPeriod + 1);
+    }
+    const lastSpace = truncated.lastIndexOf(' ');
+    return `${truncated.slice(0, lastSpace)}.`;
+  }
+  const expanded = `${raw} Calculate net payouts, statutory 2026 rates, and reverse invoice amounts on FeeKit.`;
+  if (expanded.length <= 158) {
+    return expanded;
+  }
+  const truncated = expanded.slice(0, 154);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return `${truncated.slice(0, lastSpace)}.`;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
   const item = findMatrixItem(category, slug);
@@ -84,8 +127,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const isUK = item.geoRegion === 'UK';
   const customSeo = getCustomSeoMetadata(category, slug);
-  const title = customSeo ? customSeo.title : `${item.title} — FeeKit`;
-  const description = customSeo ? customSeo.description : item.subtitle;
+  const title = customSeo ? customSeo.title : formatProgrammaticTitle(item.title);
+  const description = customSeo ? customSeo.description : formatProgrammaticDescription(item.subtitle);
 
   return {
     title,

@@ -246,13 +246,6 @@ export default function FeeKitHome() {
         />
       </div>
 
-      {/* Semantic SEO Text & Heading Structure */}
-      <div className="sr-only">
-        <h1>FeeKit — Financial Calculators & Business Tools for Freelancers, Small Businesses & Merchants</h1>
-        <p>
-          Practical financial calculation tools and educational resources built for freelancers, consultants, digital agencies, service businesses, and online merchants. Instant payment processing fees for Stripe, PayPal, Square, 50-state sales tax, HMRC VAT compliance, 1099 contractor rate models, and profit margin analysis. 100% free, private, and client-side.
-        </p>
-      </div>
 
       {/* Main Responsive Canvas for Inner Content */}
       <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 space-y-6 sm:space-y-10">
@@ -293,6 +286,15 @@ export default function FeeKitHome() {
 
         {/* Search Bar & Quick Suite Navigation Chips */}
         <div className="space-y-3">
+          <div className="space-y-1">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-slate-900">
+              Payment Processing Fee, US Sales Tax & VAT Calculators
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Instant calculation tools for Stripe, PayPal, Square, 50 US state sales tax, and UK HMRC VAT.
+            </p>
+          </div>
+
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="w-full max-w-xl">
               <FastSearchBar placeholder="Search 199+ tools (e.g., California, Stripe, VAT, 1099, Amazon FBA)..." />

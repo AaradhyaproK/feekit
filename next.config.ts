@@ -26,6 +26,22 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // SEO Cannibalization & Overlapping Page Consolidation Redirects
+      {
+        source: '/tools/stripe-fee-calculator/united-kingdom',
+        destination: '/tools/stripe-fee-calculator/uk',
+        permanent: true,
+      },
+      {
+        source: '/tools/stripe-fee-calculator/manual-entry',
+        destination: '/tools/stripe-fee-calculator/keyed-entry',
+        permanent: true,
+      },
+      {
+        source: '/tools/vat-calculator/uk',
+        destination: '/tools/vat-calculator/united-kingdom',
+        permanent: true,
+      },
       {
         source: '/tools/1099-tax-calculator',
         destination: '/tools/freelance-rate-calculator/1099-tax-estimator',

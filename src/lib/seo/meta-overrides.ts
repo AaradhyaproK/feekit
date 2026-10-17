@@ -36,15 +36,15 @@ export const TARGET_SEO_METADATA: Record<string, SeoMetaEntry> = {
     description:
       'Calculate standard US Stripe merchant fees (2.9% + $0.30). Discover your exact net payout or reverse-calculate invoices to keep 100% of your earnings.',
   },
-  'stripe-fee-calculator/manual-entry': {
-    title: 'Stripe Manual Keyed-In Fee Calculator | 3.4% + $0.30 Rates',
-    description:
-      'Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + $0.30). Reverse-calculate phone orders and keyed cards with exact precision.',
-  },
   'stripe-fee-calculator/keyed-entry': {
     title: 'Stripe Keyed-In Card Fee Calculator | 3.4% + $0.30 Rates',
     description:
       'Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + $0.30). Reverse-calculate phone orders and keyed cards with exact precision.',
+  },
+  'stripe-fee-calculator/uk': {
+    title: 'Stripe UK Fee Calculator | 1.5% + 20p Card Rates',
+    description:
+      'Calculate Stripe UK merchant transaction fees (1.5% + 20p). Find exact net payouts and reverse markup formulas for UK and international business payments.',
   },
 
   // 5. UK VAT Calculator

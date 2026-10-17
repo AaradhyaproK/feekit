@@ -55,10 +55,20 @@ function findMatrixItem(category: string, slug: string) {
     }
   }
 
-  // Fallback aliases for Stripe manual entry
+  // Fallback aliases for Stripe manual keyed-in entry & UK
   if (category === 'stripe-fee-calculator') {
     if (slug === 'keyed-entry' || slug === 'manual-entry' || slug === 'manual' || slug === 'virtual-terminal') {
-      return items.find((x) => x.category === category && (x.slug === 'manual-entry' || x.slug === 'keyed-entry'));
+      return items.find((x) => x.category === category && x.slug === 'keyed-entry');
+    }
+    if (slug === 'united-kingdom' || slug === 'gb') {
+      return items.find((x) => x.category === category && x.slug === 'uk');
+    }
+  }
+
+  // Fallback aliases for UK VAT
+  if (category === 'vat-calculator') {
+    if (slug === 'uk' || slug === 'gb') {
+      return items.find((x) => x.category === category && x.slug === 'united-kingdom');
     }
   }
 

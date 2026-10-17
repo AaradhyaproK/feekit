@@ -67,7 +67,7 @@ export function ContextualSidebar() {
           <span>100% Client-Side Private</span>
         </div>
         <p className="mt-1 text-[11px] text-emerald-700 leading-normal">
-          Calculations are processed entirely in your browser. Zero tracking of invoice amounts or tax records.
+          Calculations are processed entirely in your browser. Your private calculation values and invoice totals are never stored on our servers.
         </p>
       </div>
     </aside>

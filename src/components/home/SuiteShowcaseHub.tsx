@@ -49,7 +49,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
         'Calculated from published 2026 state guidance across all 50 US States and DC, including county, municipal, and special taxing district surtax caps and post-Wayfair nexus thresholds.',
       highlights: [
         'Destination-based street-level tax calculations',
-        '$100k / 200 tx economic nexus monitoring',
+        '$100k standard / $500k high-volume state nexus rules',
         'Bidirectional: Add tax or reverse-extract from total',
       ],
       popularLink: '/tools/sales-tax-calculator/california',

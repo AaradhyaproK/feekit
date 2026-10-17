@@ -254,7 +254,7 @@ export default function AboutPage() {
                   <span>100% Client-Side Privacy</span>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Every calculation runs directly in the user browser via pure TypeScript. Zero databases, zero tracking cookies, zero risk of data exposure.
+                  Every calculation runs directly in the user browser via pure TypeScript. Your private calculation values are never stored on our servers.
                 </p>
               </div>
 

@@ -50,7 +50,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 High-precision financial calculators for US & UK operators
               </h2>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Zero server tracking, 100% client-side precision formulas for state sales taxes, HMRC VAT compliance, merchant gateway interchange fees, and 1099 freelance rates.
+                Client-side precision calculation formulas for state sales taxes, HMRC VAT compliance, merchant gateway interchange fees, and 1099 freelance rates.
               </p>
             </div>
 
@@ -229,7 +229,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     href="/tools/square-fee-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    Square POS & Online Checkout (2.6% + 10¢)
+                    Square POS (2.6% + 10¢) & Online (2.9% + 30¢)
                   </Link>
                 </li>
                 <li>
@@ -455,9 +455,9 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 <ShieldCheck className="h-4 w-4" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900">Zero Server Tracking</div>
+                <div className="text-xs font-bold text-slate-900">Client-Side Calculation Privacy</div>
                 <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                  No accounts, passwords, or credit card requirements. Instant access to all 199+ precision financial utilities with complete anonymity.
+                  Calculations execute 100% inside your browser. Your calculation numbers, invoice values, and revenue inputs are never logged or stored on our servers.
                 </p>
               </div>
             </div>

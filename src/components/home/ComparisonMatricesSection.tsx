@@ -44,7 +44,8 @@ export function ComparisonMatricesSection() {
       wiseFee: '$0.05',
       wiseNet: '$9.95',
       wiseRate: '0.45%',
-      lowest: 'Wise',
+      lowestCard: 'Stripe / Square',
+      lowestBank: 'Wise',
     },
     {
       amount: '$50.00',
@@ -60,7 +61,8 @@ export function ComparisonMatricesSection() {
       wiseFee: '$0.23',
       wiseNet: '$49.77',
       wiseRate: '0.45%',
-      lowest: 'Wise',
+      lowestCard: 'Stripe / Square',
+      lowestBank: 'Wise',
     },
     {
       amount: '$100.00',
@@ -76,7 +78,8 @@ export function ComparisonMatricesSection() {
       wiseFee: '$0.45',
       wiseNet: '$99.55',
       wiseRate: '0.45%',
-      lowest: 'Wise',
+      lowestCard: 'Stripe / Square',
+      lowestBank: 'Wise',
     },
     {
       amount: '$500.00',
@@ -92,7 +95,8 @@ export function ComparisonMatricesSection() {
       wiseFee: '$2.25',
       wiseNet: '$497.75',
       wiseRate: '0.45%',
-      lowest: 'Wise',
+      lowestCard: 'Stripe / Square',
+      lowestBank: 'Wise',
     },
     {
       amount: '$1,000.00',
@@ -108,7 +112,8 @@ export function ComparisonMatricesSection() {
       wiseFee: '$4.50',
       wiseNet: '$995.50',
       wiseRate: '0.45%',
-      lowest: 'Wise',
+      lowestCard: 'Stripe / Square',
+      lowestBank: 'Wise',
     },
     {
       amount: '$5,000.00',
@@ -124,7 +129,8 @@ export function ComparisonMatricesSection() {
       wiseFee: '$22.50',
       wiseNet: '$4,977.50',
       wiseRate: '0.45%',
-      lowest: 'Wise',
+      lowestCard: 'Stripe / Square',
+      lowestBank: 'Wise',
     },
   ];
 
@@ -200,7 +206,7 @@ export function ComparisonMatricesSection() {
         <div className="space-y-3.5 animate-in fade-in duration-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <p className="text-slate-600">
-              Comparing standard domestic card deductions: <strong>Stripe (2.9% + $0.30 online, 3.4% + $0.30 manually keyed-in)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout/Invoicing, 2.99% + $0.49 Standard G&amp;S)</strong> vs <strong>Square Online (2.9% + $0.30)</strong> vs <strong>Wise Business (0.45%)</strong>.
+              Comparing merchant card processors vs. electronic bank rails: <strong>Stripe &amp; Square Online (2.9% + $0.30)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout)</strong> vs <strong>Wise Business (~0.45% B2B bank debit)</strong>.
             </p>
             <span className="shrink-0 font-mono font-bold text-[11px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
               2026 Statutory Rates
@@ -212,13 +218,13 @@ export function ComparisonMatricesSection() {
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50/80">
                   <th className="py-3 px-3.5 font-bold text-slate-900">Gross Sale</th>
-                  <th className="py-3 px-3.5 font-bold text-blue-700">Stripe Deducts</th>
-                  <th className="py-3 px-3.5 font-bold text-slate-800">Stripe Payout</th>
-                  <th className="py-3 px-3.5 font-bold text-indigo-700">PayPal Deducts</th>
+                  <th className="py-3 px-3.5 font-bold text-blue-700">Stripe / Square Online (2.9% + 30¢)</th>
+                  <th className="py-3 px-3.5 font-bold text-slate-800">Card Payout</th>
+                  <th className="py-3 px-3.5 font-bold text-indigo-700">PayPal Checkout (3.49% + 49¢)</th>
                   <th className="py-3 px-3.5 font-bold text-slate-800">PayPal Payout</th>
-                  <th className="py-3 px-3.5 font-bold text-emerald-700">Wise Deducts</th>
+                  <th className="py-3 px-3.5 font-bold text-emerald-700">Wise Bank Rail (~0.45%)</th>
                   <th className="py-3 px-3.5 font-bold text-slate-800">Wise Payout</th>
-                  <th className="py-3 px-3.5 font-bold text-slate-900">Lowest Fee</th>
+                  <th className="py-3 px-3.5 font-bold text-slate-900">Lowest by Rail</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 text-slate-700 font-mono">
@@ -231,10 +237,15 @@ export function ComparisonMatricesSection() {
                     <td className="py-2.5 px-3.5 text-slate-900 font-semibold">{row.paypalNet}</td>
                     <td className="py-2.5 px-3.5 text-emerald-700 font-bold">{row.wiseFee} <span className="text-[10px] text-slate-400 font-sans">({row.wiseRate})</span></td>
                     <td className="py-2.5 px-3.5 text-emerald-800 font-bold">{row.wiseNet}</td>
-                    <td className="py-2.5 px-3.5 font-sans font-bold text-emerald-600">
-                      <span className="inline-flex items-center gap-1 rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] border border-emerald-200">
-                        {row.lowest}
-                      </span>
+                    <td className="py-2.5 px-3.5 font-sans font-bold">
+                      <div className="flex flex-col gap-1 items-start">
+                        <span className="inline-flex items-center gap-1 rounded bg-blue-50 px-1.5 py-0.5 text-[10px] text-blue-700 border border-blue-200">
+                          Card: {row.lowestCard}
+                        </span>
+                        <span className="inline-flex items-center gap-1 rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] text-emerald-700 border border-emerald-200">
+                          Bank: {row.lowestBank}
+                        </span>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -242,17 +253,33 @@ export function ComparisonMatricesSection() {
             </table>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 text-xs">
+          <div className="text-[11px] text-slate-500 bg-slate-50 rounded-lg p-2.5 border border-slate-200/80 leading-relaxed">
+            <strong>* Like-for-Like Comparison Note:</strong> Stripe, Square, and PayPal are commercial credit card merchant processors subject to wholesale Visa/Mastercard interchange fees (1.5%–2.8%) and risk reserves. Wise Business operates via direct electronic bank debit / ACH / wire rails with mid-market FX rates (~0.45%), which is built for contractor invoices and foreign bank transfers rather than retail shopping cart checkout. For in-person card payments, Square POS tap/dip/swipe is <strong>2.6% + 10¢</strong>.
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1 text-xs">
             <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
               <div className="font-bold text-slate-900">The 30¢ / 49¢ Fixed Surcharge Impact</div>
               <p className="text-slate-600 leading-relaxed">
-                On small purchases ($10.00), the fixed fee pushes Stripe effective deduction to <strong>5.90%</strong> and PayPal to <strong>8.39%</strong>.
+                On small purchases ($10.00), the fixed fee pushes Stripe and Square Online effective deduction to <strong>5.90%</strong> and PayPal to <strong>8.39%</strong>.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
+              <div className="font-bold text-slate-900">Square POS (2.6% + 10¢) vs Online (2.9% + 30¢)</div>
+              <p className="text-slate-600 leading-relaxed">
+                Square charges <strong>2.9% + $0.30</strong> for digital checkout (matching Stripe). In-person card-present tap, dip, or swipe on Square POS hardware drops to <strong>2.6% + $0.10</strong> (or 3.5% + $0.15 for keyed Virtual Terminal).
               </p>
             </div>
             <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
               <div className="font-bold text-slate-900">Stripe Manually Keyed-In (3.4% + $0.30)</div>
               <p className="text-slate-600 leading-relaxed">
                 Manually entered card payments (Virtual Terminal / phone orders) incur Stripe&apos;s confirmed 2026 rate of <strong>3.4% + $0.30</strong> vs. 2.9% + $0.30 online.
+              </p>
+            </div>
+            <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
+              <div className="font-bold text-slate-900">Card Interchange vs. Direct Bank Rail (Wise)</div>
+              <p className="text-slate-600 leading-relaxed">
+                Wise Business (0.45%) is an electronic bank transfer/ACH rail, not a consumer credit card processor. Stripe, Square, and PayPal process credit cards with card brand interchange (1.5%–2.8%) and dispute protection.
               </p>
             </div>
             <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
@@ -277,9 +304,14 @@ export function ComparisonMatricesSection() {
       {/* Tab 2: US Sales Tax Table */}
       {activeTab === 'tax' && (
         <div className="space-y-3.5 animate-in fade-in duration-200">
-          <p className="text-xs text-slate-600">
-            State statutory base rates and maximum combined district surtaxes across high-volume commercial jurisdictions under <em>South Dakota v. Wayfair</em>.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+            <p className="text-slate-600">
+              State statutory base rates and maximum combined district surtaxes across high-volume commercial jurisdictions under <em>South Dakota v. Wayfair</em>. Economic nexus thresholds range from $100,000 for standard states to $500,000 in high-volume states (CA, TX, NY). Several states also monitor or have phased out the 200 transaction count criterion.
+            </p>
+            <span className="shrink-0 font-mono font-bold text-[11px] text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100">
+              Post-Wayfair Rules
+            </span>
+          </div>
 
           <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-2xs">
             <table className="w-full text-left text-xs border-collapse">

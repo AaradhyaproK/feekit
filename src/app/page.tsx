@@ -112,7 +112,7 @@ const HOME_FAQS = [
   {
     question: 'How accurate and up-to-date are the 2026 sales tax and VAT rates?',
     answer:
-      'FeeKit tax matrices are continuously updated to reflect 2026 statutory changes. This includes statutory statewide base sales tax and local municipal surtax caps across all 50 US states, economic nexus thresholds post-Wayfair ($100k / $500k thresholds), and the UK HMRC £90,000 VAT registration threshold and Making Tax Digital (MTD) digital filing standards.',
+      'FeeKit tax matrices are continuously updated to reflect 2026 statutory changes. This includes statutory statewide base sales tax and local municipal surtax caps across all 50 US states, economic nexus thresholds post-Wayfair ($100k standard / $500k high-volume state thresholds), and the UK HMRC £90,000 VAT registration threshold and Making Tax Digital (MTD) digital filing standards.',
   },
   {
     question: 'Which payment processors and merchant gateways are supported?',
@@ -488,7 +488,7 @@ export default function FeeKitHome() {
             <div className="min-w-0">
               <div className="text-xs font-bold text-slate-900 truncate">100% Client-Side</div>
               <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">
-                Zero data leaves browser
+                Calculations run 100% locally
               </div>
             </div>
           </div>

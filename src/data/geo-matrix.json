@@ -4176,10 +4176,10 @@
     },
     {
       "category": "stripe-fee-calculator",
-      "slug": "manual-entry",
-      "title": "Stripe Manual Keyed-In Fee Calculator (3.4% + zsh.30)",
-      "shortTitle": "Stripe Manual Keyed-In Fee",
-      "subtitle": "Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + zsh.30) in the US.",
+      "slug": "keyed-entry",
+      "title": "Stripe Keyed-In Card Fee Calculator (3.4% + $0.30)",
+      "shortTitle": "Stripe Keyed-In Fee",
+      "subtitle": "Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + $0.30) in the US.",
       "suiteType": "merchant",
       "geoRegion": "US",
       "gatewayId": "stripe",
@@ -4190,7 +4190,7 @@
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times 3.4\\%) + $0.30 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.30}{1 - 0.034}",
-      "formulaExplanation": "Stripe charges 3.4% + zsh.30 per transaction for manually entered card details (Virtual Terminal or keyed-in phone orders), compared to 2.9% + zsh.30 for standard online checkout.",
+      "formulaExplanation": "Stripe charges 3.4% + $0.30 per transaction for manually entered card details (Virtual Terminal or keyed-in phone orders), compared to 2.9% + $0.30 for standard online checkout.",
       "sampleTiers": [
         {
           "amount": 50,
@@ -4216,7 +4216,7 @@
       "faqs": [
         {
           "question": "What is the Stripe fee for manually entered cards in 2026?",
-          "answer": "In the United States, Stripe charges 3.4% plus zsh.30 per transaction for manually entered card payments (using the Stripe Dashboard Virtual Terminal or custom API card-not-present keyed entry)."
+          "answer": "In the United States, Stripe charges 3.4% plus $0.30 per transaction for manually entered card payments (using the Stripe Dashboard Virtual Terminal or custom API card-not-present keyed entry)."
         },
         {
           "question": "Why is the keyed-in rate higher than the online rate on Stripe?",
@@ -4224,53 +4224,7 @@
         },
         {
           "question": "How do I calculate reverse invoice markup for Stripe manually keyed-in payments?",
-          "answer": "Use the reverse formula: Gross = (Desired Net + zsh.30) / (1 - 0.034). To receive exactly ,000.00 net, invoice ,035.51."
-        }
-      ]
-    },
-    {
-      "category": "stripe-fee-calculator",
-      "slug": "keyed-entry",
-      "title": "Stripe Keyed-In Card Fee Calculator (3.4% + zsh.30)",
-      "shortTitle": "Stripe Keyed-In Fee",
-      "subtitle": "Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + zsh.30) in the US.",
-      "suiteType": "merchant",
-      "geoRegion": "US",
-      "gatewayId": "stripe",
-      "defaultAmount": 500,
-      "currencySymbol": "$",
-      "percentageRate": 0.034,
-      "fixedFee": 0.3,
-      "isInternational": false,
-      "applyCurrencyConversion": false,
-      "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times 3.4\\%) + $0.30 \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + 0.30}{1 - 0.034}",
-      "formulaExplanation": "Stripe charges 3.4% + zsh.30 per transaction for manually entered card details (Virtual Terminal or keyed-in phone orders), compared to 2.9% + zsh.30 for standard online checkout.",
-      "sampleTiers": [
-        {
-          "amount": 50,
-          "fee": 2,
-          "net": 48
-        },
-        {
-          "amount": 250,
-          "fee": 8.8,
-          "net": 241.2
-        },
-        {
-          "amount": 1000,
-          "fee": 34.3,
-          "net": 965.7
-        },
-        {
-          "amount": 5000,
-          "fee": 170.3,
-          "net": 4829.7
-        }
-      ],
-      "faqs": [
-        {
-          "question": "What is the Stripe fee for manually entered cards in 2026?",
-          "answer": "In the United States, Stripe charges 3.4% plus zsh.30 per transaction for manually entered card payments (using the Stripe Dashboard Virtual Terminal or custom API card-not-present keyed entry)."
+          "answer": "Use the reverse formula: Gross = (Desired Net + $0.30) / (1 - 0.034). To receive exactly $1,000.00 net, invoice $1,035.51."
         }
       ]
     },
@@ -6068,66 +6022,6 @@
         }
       ],
       "geoRegion": "US"
-    },
-    {
-      "category": "stripe-fee-calculator",
-      "slug": "united-kingdom",
-      "title": "Stripe UK Fee Calculator (1.5% + £0.20)",
-      "shortTitle": "Stripe UK Fee Calculator",
-      "subtitle": "UK domestic standard card processing fee calculator with payout breakdowns.",
-      "suiteType": "merchant",
-      "gatewayId": "stripe",
-      "defaultAmount": 500,
-      "currencySymbol": "£",
-      "isInternational": false,
-      "applyCurrencyConversion": false,
-      "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
-      "formulaExplanation": "To calculate forward deductions: multiply gross volume by the gateway rate (e.g. 2.9%) and add the fixed fee ($0.30). To ensure you receive an exact net amount in your bank, use the reverse formula to invoice your customer accordingly.",
-      "sampleTiers": [
-        {
-          "amount": 50,
-          "fee": 1.75,
-          "net": 48.25
-        },
-        {
-          "amount": 250,
-          "fee": 7.55,
-          "net": 242.45
-        },
-        {
-          "amount": 1000,
-          "fee": 29.3,
-          "net": 970.7
-        },
-        {
-          "amount": 5000,
-          "fee": 145.3,
-          "net": 4854.7
-        }
-      ],
-      "faqs": [
-        {
-          "question": "How do I charge a client so I receive the full invoice amount?",
-          "answer": "Use FeeKit's reverse calculation mode. For a $1,000 target payout at 2.9% + $0.30, charge $1,030.18. Stripe takes $30.18, leaving you with exactly $1,000.00."
-        },
-        {
-          "question": "How much do international cards cost extra?",
-          "answer": "Most gateways add a +1.5% surcharge for cards issued outside your domestic country, plus an additional 1.0% to 3.0% if currency conversion is involved."
-        },
-        {
-          "question": "How does Wise compare to traditional merchant gateways?",
-          "answer": "Wise charges true mid-market exchange rates with a nominal ~0.45% transfer fee, saving merchants between 2% and 3% on foreign invoice settlements."
-        },
-        {
-          "question": "Which payment processor is cheaper: Stripe, PayPal, or Square?",
-          "answer": "For standard online domestic transactions, Stripe and Square tie at 2.9% + $0.30, while PayPal Commerce is noticeably more expensive at 3.49% + $0.49. For in-person point-of-sale card processing, Square (2.6% + $0.10) is the most cost-effective."
-        },
-        {
-          "question": "What is the cheapest payment processor for micropayments under $10?",
-          "answer": "For low-ticket transactions, PayPal offers a dedicated micropayments rate (5.0% + $0.05). On a $5 transaction, PayPal micropayments fee is $0.30, compared to $0.45 with Stripe’s standard $0.30 fixed fee."
-        }
-      ],
-      "geoRegion": "UK"
     },
     {
       "category": "stripe-fee-calculator",
@@ -10824,15 +10718,15 @@
       "faqs": [
         {
           "question": "What is the standard processing fee for Square in 2026?",
-          "answer": "Square standard pricing is 2.6% + zsh.10 per in-person contactless tap, chip card, or swipe via Square Reader or POS terminal. Standard online orders and digital storefront checkouts are 2.9% + $.30."
+          "answer": "Square standard pricing is 2.6% + $0.10 per in-person contactless tap, chip card, or swipe via Square Reader or POS terminal. Standard online orders and digital storefront checkouts are 2.9% + $.30."
         },
         {
           "question": "How do I calculate what to invoice so Square fees do not reduce my earnings?",
-          "answer": "Use FeeKit reverse calculation mode. For a  target payout at 2.6% + zsh.10, charge .45. Square deducts .45, leaving you with exactly .00."
+          "answer": "Use FeeKit reverse calculation mode. For a $100.00 target payout at 2.6% + $0.10, charge $102.77. Square deducts $2.77, leaving you with exactly $100.00."
         },
         {
           "question": "Are there any monthly subscription fees with Square Standard?",
-          "answer": "No. The standard Square plan has $ monthly software fees and $ setup fees; you pay strictly per transaction."
+          "answer": "No. The standard Square plan has $0 monthly software fees and $0 setup fees; you pay strictly per transaction."
         },
         {
           "question": "Which payment processor is cheaper: Stripe, PayPal, or Square?",

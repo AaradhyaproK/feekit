@@ -20,6 +20,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     clearUrlHash();
   }, []);
 
+  // For iframe embeds, render distraction-free widget canvas without sidebar/header/footer
+  if (pathname?.startsWith('/embed')) {
+    return <main className="min-h-screen bg-transparent">{children}</main>;
+  }
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col font-sans">
       <React.Suspense fallback={null}>

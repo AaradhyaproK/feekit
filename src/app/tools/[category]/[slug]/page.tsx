@@ -29,6 +29,7 @@ import { ArrowLeft, ShieldCheck, Info, Clock, Calendar, UserCheck } from 'lucide
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
+import { EmbedButton } from '@/components/embed/EmbedButton';
 
 interface PageProps {
   params: Promise<{
@@ -242,51 +243,66 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
       {/* Unified Master Container: Edge-to-Edge on Mobile, Contained on Desktop */}
       <article className="w-full rounded-none sm:rounded-3xl border-y sm:border border-slate-200 bg-white px-3.5 py-6 sm:p-10 lg:p-12 shadow-xs space-y-8 sm:space-y-10">
         {/* Header with Title, Description, and Authoritative Badges */}
-        <header className="space-y-5 border-b border-slate-200 pb-8">
-          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-emerald-800 border border-emerald-200 shadow-2xs">
-              <Clock className="h-3.5 w-3.5 text-emerald-600" />
-              <span>Last updated: October 2026</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-slate-700 border border-slate-200">
-              <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
-              <span>Documented Methodology</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-blue-700 border border-blue-200">
-              <span>{item.geoRegion || 'US'} Statutory Rules</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-slate-700 border border-slate-200 font-mono">
-              <span>Verified 2026</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-3 py-1 text-slate-600 border border-slate-200 capitalize">
-              <span>{category.replace(/-/g, ' ')}</span>
-            </span>
+        <header className="space-y-4 border-b border-slate-200 pb-7">
+          {/* Top Metadata & Action Bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            {/* Left: Category and Statutory Jurisdiction Chips */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 border border-blue-200/70 px-2.5 py-1 text-xs font-bold text-blue-700">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                <span className="capitalize">{category.replace(/-/g, ' ')}</span>
+              </span>
+
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100/80 border border-slate-200/80 px-2.5 py-1 text-xs font-medium text-slate-700">
+                <span>{item.geoRegion || 'US'} Statutory Rules</span>
+              </span>
+
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 border border-emerald-200/70 px-2.5 py-1 text-xs font-medium text-emerald-800">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>2026 Verified</span>
+              </span>
+            </div>
+
+            {/* Right: Actions (Embed Widget & Methodology Link) */}
+            <div className="flex items-center gap-2">
+              <Link
+                href="/methodology"
+                className="hidden sm:inline-flex items-center gap-1 rounded-lg border border-slate-200/80 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:text-blue-600 hover:border-slate-300 transition-colors shadow-2xs"
+                title="Review our documented mathematical and statutory calculation methodology"
+              >
+                <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
+                <span>Methodology</span>
+              </Link>
+              <EmbedButton category={category} slug={slug} title={item.title} />
+            </div>
           </div>
 
-          <div className="space-y-3">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900 leading-tight">
+          {/* Title & Subtitle */}
+          <div className="space-y-2 pt-1">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
               {item.title}
             </h1>
             <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
               {item.subtitle}
             </p>
+          </div>
 
-            {/* Authoritative E-E-A-T & Freshness Verification Bar */}
-            <div className="flex flex-wrap items-center gap-3 pt-3 text-xs text-slate-500 border-t border-slate-100">
-              <span className="inline-flex items-center gap-1.5 font-medium text-slate-700">
-                <Calendar className="h-3.5 w-3.5 text-slate-400" />
-                <span>Last updated: <strong className="text-slate-900 font-semibold">October 2026</strong></span>
-              </span>
-              <span>•</span>
-              <span className="inline-flex items-center gap-1.5 text-slate-600">
-                <UserCheck className="h-3.5 w-3.5 text-blue-600" />
-                <span>Reviewed by: <strong className="text-slate-900 font-semibold">Aaradhya Pathak, Co-Founder &amp; Full-Stack Developer</strong></span>
-              </span>
-              <span className="hidden md:inline">•</span>
-              <span className="hidden md:inline text-emerald-700 font-medium">
-                Verified for 2026 IRS &amp; HMRC Regulatory Guidelines
-              </span>
-            </div>
+          {/* Authoritative E-E-A-T & Freshness Verification Bar (Single Clean Strip) */}
+          <div className="flex flex-wrap items-center gap-2.5 pt-3 text-xs text-slate-500 border-t border-slate-100">
+            <span className="inline-flex items-center gap-1.5 font-medium text-slate-700">
+              <Clock className="h-3.5 w-3.5 text-slate-400" />
+              <span>Last updated: <strong className="text-slate-900 font-semibold">October 2026</strong></span>
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5 text-slate-600">
+              <UserCheck className="h-3.5 w-3.5 text-blue-600" />
+              <span>Reviewed by: <strong className="text-slate-900 font-semibold">Aaradhya Pathak</strong> (Co-Founder &amp; Lead Dev)</span>
+            </span>
+            <span className="hidden md:inline text-slate-300">•</span>
+            <span className="hidden md:inline-flex items-center gap-1 text-emerald-700 font-medium">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
+              <span>Verified for 2026 IRS &amp; HMRC Regulatory Guidelines</span>
+            </span>
           </div>
         </header>
 

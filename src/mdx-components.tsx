@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image, { ImageProps } from 'next/image';
 import { InArticleAd } from '@/components/ads/AdSlots';
 import { AdBanner } from '@/components/blog/AdBanner';
+import { InArticleCalculator } from '@/components/blog/InArticleCalculator';
 
 export function useMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -186,6 +187,7 @@ export function useMDXComponents(components?: MDXComponents): MDXComponents {
     ),
     AdBanner,
     InArticleAd,
+    InArticleCalculator,
     ...components,
   };
 }

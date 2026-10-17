@@ -61,6 +61,7 @@ function formatBlogSeoTitle(rawTitle: string): string {
   clean = clean.replace(/Which Is Cheaper for Small Businesses in 2026\?/gi, 'Small Business Comparison');
   clean = clean.replace(/2026 Hidden FX Fees, International Transfer & Payout Comparison/gi, 'FX & Transfer Fees');
   clean = clean.replace(/How to Pass Credit Card Processing Fees to Customers Legally \(2026 Rules & Calculator\)/gi, 'Pass Credit Card Fees Legally (2026 Guide)');
+  clean = clean.replace(/PayPal Goods and Services Fee 2026: Calculator, Rates & Protection Rules/gi, 'PayPal Goods & Services Fee (2026 Guide)');
 
   let candidate = `${clean} | FeeKit`;
   if (candidate.length <= 58) return candidate;

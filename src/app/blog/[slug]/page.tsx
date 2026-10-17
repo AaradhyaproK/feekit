@@ -60,6 +60,7 @@ function formatBlogSeoTitle(rawTitle: string): string {
   clean = clean.replace(/Platform Cuts, Client Surcharges & Take-Home Pay Compared/gi, '2026 Fees Compared');
   clean = clean.replace(/Which Is Cheaper for Small Businesses in 2026\?/gi, 'Small Business Comparison');
   clean = clean.replace(/2026 Hidden FX Fees, International Transfer & Payout Comparison/gi, 'FX & Transfer Fees');
+  clean = clean.replace(/How to Pass Credit Card Processing Fees to Customers Legally \(2026 Rules & Calculator\)/gi, 'Pass Credit Card Fees Legally (2026 Guide)');
 
   let candidate = `${clean} | FeeKit`;
   if (candidate.length <= 58) return candidate;

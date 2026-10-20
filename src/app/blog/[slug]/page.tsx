@@ -62,6 +62,8 @@ function formatBlogSeoTitle(rawTitle: string): string {
   clean = clean.replace(/2026 Hidden FX Fees, International Transfer & Payout Comparison/gi, 'FX & Transfer Fees');
   clean = clean.replace(/How to Pass Credit Card Processing Fees to Customers Legally \(2026 Rules & Calculator\)/gi, 'Pass Credit Card Fees Legally (2026 Guide)');
   clean = clean.replace(/PayPal Goods and Services Fee 2026: Calculator, Rates & Protection Rules/gi, 'PayPal Goods & Services Fee (2026 Guide)');
+  clean = clean.replace(/Authorize\.Net vs Stripe Fees 2026: Pricing, Hidden Costs & Break-Even Math/gi, 'Authorize.Net vs Stripe Fees (2026)');
+  clean = clean.replace(/Quarterly Estimated Taxes in 2026: Deadlines, Safe Harbor Rules & Calculator/gi, 'Quarterly Taxes 2026: Deadlines & Rules');
 
   let candidate = `${clean} | FeeKit`;
   if (candidate.length <= 58) return candidate;

@@ -1,5 +1,49 @@
 [
   {
+    "slug": "quarterly-estimated-tax-deadlines-calculator-2026",
+    "title": "Quarterly Estimated Taxes in 2026: Deadlines, Safe Harbor Rules & Calculator",
+    "description": "Master IRS 2026 quarterly estimated tax payments for 1099 freelancers and LLCs. Form 1040-ES due dates, the 100%/110% safe harbor penalty rules, SECA tax formulas, and payment methods.",
+    "publishedAt": "2026-10-20",
+    "updatedAt": "2026-10-20",
+    "author": "Aaradhya Pathak",
+    "readTime": "13 min read",
+    "category": "1099 & Freelance",
+    "featured": true,
+    "featuredImage": "/blog/images/quarterly-estimated-taxes-guide.webp",
+    "tags": [
+      "Quarterly Taxes",
+      "1099 Taxes",
+      "Estimated Taxes",
+      "IRS Deadlines",
+      "Safe Harbor Rule",
+      "Self Employment Tax",
+      "Freelance Finance",
+      "Small Business Tax"
+    ]
+  },
+  {
+    "slug": "authorize-net-vs-stripe-fees-2026",
+    "title": "Authorize.Net vs Stripe Fees 2026: Pricing, Hidden Costs & Break-Even Math",
+    "description": "Compare Authorize.Net vs Stripe 2026 merchant processing fees. Deep dive into monthly gateway fees ($25/mo), Interchange-Plus pairing, transaction cuts, and the exact $28k break-even formula.",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-16",
+    "author": "Aaradhya Pathak",
+    "readTime": "12 min read",
+    "category": "Payment Fees",
+    "featured": true,
+    "featuredImage": "/blog/images/authorize-net-vs-stripe-fees.webp",
+    "tags": [
+      "Authorize.Net",
+      "Stripe Fees",
+      "Payment Gateway",
+      "Merchant Account",
+      "Interchange Plus",
+      "Credit Card Processing",
+      "B2B Payments",
+      "Payment Processing"
+    ]
+  },
+  {
     "slug": "paypal-goods-and-services-fee-guide-2026",
     "title": "PayPal Goods and Services Fee 2026: Calculator, Rates & Protection Rules",
     "description": "How much does PayPal take for Goods and Services in 2026? Standard 2.99% + $0.49 rates, Friends & Family vs Goods & Services differences, 1099-K tax rules, and the exact reverse fee formula.",

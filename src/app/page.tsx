@@ -504,59 +504,61 @@ export default function FeeKitHome() {
         </div>
 
         {/* Trust & Value Proposition Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3">
-          <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
-            <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-              <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
-            </div>
-            <div className="min-w-0">
-              <div className="text-xs font-bold text-slate-900 truncate">100% Client-Side</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">
-                Calculations run 100% locally
+        <div className="border-y border-slate-200/80 py-3 sm:py-3.5 my-1">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+                <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-slate-900 truncate">100% Client-Side</div>
+                <div className="text-[11px] text-slate-500 leading-tight truncate">
+                  Calculations run 100% locally
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
-            <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-              <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
-            </div>
-            <div className="min-w-0">
-              <div className="text-xs font-bold text-slate-900 truncate">2026 Fiscal Rules</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">
-                Published IRS & HMRC guidance
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-slate-900 truncate">2026 Fiscal Rules</div>
+                <div className="text-[11px] text-slate-500 leading-tight truncate">
+                  Published IRS & HMRC guidance
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
-            <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-              <Globe2 className="h-4 w-4 sm:h-5 sm:w-5" />
-            </div>
-            <div className="min-w-0">
-              <div className="text-xs font-bold text-slate-900 truncate">199+ Calculators</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">
-                US, Canada, UK & Global
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                <Globe2 className="h-4 w-4 sm:h-5 sm:w-5" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-slate-900 truncate">199+ Calculators</div>
+                <div className="text-[11px] text-slate-500 leading-tight truncate">
+                  US, Canada, UK & Global
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200 bg-white p-2.5 sm:p-3.5 shadow-xs">
-            <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
-              <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
-            </div>
-            <div className="min-w-0">
-              <div className="text-xs font-bold text-slate-900 truncate">Always Free</div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight truncate">
-                No login or card needed
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
+                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-slate-900 truncate">Always Free</div>
+                <div className="text-[11px] text-slate-500 leading-tight truncate">
+                  No login or card needed
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Built for Freelancers & Small Businesses Positioning Hub */}
-        <section aria-label="Built for Freelancers and Small Businesses" className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 shadow-xs space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+        <section aria-label="Built for Freelancers and Small Businesses" className="space-y-4 pt-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/80 pb-3">
             <div>
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-blue-600" />
@@ -584,7 +586,7 @@ export default function FeeKitHome() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3 pt-1">
             <Link
               href="/invoice-generator"
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-400 hover:shadow-xs transition-all"
             >
               <div className="space-y-1.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -605,7 +607,7 @@ export default function FeeKitHome() {
 
             <Link
               href="/tools/profit-margin-calculator/standard"
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-400 hover:shadow-xs transition-all"
             >
               <div className="space-y-1.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
@@ -626,7 +628,7 @@ export default function FeeKitHome() {
 
             <Link
               href="/tools/stripe-fee-calculator"
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-400 hover:shadow-xs transition-all"
             >
               <div className="space-y-1.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
@@ -647,7 +649,7 @@ export default function FeeKitHome() {
 
             <Link
               href="/tools/sales-tax-calculator"
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-400 hover:shadow-xs transition-all"
             >
               <div className="space-y-1.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
@@ -668,7 +670,7 @@ export default function FeeKitHome() {
 
             <Link
               href="/tools/freelance-rate-calculator"
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-400 hover:shadow-xs transition-all"
             >
               <div className="space-y-1.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
@@ -689,7 +691,7 @@ export default function FeeKitHome() {
 
             <Link
               href="/blog"
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50/50 p-3 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-400 hover:shadow-xs transition-all"
             >
               <div className="space-y-1.5">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
@@ -726,7 +728,7 @@ export default function FeeKitHome() {
         <UniversalGuideHub inArticleSlot={<InArticleAd />} />
 
         {/* 5. Programmatic 199-Tool Master Directory Section */}
-        <section className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 shadow-xs">
+        <section className="space-y-5 sm:space-y-6 pt-2">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-200 pb-4 sm:pb-5">
             <div>
               <div className="flex flex-wrap items-center gap-2">

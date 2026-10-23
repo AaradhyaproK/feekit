@@ -40,7 +40,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
   return (
     <section
       aria-label="Universal Financial & Tax Compliance Guide"
-      className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-6 shadow-xs"
+      className="space-y-6 pt-2"
     >
       {/* Header & Pillar Selector */}
       <div className="border-b border-slate-200 pb-5 space-y-3">

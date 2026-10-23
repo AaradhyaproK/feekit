@@ -564,7 +564,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
 
       {/* 6. Visual Waterfall Progress Bar */}
       {result.grossAmount > 0 && (
-        <div className="mt-5 sm:mt-6 rounded-xl border border-slate-200 bg-slate-50/80 p-3.5 sm:p-5 space-y-2.5 sm:space-y-3">
+        <div className="mt-5 pt-4 border-t border-slate-100 space-y-2.5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
             <span className="font-bold text-slate-900 flex items-center gap-1.5">
               <TrendingUp className="h-4 w-4 text-blue-600 shrink-0" />
@@ -575,7 +575,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
             </span>
           </div>
 
-          <div className="h-3.5 w-full rounded-full bg-slate-200 overflow-hidden flex shadow-inner">
+          <div className="h-3 w-full rounded-full bg-slate-100 overflow-hidden flex shadow-inner">
             <div
               style={{ width: `${Math.max(2, (result.netAmount / (result.grossAmount || 1)) * 100)}%` }}
               className="bg-emerald-500 transition-all duration-300"
@@ -590,12 +590,12 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
 
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 pt-0.5">
             <span className="flex items-center gap-1.5 font-medium">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 inline-block shadow-xs shrink-0" />
+              <span className="h-2 w-2 rounded-full bg-emerald-500 inline-block shrink-0" />
               <span>Net Received:</span>
               <strong className="text-slate-900 font-mono">{formatCurrency(result.netAmount, currencySymbol)}</strong>
             </span>
             <span className="flex items-center gap-1.5 font-medium">
-              <span className="h-2.5 w-2.5 rounded-full bg-rose-500 inline-block shadow-xs shrink-0" />
+              <span className="h-2 w-2 rounded-full bg-rose-500 inline-block shrink-0" />
               <span>Gateway Fee:</span>
               <strong className="text-slate-900 font-mono">-{formatCurrency(result.totalFee, currencySymbol)}</strong>
             </span>
@@ -605,8 +605,8 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
 
       {/* 7. Competitor Comparison Matrix with Brand Logos & Instant Switching */}
       {result.competitorComparison.length > 0 && (
-        <div className="mt-5 sm:mt-6 rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-6 shadow-xs space-y-3.5 sm:space-y-4">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-3 sm:pb-4">
+        <div className="mt-5 pt-4 border-t border-slate-100 space-y-3.5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3">
             <div>
               <h3 className="text-sm font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
                 <span>Competitor Fee Comparison</span>
@@ -621,24 +621,24 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
             <button
               type="button"
               onClick={handleCopyBreakdown}
-              className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 sm:py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-xs w-full sm:w-auto justify-center min-h-[38px] sm:min-h-0"
+              className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 transition-all shadow-2xs w-full sm:w-auto justify-center min-h-[36px] sm:min-h-0"
             >
               {copied ? <Check className="h-3.5 w-3.5 text-emerald-600 shrink-0" /> : <Copy className="h-3.5 w-3.5 text-slate-400 shrink-0" />}
               <span>{copied ? 'Copied Breakdown!' : 'Copy Breakdown'}</span>
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 sm:gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-2.5">
             {result.competitorComparison.map((comp) => {
               const isCurrent = comp.gatewayId === gateway;
               return (
                 <div
                   key={comp.gatewayId}
                   onClick={() => setGateway(comp.gatewayId)}
-                  className={`tap-spring cursor-pointer rounded-xl border p-3.5 transition-all flex flex-col justify-between ${
+                  className={`tap-spring cursor-pointer rounded-xl p-3 transition-all flex flex-col justify-between ${
                     isCurrent
-                      ? 'border-blue-600 bg-blue-50/60 shadow-xs ring-2 ring-blue-100'
-                      : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/60 hover:shadow-2xs'
+                      ? 'border border-blue-500 bg-blue-50/70 shadow-xs ring-1 ring-blue-500/20'
+                      : 'border border-slate-200/80 bg-slate-50/60 hover:border-slate-300 hover:bg-white hover:shadow-2xs'
                   }`}
                 >
                   <div>

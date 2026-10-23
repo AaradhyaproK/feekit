@@ -215,7 +215,7 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
       </div>
 
       {/* Input Parameters Grid */}
-      <div className="rounded-xl border border-slate-200/90 bg-slate-50/40 p-4 sm:p-5">
+      <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-4">
         <div className="flex items-center justify-between mb-3.5">
           <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
             Unit Economics & Landed Cost Breakdown
@@ -506,8 +506,8 @@ Calculated with FeeKit: https://usefeekit.com/tools/ecommerce-profit-calculator`
 
       {/* Unit Economics Waterfall / Cost Breakdown Bar */}
       {numPrice > 0 && (
-        <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-5 shadow-xs">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3">
+        <div className="mt-5 pt-4 border-t border-slate-100 space-y-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700">
                 Unit Economics Waterfall ({currencySymbol}{numPrice.toFixed(2)} Retail)

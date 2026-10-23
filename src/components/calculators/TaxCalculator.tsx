@@ -269,7 +269,7 @@ Calculated via: https://usefeekit.com`;
       </div>
 
       {/* Compliance Callout & Copy Button */}
-      <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 sm:p-4">
+      <div className="mt-5 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
         <div className="flex items-start gap-2.5 sm:gap-3">
           <Info className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 shrink-0 mt-0.5" />
           <div>

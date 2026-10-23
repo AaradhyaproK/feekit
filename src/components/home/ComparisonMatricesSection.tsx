@@ -165,7 +165,7 @@ export function ComparisonMatricesSection() {
   ];
 
   return (
-    <section aria-label="Financial Comparison Matrices & Cheat Sheets" className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 lg:p-8 space-y-5 shadow-xs">
+    <section aria-label="Financial Comparison Matrices & Cheat Sheets" className="space-y-5 pt-2">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
         <div>
           <div className="flex items-center gap-2">

@@ -53,10 +53,10 @@ export function EditorialGuidesSection() {
   return (
     <section
       aria-label="Featured Financial & Tax Editorial Research"
-      className="space-y-5 rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 shadow-xs"
+      className="space-y-5 pt-2"
     >
       {/* Header with Live Counter */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/80 pb-4">
         <div>
           <div className="flex items-center gap-2">
             <BookOpen className="h-4 w-4 text-blue-600" />
@@ -118,7 +118,7 @@ export function EditorialGuidesSection() {
             <Link
               key={art.slug}
               href={`/blog/${art.slug}`}
-              className="group flex flex-col justify-between rounded-xl sm:rounded-2xl border border-slate-200/90 bg-slate-50/40 p-4 sm:p-5 transition-all duration-200 shadow-2xs hover:border-blue-400 hover:bg-white hover:shadow-md hover:-translate-y-0.5"
+              className="group flex flex-col justify-between rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 transition-all duration-200 shadow-2xs hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between gap-2 text-xs">

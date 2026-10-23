@@ -241,8 +241,8 @@ export function FreelanceRateCalculator({
       </div>
 
       {/* Ready-to-Copy Proposal Block */}
-      <div className="mt-5 sm:mt-6 rounded-xl border border-slate-200 bg-white p-3.5 sm:p-5 shadow-xs">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 mb-3">
+      <div className="mt-5 pt-4 border-t border-slate-100 space-y-3">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
           <div className="flex items-center gap-2 text-slate-900">
             <FileCheck className="h-4 w-4 text-blue-600 shrink-0" />
             <h4 className="text-xs font-bold uppercase tracking-wider">

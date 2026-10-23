@@ -103,7 +103,7 @@ function formatProgrammaticTitle(rawTitle: string): string {
   return `${truncated.slice(0, lastSpace)}... | FeeKit`;
 }
 
-function formatProgrammaticDescription(subtitle?: string): string {
+function formatProgrammaticDescription(subtitle?: string, category?: string): string {
   const raw = (subtitle || '').trim();
   if (raw.length >= 135 && raw.length <= 158) {
     return raw;
@@ -115,15 +115,32 @@ function formatProgrammaticDescription(subtitle?: string): string {
       return truncated.slice(0, lastPeriod + 1);
     }
     const lastSpace = truncated.lastIndexOf(' ');
-    return `${truncated.slice(0, lastSpace)}.`;
+    const cleaned = truncated.slice(0, lastSpace).replace(/[,;:\s]+$/, '');
+    return `${cleaned}.`;
   }
-  const expanded = `${raw} Calculate net payouts, statutory 2026 rates, and reverse invoice amounts on FeeKit.`;
+
+  let addition = ' Calculate exact net payouts and 2026 fee breakdowns on FeeKit.';
+  if (category === 'freelance-rate-calculator') {
+    addition = ' Model hourly rates, day rates, and 1099 taxes on FeeKit.';
+  } else if (category === 'sales-tax-calculator') {
+    addition = ' Calculate statutory sales tax, local rates, and totals on FeeKit.';
+  } else if (category === 'vat-calculator') {
+    addition = ' Calculate standard and reduced VAT rates and totals on FeeKit.';
+  }
+
+  const baseWithPeriod = raw.endsWith('.') ? raw : `${raw}.`;
+  const expanded = `${baseWithPeriod}${addition}`;
   if (expanded.length <= 158) {
     return expanded;
   }
   const truncated = expanded.slice(0, 154);
+  const lastPeriod = truncated.lastIndexOf('.');
+  if (lastPeriod > 110) {
+    return truncated.slice(0, lastPeriod + 1);
+  }
   const lastSpace = truncated.lastIndexOf(' ');
-  return `${truncated.slice(0, lastSpace)}.`;
+  const cleaned = truncated.slice(0, lastSpace).replace(/[,;:\s]+$/, '');
+  return `${cleaned}.`;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -139,7 +156,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const isUK = item.geoRegion === 'UK';
   const customSeo = getCustomSeoMetadata(category, slug);
   const title = customSeo ? customSeo.title : formatProgrammaticTitle(item.title);
-  const description = customSeo ? customSeo.description : formatProgrammaticDescription(item.subtitle);
+  const description = customSeo ? customSeo.description : formatProgrammaticDescription(item.subtitle, category);
 
   return {
     title,
@@ -496,6 +513,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
               amountHeader={item.suiteType === 'ecommerce' ? 'Monthly Volume' : (item.suiteType === 'freelance' ? 'Annual Target Net' : 'Gross Transaction')}
               feeHeader={item.suiteType === 'ecommerce' ? 'Total Costs & Spend' : (item.suiteType === 'freelance' ? 'Day Rate (8h)' : (item.suiteType === 'tax' ? 'Tax Amount' : 'Deductions'))}
               payoutHeader={item.suiteType === 'ecommerce' ? 'Net Profit Earned' : (item.suiteType === 'freelance' ? 'Monthly Retainer' : (item.suiteType === 'tax' ? 'Gross Invoice' : 'Net Received'))}
+              isDeduction={item.suiteType !== 'freelance'}
               rows={tierRows}
             />
           )}

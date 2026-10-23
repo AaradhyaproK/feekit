@@ -600,7 +600,7 @@ const updatedItems = existingItems.map(item => {
         filingAgency: s.filingAgency,
         nexusThreshold: s.nexusThreshold,
         threshold: `$${s.nexusThreshold.toLocaleString()}`,
-        subtitle: `Calculate combined state (${s.rate}%) and county/municipal surtaxes in ${s.name}. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.`,
+        subtitle: `Calculate combined state (${s.rate}%) and county/municipal surtaxes in ${s.name}. Instant net-to-gross and gross-to-net calculations for point-of-sale customer receipts and state tax remittance.`,
         formulaLatex: `\\text{Total Sales Tax} = \\text{Net Amount} \\times (${s.rate}\\% \\text{ State} + ${s.local}\\% \\text{ County Surtax}) = \\text{Net} \\times ${combinedAvg}\\%`,
         formulaExplanation: `In ${s.name}, the state levies a statutory sales tax of ${s.rate}%. County, municipal, and transit tax districts add an average surtax of ${s.local}%, resulting in a typical effective tax burden of ${combinedAvg}%. To extract sales tax from a gross invoice: Net = Gross / (1 + ${(combinedAvg/100).toFixed(4)}).`,
         sampleTiers: [

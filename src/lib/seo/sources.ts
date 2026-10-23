@@ -481,11 +481,11 @@ export const UK_VAT_SOURCE: DataSource = {
 };
 
 export const FREELANCE_SOURCE: DataSource = {
-  authorityName: 'Internal Revenue Service (IRS) & Bureau of Labor Statistics (BLS)',
+  authorityName: 'Internal Revenue Service (IRS) & National Association for the Self-Employed (NASE)',
   sourceUrl: 'https://www.irs.gov/forms-pubs/about-form-1040-es',
-  citationTitle: 'IRS Form 1040-ES & Schedule SE (Self-Employment Tax Guidelines)',
+  citationTitle: 'IRS Form 1040-ES, Schedule SE (SECA Tax Rules) & 1099 Billable Capacity Benchmarks',
   regulatoryCode: '26 U.S. Code § 1401 (Self-Employment Contributions Act / SECA)',
-  dataType: 'Statutory 15.3% SECA (12.4% Social Security up to wage base + 2.9% Medicare)',
+  dataType: 'Statutory 15.3% SECA Tax Schedules & Professional Contractor Overhead Allocation Models',
   lastVerified: '2026 IRS Tax Year Guidelines (January 2026)',
 };
 

@@ -15,6 +15,7 @@ interface TierComparisonTableProps {
   amountHeader?: string;
   feeHeader?: string;
   payoutHeader?: string;
+  isDeduction?: boolean;
   rows: TierRow[];
 }
 
@@ -24,6 +25,7 @@ export function TierComparisonTable({
   amountHeader = 'Gross Volume',
   feeHeader = 'Estimated Fee / Tax',
   payoutHeader = 'Net Payout / Total',
+  isDeduction = true,
   rows,
 }: TierComparisonTableProps) {
   return (
@@ -61,8 +63,8 @@ export function TierComparisonTable({
                   <td className="py-3.5 px-5 font-semibold text-slate-800">
                     {row.tierLabel || formatCurrency(row.tierAmount, currencySymbol)}
                   </td>
-                  <td className="py-3.5 px-5 text-rose-600 font-semibold">
-                    -{formatCurrency(row.deductionOrTax, currencySymbol)}
+                  <td className={`py-3.5 px-5 font-semibold ${isDeduction ? 'text-rose-600' : 'text-slate-900'}`}>
+                    {isDeduction ? '-' : ''}{formatCurrency(row.deductionOrTax, currencySymbol)}
                   </td>
                   <td className="py-3.5 px-5 font-bold text-emerald-600">
                     {formatCurrency(row.netOrTotal, currencySymbol)}

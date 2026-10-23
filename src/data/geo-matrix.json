@@ -466,7 +466,7 @@
       "slug": "california",
       "title": "California Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "California Sales Tax",
-      "subtitle": "Calculate combined state (7.25%) and county/municipal surtaxes in California. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (7.25%) and county/municipal surtaxes in California. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "California",
@@ -515,8 +515,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In California, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to CDTFA using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "California",
@@ -533,7 +533,7 @@
       "slug": "texas",
       "title": "Texas Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Texas Sales Tax",
-      "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Texas. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Texas. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Texas",
@@ -582,8 +582,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Texas, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Texas Comptroller of Public Accounts using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Texas",
@@ -600,7 +600,7 @@
       "slug": "new-york",
       "title": "New York Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "New York Sales Tax",
-      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in New York. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in New York. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "New York",
@@ -649,8 +649,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In New York, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New York State Department of Taxation and Finance using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "New York",
@@ -667,7 +667,7 @@
       "slug": "florida",
       "title": "Florida Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Florida Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Florida. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Florida. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Florida",
@@ -716,8 +716,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Florida, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Florida Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Florida",
@@ -734,7 +734,7 @@
       "slug": "illinois",
       "title": "Illinois Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Illinois Sales Tax",
-      "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Illinois. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Illinois. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Illinois",
@@ -783,8 +783,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Illinois, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Illinois Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Illinois",
@@ -801,7 +801,7 @@
       "slug": "pennsylvania",
       "title": "Pennsylvania Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Pennsylvania Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Pennsylvania. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Pennsylvania. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Pennsylvania",
@@ -850,8 +850,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Pennsylvania, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Pennsylvania Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Pennsylvania",
@@ -868,7 +868,7 @@
       "slug": "ohio",
       "title": "Ohio Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Ohio Sales Tax",
-      "subtitle": "Calculate combined state (5.75%) and county/municipal surtaxes in Ohio. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5.75%) and county/municipal surtaxes in Ohio. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Ohio",
@@ -917,8 +917,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Ohio, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Ohio Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Ohio",
@@ -935,7 +935,7 @@
       "slug": "georgia",
       "title": "Georgia Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Georgia Sales Tax",
-      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Georgia. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Georgia. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Georgia",
@@ -984,8 +984,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Georgia, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Georgia Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Georgia",
@@ -1002,7 +1002,7 @@
       "slug": "north-carolina",
       "title": "North Carolina Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "North Carolina Sales Tax",
-      "subtitle": "Calculate combined state (4.75%) and county/municipal surtaxes in North Carolina. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4.75%) and county/municipal surtaxes in North Carolina. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "North Carolina",
@@ -1051,8 +1051,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In North Carolina, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to North Carolina Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "North Carolina",
@@ -1069,7 +1069,7 @@
       "slug": "michigan",
       "title": "Michigan Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Michigan Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Michigan. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Michigan. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Michigan",
@@ -1118,8 +1118,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Michigan, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Michigan Department of Treasury using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Michigan",
@@ -1136,7 +1136,7 @@
       "slug": "new-jersey",
       "title": "New Jersey Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "New Jersey Sales Tax",
-      "subtitle": "Calculate combined state (6.625%) and county/municipal surtaxes in New Jersey. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.625%) and county/municipal surtaxes in New Jersey. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "New Jersey",
@@ -1185,8 +1185,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In New Jersey, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Jersey Division of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "New Jersey",
@@ -1203,7 +1203,7 @@
       "slug": "virginia",
       "title": "Virginia Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Virginia Sales Tax",
-      "subtitle": "Calculate combined state (5.3%) and county/municipal surtaxes in Virginia. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5.3%) and county/municipal surtaxes in Virginia. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Virginia",
@@ -1252,8 +1252,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Virginia, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Virginia Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Virginia",
@@ -1270,7 +1270,7 @@
       "slug": "washington",
       "title": "Washington Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Washington Sales Tax",
-      "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Washington. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Washington. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Washington",
@@ -1319,8 +1319,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Washington, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Washington State Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Washington",
@@ -1337,7 +1337,7 @@
       "slug": "arizona",
       "title": "Arizona Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Arizona Sales Tax",
-      "subtitle": "Calculate combined state (5.6%) and county/municipal surtaxes in Arizona. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5.6%) and county/municipal surtaxes in Arizona. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Arizona",
@@ -1386,8 +1386,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Arizona, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Arizona Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Arizona",
@@ -1404,7 +1404,7 @@
       "slug": "massachusetts",
       "title": "Massachusetts Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Massachusetts Sales Tax",
-      "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Massachusetts. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Massachusetts. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Massachusetts",
@@ -1453,8 +1453,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Massachusetts, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Massachusetts Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Massachusetts",
@@ -1471,7 +1471,7 @@
       "slug": "tennessee",
       "title": "Tennessee Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Tennessee Sales Tax",
-      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Tennessee. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Tennessee. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Tennessee",
@@ -1520,8 +1520,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Tennessee, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Tennessee Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Tennessee",
@@ -1538,7 +1538,7 @@
       "slug": "indiana",
       "title": "Indiana Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Indiana Sales Tax",
-      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Indiana. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Indiana. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Indiana",
@@ -1587,8 +1587,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Indiana, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Indiana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Indiana",
@@ -1605,7 +1605,7 @@
       "slug": "missouri",
       "title": "Missouri Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Missouri Sales Tax",
-      "subtitle": "Calculate combined state (4.225%) and county/municipal surtaxes in Missouri. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4.225%) and county/municipal surtaxes in Missouri. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Missouri",
@@ -1654,8 +1654,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Missouri, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Missouri Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Missouri",
@@ -1672,7 +1672,7 @@
       "slug": "maryland",
       "title": "Maryland Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Maryland Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Maryland. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Maryland. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Maryland",
@@ -1721,8 +1721,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Maryland, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Comptroller of Maryland using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Maryland",
@@ -1739,7 +1739,7 @@
       "slug": "wisconsin",
       "title": "Wisconsin Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Wisconsin Sales Tax",
-      "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in Wisconsin. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in Wisconsin. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Wisconsin",
@@ -1788,8 +1788,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Wisconsin, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Wisconsin Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Wisconsin",
@@ -1806,7 +1806,7 @@
       "slug": "colorado",
       "title": "Colorado Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Colorado Sales Tax",
-      "subtitle": "Calculate combined state (2.9%) and county/municipal surtaxes in Colorado. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (2.9%) and county/municipal surtaxes in Colorado. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Colorado",
@@ -1855,8 +1855,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Colorado, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Colorado Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Colorado",
@@ -1873,7 +1873,7 @@
       "slug": "minnesota",
       "title": "Minnesota Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Minnesota Sales Tax",
-      "subtitle": "Calculate combined state (6.875%) and county/municipal surtaxes in Minnesota. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.875%) and county/municipal surtaxes in Minnesota. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Minnesota",
@@ -1922,8 +1922,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Minnesota, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Minnesota Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Minnesota",
@@ -1940,7 +1940,7 @@
       "slug": "south-carolina",
       "title": "South Carolina Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "South Carolina Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in South Carolina. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in South Carolina. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "South Carolina",
@@ -1989,8 +1989,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In South Carolina, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to South Carolina Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "South Carolina",
@@ -2007,7 +2007,7 @@
       "slug": "alabama",
       "title": "Alabama Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Alabama Sales Tax",
-      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Alabama. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Alabama. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Alabama",
@@ -2056,8 +2056,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Alabama, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Alabama Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Alabama",
@@ -2074,7 +2074,7 @@
       "slug": "louisiana",
       "title": "Louisiana Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Louisiana Sales Tax",
-      "subtitle": "Calculate combined state (4.45%) and county/municipal surtaxes in Louisiana. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4.45%) and county/municipal surtaxes in Louisiana. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Louisiana",
@@ -2123,8 +2123,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Louisiana, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Louisiana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Louisiana",
@@ -2141,7 +2141,7 @@
       "slug": "kentucky",
       "title": "Kentucky Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Kentucky Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Kentucky. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Kentucky. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Kentucky",
@@ -2190,8 +2190,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Kentucky, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Kentucky Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Kentucky",
@@ -2208,7 +2208,7 @@
       "slug": "oregon",
       "title": "Oregon Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Oregon Sales Tax",
-      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Oregon. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Oregon. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Oregon",
@@ -2257,8 +2257,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Oregon, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Oregon Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Oregon",
@@ -2275,7 +2275,7 @@
       "slug": "oklahoma",
       "title": "Oklahoma Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Oklahoma Sales Tax",
-      "subtitle": "Calculate combined state (4.5%) and county/municipal surtaxes in Oklahoma. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4.5%) and county/municipal surtaxes in Oklahoma. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Oklahoma",
@@ -2324,8 +2324,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Oklahoma, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Oklahoma Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Oklahoma",
@@ -2342,7 +2342,7 @@
       "slug": "connecticut",
       "title": "Connecticut Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Connecticut Sales Tax",
-      "subtitle": "Calculate combined state (6.35%) and county/municipal surtaxes in Connecticut. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.35%) and county/municipal surtaxes in Connecticut. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Connecticut",
@@ -2391,8 +2391,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Connecticut, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Connecticut Department of Revenue Services using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Connecticut",
@@ -2409,7 +2409,7 @@
       "slug": "utah",
       "title": "Utah Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Utah Sales Tax",
-      "subtitle": "Calculate combined state (6.1%) and county/municipal surtaxes in Utah. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.1%) and county/municipal surtaxes in Utah. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Utah",
@@ -2458,8 +2458,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Utah, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Utah State Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Utah",
@@ -2476,7 +2476,7 @@
       "slug": "iowa",
       "title": "Iowa Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Iowa Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Iowa. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Iowa. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Iowa",
@@ -2525,8 +2525,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Iowa, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Iowa Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Iowa",
@@ -2543,7 +2543,7 @@
       "slug": "nevada",
       "title": "Nevada Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Nevada Sales Tax",
-      "subtitle": "Calculate combined state (6.85%) and county/municipal surtaxes in Nevada. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.85%) and county/municipal surtaxes in Nevada. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Nevada",
@@ -2592,8 +2592,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Nevada, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Nevada Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Nevada",
@@ -2610,7 +2610,7 @@
       "slug": "arkansas",
       "title": "Arkansas Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Arkansas Sales Tax",
-      "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Arkansas. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Arkansas. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Arkansas",
@@ -2659,8 +2659,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Arkansas, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Arkansas Department of Finance and Administration using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Arkansas",
@@ -2677,7 +2677,7 @@
       "slug": "mississippi",
       "title": "Mississippi Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Mississippi Sales Tax",
-      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Mississippi. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Mississippi. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Mississippi",
@@ -2726,8 +2726,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Mississippi, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Mississippi Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Mississippi",
@@ -2744,7 +2744,7 @@
       "slug": "kansas",
       "title": "Kansas Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Kansas Sales Tax",
-      "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Kansas. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Kansas. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Kansas",
@@ -2793,8 +2793,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Kansas, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Kansas Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Kansas",
@@ -2811,7 +2811,7 @@
       "slug": "new-mexico",
       "title": "New Mexico Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "New Mexico Sales Tax",
-      "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in New Mexico. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in New Mexico. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "New Mexico",
@@ -2860,8 +2860,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In New Mexico, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Mexico Taxation and Revenue Department using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "New Mexico",
@@ -2878,7 +2878,7 @@
       "slug": "nebraska",
       "title": "Nebraska Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Nebraska Sales Tax",
-      "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Nebraska. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Nebraska. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Nebraska",
@@ -2927,8 +2927,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Nebraska, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Nebraska Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Nebraska",
@@ -2945,7 +2945,7 @@
       "slug": "idaho",
       "title": "Idaho Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Idaho Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Idaho. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Idaho. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Idaho",
@@ -2994,8 +2994,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Idaho, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Idaho State Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Idaho",
@@ -3012,7 +3012,7 @@
       "slug": "west-virginia",
       "title": "West Virginia Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "West Virginia Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in West Virginia. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in West Virginia. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "West Virginia",
@@ -3061,8 +3061,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In West Virginia, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to West Virginia State Tax Department using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "West Virginia",
@@ -3079,7 +3079,7 @@
       "slug": "hawaii",
       "title": "Hawaii Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Hawaii Sales Tax",
-      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Hawaii. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Hawaii. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Hawaii",
@@ -3128,8 +3128,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Hawaii, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Hawaii Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Hawaii",
@@ -3146,7 +3146,7 @@
       "slug": "new-hampshire",
       "title": "New Hampshire Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "New Hampshire Sales Tax",
-      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in New Hampshire. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in New Hampshire. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "New Hampshire",
@@ -3195,8 +3195,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In New Hampshire, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Hampshire Department of Revenue Administration using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "New Hampshire",
@@ -3213,7 +3213,7 @@
       "slug": "maine",
       "title": "Maine Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Maine Sales Tax",
-      "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Maine. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Maine. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Maine",
@@ -3262,8 +3262,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Maine, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Maine Revenue Services using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Maine",
@@ -3280,7 +3280,7 @@
       "slug": "rhode-island",
       "title": "Rhode Island Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Rhode Island Sales Tax",
-      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Rhode Island. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Rhode Island. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Rhode Island",
@@ -3329,8 +3329,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Rhode Island, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Rhode Island Division of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Rhode Island",
@@ -3347,7 +3347,7 @@
       "slug": "montana",
       "title": "Montana Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Montana Sales Tax",
-      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Montana. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Montana. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Montana",
@@ -3396,8 +3396,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Montana, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Montana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Montana",
@@ -3414,7 +3414,7 @@
       "slug": "delaware",
       "title": "Delaware Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Delaware Sales Tax",
-      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Delaware. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Delaware. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Delaware",
@@ -3463,8 +3463,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Delaware, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Delaware Division of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Delaware",
@@ -3481,7 +3481,7 @@
       "slug": "south-dakota",
       "title": "South Dakota Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "South Dakota Sales Tax",
-      "subtitle": "Calculate combined state (4.2%) and county/municipal surtaxes in South Dakota. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4.2%) and county/municipal surtaxes in South Dakota. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "South Dakota",
@@ -3530,8 +3530,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In South Dakota, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to South Dakota Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "South Dakota",
@@ -3548,7 +3548,7 @@
       "slug": "north-dakota",
       "title": "North Dakota Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "North Dakota Sales Tax",
-      "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in North Dakota. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in North Dakota. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "North Dakota",
@@ -3597,8 +3597,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In North Dakota, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to North Dakota Office of State Tax Commissioner using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "North Dakota",
@@ -3615,7 +3615,7 @@
       "slug": "alaska",
       "title": "Alaska Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Alaska Sales Tax",
-      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Alaska. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Alaska. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Alaska",
@@ -3664,8 +3664,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Alaska, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Alaska Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Alaska",
@@ -3682,7 +3682,7 @@
       "slug": "vermont",
       "title": "Vermont Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Vermont Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Vermont. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Vermont. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Vermont",
@@ -3731,8 +3731,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Vermont, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Vermont Department of Taxes using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Vermont",
@@ -3749,7 +3749,7 @@
       "slug": "wyoming",
       "title": "Wyoming Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Wyoming Sales Tax",
-      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Wyoming. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Wyoming. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Wyoming",
@@ -3798,8 +3798,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In Wyoming, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Wyoming Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "Wyoming",
@@ -3816,7 +3816,7 @@
       "slug": "district-of-columbia",
       "title": "District of Columbia Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "District of Columbia Sales Tax",
-      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in District of Columbia. Instant net-to-gross and gross-to-net reverse calculations for Form 1040 Schedule C and state tax remittance.",
+      "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in District of Columbia. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "District of Columbia",
@@ -3865,8 +3865,8 @@
           "answer": "Taxability of digital software, subscriptions, and downloadable goods depends on specific state statutes. In District of Columbia, prewritten computer software delivered electronically and digital audio-visual downloads are subject to statutory state tax rules."
         },
         {
-          "question": "How do I report sales tax on IRS Form 1040 Schedule C?",
-          "answer": "Sales tax collected from customers is not business gross income. Small business owners should exclude state sales tax from Line 1 (Gross Receipts) or report it under gross income and offset it with an identical tax deduction on Line 23 (Taxes and Licenses)."
+          "question": "Do I report state sales tax on federal tax returns?",
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to DC Office of Tax and Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
         }
       ],
       "name": "District of Columbia",
@@ -11977,38 +11977,38 @@
       "slug": "executive-coach",
       "title": "Executive Leadership Coach Freelance Rate Calculator (2026 Benchmark)",
       "shortTitle": "Executive Leadership Coach Rate",
-      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Executive Leadership Coachs.",
+      "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Executive Leadership Coaches.",
       "suiteType": "freelance",
       "roleTitle": "Executive Leadership Coach",
       "defaultAmount": 145000,
       "currencySymbol": "$",
       "annualOverhead": 15000,
       "formulaLatex": "\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})",
-      "formulaExplanation": "Top freelance Executive Leadership Coachs budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
+      "formulaExplanation": "Top freelance Executive Leadership Coaches budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.",
       "sampleTiers": [
         {
           "amount": 50000,
-          "rate": 41.67,
-          "dayRate": 333.33,
-          "monthly": 4166.67
+          "rate": 80.93,
+          "dayRate": 647.41,
+          "monthly": 4046.3
         },
         {
           "amount": 145000,
-          "rate": 120.83,
-          "dayRate": 966.64,
-          "monthly": 12083.33
+          "rate": 207.37,
+          "dayRate": 1658.98,
+          "monthly": 10368.63
         },
         {
           "amount": 217500,
-          "rate": 181.25,
-          "dayRate": 1449.96,
-          "monthly": 18125
+          "rate": 303.87,
+          "dayRate": 2430.97,
+          "monthly": 15193.58
         }
       ],
       "faqs": [
         {
-          "question": "What is the average hourly rate for a freelance Executive Leadership Coach?",
-          "answer": "Experienced Executive Leadership Coachs typically charge between $120.83 and $169/hour or $967+ for a full-day retainer."
+          "question": "What is the recommended hourly rate for an Executive Leadership Coach?",
+          "answer": "To achieve a $145,000 net target after 15.3% SECA self-employment tax, 28% estimated income taxes, and $15,000 annual overhead, an Executive Leadership Coach billing 1,200 annual hours needs to charge $207.37/hour or $1,658.98/day. Industry benchmarks for senior corporate coaches typically range from $175 to $350+/hour depending on client engagement scope."
         },
         {
           "question": "How should I structure my contracts?",

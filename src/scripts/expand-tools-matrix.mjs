@@ -150,29 +150,36 @@ const freelanceRoles = [
 ];
 
 for (const f of freelanceRoles) {
-  const hourly = Number((f.target / 1200).toFixed(2));
+  const pluralRole = f.role.endsWith('ch') || f.role.endsWith('sh') ? `${f.role}es` : `${f.role}s`;
+  // Comprehensive formula matching freelance-rate.ts:
+  // preTax = target / 0.72; gross = (preTax + overhead) * 1.15; hourly = gross / 1200
+  const preTax = f.target / 0.72;
+  const gross = (preTax + f.overhead) * 1.15;
+  const hourly = Number((gross / 1200).toFixed(2));
+  const dayRate = Number((hourly * 8).toFixed(2));
+
   newItems.push({
     category: 'freelance-rate-calculator',
     slug: f.slug,
     title: `${f.role} Freelance Rate Calculator (2026 Benchmark)`,
     shortTitle: `${f.role} Rate`,
-    subtitle: `Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance ${f.role}s.`,
+    subtitle: `Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance ${pluralRole}.`,
     suiteType: 'freelance',
     roleTitle: f.role,
     defaultAmount: f.target,
     currencySymbol: '$',
     annualOverhead: f.overhead,
     formulaLatex: `\\text{Rate} = \\frac{\\text{Target Net} + \\text{Overhead}}{\\text{Annual Billable Hours (1,200h)}} \\times (1 + \\text{SE Tax Buffer})`,
-    formulaExplanation: `Top freelance ${f.role}s budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.`,
+    formulaExplanation: `Top freelance ${pluralRole} budget 1,200 billable hours per year (25h/week for 48 weeks). This formula incorporates 15.3% SECA tax, tooling, and business reserves.`,
     sampleTiers: [
-      { amount: 50000, rate: Number((50000 / 1200).toFixed(2)), dayRate: Number(((50000 / 1200) * 8).toFixed(2)), monthly: 4166.67 },
-      { amount: f.target, rate: hourly, dayRate: Number((hourly * 8).toFixed(2)), monthly: Number((f.target / 12).toFixed(2)) },
-      { amount: f.target * 1.5, rate: Number((hourly * 1.5).toFixed(2)), dayRate: Number((hourly * 1.5 * 8).toFixed(2)), monthly: Number(((f.target * 1.5) / 12).toFixed(2)) },
+      { amount: 50000, rate: Number((((50000 / 0.72) + f.overhead) * 1.15 / 1200).toFixed(2)), dayRate: Number(((((50000 / 0.72) + f.overhead) * 1.15 / 1200) * 8).toFixed(2)), monthly: Number((((50000 / 0.72) + f.overhead) * 1.15 / 1200 * 50).toFixed(2)) },
+      { amount: f.target, rate: hourly, dayRate: dayRate, monthly: Number((hourly * 50).toFixed(2)) },
+      { amount: f.target * 1.5, rate: Number(((((f.target * 1.5 / 0.72) + f.overhead) * 1.15) / 1200).toFixed(2)), dayRate: Number((((((f.target * 1.5 / 0.72) + f.overhead) * 1.15) / 1200) * 8).toFixed(2)), monthly: Number(((((f.target * 1.5 / 0.72) + f.overhead) * 1.15) / 1200 * 50).toFixed(2)) },
     ],
     faqs: [
       {
-        question: `What is the average hourly rate for a freelance ${f.role}?`,
-        answer: `Experienced ${f.role}s typically charge between $${hourly} and $${Number((hourly * 1.4).toFixed(0))}/hour or $${Number((hourly * 8).toFixed(0))}+ for a full-day retainer.`,
+        question: `What is the recommended hourly rate for a freelance ${f.role}?`,
+        answer: `To target $${f.target.toLocaleString()} net take-home after SECA taxes (15.3%), income taxes, and $${f.overhead.toLocaleString()} annual overhead, a freelance ${f.role} needs to charge $${hourly}/hour or $${dayRate}/day based on 1,200 annual billable hours.`,
       },
       {
         question: 'How should I structure my contracts?',

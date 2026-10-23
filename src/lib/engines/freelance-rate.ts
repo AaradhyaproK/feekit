@@ -57,6 +57,20 @@ export function calculateFreelanceRate(input: FreelanceRateInput): FreelanceRate
   const overheadPerHour = annualOverhead / totalBillableHoursPerYear;
   const taxPerHour = totalTaxes / totalBillableHoursPerYear;
 
+  const roleLower = roleTitle.toLowerCase();
+  let scopeDescription = 'Work covers project discovery, professional execution, deliverable reviews, and client communication.';
+  if (roleLower.includes('coach') || roleLower.includes('leadership')) {
+    scopeDescription = 'Work covers executive assessment, 1-on-1 coaching sessions, strategic leadership development, and stakeholder alignment.';
+  } else if (roleLower.includes('consultant') || roleLower.includes('advisor') || roleLower.includes('strategist')) {
+    scopeDescription = 'Work covers strategic analysis, executive workshops, roadmap formulation, and executive advisory support.';
+  } else if (roleLower.includes('developer') || roleLower.includes('engineer') || roleLower.includes('architect') || roleLower.includes('devops')) {
+    scopeDescription = 'Work covers technical architecture, code implementation, QA testing, and deployment support.';
+  } else if (roleLower.includes('designer') || roleLower.includes('creative') || roleLower.includes('ui') || roleLower.includes('ux') || roleLower.includes('writer') || roleLower.includes('copywriter')) {
+    scopeDescription = 'Work covers creative discovery, iterative design drafts, production asset delivery, and stakeholder reviews.';
+  } else if (roleLower.includes('marketing') || roleLower.includes('seo') || roleLower.includes('growth')) {
+    scopeDescription = 'Work covers audit analysis, campaign execution, growth experimentation, and weekly performance reporting.';
+  }
+
   const invoiceProposalText = `
 --- CLIENT PROPOSAL / INVOICE BREAKDOWN ---
 Role: ${roleTitle}
@@ -66,7 +80,7 @@ Monthly Advisory Retainer (approx. ${Math.round(validHours * 2)} hrs): ${currenc
 
 Notes:
 - Standard payment terms: Net 14 / Net 30.
-- Work covers technical scoping, execution, quality assurance, and direct async communication.
+- ${scopeDescription}
 - Expenses incurred outside standard tooling will be pre-approved.
 --------------------------------------------
 `.trim();

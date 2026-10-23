@@ -46,8 +46,8 @@ const FALLBACK_CALIFORNIA: StateTaxData = {
   slug: 'california',
   name: 'California',
   rate: 7.25,
-  maxLocal: 10.25,
-  notes: 'Local district tax jurisdictions can add up to 3.00% on top of the statutory 7.25% base rate.',
+  maxLocal: 10.75,
+  notes: 'Local district tax jurisdictions can add up to 3.50% on top of the statutory 7.25% base rate, reaching a maximum combined rate of 10.75%.',
   filingAgency: 'CDTFA',
   nexusThreshold: 500000,
 };
@@ -149,7 +149,7 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
         <div className="border-b border-slate-200 pb-4">
           <div className="flex items-center gap-2.5 text-slate-900 font-extrabold text-lg sm:text-xl">
             <Scale className="h-5 w-5 text-blue-600 shrink-0" />
-            <h2>{state.name} Sales Tax Rate — Full Breakdown (2025)</h2>
+            <h2>{state.name} Sales Tax Rate — Full Breakdown (2026)</h2>
           </div>
           <p className="text-xs text-slate-500 mt-1">
             Statutory statewide base rate, discretionary local tax jurisdictions, and invoice mathematical formulas
@@ -212,7 +212,7 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
                 Economic Nexus Threshold
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Following the historic U.S. Supreme Court ruling in <em>South Dakota v. Wayfair, Inc. (2018)</em>, states enforce economic nexus on remote out-of-state vendors with no physical footprint. In {state.name}, remote multichannel sellers trigger economic nexus upon reaching <strong>${nexusFormatted}</strong> in gross retail receipts or 200 separate taxable transactions delivered into the state during the current or immediately preceding calendar year.
+                Following the historic U.S. Supreme Court ruling in <em>South Dakota v. Wayfair, Inc. (2018)</em>, states enforce economic nexus on remote out-of-state vendors with no physical footprint. In {state.name}, remote multichannel sellers trigger economic nexus upon reaching <strong>${nexusFormatted}</strong> in gross retail receipts{state.slug === 'california' ? ' delivered into the state during the current or immediately preceding calendar year (California enforces a gross sales test only, having eliminated the 200-transaction count threshold under AB 147).' : ' or 200 separate taxable transactions delivered into the state during the current or immediately preceding calendar year.'}
               </p>
             </div>
           </div>
@@ -301,7 +301,7 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
           </p>
 
           <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-4 text-xs text-blue-900 space-y-1">
-            <span className="font-bold block">CPA Recommendation for Online Sellers:</span>
+            <span className="font-bold block">Compliance Practice Note for Online Sellers:</span>
             <p className="text-blue-800 leading-relaxed">
               Managing varying destination rates across multiple counties and special taxing districts in {state.name} creates significant manual overhead. We strongly advise integrating automated sales tax compliance software such as TaxJar, Avalara AvaTax, or Stripe Tax directly into your e-commerce checkout to ensure seamless rate computation and auto-filing.
             </p>

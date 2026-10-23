@@ -272,7 +272,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
               <span>1099 Independent Contractor vs W-2 Employee Economics ({currentYear})</span>
             </div>
             <p className="text-sm text-slate-700 leading-relaxed">
-              Moving from a W-2 salaried position to 1099 independent contracting requires a significant rate multiplier. W-2 employers pay 50% of your FICA payroll taxes, healthcare subsidies, 401(k) matches, and paid vacation. On a 1099 basis, you are responsible for the entire <strong>15.3% Self-Employment Contributions Act (SECA) tax</strong> (12.4% Social Security up to $176,100 wage cap + 2.9% Medicare), plus business tools and unpaid administrative time.
+              Moving from a W-2 salaried position to 1099 independent contracting requires a significant rate multiplier. W-2 employers pay 50% of your FICA payroll taxes, healthcare subsidies, 401(k) matches, and paid vacation. On a 1099 basis, you are responsible for the entire <strong>15.3% Self-Employment Contributions Act (SECA) tax</strong> (12.4% Social Security up to $184,500 wage cap + 2.9% Medicare), plus business tools and unpaid administrative time.
             </p>
           </div>
 

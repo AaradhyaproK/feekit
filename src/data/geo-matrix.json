@@ -40,8 +40,8 @@
       "slug": "california",
       "name": "California",
       "rate": 7.25,
-      "maxLocal": 10.25,
-      "notes": "Local district tax jurisdictions can add up to 3.00% on top of the statutory 7.25% base rate.",
+      "maxLocal": 10.75,
+      "notes": "Local district tax jurisdictions can add up to 3.50% on top of the statutory 7.25% base rate, reaching a maximum combined rate of 10.75%.",
       "filingAgency": "CDTFA",
       "nexusThreshold": 500000
     },
@@ -500,11 +500,11 @@
       "faqs": [
         {
           "question": "What is the current sales tax rate in California?",
-          "answer": "The statewide base sales tax rate in California is 7.25%. When combined with municipal and county surtaxes (which average 1.57% and cap around 10.25%), the total effective rate paid by consumers typically ranges between 7.25% and 10.25%."
+          "answer": "The statewide base sales tax rate in California is 7.25%. When combined with local district surtaxes (which average 1.57% and cap at 10.75% in certain high-district municipalities), the total effective rate paid by consumers typically ranges between 7.25% and 10.75%."
         },
         {
           "question": "What is the economic nexus threshold for remote sellers in California?",
-          "answer": "Following South Dakota v. Wayfair, remote out-of-state merchants must register and remit California sales tax once annual sales into the state exceed $500,000. Once crossed, destination-based tax collection becomes legally mandatory."
+          "answer": "Following South Dakota v. Wayfair, remote out-of-state merchants must register and remit California sales tax once annual sales into the state exceed $500,000. Under California AB 147, there is no 200-transaction count threshold—the test is based strictly on gross sales."
         },
         {
           "question": "How do resale and exemption certificates work in California?",
@@ -522,8 +522,8 @@
       "name": "California",
       "rate": 7.25,
       "local": 1.57,
-      "maxLocal": 10.25,
-      "notes": "Local district tax jurisdictions can add up to 3.00% on top of the statutory 7.25% base rate.",
+      "maxLocal": 10.75,
+      "notes": "Local district tax jurisdictions can add up to 3.50% on top of the statutory 7.25% base rate, reaching a maximum combined rate of 10.75%.",
       "filingAgency": "CDTFA",
       "nexusThreshold": 500000,
       "threshold": "$500,000"

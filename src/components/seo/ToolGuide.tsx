@@ -808,7 +808,8 @@ export function ToolGuide({
     const agencyName = (stateName && STATE_AGENCIES[stateName]) || `${state} Department of Revenue`;
     const rateVal = baseRate ?? 6.0;
     const maxLocalVal = maxLocalRate ?? 2.5;
-    const maxCombinedVal = (rateVal + maxLocalVal).toFixed(2);
+    // maxLocalRate in data is already the maximum combined rate (e.g. 10.75% for CA where base is 7.25%)
+    const maxCombinedVal = (maxLocalVal > rateVal ? maxLocalVal : rateVal + maxLocalVal).toFixed(2);
     const nexusLimit = threshold || '$100,000';
 
     return (
@@ -869,7 +870,7 @@ export function ToolGuide({
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Economic Nexus:</strong> For an online seller, sales tax obligations trigger once annual gross sales reach or exceed <strong>{nexusLimit}</strong> into {state}.</span>
+                <span><strong>Economic Nexus:</strong> For an online seller, sales tax obligations trigger once annual gross sales reach or exceed <strong>{nexusLimit}</strong> into {state}{state.toLowerCase().includes('california') ? ' (gross sales threshold only; California dropped the 200-transaction count requirement under AB 147)' : ''}.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
@@ -988,7 +989,7 @@ export function ToolGuide({
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Section 179 Deductions:</strong> Write off 100% of computer equipment, professional software, and home office expenses against gross receipts.</span>
+                <span><strong>Section 179 & Business Deductions:</strong> First-year expensing under IRC § 179 covers eligible computer equipment, hardware, and software, while qualifying dedicated home workspace is deducted separately under IRC § 280A (simplified $5/sq ft or actual expense allocation).</span>
               </li>
             </ul>
           </div>

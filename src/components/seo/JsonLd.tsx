@@ -45,7 +45,7 @@ export function generateGeoSchema({
     author: {
       '@type': 'Person',
       name: 'Aaradhya Pathak',
-      jobTitle: 'Co-Founder & Full-Stack Developer',
+      jobTitle: 'Founder & Lead Developer',
       url: 'https://www.usefeekit.com/about',
     },
     spatialCoverage: {

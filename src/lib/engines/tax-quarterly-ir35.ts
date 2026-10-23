@@ -51,7 +51,7 @@ export function calculateQuarterlyTax(input: QuarterlyTaxInput): QuarterlyTaxRes
   // 1. Self-Employment Tax (Schedule SE)
   // 92.35% of net earnings are subject to 15.3% SE tax (12.4% SS + 2.9% Medicare)
   const seTaxableIncome = netProfit * 0.9235;
-  const ssWageCap = 168600;
+  const ssWageCap = 184500;
   const ssTax = Math.min(seTaxableIncome, ssWageCap) * 0.124;
   const medicareTax = seTaxableIncome * 0.029;
   const selfEmploymentTax = ssTax + medicareTax;

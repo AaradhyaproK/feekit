@@ -74,7 +74,7 @@ export function DataSourceCitation({
           <strong>Scope:</strong> {source.dataType}
         </span>
         <span className="text-slate-400 shrink-0">
-          Independent audit verification via FeeKit Compliance Standards
+          Verified against official statutory schedules &amp; documentation
         </span>
       </div>
     </aside>

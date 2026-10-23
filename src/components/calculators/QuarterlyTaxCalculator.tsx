@@ -162,7 +162,7 @@ export function QuarterlyTaxCalculator({
         <div className="flex items-start gap-2 rounded-xl bg-amber-100/70 border border-amber-300 p-3 text-xs text-amber-950">
           <Info className="h-4 w-4 text-amber-700 shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            <strong>2026 Social Security Wage Cap Note:</strong> The 12.4% Social Security portion of self-employment tax (SECA) applies only up to the 2026 statutory wage cap of <strong>$176,100</strong>. Net business profit above $176,100 is exempt from the 12.4% OASDI portion and only incurs the 2.9% Medicare tax (plus 0.9% Additional Medicare tax if Adjusted Gross Income exceeds $200k single / $250k married).
+            <strong>2026 Social Security Wage Cap Note:</strong> The 12.4% Social Security portion of self-employment tax (SECA) applies only up to the 2026 statutory wage cap of <strong>$184,500</strong>. Net business profit above $184,500 is exempt from the 12.4% OASDI portion and only incurs the 2.9% Medicare tax (plus 0.9% Additional Medicare tax if Adjusted Gross Income exceeds $200k single / $250k married).
           </p>
         </div>
       </div>

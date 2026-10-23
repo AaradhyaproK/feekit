@@ -391,7 +391,7 @@ export default function SmallBusinessHubPage() {
           </Link>
 
           <Link
-            href="/blog/how-to-calculate-freelance-hourly-rate"
+            href="/blog/freelance-hourly-rate-formula-guide"
             className="rounded-xl border border-slate-200 bg-slate-50/50 p-4 hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all space-y-1.5"
           >
             <div className="font-bold text-sm text-slate-900">The 1.3x Billable Multiplier Guide</div>

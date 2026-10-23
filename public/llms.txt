@@ -23,7 +23,7 @@ FeeKit provides 100% private, instant client-side calculators for sales tax, pay
 - [Freelance & Contracting](https://www.usefeekit.com/tools/freelance-rate-calculator): Day rate, billable hours, and tax deductions.
 - [Ecommerce & Margin Tools](https://www.usefeekit.com/tools/ecommerce-profit-calculator): COGS, ROAS, and net margin analysis.
 
-## In-Depth Research & Blog Guides (28 Published Articles)
+## In-Depth Research & Blog Guides (30 Published Articles)
 
 FeeKit publishes independent, audited research on payment fees, Merchant of Record models, sales tax economic nexus, and freelance tax compliance:
 
@@ -42,7 +42,6 @@ FeeKit publishes independent, audited research on payment fees, Merchant of Reco
 - [Net 30 vs Net 15 Payment Terms: What Freelancers and Small Businesses Should Know](https://www.usefeekit.com/blog/net-30-vs-net-15): Compare Net 30 and Net 15 payment terms. Learn how invoice timing impacts cash flow velocity, client relationships, early payment discounts (2/10 Net 30), and late fee enforcement.
 - [Invoice vs Receipt: What's the Difference and When to Use Each](https://www.usefeekit.com/blog/invoice-vs-receipt): Understand the legal and accounting differences between an invoice and a receipt. Learn when to issue each document, tax recordkeeping requirements, and audit trail rules.
 - [LLC vs S-Corp for Freelancers (2026): The Exact Profit Threshold to Save on Taxes](https://www.usefeekit.com/blog/llc-vs-scorp-freelance-tax-guide): Master the LLC vs S-Corp decision for 2026. Calculate the 15.3% self-employment tax savings, IRS reasonable salary rules, payroll overhead, and the exact net profit break-even threshold.
-- [Gumroad vs Stripe vs Lemon Squeezy (2026): Creator Fees & Merchant of Record Guide](https://www.usefeekit.com/blog/gumroad-vs-stripe-vs-lemon-squeezy-2026): Compare 2026 fees for Gumroad, Lemon Squeezy, and Stripe. In-depth analysis of Merchant of Record (MoR) models, global sales tax and VAT compliance, and net profit margins.
 - [Upwork vs Fiverr Fees in 2026: Platform Cuts, Client Surcharges & Take-Home Pay Compared](https://www.usefeekit.com/blog/upwork-vs-fiverr-fees-2026): Comprehensive 2026 comparison of Upwork vs Fiverr platform fees. Compare Upwork's 10% flat cut & contract initiation fees against Fiverr's 20% commission, buyer surcharges, and payout FX costs.
 - [Etsy vs Shopify Fees: 2026 Seller Cost Breakdown & Profit Margin Comparison](https://www.usefeekit.com/blog/etsy-vs-shopify-fees-2026): Uncover true 2026 seller fees for Etsy vs Shopify. Detailed breakdown of Etsy's 6.5% transaction fee, $0.20 listing fee, 15% Offsite Ads, vs Shopify subscription and payment rates.
 - [Freelance Hourly Rate Formula: How to Calculate Your True Billable Rate in 2026](https://www.usefeekit.com/blog/freelance-hourly-rate-formula-guide): Master the freelance hourly rate formula for 2026. Calculate billable hours, self-employment tax (15.3%), overhead, unpaid leave, and target profit margins.
@@ -52,7 +51,6 @@ FeeKit publishes independent, audited research on payment fees, Merchant of Reco
 - [Shopify vs Amazon FBA Fees: 2026 Profit Margin & True Cost Breakdown](https://www.usefeekit.com/blog/shopify-vs-amazon-fba-fees-2026): Compare 2026 seller fees between Shopify and Amazon FBA. Detailed breakdown of Amazon referral rates (8%-15%), FBA pick & pack, low-inventory surcharges vs Shopify plan tiers, payment processing, and app overhead.
 - [Square vs Stripe: 2026 In-Person POS & Online Merchant Fee Comparison](https://www.usefeekit.com/blog/square-vs-stripe-fees-2026): In-depth 2026 fee comparison between Square and Stripe. Compare Square's 2.6% + 10¢ in-person POS rate vs Stripe Terminal's 2.7% + 5¢, online checkout spreads, hardware costs, and dispute fees.
 - [Stripe vs PayPal: 2026 Merchant Processing Fee Breakdown](https://www.usefeekit.com/blog/stripe-vs-paypal-fees-2026): Compare 2026 processing fees between Stripe and PayPal for US & UK ecommerce. In-depth rate tables, international surcharges, chargeback costs, and interchange-plus analysis.
-- [How to Calculate Your Freelance Hourly Rate: The Complete Mathematical Formula](https://www.usefeekit.com/blog/how-to-calculate-freelance-hourly-rate): Step-by-step formula to calculate your freelance hourly rate. Account for the 15.3% SECA self-employment tax, realistic billable hours, business overhead, and healthcare reserves.
 - [UK HMRC VAT Compliance & MTD Rules: 2026 Edition](https://www.usefeekit.com/blog/uk-vat-guide-freelancers-merchants): Essential guide to the UK HMRC £90,000 VAT registration threshold, Making Tax Digital (MTD) digital links compliance, and standard vs reduced rate calculation.
 - [US Sales Tax Economic Nexus: 50-State Threshold Guide (2026)](https://www.usefeekit.com/blog/us-sales-tax-economic-nexus-guide): Complete 2026 multi-state economic nexus thresholds, marketplace facilitator laws, and local district surtaxes for remote ecommerce brands and digital sellers.
 

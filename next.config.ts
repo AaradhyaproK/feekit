@@ -28,6 +28,16 @@ const nextConfig: NextConfig = {
     return [
       // SEO Cannibalization & Overlapping Page Consolidation Redirects
       {
+        source: '/blog/how-to-calculate-freelance-hourly-rate',
+        destination: '/blog/freelance-hourly-rate-formula-guide',
+        permanent: true,
+      },
+      {
+        source: '/blog/gumroad-vs-stripe-vs-lemon-squeezy-2026',
+        destination: '/blog/gumroad-vs-lemon-squeezy-fees-2026',
+        permanent: true,
+      },
+      {
         source: '/tools/stripe-fee-calculator/united-kingdom',
         destination: '/tools/stripe-fee-calculator/uk',
         permanent: true,

@@ -5,7 +5,7 @@ const geoItems = [];
 
 // 1. 50 US States Sales Tax Suite (Strictly US Geo-targeted with rich goldmine FAQs & terms)
 const usStates = [
-  { slug: 'california', code: 'CA', name: 'California', rate: 7.25, local: 1.57, maxLocal: 3.00, threshold: '$500,000' },
+  { slug: 'california', code: 'CA', name: 'California', rate: 7.25, local: 1.57, maxLocal: 3.50, threshold: '$500,000' },
   { slug: 'texas', code: 'TX', name: 'Texas', rate: 6.25, local: 1.95, maxLocal: 2.00, threshold: '$500,000' },
   { slug: 'new-york', code: 'NY', name: 'New York', rate: 4.0, local: 4.52, maxLocal: 4.875, threshold: '$500,000 and 100 transactions' },
   { slug: 'florida', code: 'FL', name: 'Florida', rate: 6.0, local: 1.02, maxLocal: 2.50, threshold: '$100,000' },

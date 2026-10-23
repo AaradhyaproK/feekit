@@ -98,7 +98,7 @@ export function getAllPosts(): BlogPost[] {
         authorTitle:
           typeof data.authorTitle === 'string'
             ? data.authorTitle
-            : 'Co-Founder & Full-Stack Developer',
+            : 'Founder & Lead Developer',
         readTime: computedReadTime,
         wordCount: words,
         category: (data.category as BlogCategory) || 'Guides',
@@ -165,7 +165,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent {
     authorTitle:
       typeof data.authorTitle === 'string'
         ? data.authorTitle
-        : 'Co-Founder & Full-Stack Developer',
+        : 'Founder & Lead Developer',
     readTime: computedReadTime,
     wordCount: words,
     category: (data.category as BlogCategory) || 'Guides',

@@ -33,7 +33,7 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Aaradhya Pathak',
-    jobTitle: 'Co-Founder & Full-Stack Developer',
+    jobTitle: 'Founder & Lead Developer',
     email: 'mailto:aaradhya1774@gmail.com',
     worksFor: {
       '@type': 'Organization',
@@ -48,7 +48,7 @@ export default function AboutPage() {
       'https://github.com/AaradhyaproK',
     ],
     description:
-      'Founder and lead developer of FeeKit, and Co-Founder & Full-Stack Developer at Snab Innovations. Expert in client-side financial computation engines, payment gateway fee models, and IRS/HMRC tax statutory algorithms.',
+      'Founder and lead developer of FeeKit. Specialist in client-side financial computation engines, payment gateway fee models, and statutory tax algorithms.',
   };
 
   const aboutPageSchema = {
@@ -150,12 +150,12 @@ export default function AboutPage() {
                     Aaradhya Pathak
                   </h2>
                   <p className="text-xs sm:text-sm font-semibold text-blue-700">
-                    Co-Founder &amp; Full-Stack Developer
+                    Founder &amp; Lead Developer
                   </p>
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  Aaradhya Pathak is the founder and lead developer of FeeKit, and Co-Founder &amp; Full-Stack Developer at Snab Innovations. With expertise in financial systems, Next.js development, and IRS/HMRC tax compliance, he built FeeKit to give freelancers and merchants the precise financial tools that expensive accounting software keeps behind paywalls. All calculators are manually verified against official IRS, HMRC, and payment gateway documentation.
+                  Aaradhya Pathak is the founder and lead developer of FeeKit. With a background in web application engineering and financial calculation systems, he created FeeKit to give freelancers and merchants transparent, free financial tools without subscription walls. All calculators are benchmarked against official IRS forms, state revenue statutes, HMRC schedules, and payment processor documentation.
                 </p>
 
                 {/* Creator Links */}
@@ -322,10 +322,10 @@ export default function AboutPage() {
                 <Clock className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
                 <div className="space-y-1">
                   <div className="text-xs sm:text-sm font-bold text-slate-900">
-                    Immediate Revision on Gateway or Regulatory Changes
+                    Regular Review on Gateway or Regulatory Changes
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    When payment processors adjust cross-border surcharges or states amend municipal sales tax thresholds, our mathematical matrices are patched and deployed to production within 24 to 48 hours.
+                    When payment processors adjust cross-border fees or tax authorities announce rate and threshold adjustments, our mathematical engines and datasets are updated to reflect the latest statutory schedules.
                   </p>
                 </div>
               </li>
@@ -350,10 +350,10 @@ export default function AboutPage() {
                 <ShieldCheck className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="space-y-1">
                   <div className="text-xs sm:text-sm font-bold text-slate-900">
-                    Peer-Reviewed Mathematical Testing
+                    Automated Formula &amp; Statement Testing
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    All financial calculation engines undergo automated unit tests and peer review against real-world transaction statements prior to release.
+                    All financial calculation engines undergo automated regression tests against published processing schedules and real-world statement samples prior to release.
                   </p>
                 </div>
               </li>

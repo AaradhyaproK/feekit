@@ -11,7 +11,7 @@ function getDeepContentText(state) {
   const estimatedAvgLocal = hasLocal ? ((state.maxLocal - state.rate) / 2).toFixed(2) : '0.00';
 
   const text = `
-${state.name} Sales Tax Rate — Full Breakdown (2025)
+${state.name} Sales Tax Rate — Full Breakdown (2026)
 Statutory statewide base rate, discretionary local tax jurisdictions, and invoice mathematical formulas
 
 The statutory base sales tax rate in ${state.name} is ${state.rate.toFixed(2)}%. Every business engaging in retail transactions, remote commerce, or leasing taxable personal property in the state must account for this baseline levy. However, computing true checkout tax liability requires evaluating local composite jurisdictions.
@@ -65,7 +65,7 @@ Digital Submission & Remittance Due Dates: All sales tax returns in ${state.name
 
 The Zero Return Rule: If your business generated zero taxable sales into ${state.name} during a given reporting cycle, you are still legally required to submit a timely "Zero Return." Failure to file zero returns results in administrative failure-to-file fines and can trigger automatic revocation of your business sales tax permit.
 
-CPA Recommendation for Online Sellers:
+Compliance Practice Note for Online Sellers:
 Managing varying destination rates across multiple counties and special taxing districts in ${state.name} creates significant manual overhead. We strongly advise integrating automated sales tax compliance software such as TaxJar, Avalara AvaTax, or Stripe Tax directly into your e-commerce checkout to ensure seamless rate computation and auto-filing.
 
 FAQ — ${state.name} Sales Tax for Online Sellers

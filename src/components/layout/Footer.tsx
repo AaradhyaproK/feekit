@@ -54,17 +54,17 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
               </p>
             </div>
 
-            {/* Quick-Search Interactive Button & Product Hunt Featured Badge */}
+            {/* Quick-Search Interactive Button & Product Hunt Review Badge */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
-                href="https://www.producthunt.com/products/feekit?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-feekit"
+                href="https://www.producthunt.com/products/feekit/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-feekit"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="shrink-0 hover:opacity-90 transition-opacity inline-flex items-center justify-center"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1269126&theme=light&t=1791213076508"
+                  src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1334575&theme=light"
                   alt="FeeKit - Instant payment fee & reverse payout calculator for makers | Product Hunt"
                   width={250}
                   height={54}

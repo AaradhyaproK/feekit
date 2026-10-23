@@ -80,28 +80,31 @@ export function EditorialGuidesSection() {
         </Link>
       </div>
 
-      {/* Category Filter Pills */}
-      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
-        {FILTER_TABS.map((tab) => {
-          const isActive = selectedTab === tab;
-          return (
-            <button
-              key={tab}
-              type="button"
-              onClick={() => {
-                setSelectedTab(tab);
-                setIsExpanded(true);
-              }}
-              className={`tap-spring whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-              }`}
-            >
-              {tab === 'All' ? `All Guides (${blogManifest.length})` : tab}
-            </button>
-          );
-        })}
+      {/* Category Filter Pills with Mobile Scroll Cue */}
+      <div className="relative">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1.5 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
+          {FILTER_TABS.map((tab) => {
+            const isActive = selectedTab === tab;
+            return (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => {
+                  setSelectedTab(tab);
+                  setIsExpanded(true);
+                }}
+                className={`tap-spring whitespace-nowrap rounded-xl px-3 py-2 sm:py-1.5 text-xs font-bold transition-all cursor-pointer min-h-[38px] sm:min-h-0 ${
+                  isActive
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                }`}
+              >
+                {tab === 'All' ? `All Guides (${blogManifest.length})` : tab}
+              </button>
+            );
+          })}
+        </div>
+        <div className="pointer-events-none absolute right-0 top-0 bottom-1.5 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
       </div>
 
       {/* Grid of Articles */}

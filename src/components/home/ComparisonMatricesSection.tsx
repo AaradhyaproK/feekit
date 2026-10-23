@@ -180,24 +180,27 @@ export function ComparisonMatricesSection() {
         </div>
 
         {/* Tab Selector Buttons */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar">
-          {tabs.map((tab) => {
-            const isSelected = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveTab(tab.id)}
-                className={`tap-spring shrink-0 inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
-                  isSelected
-                    ? 'border-blue-600 bg-blue-50/80 text-blue-700 shadow-2xs'
-                    : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
-                }`}
-              >
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
+        <div className="relative">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar scroll-smooth">
+            {tabs.map((tab) => {
+              const isSelected = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`tap-spring shrink-0 inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 sm:py-1.5 text-xs font-bold transition-all cursor-pointer min-h-[38px] sm:min-h-0 ${
+                    isSelected
+                      ? 'border-blue-600 bg-blue-50/80 text-blue-700 shadow-2xs'
+                      : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
+                  }`}
+                >
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-1.5 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
         </div>
       </div>
 
@@ -213,8 +216,13 @@ export function ComparisonMatricesSection() {
             </span>
           </div>
 
+          <div className="sm:hidden flex items-center justify-between text-[11px] text-slate-500 pt-0.5">
+            <span>Swipe horizontally to compare fees &amp; payouts</span>
+            <span className="font-mono text-[10px] text-blue-600 font-bold">⇄ Swipe</span>
+          </div>
+
           <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-2xs">
-            <table className="w-full text-left text-xs border-collapse">
+            <table className="w-full text-left text-xs border-collapse min-w-[700px]">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50/80">
                   <th className="py-3 px-3.5 font-bold text-slate-900">Gross Sale</th>
@@ -313,8 +321,13 @@ export function ComparisonMatricesSection() {
             </span>
           </div>
 
+          <div className="sm:hidden flex items-center justify-between text-[11px] text-slate-500 pt-0.5">
+            <span>Swipe horizontally to view state rules</span>
+            <span className="font-mono text-[10px] text-indigo-600 font-bold">⇄ Swipe</span>
+          </div>
+
           <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-2xs">
-            <table className="w-full text-left text-xs border-collapse">
+            <table className="w-full text-left text-xs border-collapse min-w-[680px]">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50/80">
                   <th className="py-3 px-3.5 font-bold text-slate-900">State Jurisdiction</th>
@@ -372,8 +385,13 @@ export function ComparisonMatricesSection() {
             Statutory Value Added Tax (VAT) and Goods & Services Tax (GST) compliance benchmarks for UK, European Union, and international cross-border trade.
           </p>
 
+          <div className="sm:hidden flex items-center justify-between text-[11px] text-slate-500 pt-0.5">
+            <span>Swipe horizontally to view international VAT</span>
+            <span className="font-mono text-[10px] text-emerald-600 font-bold">⇄ Swipe</span>
+          </div>
+
           <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-2xs">
-            <table className="w-full text-left text-xs border-collapse">
+            <table className="w-full text-left text-xs border-collapse min-w-[650px]">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50/80">
                   <th className="py-3 px-3.5 font-bold text-slate-900">Country</th>
@@ -434,8 +452,13 @@ export function ComparisonMatricesSection() {
             </span>
           </div>
 
+          <div className="sm:hidden flex items-center justify-between text-[11px] text-slate-500 pt-0.5">
+            <span>Swipe horizontally to view contractor rates</span>
+            <span className="font-mono text-[10px] text-purple-600 font-bold">⇄ Swipe</span>
+          </div>
+
           <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-2xs">
-            <table className="w-full text-left text-xs border-collapse">
+            <table className="w-full text-left text-xs border-collapse min-w-[700px]">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50/80">
                   <th className="py-3 px-3.5 font-bold text-slate-900">Target Net Income</th>

@@ -6,9 +6,10 @@
   "homepage": "https://www.usefeekit.com",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node --experimental-strip-types src/scripts/check-rates.mjs",
     "build": "next build",
     "start": "next start",
-    "validate:rates": "node src/scripts/check-rates.mjs",
+    "validate:rates": "node --experimental-strip-types src/scripts/check-rates.mjs",
     "lint": "eslint"
   },
   "dependencies": {

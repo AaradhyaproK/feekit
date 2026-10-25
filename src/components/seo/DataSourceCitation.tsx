@@ -71,11 +71,14 @@ export function DataSourceCitation({
 
       <div className="rounded-xl border border-slate-200/60 bg-slate-50/40 px-3.5 py-2.5 text-[11px] text-slate-500 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <span>
-          <strong>Scope:</strong> {source.dataType}
+          <strong>Scope:</strong> {source.dataType} • Last verified against primary schedules: {source.lastVerified}
         </span>
-        <span className="text-slate-400 shrink-0">
-          Verified against official statutory schedules &amp; documentation
-        </span>
+        <a
+          href="/changelog"
+          className="text-blue-600 font-semibold hover:underline shrink-0"
+        >
+          Public Rate Changelog →
+        </a>
       </div>
     </aside>
   );

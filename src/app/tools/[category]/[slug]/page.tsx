@@ -24,7 +24,7 @@ import { QuarterlyTaxCalculator } from '@/components/calculators/QuarterlyTaxCal
 import { UkIr35Calculator } from '@/components/calculators/UkIr35Calculator';
 import { GatewayComparator } from '@/components/calculators/GatewayComparator';
 import { InvoiceGenerator } from '@/components/calculators/InvoiceGenerator';
-import { US_STATE_SALES_TAX_RATES, STATE_SALES_TAX_RATES, GATEWAY_RATES, STATUTORY_TAX_RATES } from '@/data/rates';
+import { US_STATE_SALES_TAX_RATES, GATEWAY_RATES, STATUTORY_TAX_RATES } from '@/data/rates';
 import { isIndexableTool } from '@/lib/seo/indexing-policy';
 import Link from 'next/link';
 import { ArrowLeft, ShieldCheck, Info, Clock, Calendar, UserCheck } from 'lucide-react';
@@ -246,7 +246,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
   let agencyBadge = 'Statutory Regulatory Guidelines Verified';
 
   if (category === 'sales-tax-calculator') {
-    const stateData = US_STATE_SALES_TAX_RATES[slug] || STATE_SALES_TAX_RATES[slug];
+    const stateData = US_STATE_SALES_TAX_RATES[slug];
     if (stateData) {
       agencyBadge = `${stateData.sourceName.split('(')[0].trim()} Sourced & Verified`;
       lastVerifiedRaw = stateData.verifiedOn;

@@ -372,6 +372,14 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    href="/changelog"
+                    className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
+                  >
+                    Statutory Rate Changelog
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/affiliate-disclosure"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >

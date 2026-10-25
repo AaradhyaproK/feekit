@@ -184,7 +184,7 @@ export function FreelanceRateCalculator({
         </div>
 
         <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-200">
-          <label htmlFor="freelance-tax-rate" className="text-slate-700 font-medium">Est. Tax (SECA + Income):</label>
+          <label htmlFor="freelance-tax-rate" className="text-slate-700 font-medium">Est. Tax (SECA + Income Reserve):</label>
           <div className="flex items-center gap-2 font-mono font-bold text-slate-900">
             <input
               id="freelance-tax-rate"
@@ -199,6 +199,22 @@ export function FreelanceRateCalculator({
             <span>%</span>
           </div>
         </div>
+      </div>
+
+      {/* Formula & Derivation Documentation */}
+      <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-3.5 space-y-1.5 text-xs text-slate-700">
+        <div className="flex items-center gap-2 font-bold text-slate-900">
+          <Info className="h-4 w-4 text-blue-600 shrink-0" />
+          <span>Statutory Mathematical Formula &amp; Rate Derivation</span>
+        </div>
+        <div className="font-mono text-[11px] text-slate-800 bg-white p-2.5 rounded-lg border border-slate-200 space-y-0.5">
+          <p>Gross Required = [ (Target Net ÷ (1 - Tax Rate)) + Overhead ] × (1 + 15% Buffer)</p>
+          <p>Hourly Rate = Gross Required ÷ Annual Billable Hours ({result.billableHoursPerYear.toLocaleString()} hrs = {workingWeeks} wks × {billableHours} hrs/wk)</p>
+          <p>Day Rate (8h) = Unrounded Hourly Rate × 8</p>
+        </div>
+        <p className="text-[11px] text-slate-500 leading-relaxed">
+          The default 28% reserve models combined self-employment tax (15.3% SECA on 92.35% of profit up to the $184,500 wage cap) and federal/state effective income tax brackets.
+        </p>
       </div>
 
       {/* Metrics Grid (2x2 on Mobile, 4x1 on Desktop) */}

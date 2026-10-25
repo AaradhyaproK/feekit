@@ -564,7 +564,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
               amountHeader={item.suiteType === 'ecommerce' ? 'Monthly Volume' : (item.suiteType === 'freelance' ? 'Annual Target Net' : 'Gross Transaction')}
               feeHeader={item.suiteType === 'ecommerce' ? 'Total Costs & Spend' : (item.suiteType === 'freelance' ? 'Day Rate (8h)' : (item.suiteType === 'tax' ? 'Tax Amount' : 'Deductions'))}
               payoutHeader={item.suiteType === 'ecommerce' ? 'Net Profit Earned' : (item.suiteType === 'freelance' ? 'Monthly Retainer' : (item.suiteType === 'tax' ? 'Gross Invoice' : 'Net Received'))}
-              isDeduction={item.suiteType !== 'freelance'}
+              isDeduction={item.suiteType !== 'freelance' && item.suiteType !== 'tax'}
               rows={tierRows}
             />
           )}

@@ -25,7 +25,7 @@ export interface GatewayTier {
   monthlyFee: number;
 }
 
-import { GATEWAY_RATES } from '@/data/rates';
+import { GATEWAY_RATES } from '../../data/rates/index.ts';
 
 export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
   stripe: {
@@ -43,10 +43,10 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     id: 'paypal',
     name: 'PayPal Commerce',
     tagline: 'Standard commercial transactions',
-    percentageRate: GATEWAY_RATES['paypal-us-invoicing-paypal-percent'].value / 100, // 0.0349
-    fixedFee: GATEWAY_RATES['paypal-us-invoicing-fixed'].value, // 0.49
-    intlExtraPercentage: GATEWAY_RATES['paypal-us-international-surcharge'].value / 100, // 0.015
-    currencyConversionRate: GATEWAY_RATES['paypal-us-currency-conversion'].value / 100, // 0.03
+    percentageRate: GATEWAY_RATES['paypal-us-checkout-percent'].value / 100, // 0.0349
+    fixedFee: GATEWAY_RATES['paypal-us-standard-fixed'].value, // 0.49
+    intlExtraPercentage: GATEWAY_RATES['paypal-us-crossborder-surcharge'].value / 100, // 0.015
+    currencyConversionRate: 0.03, // 3%
     monthlyFee: 0,
   },
   wise: {
@@ -54,10 +54,10 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     name: 'Wise Business',
     tagline: 'Direct mid-market multi-currency bank payouts',
     badge: 'Lowest Fee',
-    percentageRate: GATEWAY_RATES['wise-business-variable-fee-percent'].value / 100, // 0.0045 (~0.45% mid-market)
-    fixedFee: GATEWAY_RATES['wise-business-fixed-fee'].value, // 0.00
+    percentageRate: GATEWAY_RATES['wise-base-transfer-rate'].value / 100, // 0.0043 (~0.43% base transfer)
+    fixedFee: 0.00,
     intlExtraPercentage: 0.0,
-    currencyConversionRate: GATEWAY_RATES['wise-business-variable-fee-percent'].value / 100, // 0.0045
+    currencyConversionRate: GATEWAY_RATES['wise-base-transfer-rate'].value / 100, // 0.0043
     monthlyFee: 0,
   },
   square: {
@@ -74,11 +74,11 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     id: 'authorize_net',
     name: 'Authorize.Net',
     tagline: 'Payment gateway + merchant account',
-    percentageRate: GATEWAY_RATES['authorizenet-gateway-allin-percent'].value / 100, // 0.029
-    fixedFee: GATEWAY_RATES['authorizenet-gateway-allin-fixed'].value, // 0.30
+    percentageRate: GATEWAY_RATES['authorizenet-allinone-percent'].value / 100, // 0.029
+    fixedFee: GATEWAY_RATES['authorizenet-allinone-fixed'].value, // 0.30
     intlExtraPercentage: 0.015,
     currencyConversionRate: 0.015,
-    monthlyFee: GATEWAY_RATES['authorizenet-monthly-gateway-fee'].value, // 25.0
+    monthlyFee: GATEWAY_RATES['authorizenet-gateway-monthly'].value, // 25.0
   },
   venmo: {
     id: 'venmo',
@@ -96,8 +96,8 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     name: 'Gumroad',
     tagline: 'Creator sales: 10% platform + $0.50 (+ processing)',
     badge: 'Creator Economy',
-    percentageRate: GATEWAY_RATES['gumroad-platform-fee-percent'].value / 100, // 0.10
-    fixedFee: GATEWAY_RATES['gumroad-platform-fee-fixed'].value, // 0.50
+    percentageRate: GATEWAY_RATES['gumroad-direct-percent'].value / 100, // 0.10
+    fixedFee: GATEWAY_RATES['gumroad-direct-fixed'].value, // 0.50
     intlExtraPercentage: 0.01,
     currencyConversionRate: 0.02,
     monthlyFee: 0,
@@ -107,9 +107,9 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     name: 'Lemon Squeezy',
     tagline: 'Merchant of Record for SaaS & digital files',
     badge: 'SaaS MoR',
-    percentageRate: GATEWAY_RATES['lemonsqueezy-standard-percent'].value / 100, // 0.05
-    fixedFee: GATEWAY_RATES['lemonsqueezy-standard-fixed'].value, // 0.50
-    intlExtraPercentage: GATEWAY_RATES['lemonsqueezy-international-surcharge'].value / 100, // 0.015
+    percentageRate: GATEWAY_RATES['lemon-squeezy-standard-percent'].value / 100, // 0.05
+    fixedFee: GATEWAY_RATES['lemon-squeezy-standard-fixed'].value, // 0.50
+    intlExtraPercentage: 0.015,
     currencyConversionRate: 0.015,
     monthlyFee: 0,
   },
@@ -118,8 +118,8 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     name: 'Paddle',
     tagline: 'Global Merchant of Record & SaaS billing',
     badge: 'Enterprise MoR',
-    percentageRate: GATEWAY_RATES['paddle-standard-percent'].value / 100, // 0.05
-    fixedFee: GATEWAY_RATES['paddle-standard-fixed'].value, // 0.50
+    percentageRate: 0.05,
+    fixedFee: 0.50,
     intlExtraPercentage: 0.015,
     currencyConversionRate: 0.02,
     monthlyFee: 0,
@@ -129,8 +129,8 @@ export const GATEWAYS: Record<PaymentGatewayId, GatewayTier> = {
     name: 'Shopify Payments',
     tagline: 'Built-in Shopify online checkout (Basic tier)',
     badge: 'E-commerce',
-    percentageRate: GATEWAY_RATES['shopify-payments-basic-online-percent'].value / 100, // 0.029
-    fixedFee: GATEWAY_RATES['shopify-payments-basic-online-fixed'].value, // 0.30
+    percentageRate: GATEWAY_RATES['shopify-basic-online-percent'].value / 100, // 0.029
+    fixedFee: GATEWAY_RATES['shopify-basic-online-fixed'].value, // 0.30
     intlExtraPercentage: 0.01,
     currencyConversionRate: 0.015,
     monthlyFee: 0,

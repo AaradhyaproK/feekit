@@ -139,7 +139,7 @@ export function ComparisonMatricesSection() {
     { state: 'Texas (TX)', baseRate: '6.25%', maxLocal: '2.00%', maxCombined: '8.25%', nexus: '$500,000', sourcing: 'Origin (In-state) / Dest (Remote)', link: '/tools/sales-tax-calculator/texas' },
     { state: 'New York (NY)', baseRate: '4.00%', maxLocal: '4.875%', maxCombined: '8.875%', nexus: '$500,000 & 100 tx', sourcing: 'Destination', link: '/tools/sales-tax-calculator/new-york' },
     { state: 'Florida (FL)', baseRate: '6.00%', maxLocal: '2.50%', maxCombined: '8.50%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/florida' },
-    { state: 'Washington (WA)', baseRate: '6.50%', maxLocal: '3.90%', maxCombined: '10.40%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/washington' },
+    { state: 'Washington (WA)', baseRate: '6.50%', maxLocal: '4.10%', maxCombined: '10.60%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/washington' },
     { state: 'Illinois (IL)', baseRate: '6.25%', maxLocal: '4.75%', maxCombined: '11.00%', nexus: '$100,000 & 200 tx', sourcing: 'Destination / Origin', link: '/tools/sales-tax-calculator/illinois' },
     { state: 'Pennsylvania (PA)', baseRate: '6.00%', maxLocal: '2.00%', maxCombined: '8.00%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/pennsylvania' },
     { state: 'Ohio (OH)', baseRate: '5.75%', maxLocal: '2.25%', maxCombined: '8.00%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/ohio' },

@@ -24,6 +24,7 @@ import { QuarterlyTaxCalculator } from '@/components/calculators/QuarterlyTaxCal
 import { UkIr35Calculator } from '@/components/calculators/UkIr35Calculator';
 import { GatewayComparator } from '@/components/calculators/GatewayComparator';
 import { InvoiceGenerator } from '@/components/calculators/InvoiceGenerator';
+import { STATE_SALES_TAX_RATES, GATEWAY_RATES, STATUTORY_TAX_RATES } from '@/data/rates';
 import Link from 'next/link';
 import { ArrowLeft, ShieldCheck, Info, Clock, Calendar, UserCheck } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
@@ -235,6 +236,56 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
   const seoDesc = customSeo ? customSeo.description : item.subtitle;
   const dataSource = getDataSource(category, slug);
 
+  let lastVerifiedRaw = '2026-10-24';
+  let agencyBadge = 'Statutory Regulatory Guidelines Verified';
+
+  if (category === 'sales-tax-calculator') {
+    const stateKey = `sales-tax-${slug}-base`;
+    const stateData = STATE_SALES_TAX_RATES[stateKey];
+    if (stateData) {
+      agencyBadge = `${stateData.sourceName.split('(')[0].trim()} Sourced & Verified`;
+      lastVerifiedRaw = stateData.verifiedOn;
+    } else {
+      agencyBadge = 'State Department of Revenue Sourced';
+    }
+  } else if (category === 'vat-calculator') {
+    if (slug === 'united-kingdom' || item.geoRegion === 'UK') {
+      agencyBadge = 'HMRC Sourced & Verified';
+      lastVerifiedRaw = STATUTORY_TAX_RATES['uk-vat-registration-threshold']?.verifiedOn || '2026-10-24';
+    } else {
+      agencyBadge = 'National Tax Authority Sourced';
+    }
+  } else if (category === 'freelance-rate-calculator' || category === 'quarterly-tax-calculator') {
+    agencyBadge = 'IRS Form 1040-ES & SSA Guidelines';
+    lastVerifiedRaw = STATUTORY_TAX_RATES['ss-wage-cap-2026']?.verifiedOn || '2026-10-24';
+  } else if (category === 'stripe-fee-calculator') {
+    agencyBadge = 'Stripe Official Pricing Verified';
+    lastVerifiedRaw = GATEWAY_RATES['stripe-us-standard-percent']?.verifiedOn || '2026-10-24';
+  } else if (category === 'paypal-fee-calculator') {
+    agencyBadge = 'PayPal Official Pricing Verified';
+    lastVerifiedRaw = GATEWAY_RATES['paypal-us-checkout-percent']?.verifiedOn || '2026-10-24';
+  } else if (category === 'square-fee-calculator') {
+    agencyBadge = 'Square Official Pricing Verified';
+    lastVerifiedRaw = GATEWAY_RATES['square-free-inperson-percent']?.verifiedOn || '2026-10-24';
+  } else if (category === 'venmo-fee-calculator') {
+    agencyBadge = 'Venmo Official Pricing Verified';
+    lastVerifiedRaw = GATEWAY_RATES['venmo-us-qr-percent']?.verifiedOn || '2026-10-24';
+  } else if (category === 'gumroad-fee-calculator') {
+    agencyBadge = 'Gumroad Official Pricing Verified';
+    lastVerifiedRaw = GATEWAY_RATES['gumroad-platform-fee-percent']?.verifiedOn || '2026-10-24';
+  } else if (category === 'shopify-fee-calculator') {
+    agencyBadge = 'Shopify Payments Official Pricing Verified';
+    lastVerifiedRaw = GATEWAY_RATES['shopify-basic-online-percent']?.verifiedOn || '2026-10-24';
+  } else if (category === 'gateway-comparator') {
+    agencyBadge = 'Multi-Processor Published Rates Verified';
+    lastVerifiedRaw = '2026-10-24';
+  }
+
+  const dateObj = new Date(lastVerifiedRaw);
+  const formattedDate = !isNaN(dateObj.getTime())
+    ? dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+    : 'October 2026';
+
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* Schema.org SoftwareApplication + spatialCoverage + isBasedOn citation + BreadcrumbList */}
@@ -308,17 +359,17 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           <div className="flex flex-wrap items-center gap-2.5 pt-3 text-xs text-slate-500 border-t border-slate-100">
             <span className="inline-flex items-center gap-1.5 font-medium text-slate-700">
               <Clock className="h-3.5 w-3.5 text-slate-400" />
-              <span>Last updated: <strong className="text-slate-900 font-semibold">October 2026</strong></span>
+              <span>Last updated: <strong className="text-slate-900 font-semibold">{formattedDate}</strong></span>
             </span>
             <span className="text-slate-300">•</span>
             <span className="inline-flex items-center gap-1.5 text-slate-600">
               <UserCheck className="h-3.5 w-3.5 text-blue-600" />
-              <span>Reviewed by: <strong className="text-slate-900 font-semibold">Aaradhya Pathak</strong> (Founder &amp; Lead Developer)</span>
+              <span>Written and reviewed by <strong className="text-slate-900 font-semibold">Aaradhya Pathak</strong>, software developer. Not a CPA or tax advisor.</span>
             </span>
             <span className="hidden md:inline text-slate-300">•</span>
             <span className="hidden md:inline-flex items-center gap-1 text-emerald-700 font-medium">
               <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
-              <span>Verified for 2026 IRS &amp; HMRC Regulatory Guidelines</span>
+              <span>{agencyBadge}</span>
             </span>
           </div>
         </header>

@@ -58,6 +58,14 @@ const QUICK_AMOUNTS = [50, 100, 250, 500, 1000, 5000];
  * Dynamic Rate Comparison Table
  * Computes exact tax and gross amounts for standard transaction sizes at the state base rate
  */
+const roundToCent = (n: number) => Math.round((n + Number.EPSILON) * 100) / 100;
+
+/**
+ * Dual Rate Comparison Tables:
+ * 1. Net to Gross (Add Sales Tax to Pre-Tax Invoice Subtotal)
+ * 2. Gross to Net (Extract Sales Tax from Tax-Inclusive Price)
+ * Computes exact penny values using standard round half-up to cent.
+ */
 export function RateComparisonTable({
   rate,
   currencySymbol = '$',
@@ -68,39 +76,98 @@ export function RateComparisonTable({
   const amounts = [10, 50, 100, 500, 1000];
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
-      <table className="w-full text-left text-xs font-sans">
-        <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
-          <tr>
-            <th className="py-3 px-4">Invoice Net Subtotal</th>
-            <th className="py-3 px-4">State Sales Tax ({rate.toFixed(2)}%)</th>
-            <th className="py-3 px-4">Gross Customer Total</th>
-            <th className="py-3 px-4">Effective State Rate</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-slate-100 font-mono">
-          {amounts.map((amount) => {
-            const tax = amount * (rate / 100);
-            const gross = amount + tax;
-            return (
-              <tr key={amount} className="hover:bg-slate-50/70 transition-colors">
-                <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">
-                  {currencySymbol}{amount.toFixed(2)}
-                </td>
-                <td className="py-2.5 px-4 text-rose-600 font-semibold">
-                  +{currencySymbol}{tax.toFixed(2)}
-                </td>
-                <td className="py-2.5 px-4 text-emerald-700 font-bold">
-                  {currencySymbol}{gross.toFixed(2)}
-                </td>
-                <td className="py-2.5 px-4 text-slate-500 font-sans">
-                  {rate.toFixed(2)}%
-                </td>
+    <div className="space-y-6">
+      {/* Table 1: Net to Gross (Add Tax) */}
+      <div className="space-y-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <span className="text-xs font-bold text-slate-800">
+            Table 1: Net to Gross (Add Tax to Pre-Tax Invoice Subtotal)
+          </span>
+          <span className="text-[11px] font-mono text-slate-500">
+            Tax = Subtotal × {rate.toFixed(2)}% | Total = Subtotal + Tax
+          </span>
+        </div>
+        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-2xs">
+          <table className="w-full text-left text-xs font-sans">
+            <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+              <tr>
+                <th className="py-2.5 px-4">Invoice Net Subtotal</th>
+                <th className="py-2.5 px-4">State Sales Tax (+{rate.toFixed(2)}%)</th>
+                <th className="py-2.5 px-4">Gross Customer Total</th>
+                <th className="py-2.5 px-4">Effective Rate</th>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            </thead>
+            <tbody className="divide-y divide-slate-100 font-mono">
+              {amounts.map((amount) => {
+                const tax = roundToCent(amount * (rate / 100));
+                const gross = roundToCent(amount + tax);
+                return (
+                  <tr key={`add-${amount}`} className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">
+                      {currencySymbol}{amount.toFixed(2)}
+                    </td>
+                    <td className="py-2.5 px-4 text-rose-600 font-semibold">
+                      +{currencySymbol}{tax.toFixed(2)}
+                    </td>
+                    <td className="py-2.5 px-4 text-emerald-700 font-bold">
+                      {currencySymbol}{gross.toFixed(2)}
+                    </td>
+                    <td className="py-2.5 px-4 text-slate-500 font-sans">
+                      {rate.toFixed(2)}%
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Table 2: Gross to Net (Extract Tax) */}
+      <div className="space-y-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <span className="text-xs font-bold text-slate-800">
+            Table 2: Gross to Net Reverse (Extract Tax from Tax-Inclusive Total)
+          </span>
+          <span className="text-[11px] font-mono text-slate-500">
+            Pre-Tax Net = Gross ÷ (1 + {rate.toFixed(2)}%) | Tax = Gross - Net
+          </span>
+        </div>
+        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-2xs">
+          <table className="w-full text-left text-xs font-sans">
+            <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+              <tr>
+                <th className="py-2.5 px-4">Gross Total (Inclusive)</th>
+                <th className="py-2.5 px-4">Pre-Tax Net Subtotal</th>
+                <th className="py-2.5 px-4">Extracted Sales Tax</th>
+                <th className="py-2.5 px-4">Statutory Rate</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 font-mono">
+              {amounts.map((gross) => {
+                const net = roundToCent(gross / (1 + rate / 100));
+                const tax = roundToCent(gross - net);
+                return (
+                  <tr key={`extract-${gross}`} className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-2.5 px-4 font-semibold text-slate-900 font-sans">
+                      {currencySymbol}{gross.toFixed(2)}
+                    </td>
+                    <td className="py-2.5 px-4 text-blue-700 font-semibold">
+                      {currencySymbol}{net.toFixed(2)}
+                    </td>
+                    <td className="py-2.5 px-4 text-rose-600 font-semibold">
+                      -{currencySymbol}{tax.toFixed(2)}
+                    </td>
+                    <td className="py-2.5 px-4 text-slate-500 font-sans">
+                      {rate.toFixed(2)}%
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
@@ -126,11 +193,13 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
     },
     {
       question: `Do out-of-state sellers need to collect sales tax in ${state.name} (Nexus Rules)?`,
-      answer: `Under the South Dakota v. Wayfair economic nexus standard, out-of-state merchants must register and collect sales tax once their remote gross sales into ${state.name} reach $${nexusFormatted} (or the statutory transaction threshold) during the current or preceding calendar year. Additionally, having a physical presence—such as inventory stored in a local third-party fulfillment center or Amazon FBA warehouse, remote employees, or traveling sales representatives—establishes immediate physical nexus in ${state.name}.`,
+      answer: state.slug === 'california'
+        ? `Under the South Dakota v. Wayfair standard and California AB 147, out-of-state remote sellers must register and collect California sales and use tax once total sales delivered into California exceed $500,000 in the current or preceding calendar year. California repealed the 200-transaction count threshold under AB 147, so economic nexus is based purely on the $500,000 gross revenue metric. Additionally, having physical presence—such as inventory stored in a California 3PL or Amazon FBA warehouse, in-state employees, or sales reps—establishes immediate physical nexus.`
+        : `Under the South Dakota v. Wayfair economic nexus standard, out-of-state merchants must register and collect sales tax once their remote gross sales into ${state.name} reach $${nexusFormatted} (or the statutory transaction threshold) during the current or preceding calendar year. Additionally, having a physical presence—such as inventory stored in a local third-party fulfillment center or Amazon FBA warehouse, remote employees, or traveling sales representatives—establishes immediate physical nexus in ${state.name}.`,
     },
     {
       question: `How do resale certificates and exemptions work in ${state.name}?`,
-      answer: `Wholesale purchases intended strictly for resale, industrial manufacturing materials, and sales to qualified 501(c)(3) entities or government bodies may be exempt from ${state.name} sales tax. Vendors must collect and verify an executed ${state.name} resale certificate or exemption certificate before order completion. Under ${state.filingAgency} audit defense rules, valid signed exemption certificates must be retained on file for a minimum of 3 to 4 years.`,
+      answer: `Wholesale purchases intended strictly for resale, industrial manufacturing materials, and sales to qualified entities may be exempt from ${state.name} sales tax. Vendors must collect and verify an executed ${state.name} resale certificate or exemption certificate before order completion. Under ${state.filingAgency} compliance rules (specifically California Cal. Rev. & Tax. Code § 7053 and CDTFA Publication 17 for California merchants), valid exemption certificates and transactional records must be retained on file for a minimum of 4 years.`,
     },
     {
       question: `How and when do I file sales tax returns in ${state.name}?`,
@@ -218,7 +287,7 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
           </div>
 
           <p>
-            <strong>Registration & Unlawful Collection Penalties:</strong> Once economic or physical nexus is established, sellers must register for an official sales and use tax permit directly through <strong>{state.filingAgency}</strong> before billing customers. Collecting sales tax from {state.name} consumers without holding an active tax permit is a severe statutory violation. Because sales tax constitutes state trust funds held in fiduciary trust, unauthorized collection or retention can result in personal officer liability, mandatory civil fraud penalties of 10% to 50%, and potential criminal misdemeanor or felony prosecution.
+            <strong>Registration &amp; Collection Compliance:</strong> Once economic or physical nexus is established, sellers must register for an official sales and use tax permit directly through <strong>{state.filingAgency}</strong> before billing customers. Because sales tax constitutes state funds held in fiduciary trust, collecting tax without registration or failing to remit collections violates state tax law (such as Cal. Rev. &amp; Tax. Code § 6591 in California). Non-compliance can trigger statutory late penalties (typically 10%), personal liability assessments for corporate officers, and accrued statutory interest.
           </p>
         </div>
       </section>
@@ -257,10 +326,10 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
           <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-xs text-amber-900 space-y-1.5">
             <div className="flex items-center gap-2 font-bold text-amber-950">
               <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0" />
-              <span>Audit Defense & Verbal Exemption Prohibition</span>
+              <span>Audit Defense &amp; Statutory Record Retention (4 Years)</span>
             </div>
             <p className="leading-relaxed">
-              Vendors must retain executed exemption certificates on file for a minimum of <strong>3 to 4 years</strong> to defend against retrospective state sales tax audit assessments. <em>Never accept a verbal exemption claim under any circumstance.</em> If an auditor discovers untaxed invoices lacking a valid, signed certificate on file, {state.filingAgency} will hold the seller personally liable for the uncollected tax plus compounding interest.
+              Vendors must retain executed exemption certificates and transactional records on file for a minimum of <strong>4 years</strong> (under Cal. Rev. &amp; Tax. Code § 7053 and <a href="https://www.cdtfa.ca.gov/formspubs/pub17.pdf" target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:text-amber-950">CDTFA Publication 17</a> in California) to defend against retrospective state sales tax audit assessments. <em>Never accept a verbal exemption claim under any circumstance.</em> If an auditor discovers untaxed invoices lacking a valid certificate on file, {state.filingAgency} will assess the uncollected tax against the seller with statutory interest and penalties.
             </p>
           </div>
         </div>
@@ -297,7 +366,7 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
           </p>
 
           <p>
-            <strong>The Zero Return Rule:</strong> If your business generated zero taxable sales into {state.name} during a given reporting cycle, you are still legally required to submit a timely &quot;Zero Return.&quot; Failure to file zero returns results in administrative failure-to-file fines and can trigger automatic revocation of your business sales tax permit.
+            <strong>The Zero Return Requirement:</strong> If your business generated zero taxable sales into {state.name} during a given reporting cycle, you are still legally required to submit a timely &quot;Zero Return.&quot; Failure to file zero returns results in administrative failure-to-file fees and can result in formal permit suspension or revocation proceedings by {state.filingAgency}.
           </p>
 
           <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-4 text-xs text-blue-900 space-y-1">
@@ -343,19 +412,19 @@ export function SalesTaxCalculator({
   const appliedRate = includeMaxLocal ? currentState.maxLocal : currentState.rate;
   const numAmount = parseNumericValue(amount, 0);
 
-  // Tax calculations
+  // Tax calculations using round half-up to cent
   let netSubtotal = 0;
   let taxAmount = 0;
   let grossTotal = 0;
 
   if (direction === 'add_tax') {
-    netSubtotal = numAmount;
-    taxAmount = numAmount * (appliedRate / 100);
-    grossTotal = numAmount + taxAmount;
+    netSubtotal = roundToCent(numAmount);
+    taxAmount = roundToCent(numAmount * (appliedRate / 100));
+    grossTotal = roundToCent(netSubtotal + taxAmount);
   } else {
-    grossTotal = numAmount;
-    netSubtotal = appliedRate > 0 ? numAmount / (1 + appliedRate / 100) : numAmount;
-    taxAmount = numAmount - netSubtotal;
+    grossTotal = roundToCent(numAmount);
+    netSubtotal = appliedRate > 0 ? roundToCent(numAmount / (1 + appliedRate / 100)) : roundToCent(numAmount);
+    taxAmount = roundToCent(grossTotal - netSubtotal);
   }
 
   const handleCopyBreakdown = () => {

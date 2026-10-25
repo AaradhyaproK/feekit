@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default function CookiesPage() {
-  const lastUpdated = 'January 2026';
+  const lastUpdated = 'October 2026';
 
   return (
     <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">

@@ -16,7 +16,7 @@ import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 export default function PrivacyPage() {
-  const lastUpdated = 'January 2026';
+  const lastUpdated = 'October 2026';
 
   return (
     <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">

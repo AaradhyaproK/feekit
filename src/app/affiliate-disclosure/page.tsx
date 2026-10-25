@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 };
 
 export default function AffiliateDisclosurePage() {
-  const lastUpdated = 'January 2026';
+  const lastUpdated = 'October 2026';
 
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',

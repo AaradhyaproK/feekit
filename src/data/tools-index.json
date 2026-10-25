@@ -268,11 +268,11 @@
     "shortTitle": "Louisiana Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "louisiana",
-    "subtitle": "Calculate combined state (4.45%) and county/municipal surtaxes in Louisiana. Instant net-to-gross an",
+    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in Louisiana. Instant net-to-gross and gross-to-net reverse calculations.",
     "stateName": "Louisiana",
     "jurisdictionCode": "LA",
     "badge": "",
-    "rate": 4.45
+    "rate": 5.00
   },
   {
     "title": "Kentucky Sales Tax Calculator (2026 Updated Rates)",
@@ -1045,11 +1045,11 @@
     "rate": null
   },
   {
-    "title": "PayPal In-Person QR Code Fee Calculator (1.9% + $0.10)",
+    "title": "PayPal In-Person QR Code Fee Calculator (2.29% + $0.09)",
     "shortTitle": "PayPal In-Person QR Code Fee Calculator",
     "category": "paypal-fee-calculator",
     "slug": "qr-code",
-    "subtitle": "Calculate PayPal QR contactless payment fees for brick-and-mortar sales.",
+    "subtitle": "Calculate PayPal QR contactless payment fees for brick-and-mortar sales (2.29% + $0.09).",
     "stateName": "",
     "jurisdictionCode": "",
     "badge": "",

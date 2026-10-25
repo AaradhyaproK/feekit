@@ -159,7 +159,7 @@ export const STATE_SOURCES: Record<string, DataSource> = {
     sourceUrl: 'https://revenue.louisiana.gov/SalesTax',
     citationTitle: 'Louisiana General Sales and Use Tax Law',
     regulatoryCode: 'La. R.S. § 47:302',
-    dataType: 'Statutory 4.45% State Rate + Parish Local Surtaxes (up to 11.45%)',
+    dataType: 'Statutory 5.00% State Rate + Parish Local Surtaxes (up to 12.00%)',
     lastVerified: '2026 Fiscal Regulations (January 2026)',
   },
   maine: {

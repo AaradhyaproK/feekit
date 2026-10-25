@@ -135,10 +135,10 @@ export function ComparisonMatricesSection() {
   ];
 
   const taxTable = [
-    { state: 'California (CA)', baseRate: '7.25%', maxLocal: '3.00%', maxCombined: '10.25%', nexus: '$500,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/california' },
+    { state: 'California (CA)', baseRate: '7.25%', maxLocal: '3.50%', maxCombined: '10.75%', nexus: '$500,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/california' },
     { state: 'Texas (TX)', baseRate: '6.25%', maxLocal: '2.00%', maxCombined: '8.25%', nexus: '$500,000', sourcing: 'Origin (In-state) / Dest (Remote)', link: '/tools/sales-tax-calculator/texas' },
     { state: 'New York (NY)', baseRate: '4.00%', maxLocal: '4.875%', maxCombined: '8.875%', nexus: '$500,000 & 100 tx', sourcing: 'Destination', link: '/tools/sales-tax-calculator/new-york' },
-    { state: 'Florida (FL)', baseRate: '6.00%', maxLocal: '1.50%', maxCombined: '7.50%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/florida' },
+    { state: 'Florida (FL)', baseRate: '6.00%', maxLocal: '2.50%', maxCombined: '8.50%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/florida' },
     { state: 'Washington (WA)', baseRate: '6.50%', maxLocal: '3.90%', maxCombined: '10.40%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/washington' },
     { state: 'Illinois (IL)', baseRate: '6.25%', maxLocal: '4.75%', maxCombined: '11.00%', nexus: '$100,000 & 200 tx', sourcing: 'Destination / Origin', link: '/tools/sales-tax-calculator/illinois' },
     { state: 'Pennsylvania (PA)', baseRate: '6.00%', maxLocal: '2.00%', maxCombined: '8.00%', nexus: '$100,000', sourcing: 'Destination', link: '/tools/sales-tax-calculator/pennsylvania' },
@@ -209,7 +209,7 @@ export function ComparisonMatricesSection() {
         <div className="space-y-3.5 animate-in fade-in duration-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <p className="text-slate-600">
-              Comparing merchant card processors vs. electronic bank rails: <strong>Stripe &amp; Square Online (2.9% + $0.30)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout)</strong> vs <strong>Wise Business (~0.45% B2B bank debit)</strong>.
+              Comparing merchant card processors vs. electronic bank rails: <strong>Stripe Standard &amp; Square Plus Online (2.9% + $0.30; Square Free is 3.3% + $0.30)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout)</strong> vs <strong>Wise Business (~0.45% B2B bank debit)</strong>.
             </p>
             <span className="shrink-0 font-mono font-bold text-[11px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
               2026 Statutory Rates
@@ -226,7 +226,7 @@ export function ComparisonMatricesSection() {
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50/80">
                   <th className="py-3 px-3.5 font-bold text-slate-900">Gross Sale</th>
-                  <th className="py-3 px-3.5 font-bold text-blue-700">Stripe / Square Online (2.9% + 30¢)</th>
+                  <th className="py-3 px-3.5 font-bold text-blue-700">Stripe / Square Plus Online (2.9% + 30¢)</th>
                   <th className="py-3 px-3.5 font-bold text-slate-800">Card Payout</th>
                   <th className="py-3 px-3.5 font-bold text-indigo-700">PayPal Checkout (3.49% + 49¢)</th>
                   <th className="py-3 px-3.5 font-bold text-slate-800">PayPal Payout</th>

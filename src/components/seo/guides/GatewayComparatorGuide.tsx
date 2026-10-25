@@ -38,7 +38,7 @@ export function GatewayComparatorGuide({ sectionClass, inArticleSlot }: GatewayC
           <span>The Immediate Answer: Which Processor is Cheapest?</span>
         </div>
         <p className="text-sm text-slate-700 leading-relaxed">
-          For standard domestic online credit card checkouts, <strong>Stripe and Square tie at 2.9% plus $0.30</strong>, while <strong>PayPal Commerce is higher at 3.49% plus $0.49</strong>. For in-person point-of-sale retail, <strong>Square is the undisputed winner at 2.6% plus $0.10</strong>. For low-ticket digital micropayments under $10, <strong>PayPal Micropayments (5% plus $0.05)</strong> is the most cost-effective solution on the market.
+          For standard domestic online card checkouts on free/standard tiers, <strong>Stripe charges 2.9% plus $0.30</strong> while <strong>Square Free plan is 3.3% plus $0.30</strong> (Square Plus charges 2.9% plus $0.30 with a $29/mo subscription). <strong>PayPal Commerce Checkout is 3.49% plus $0.49</strong>. For in-person point-of-sale retail, <strong>Square Free plan is 2.6% plus $0.15</strong> (versus Stripe Terminal at 2.7% plus $0.05). For low-ticket micropayments under $10, <strong>PayPal Micropayments (5% plus $0.05)</strong> is the most cost-effective tier.
         </p>
       </div>
 
@@ -71,9 +71,9 @@ export function GatewayComparatorGuide({ sectionClass, inArticleSlot }: GatewayC
             <div className="font-bold text-sm text-slate-800">Square</div>
             <ul className="space-y-1 text-slate-600">
               <li>• Best for: Retail POS, food & beverage, pop-ups</li>
-              <li>• In-Person: 2.6% + $0.10</li>
-              <li>• Online: 2.9% + $0.30</li>
-              <li>• Keyed-in: 3.5% + $0.15</li>
+              <li>• In-Person: 2.6% + $0.15 (Free plan)</li>
+              <li>• Online: 3.3% + $0.30 (Free) / 2.9% + $0.30 (Plus)</li>
+              <li>• Keyed-in / Card-on-File: 3.5% + $0.15</li>
               <li>• Payout: Free next-business-day</li>
             </ul>
           </div>
@@ -107,11 +107,11 @@ export function GatewayComparatorGuide({ sectionClass, inArticleSlot }: GatewayC
                 <td className="py-2.5 px-4 font-sans text-slate-500">3.20%</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-4 font-sans font-semibold text-slate-800">Square In-Person Tap</td>
+                <td className="py-2.5 px-4 font-sans font-semibold text-slate-800">Square In-Person Tap (Free)</td>
                 <td className="py-2.5 px-4">$100.00</td>
-                <td className="py-2.5 px-4 text-rose-600">$2.70</td>
-                <td className="py-2.5 px-4 text-emerald-700 font-bold">$97.30</td>
-                <td className="py-2.5 px-4 font-sans text-emerald-600 font-bold">2.70% (Cheapest)</td>
+                <td className="py-2.5 px-4 text-rose-600">$2.75</td>
+                <td className="py-2.5 px-4 text-emerald-700 font-bold">$97.25</td>
+                <td className="py-2.5 px-4 font-sans text-emerald-600 font-bold">2.75% (Cheapest POS)</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-4 font-sans font-semibold text-blue-900">PayPal Online Checkout</td>

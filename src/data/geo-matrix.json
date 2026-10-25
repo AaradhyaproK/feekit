@@ -165,11 +165,12 @@
     {
       "slug": "louisiana",
       "name": "Louisiana",
-      "rate": 4.45,
-      "maxLocal": 11.45,
-      "notes": "Louisiana parishes and municipalities independently collect local sales taxes up to 7.00%.",
+      "rate": 5,
+      "maxLocal": 12,
+      "notes": "Louisiana state sales tax rate is 5.00% (Act 1 of 2024 3rd Extraordinary Session, effective Jan 1, 2025 through Dec 31, 2029). Parishes collect independent local surtaxes up to 7.00%, bringing maximum combined rate to 12.00%.",
       "filingAgency": "Louisiana Department of Revenue",
-      "nexusThreshold": 100000
+      "nexusThreshold": 100000,
+      "local": 5.11
     },
     {
       "slug": "maine",
@@ -516,7 +517,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to CDTFA using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to CDTFA using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "California",
@@ -583,7 +584,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Texas Comptroller of Public Accounts using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Texas Comptroller of Public Accounts using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Texas",
@@ -650,7 +651,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New York State Department of Taxation and Finance using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New York State Department of Taxation and Finance using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "New York",
@@ -717,7 +718,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Florida Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Florida Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Florida",
@@ -784,7 +785,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Illinois Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Illinois Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Illinois",
@@ -851,7 +852,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Pennsylvania Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Pennsylvania Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Pennsylvania",
@@ -918,7 +919,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Ohio Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Ohio Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Ohio",
@@ -985,7 +986,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Georgia Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Georgia Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Georgia",
@@ -1052,7 +1053,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to North Carolina Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to North Carolina Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "North Carolina",
@@ -1119,7 +1120,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Michigan Department of Treasury using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Michigan Department of Treasury using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Michigan",
@@ -1186,7 +1187,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Jersey Division of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Jersey Division of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "New Jersey",
@@ -1253,7 +1254,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Virginia Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Virginia Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Virginia",
@@ -1320,7 +1321,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Washington State Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Washington State Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Washington",
@@ -1387,7 +1388,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Arizona Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Arizona Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Arizona",
@@ -1454,7 +1455,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Massachusetts Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Massachusetts Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Massachusetts",
@@ -1521,7 +1522,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Tennessee Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Tennessee Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Tennessee",
@@ -1588,7 +1589,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Indiana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Indiana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Indiana",
@@ -1655,7 +1656,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Missouri Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Missouri Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Missouri",
@@ -1722,7 +1723,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Comptroller of Maryland using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Comptroller of Maryland using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Maryland",
@@ -1789,7 +1790,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Wisconsin Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Wisconsin Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Wisconsin",
@@ -1856,7 +1857,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Colorado Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Colorado Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Colorado",
@@ -1923,7 +1924,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Minnesota Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Minnesota Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Minnesota",
@@ -1990,7 +1991,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to South Carolina Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to South Carolina Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "South Carolina",
@@ -2057,7 +2058,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Alabama Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Alabama Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Alabama",
@@ -2074,41 +2075,41 @@
       "slug": "louisiana",
       "title": "Louisiana Sales Tax Calculator (2026 Updated Rates)",
       "shortTitle": "Louisiana Sales Tax",
-      "subtitle": "Calculate combined state (4.45%) and county/municipal surtaxes in Louisiana. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
+      "subtitle": "Calculate combined state (5%) and parish surtaxes in Louisiana. Instant net-to-gross and gross-to-net reverse calculations for point-of-sale customer receipts and state tax remittance.",
       "suiteType": "tax",
       "geoRegion": "US",
       "stateName": "Louisiana",
       "jurisdictionCode": "LA",
       "defaultAmount": 250,
       "currencySymbol": "$",
-      "formulaLatex": "\\text{Total Sales Tax} = \\text{Net Amount} \\times (4.45\\% \\text{ State} + 5.1\\% \\text{ County Surtax}) = \\text{Net} \\times 9.55\\%",
-      "formulaExplanation": "In Louisiana, the state levies a statutory sales tax of 4.45%. County, municipal, and transit tax districts add an average surtax of 5.1%, resulting in a typical effective tax burden of 9.55%. To extract sales tax from a gross invoice: Net = Gross / (1 + 0.0955).",
+      "formulaLatex": "\\text{Total Sales Tax} = \\text{Net Amount} \\times (5\\% \\text{ State} + 5.11\\% \\text{ Parish Surtax}) = \\text{Net} \\times 10.11\\%",
+      "formulaExplanation": "In Louisiana, the state levies a statutory sales tax of 5.00% (Act 1 of 2024 3rd Extraordinary Session). Parishes add an average surtax of 5.11%, resulting in a typical combined effective rate of 10.11% (capping at 12.00%). To extract sales tax from a gross invoice: Net = Gross / (1 + 0.1011).",
       "sampleTiers": [
         {
           "amount": 50,
-          "tax": 4.78,
-          "total": 54.77
+          "tax": 5.06,
+          "total": 55.06
         },
         {
           "amount": 250,
-          "tax": 23.88,
-          "total": 273.88
+          "tax": 25.28,
+          "total": 275.28
         },
         {
           "amount": 1000,
-          "tax": 95.5,
-          "total": 1095.5
+          "tax": 101.1,
+          "total": 1101.1
         },
         {
           "amount": 5000,
-          "tax": 477.5,
-          "total": 5477.5
+          "tax": 505.5,
+          "total": 5505.5
         }
       ],
       "faqs": [
         {
           "question": "What is the current sales tax rate in Louisiana?",
-          "answer": "The statewide base sales tax rate in Louisiana is 4.45%. When combined with municipal and county surtaxes (which average 5.1% and cap around 11.45%), the total effective rate paid by consumers typically ranges between 4.45% and 11.45%."
+          "answer": "The statewide base sales tax rate in Louisiana is 5.00% (effective Jan 1, 2025 through Dec 31, 2029 under Act 1 of 2024 3rd Extraordinary Session). When combined with independent parish surtaxes (which average 5.11% and cap up to 7.00%), the total effective rate paid by consumers typically ranges between 5.00% and 12.00%."
         },
         {
           "question": "What is the economic nexus threshold for remote sellers in Louisiana?",
@@ -2124,14 +2125,14 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Louisiana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Louisiana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Louisiana",
-      "rate": 4.45,
-      "local": 5.1,
-      "maxLocal": 11.45,
-      "notes": "Louisiana parishes and municipalities independently collect local sales taxes up to 7.00%.",
+      "rate": 5,
+      "local": 5.11,
+      "maxLocal": 12,
+      "notes": "Louisiana state sales tax rate is 5.00% (Act 1 of 2024 3rd Extraordinary Session, effective Jan 1, 2025 through Dec 31, 2029). Parishes collect independent local surtaxes up to 7.00%, bringing maximum combined rate to 12.00%.",
       "filingAgency": "Louisiana Department of Revenue",
       "nexusThreshold": 100000,
       "threshold": "$100,000"
@@ -2191,7 +2192,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Kentucky Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Kentucky Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Kentucky",
@@ -2258,7 +2259,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Oregon Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Oregon Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Oregon",
@@ -2325,7 +2326,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Oklahoma Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Oklahoma Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Oklahoma",
@@ -2392,7 +2393,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Connecticut Department of Revenue Services using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Connecticut Department of Revenue Services using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Connecticut",
@@ -2459,7 +2460,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Utah State Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Utah State Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Utah",
@@ -2526,7 +2527,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Iowa Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Iowa Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Iowa",
@@ -2593,7 +2594,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Nevada Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Nevada Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Nevada",
@@ -2660,7 +2661,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Arkansas Department of Finance and Administration using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Arkansas Department of Finance and Administration using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Arkansas",
@@ -2727,7 +2728,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Mississippi Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Mississippi Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Mississippi",
@@ -2794,7 +2795,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Kansas Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Kansas Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Kansas",
@@ -2861,7 +2862,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Mexico Taxation and Revenue Department using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Mexico Taxation and Revenue Department using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "New Mexico",
@@ -2928,7 +2929,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Nebraska Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Nebraska Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Nebraska",
@@ -2995,7 +2996,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Idaho State Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Idaho State Tax Commission using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Idaho",
@@ -3062,7 +3063,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to West Virginia State Tax Department using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to West Virginia State Tax Department using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "West Virginia",
@@ -3129,7 +3130,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Hawaii Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Hawaii Department of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Hawaii",
@@ -3196,7 +3197,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Hampshire Department of Revenue Administration using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to New Hampshire Department of Revenue Administration using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "New Hampshire",
@@ -3263,7 +3264,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Maine Revenue Services using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Maine Revenue Services using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Maine",
@@ -3330,7 +3331,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Rhode Island Division of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Rhode Island Division of Taxation using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Rhode Island",
@@ -3397,7 +3398,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Montana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Montana Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Montana",
@@ -3464,7 +3465,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Delaware Division of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Delaware Division of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Delaware",
@@ -3531,7 +3532,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to South Dakota Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to South Dakota Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "South Dakota",
@@ -3598,7 +3599,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to North Dakota Office of State Tax Commissioner using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to North Dakota Office of State Tax Commissioner using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "North Dakota",
@@ -3665,7 +3666,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Alaska Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Alaska Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Alaska",
@@ -3732,7 +3733,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Vermont Department of Taxes using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Vermont Department of Taxes using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Vermont",
@@ -3799,7 +3800,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Wyoming Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to Wyoming Department of Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "Wyoming",
@@ -3866,7 +3867,7 @@
         },
         {
           "question": "Do I report state sales tax on federal tax returns?",
-          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to DC Office of Tax and Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are not reported as income or deductible expenses on federal Form 1040 Schedule C."
+          "answer": "Sales tax is a state and local trust fund tax, not a federal tax. You remit sales tax directly to DC Office of Tax and Revenue using your state sales tax permit. Sales taxes collected from customers are balance sheet liabilities and are balance sheet liabilities, not taxable business revenue or deductible expenses."
         }
       ],
       "name": "District of Columbia",
@@ -6506,9 +6507,9 @@
     {
       "category": "paypal-fee-calculator",
       "slug": "qr-code",
-      "title": "PayPal In-Person QR Code Fee Calculator (1.9% + $0.10)",
+      "title": "PayPal In-Person QR Code Fee Calculator (2.29% + $0.09)",
       "shortTitle": "PayPal In-Person QR Code Fee Calculator",
-      "subtitle": "Calculate PayPal QR contactless payment fees for brick-and-mortar sales.",
+      "subtitle": "Calculate PayPal QR contactless payment fees for brick-and-mortar sales (2.29% + $0.09).",
       "suiteType": "merchant",
       "gatewayId": "paypal",
       "defaultAmount": 500,
@@ -6516,27 +6517,27 @@
       "isInternational": false,
       "applyCurrencyConversion": false,
       "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
-      "formulaExplanation": "To calculate forward deductions: multiply gross volume by the gateway rate (e.g. 2.9%) and add the fixed fee ($0.30). To ensure you receive an exact net amount in your bank, use the reverse formula to invoice your customer accordingly.",
+      "formulaExplanation": "PayPal charges a discounted in-person contactless rate of 2.29% + $0.09 for payments scanned via PayPal QR codes in the US.",
       "sampleTiers": [
         {
           "amount": 50,
-          "fee": 1.75,
-          "net": 48.25
+          "fee": 1.24,
+          "net": 48.76
         },
         {
           "amount": 250,
-          "fee": 7.55,
-          "net": 242.45
+          "fee": 5.82,
+          "net": 244.18
         },
         {
           "amount": 1000,
-          "fee": 29.3,
-          "net": 970.7
+          "fee": 22.99,
+          "net": 977.01
         },
         {
           "amount": 5000,
-          "fee": 145.3,
-          "net": 4854.7
+          "fee": 114.59,
+          "net": 4885.41
         }
       ],
       "faqs": [
@@ -9061,7 +9062,7 @@
       ],
       "faqs": [
         {
-          "question": "How many billable hours should a Executive VA budget per year?",
+          "question": "How many billable hours should an Executive VA budget per year?",
           "answer": "Top freelance Executive VAs budget 48 working weeks at 25 billable hours per week, for approximately 1,200 annual billable hours. The remaining time is required for business development and administrative overhead."
         },
         {
@@ -9124,7 +9125,7 @@
       ],
       "faqs": [
         {
-          "question": "How many billable hours should a Executive Ghostwriter budget per year?",
+          "question": "How many billable hours should an Executive Ghostwriter budget per year?",
           "answer": "Top freelance Executive Ghostwriters budget 48 working weeks at 25 billable hours per week, for approximately 1,200 annual billable hours. The remaining time is required for business development and administrative overhead."
         },
         {

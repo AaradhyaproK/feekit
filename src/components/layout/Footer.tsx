@@ -124,7 +124,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     href="/tools/sales-tax-calculator/california"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    California Sales Tax (7.25% - 10.25%)
+                    California Sales Tax (7.25% - 10.75%)
                   </Link>
                 </li>
                 <li>
@@ -148,7 +148,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     href="/tools/sales-tax-calculator/florida"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    Florida Sales Tax (6.00% - 7.50%)
+                    Florida Sales Tax (6.00% - 8.50%)
                   </Link>
                 </li>
                 <li>
@@ -229,7 +229,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     href="/tools/square-fee-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    Square POS (2.6% + 10¢) & Online (2.9% + 30¢)
+                    Square Free (2.6% + 15¢ POS / 3.3% + 30¢ Online)
                   </Link>
                 </li>
                 <li>
@@ -253,7 +253,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     href="/tools/gumroad-fee-calculator/standard"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    Gumroad Creator Fees (10% + 50¢ Flat)
+                    Gumroad Creator Fees (10% + 50¢ + Processing)
                   </Link>
                 </li>
                 <li>

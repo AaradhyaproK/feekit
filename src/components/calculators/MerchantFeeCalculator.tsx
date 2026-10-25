@@ -82,34 +82,44 @@ export function MerchantFeeCalculator({
 
   if (gateway === 'paypal') {
     if (paypalTier === 'standard_card') {
-      customRate = 0.0299; // Standard Card Guest Checkout: 2.99% + $0.49
+      customRate = 0.0299; // Invoicing Paid by Card / Standard Goods & Services: 2.99% + $0.49
       customFixed = 0.49;
     } else {
-      customRate = 0.0349; // PayPal Invoicing / Checkout: 3.49% + $0.49
+      customRate = 0.0349; // Invoicing Paid with PayPal/Venmo Wallet or Checkout: 3.49% + $0.49
       customFixed = 0.49;
     }
   } else if (gateway === 'venmo') {
     if (venmoTier === 'app') {
-      customRate = 0.0229; // Online App Checkout: 2.29% + $0.10
+      customRate = 0.0229; // Online App Checkout & Tap to Pay: 2.29% + $0.10
       customFixed = 0.10;
     } else {
       customRate = 0.019; // In-Person Contactless QR: 1.9% + $0.10
       customFixed = 0.10;
     }
   } else if (gateway === 'stripe') {
-    if (stripeTier === 'premium') {
-      customRate = currencySymbol === '£' ? 0.025 : 0.034; // Premium / Commercial cards (2.5% UK / 3.4% US)
-      customFixed = currencySymbol === '£' ? 0.20 : 0.30;
+    if (currencySymbol === '£') {
+      if (stripeTier === 'premium') {
+        customRate = 0.019; // Premium UK cards: 1.9% + 20p
+        customFixed = 0.20;
+      } else {
+        customRate = 0.015; // Standard UK cards: 1.5% + 20p
+        customFixed = 0.20;
+      }
     } else {
-      customRate = currencySymbol === '£' ? 0.015 : 0.029; // Standard consumer cards (1.5% UK / 2.9% US)
-      customFixed = currencySymbol === '£' ? 0.20 : 0.30;
+      if (stripeTier === 'premium') {
+        customRate = 0.034; // Manually entered / keyed-in card: 3.4% + $0.30
+        customFixed = 0.30;
+      } else {
+        customRate = 0.029; // Standard online card: 2.9% + $0.30
+        customFixed = 0.30;
+      }
     }
   } else if (gateway === 'gumroad') {
     if (gumroadTier === 'all_in') {
-      customRate = 0.129; // Estimated all-in cost: 12.9% + $0.30 (platform + pass-through card interchange)
+      customRate = 0.129; // Estimated all-in cost: 10% platform + ~2.9% card processing + $0.30
       customFixed = 0.30;
     } else {
-      customRate = 0.10; // Official platform MoR schedule: 10% + $0.50 bundled
+      customRate = 0.10; // Official platform rate: 10% + $0.50 (+ separate card processing)
       customFixed = 0.50;
     }
   }
@@ -237,8 +247,8 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
         <div className="space-y-2">
           <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
             <div className="text-xs">
-              <span className="font-bold text-slate-900 block">PayPal Rate Schedule:</span>
-              <span className="text-slate-500 text-[11px]">PayPal Checkout &amp; Invoicing vs. Standard Goods &amp; Services</span>
+              <span className="font-bold text-slate-900 block">PayPal Invoicing Payment Method:</span>
+              <span className="text-slate-500 text-[11px]">PayPal/Venmo wallet payment vs. direct card payment</span>
             </div>
             <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
               <button
@@ -250,7 +260,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
                 }`}
               >
-                PayPal Checkout / Invoicing (3.49% + $0.49)
+                PayPal / Venmo Wallet (3.49% + $0.49)
               </button>
               <button
                 type="button"
@@ -261,7 +271,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
                 }`}
               >
-                Standard Goods &amp; Services (2.99% + $0.49)
+                Card Payment on Invoice (2.99% + $0.49)
               </button>
             </div>
           </div>
@@ -270,7 +280,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
           <div className="rounded-lg border border-amber-200 bg-amber-50/90 px-3 py-2 text-xs text-amber-900 flex items-start gap-2 shadow-2xs">
             <Info className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong>Rate Clarification:</strong> 3.49% + $0.49 applies to PayPal Checkout, Guest Checkout, and invoices. Standard Goods &amp; Services rate: 2.99% + $0.49.
+              <strong>Invoicing Breakdown:</strong> PayPal assesses <strong>3.49% + $0.49</strong> when an invoice is paid using PayPal or Venmo wallet balance, and <strong>2.99% + $0.49</strong> when paid directly by credit or debit card.
             </p>
           </div>
         </div>
@@ -341,7 +351,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
                     : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
                 }`}
               >
-                {currencySymbol === '£' ? 'Premium / Non-UK (2.5% + 20p)' : 'Manually Keyed-In (3.4% + $0.30)'}
+                {currencySymbol === '£' ? 'Premium UK Cards (1.9% + 20p)' : 'Manually Keyed-In (3.4% + $0.30)'}
               </button>
             </div>
           </div>

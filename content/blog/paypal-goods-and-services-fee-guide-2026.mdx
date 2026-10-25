@@ -59,21 +59,23 @@ PayPal operates a tiered fee schedule based on the exact checkout rail, domestic
 | Payment Type / Channel | Percentage Cut | Fixed Fee (USD) | Example on $100 Sale | Net Payout |
 | :--- | :--- | :--- | :--- | :--- |
 | **Standard Goods & Services (P2P)** | **2.99%** | **$0.49** | $3.48 | **$96.52** |
-| **PayPal Invoicing & Digital Requests** | **3.49%** | **$0.49** | $3.98 | **$96.02** |
+| **PayPal Invoicing (Paid with PayPal/Venmo)** | **3.49%** | **$0.49** | $3.98 | **$96.02** |
+| **PayPal Invoicing (Paid with Card)** | **2.99%** | **$0.49** | $3.48 | **$96.52** |
 | **PayPal Checkout & Guest Payment** | **3.49%** | **$0.49** | $3.98 | **$96.02** |
-| **In-Person QR Code (Above $10)** | **1.90%** | **$0.10** | $2.00 | **$98.00** |
-| **In-Person QR Code ($10 or less)** | **2.40%** | **$0.05** | $0.29 (on $10) | **$9.71** |
+| **In-Person QR Code (US)** | **2.29%** | **$0.09** | $2.38 | **$97.62** |
 | **International Card Surcharge** | **+1.50%** | **Varies** | +$1.50 extra | Deducted |
 | **Charity / 501(c)(3) Nonprofit** | **1.99%** | **$0.49** | $2.48 | **$97.52** |
 
 ### 1. Standard Goods & Services (2.99% + $0.49)
 This rate applies when a buyer sends money directly through the PayPal app or desktop website and selects **"Paying for an item or service"**. It is the baseline commercial rate for peer-to-peer transactions.
 
-### 2. PayPal Invoicing & Website Checkout (3.49% + $0.49)
-If you create an invoice inside your PayPal Business account or integrate PayPal Checkout into an e-commerce platform (like Shopify, WooCommerce, or BigCommerce), PayPal assesses a higher **3.49% + $0.49** fee. The additional 0.50% reflects platform integration tools, automatic payment reminders, and merchant reporting.
+### 2. PayPal Invoicing (3.49% or 2.99% + $0.49)
+When sending digital invoices through PayPal, the transaction rate depends on how the customer settles the bill:
+- **Paid via PayPal or Venmo balance:** **3.49% + $0.49**.
+- **Paid via credit or debit card through the invoice:** **2.99% + $0.49**.
 
-### 3. In-Person QR Code Payments (1.90% + $0.10)
-For craft fairs, farmers markets, and physical pop-up shops, PayPal's QR code payment rail is significantly cheaper than card-not-present rates. Transactions over $10 incur just **1.90% + $0.10**, making it more cost-effective than standard Square POS (2.6% + $0.10).
+### 3. In-Person QR Code Payments (2.29% + $0.09)
+For in-person sales at markets, craft fairs, or retail pop-ups where customers scan your PayPal QR code, PayPal charges **2.29% + $0.09** per transaction (source: [PayPal Merchant Fees](https://www.paypal.com/us/business/paypal-business-fees)). By comparison, Venmo Business profile QR codes charge 1.90% + $0.10, while Square Free in-person POS charges 2.60% + $0.15.
 
 ---
 
@@ -153,7 +155,7 @@ PayPal's Seller Protection is the primary reason sellers accept the 2.99% fee cu
 - **Signature Confirmation for High-Value Orders:** For shipments valued at **$750 or more** (including taxes and shipping), you must obtain physical or electronic **signature confirmation**. Without signature tracking, PayPal will automatically rule in the buyer's favor on INR disputes.
 
 ### What Is NOT Covered (Exclusions):
-- **Digital Goods without Technical Delivery Proof:** Software licenses, virtual currencies, and game keys are frequently disputed and harder to defend under standard seller protection.
+- **Intangible and Digital Goods:** Digital goods, software licenses, downloads, virtual currencies, and services are generally not eligible for PayPal Seller Protection under PayPal's official terms ([PayPal Seller Protection Policy](https://www.paypal.com/us/legalhub/seller-protection-full)). Sellers of digital products must provide technical delivery logs in the event of unauthorized disputes, but protection is strictly limited compared to physical shipments with courier tracking.
 - **In-Person Hand-Offs:** If you meet a buyer in person to hand over a physical item paid via Goods & Services, you have no postal tracking proof. A dishonest buyer can claim "Item Not Received" and win 100% of the time. Use cash or PayPal QR codes for in-person sales.
 - **Vehicles and Real Estate:** Motorized vehicles, aircraft, boats, and real estate are explicitly excluded from PayPal protection policies.
 
@@ -180,7 +182,7 @@ If your business processes more than $3,000 to $5,000 each month through PayPal,
 
 1. **Offer Bank Transfers (ACH) for High-Ticket Sales:** On a $3,000 B2B invoice, PayPal takes **$105.19** (3.49% + $0.49). An ACH transfer through Stripe or Wise costs **$5.00 flat**, saving you over $100 on a single transaction.
 2. **Bake Fees into List Prices:** Rather than surprising customers with extra fees, adjust your catalog prices upward by 3.0% to build processing friction into your gross margins.
-3. **Use PayPal QR Codes for Local Sales:** When selling locally, ditch the card terminal and have buyers scan your PayPal QR code to pay **1.90% + $0.10** instead of the 2.99% to 3.49% online checkout rate.
+3. **Use PayPal QR Codes for Local Sales:** When selling locally, ditch the card terminal and have buyers scan your PayPal QR code to pay **2.29% + $0.09** instead of the 2.99% to 3.49% online checkout rate.
 4. **Deduct Processing Fees on Schedule C:** Every dollar PayPal deducts in transaction fees is a 100% tax-deductible business operating expense (Part II, Line 10: "Commissions and fees" or Line 27a: "Other expenses").
 
 ---
@@ -194,3 +196,15 @@ Before accepting commercial payments:
 - **Get Signatures on $750+:** Require signature confirmation on all packages valued at $750 or above to maintain Seller Protection.
 - **Never Use F&F for Commercial Sales:** Protect your business from fraudulent chargebacks and avoid account suspension.
 - **Audit All Payment Gateways:** Benchmark your true processing costs using [FeeKit's Gateway Comparator](/tools/gateway-comparator/stripe-paypal-square) and generate professional invoices with our [Free Invoice Generator](/invoice-generator).
+
+---
+
+## Primary Regulatory & Pricing Sources
+
+All rates, thresholds, and regulatory guidelines cited in this guide are verified against official primary sources:
+
+1. [PayPal Official Merchant Fee Schedule (US)](https://www.paypal.com/us/business/paypal-business-fees) — Verified October 24, 2026.
+2. [PayPal User Agreement & Seller Protection Policy](https://www.paypal.com/us/legalhub/seller-protection-full) — Verified October 24, 2026.
+3. [IRS Official Notice & FAQ on Form 1099-K Thresholds (26 U.S.C. § 6050W)](https://www.irs.gov/businesses/understanding-your-form-1099-k) — Verified October 24, 2026.
+
+*Written and reviewed by Aaradhya Pathak, software developer. Not a CPA or tax advisor. This guide is provided for educational and computational analysis purposes only.*

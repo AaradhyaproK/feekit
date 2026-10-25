@@ -61,7 +61,7 @@ export function GatewayComparator({
     {
       id: 'square',
       name: 'Square Online',
-      tagline: '2.9% + $0.30 online',
+      tagline: '3.3% + $0.30 (Free Plan Online)',
       totalFee: squareResult.totalFee,
       netAmount: squareResult.netAmount,
       effectiveRate: squareResult.effectiveFeeRate,

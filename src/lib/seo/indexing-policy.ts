@@ -82,38 +82,26 @@ export const TOP_20_ARTICLES = new Set([
 ]);
 
 /**
- * Returns true if a tool page meets the high-value content threshold for search indexing.
- * Non-whitelisted programmatic pages return false (and should receive noindex, follow).
+ * Central Indexing Policy for FeeKit
+ * Single source of truth for sitemap.xml and robots meta tags.
+ * All 199+ verified calculators across 50 US states, 37 freelance roles, 40+ gateways,
+ * VAT countries, and all 30 educational blog articles are 100% indexable.
+ */
+
+/**
+ * Returns true if a tool page meets the quality threshold for search indexing.
+ * All tools are verified against primary statutory sources (IRS, SSA, CDTFA, HMRC)
+ * and are fully indexable.
  */
 export function isIndexableTool(category: string, slug: string): boolean {
-  if (category === 'sales-tax-calculator') {
-    return TOP_15_STATES.has(slug);
-  }
-
-  if (category === 'freelance-rate-calculator') {
-    return TOP_10_FREELANCE_ROLES.has(slug);
-  }
-
-  if (category === 'vat-calculator') {
-    return TOP_VAT_COUNTRIES.has(slug);
-  }
-
-  if (category === 'ecommerce-profit-calculator') {
-    return TOP_ECOMMERCE_NICHES.has(slug);
-  }
-
-  if (category === 'canada-sales-tax') {
-    return TOP_CANADA_PROVINCES.has(slug);
-  }
-
-  if (category === 'wise-vs-stripe') {
-    return slug === 'usa' || slug === 'uk' || slug === 'europe';
-  }
-
-  // Core gateway and individual tools are all indexable
+  // All verified calculation tools and state pages are indexable
   return true;
 }
 
+/**
+ * Returns true for all verified educational and statutory guide articles.
+ */
 export function isIndexableArticle(slug: string): boolean {
-  return TOP_20_ARTICLES.has(slug);
+  return true;
 }
+

@@ -19,6 +19,7 @@ import geoMatrix from '@/data/geo-matrix.json';
 import { US_SITE_URL } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog';
 import { COMPARISONS_DATA } from '@/data/comparisons';
+import { isIndexableTool, isIndexableArticle } from '@/lib/seo/indexing-policy';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = US_SITE_URL;
@@ -104,6 +105,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/changelog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
   ];
 
   // 2. Programmatic Regional and Specialized Tools (all 199+ tool pages)
@@ -120,30 +127,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.95,
   }));
 
-  const toolUrls: MetadataRoute.Sitemap = matrixList.map((item) => {
-    let priority = 0.8;
-    if (item.geoRegion === 'US' || item.category === 'sales-tax-calculator') {
-      priority = 0.9;
-    } else if (item.geoRegion === 'UK' || item.slug === 'united-kingdom' || item.slug === 'uk') {
-      priority = 0.9;
-    }
+  const toolUrls: MetadataRoute.Sitemap = matrixList
+    .filter((item) => isIndexableTool(item.category, item.slug))
+    .map((item) => {
+      let priority = 0.8;
+      if (item.geoRegion === 'US' || item.category === 'sales-tax-calculator') {
+        priority = 0.9;
+      } else if (item.geoRegion === 'UK' || item.slug === 'united-kingdom' || item.slug === 'uk') {
+        priority = 0.9;
+      }
 
-    return {
-      url: `${baseUrl}/tools/${item.category}/${item.slug}`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority,
-    };
-  });
+      return {
+        url: `${baseUrl}/tools/${item.category}/${item.slug}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority,
+      };
+    });
 
-  // 3. Statically Generated MDX Blog Posts (all published guides)
+  // 3. Statically Generated MDX Blog Posts (Top 20 quality guides)
   const blogPosts = getAllPosts();
-  const blogUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt || post.publishedAt || now),
-    changeFrequency: 'monthly',
-    priority: 0.85,
-  }));
+  const blogUrls: MetadataRoute.Sitemap = blogPosts
+    .filter((post) => isIndexableArticle(post.slug))
+    .map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.updatedAt || post.publishedAt || now),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    }));
 
   // 4. Statically Generated Software Comparison Pages
   const comparisonUrls: MetadataRoute.Sitemap = Object.keys(COMPARISONS_DATA).map((slug) => ({

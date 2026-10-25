@@ -1982,3 +1982,5 @@ export function getStateSalesTax(slug: string): StateSalesTaxEntry {
 export function getAllStateSalesTaxes(): StateSalesTaxEntry[] {
   return Object.values(US_STATE_SALES_TAX_RATES);
 }
+
+export const STATE_SALES_TAX_RATES = US_STATE_SALES_TAX_RATES;

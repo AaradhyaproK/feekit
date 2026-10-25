@@ -6,11 +6,12 @@
   "homepage": "https://www.usefeekit.com",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node --experimental-strip-types src/scripts/check-rates.mjs && node --experimental-strip-types src/scripts/check-state-consistency.mjs && node --experimental-strip-types tests/calculators.test.mjs",
+    "prebuild": "node --experimental-strip-types src/scripts/check-rates.mjs && node --experimental-strip-types src/scripts/check-state-consistency.mjs && node --experimental-strip-types tests/calculators.test.mjs && node --experimental-strip-types src/scripts/audit-sitemap-words.mjs",
     "build": "next build",
     "start": "next start",
     "validate:rates": "node --experimental-strip-types src/scripts/check-rates.mjs",
     "validate:states": "node --experimental-strip-types src/scripts/check-state-consistency.mjs",
+    "audit:sitemap": "node --experimental-strip-types src/scripts/audit-sitemap-words.mjs",
     "test": "node --experimental-strip-types tests/calculators.test.mjs",
     "lint": "eslint"
   },

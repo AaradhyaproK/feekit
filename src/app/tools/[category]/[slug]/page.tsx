@@ -24,7 +24,8 @@ import { QuarterlyTaxCalculator } from '@/components/calculators/QuarterlyTaxCal
 import { UkIr35Calculator } from '@/components/calculators/UkIr35Calculator';
 import { GatewayComparator } from '@/components/calculators/GatewayComparator';
 import { InvoiceGenerator } from '@/components/calculators/InvoiceGenerator';
-import { STATE_SALES_TAX_RATES, GATEWAY_RATES, STATUTORY_TAX_RATES } from '@/data/rates';
+import { US_STATE_SALES_TAX_RATES, STATE_SALES_TAX_RATES, GATEWAY_RATES, STATUTORY_TAX_RATES } from '@/data/rates';
+import { isIndexableTool } from '@/lib/seo/indexing-policy';
 import Link from 'next/link';
 import { ArrowLeft, ShieldCheck, Info, Clock, Calendar, UserCheck } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
@@ -159,9 +160,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = customSeo ? customSeo.title : formatProgrammaticTitle(item.title);
   const description = customSeo ? customSeo.description : formatProgrammaticDescription(item.subtitle, category);
 
+  const isIndexable = isIndexableTool(category, slug);
+
   return {
     title,
     description,
+    robots: isIndexable
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
     alternates: {
       canonical: `https://www.usefeekit.com/tools/${category}/${slug}`,
     },
@@ -240,8 +246,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
   let agencyBadge = 'Statutory Regulatory Guidelines Verified';
 
   if (category === 'sales-tax-calculator') {
-    const stateKey = `sales-tax-${slug}-base`;
-    const stateData = STATE_SALES_TAX_RATES[stateKey];
+    const stateData = US_STATE_SALES_TAX_RATES[slug] || STATE_SALES_TAX_RATES[slug];
     if (stateData) {
       agencyBadge = `${stateData.sourceName.split('(')[0].trim()} Sourced & Verified`;
       lastVerifiedRaw = stateData.verifiedOn;

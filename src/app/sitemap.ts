@@ -20,94 +20,96 @@ import { US_SITE_URL } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog';
 import { COMPARISONS_DATA } from '@/data/comparisons';
 import { isIndexableTool, isIndexableArticle } from '@/lib/seo/indexing-policy';
+import { getPageContent } from '../../content/index.ts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = US_SITE_URL;
-  const now = new Date();
+  // Use real verification baseline date instead of dynamic 'new Date()' on every hit
+  const defaultVerifiedDate = new Date('2026-10-24T00:00:00Z');
 
   // 1. Root and Core Hub & Trust Pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/invoice-generator`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'daily',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/small-business`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'daily',
       priority: 0.95,
     },
     {
       url: `${baseUrl}/guides/freshbooks-for-freelancers`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
       url: `${baseUrl}/editorial-policy`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/methodology`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/affiliate-disclosure`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/cookies`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/changelog`,
-      lastModified: now,
+      lastModified: defaultVerifiedDate,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
@@ -122,7 +124,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const categories = Array.from(new Set(matrixList.map((x) => x.category)));
   const categoryUrls: MetadataRoute.Sitemap = categories.map((cat) => ({
     url: `${baseUrl}/tools/${cat}`,
-    lastModified: now,
+    lastModified: defaultVerifiedDate,
     changeFrequency: 'daily',
     priority: 0.95,
   }));
@@ -137,9 +139,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority = 0.9;
       }
 
+      const bespoke = getPageContent(item.category, item.slug);
+      const lastMod = bespoke?.lastVerified
+        ? new Date(`${bespoke.lastVerified}T00:00:00Z`)
+        : defaultVerifiedDate;
+
       return {
         url: `${baseUrl}/tools/${item.category}/${item.slug}`,
-        lastModified: now,
+        lastModified: lastMod,
         changeFrequency: 'weekly',
         priority,
       };
@@ -151,7 +158,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((post) => isIndexableArticle(post.slug))
     .map((post) => ({
       url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.updatedAt || post.publishedAt || now),
+      lastModified: new Date(post.updatedAt || post.publishedAt || defaultVerifiedDate),
       changeFrequency: 'monthly',
       priority: 0.85,
     }));
@@ -159,7 +166,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 4. Statically Generated Software Comparison Pages
   const comparisonUrls: MetadataRoute.Sitemap = Object.keys(COMPARISONS_DATA).map((slug) => ({
     url: `${baseUrl}/compare/${slug}`,
-    lastModified: now,
+    lastModified: defaultVerifiedDate,
     changeFrequency: 'weekly',
     priority: 0.8,
   }));

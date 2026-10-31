@@ -32,6 +32,8 @@ import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { EmbedButton } from '@/components/embed/EmbedButton';
+import { getPageContent } from '../../../../../content/index.ts';
+import { BespokeContentGuide } from '@/components/content/BespokeContentGuide';
 
 interface PageProps {
   params: Promise<{
@@ -148,17 +150,18 @@ function formatProgrammaticDescription(subtitle?: string, category?: string): st
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
   const item = findMatrixItem(category, slug);
+  const bespoke = getPageContent(category, slug);
 
-  if (!item) {
+  if (!item && !bespoke) {
     return {
       title: 'Tool Not Found — FeeKit',
     };
   }
 
-  const isUK = item.geoRegion === 'UK';
+  const isUK = item?.geoRegion === 'UK';
   const customSeo = getCustomSeoMetadata(category, slug);
-  const title = customSeo ? customSeo.title : formatProgrammaticTitle(item.title);
-  const description = customSeo ? customSeo.description : formatProgrammaticDescription(item.subtitle, category);
+  const title = bespoke ? bespoke.title : (customSeo ? customSeo.title : formatProgrammaticTitle(item.title));
+  const description = bespoke ? bespoke.metaDescription : (customSeo ? customSeo.description : formatProgrammaticDescription(item.subtitle, category));
 
   const isIndexable = isIndexableTool(category, slug);
 
@@ -237,15 +240,21 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
     .filter((x) => x.category === category && x.slug !== slug)
     .slice(0, 6);
 
+  const bespoke = getPageContent(category, slug);
   const customSeo = getCustomSeoMetadata(category, slug);
-  const seoTitle = customSeo ? customSeo.title : item.title;
-  const seoDesc = customSeo ? customSeo.description : item.subtitle;
+  const seoTitle = bespoke ? bespoke.title : (customSeo ? customSeo.title : item.title);
+  const seoDesc = bespoke ? bespoke.metaDescription : (customSeo ? customSeo.description : item.subtitle);
+  const pageH1 = bespoke ? (bespoke.h1 || item.title) : item.title;
+  const pageSubtitle = bespoke ? (bespoke.overview.length > 280 ? bespoke.overview.slice(0, 277) + '...' : bespoke.overview) : item.subtitle;
   const dataSource = getDataSource(category, slug);
 
   let lastVerifiedRaw = '2026-10-24';
   let agencyBadge = 'Statutory Regulatory Guidelines Verified';
 
-  if (category === 'sales-tax-calculator') {
+  if (bespoke) {
+    lastVerifiedRaw = bespoke.lastVerified;
+    agencyBadge = `${bespoke.primarySource.name.split('(')[0].trim()} Sourced & Verified`;
+  } else if (category === 'sales-tax-calculator') {
     const stateData = US_STATE_SALES_TAX_RATES[slug];
     if (stateData) {
       agencyBadge = `${stateData.sourceName.split('(')[0].trim()} Sourced & Verified`;
@@ -353,10 +362,10 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           {/* Title & Subtitle */}
           <div className="space-y-2 pt-1">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              {item.title}
+              {pageH1}
             </h1>
             <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
-              {item.subtitle}
+              {pageSubtitle}
             </p>
           </div>
 
@@ -527,22 +536,26 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           <RectangleAd />
         </div>
 
-        {/* Goldmine SEO Strategy & Compliance Guide (Embedded) */}
-        <ToolGuide
-          suiteType={item.suiteType}
-          title={item.title}
-          category={item.category}
-          countrySlug={item.slug}
-          currencySymbol={item.currencySymbol}
-          geoRegion={item.geoRegion}
-          stateName={item.stateName}
-          baseRate={item.rate}
-          localRate={item.local}
-          maxLocalRate={item.maxLocal}
-          threshold={item.threshold}
-          inArticleSlot={<InArticleAd />}
-          embedded={true}
-        />
+        {/* Bespoke Verified Content Guide or Generic ToolGuide */}
+        {bespoke ? (
+          <BespokeContentGuide content={bespoke} inArticleSlot={<InArticleAd />} />
+        ) : (
+          <ToolGuide
+            suiteType={item.suiteType}
+            title={item.title}
+            category={item.category}
+            countrySlug={item.slug}
+            currencySymbol={item.currencySymbol}
+            geoRegion={item.geoRegion}
+            stateName={item.stateName}
+            baseRate={item.rate}
+            localRate={item.local}
+            maxLocalRate={item.maxLocal}
+            threshold={item.threshold}
+            inArticleSlot={<InArticleAd />}
+            embedded={true}
+          />
+        )}
 
         {/* Technical Breakdown: KaTeX Formula & Tier Comparison */}
         <section className="pt-8 sm:pt-10 border-t border-slate-200/80 space-y-6">
@@ -582,9 +595,8 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           embedded={true}
         />
 
-        {/* Programmatic FAQ Accordion (5 Authoritative Questions with Schema) */}
-        {/* Test schema validity at: https://search.google.com/test/rich-results */}
-        {item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && (
+        {/* Programmatic FAQ Accordion (only when bespoke content is not loaded) */}
+        {!bespoke && item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && (
           <>
             <FaqSchema items={item.faqs} />
             <FaqAccordion

@@ -518,7 +518,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
           <div className="flex items-start gap-2 rounded-lg bg-teal-50/80 border border-teal-200 p-2.5 text-[11px] text-teal-900">
             <Info className="h-4 w-4 text-teal-600 shrink-0 mt-0.5" />
             <span>
-              <strong>Wise Pricing Note:</strong> The 0.45% rate shown is the USD benchmark estimate. Actual mid-market exchange fees vary by currency pair (0.35% – 0.65%). Check exact live rates at{' '}
+              <strong>Wise Pricing Note:</strong> The 0.43% rate shown is the USD benchmark estimate. Actual mid-market exchange fees vary by currency pair (0.35% – 0.65%). Check exact live rates at{' '}
               <a
                 href="https://wise.com/gb/pricing"
                 target="_blank"

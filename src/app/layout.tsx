@@ -99,12 +99,12 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // GOOGLE SEARCH CONSOLE MANUAL ACTION:
-    // Replace 'google-site-verification-feekit-2026' with your real verification token from GSC
-    // (GSC Property -> Settings -> Ownership verification -> HTML tag)
-    // or configure NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in your production environment variables.
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google-site-verification-feekit-2026',
-    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
+      ? { yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION }
+      : {}),
   },
   alternates: {
     canonical: 'https://www.usefeekit.com',
@@ -112,8 +112,6 @@ export const metadata: Metadata = {
   other: {
     'impact-site-verification': 'c974a8df-bc8a-4870-912e-d90250862fd9',
     'google-adsense-account': 'ca-pub-1291898061670715',
-    'geo.region': 'US',
-    'content-language': 'en-US, en-GB',
   },
 };
 

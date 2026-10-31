@@ -1,6 +1,7 @@
 import assert from 'assert';
 import { calculateFreelanceRate } from '../src/lib/engines/freelance-rate.ts';
 import { calculateMerchantFee } from '../src/lib/engines/merchant-fee.ts';
+import { calculateEcommerceProfit } from '../src/lib/engines/ecommerce-profit.ts';
 
 const roundCent = (n) => Math.round((n + Number.EPSILON) * 100) / 100;
 
@@ -103,7 +104,7 @@ runTest('Case 1.5: $50k Net, $5k Overhead, 48 wks, 25h/wk, 20% Tax, 15% Buffer',
 });
 
 // -------------------------------------------------------------
-// SECTION 2: Merchant Fee Calculator (5 Hand-Calculated Cases)
+// SECTION 2: Merchant Fee Calculator (Forward & Reverse Cases)
 // -------------------------------------------------------------
 console.log('\n[Suite 2] Merchant Processing Fee Calculator');
 
@@ -141,6 +142,51 @@ runTest('Case 2.5: Stripe US Cross-Border $500.00 (+1.5% Intl Surcharge)', () =>
   assert.strictEqual(res.totalFee, 22.30);
   assert.strictEqual(res.netAmount, 477.70);
   assert.strictEqual(res.effectiveFeeRate, 4.46);
+});
+
+runTest('Case 2.6: Reverse Calculation - Stripe US Target Net $100.00', () => {
+  const res = calculateMerchantFee({ amount: 100, gatewayId: 'stripe', direction: 'reverse' });
+  // Gross = (100 + 0.30) / (1 - 0.029) = 100.30 / 0.971 = 103.2955... -> 103.30
+  // Fee = 103.30 - 100.00 = 3.30
+  assert.strictEqual(res.grossAmount, 103.30);
+  assert.strictEqual(res.netAmount, 100.00);
+  assert.strictEqual(res.totalFee, 3.30);
+});
+
+runTest('Case 2.7: Reverse Calculation - PayPal Checkout Target Net $100.00', () => {
+  const res = calculateMerchantFee({ amount: 100, gatewayId: 'paypal', direction: 'reverse' });
+  // Gross = (100 + 0.49) / (1 - 0.0349) = 100.49 / 0.9651 = 104.1239... -> 104.12
+  // Fee = 104.12 - 100.00 = 4.12
+  assert.strictEqual(res.grossAmount, 104.12);
+  assert.strictEqual(res.netAmount, 100.00);
+  assert.strictEqual(res.totalFee, 4.12);
+});
+
+runTest('Case 2.8: Reverse Calculation - Square Free Online Target Net $100.00', () => {
+  const res = calculateMerchantFee({ amount: 100, gatewayId: 'square', direction: 'reverse' });
+  // Gross = (100 + 0.30) / (1 - 0.033) = 100.30 / 0.967 = 103.7228... -> 103.72
+  // Fee = 103.72 - 100.00 = 3.72
+  assert.strictEqual(res.grossAmount, 103.72);
+  assert.strictEqual(res.netAmount, 100.00);
+  assert.strictEqual(res.totalFee, 3.72);
+});
+
+runTest('Case 2.9: Reverse Calculation - Venmo QR Target Net $100.00', () => {
+  const res = calculateMerchantFee({ amount: 100, gatewayId: 'venmo', direction: 'reverse' });
+  // Gross = (100 + 0.10) / (1 - 0.019) = 100.10 / 0.981 = 102.0387... -> 102.04
+  // Fee = 102.04 - 100.00 = 2.04
+  assert.strictEqual(res.grossAmount, 102.04);
+  assert.strictEqual(res.netAmount, 100.00);
+  assert.strictEqual(res.totalFee, 2.04);
+});
+
+runTest('Case 2.10: Reverse Calculation - Authorize.Net Target Net $100.00', () => {
+  const res = calculateMerchantFee({ amount: 100, gatewayId: 'authorize_net', direction: 'reverse' });
+  // Gross = (100 + 0.30) / (1 - 0.029) = 103.30
+  // Fee = 3.30
+  assert.strictEqual(res.grossAmount, 103.30);
+  assert.strictEqual(res.netAmount, 100.00);
+  assert.strictEqual(res.totalFee, 3.30);
 });
 
 // -------------------------------------------------------------
@@ -268,6 +314,149 @@ runTest('Case 5.5: 2026 SSA Cap Threshold Integrity Verification', () => {
   const ssRate = 0.124;
   const maxSSTax = roundCent(cap * ssRate);
   assert.strictEqual(maxSSTax, 22878.00);
+});
+
+// -------------------------------------------------------------
+// SECTION 6: Statutory VAT 1/6 Fraction Math (HMRC Notice 700)
+// -------------------------------------------------------------
+console.log('\n[Suite 6] Statutory VAT 1/6 Fraction Math (HMRC Notice 700 Sec 7.3)');
+
+runTest('Case 6.1: 20% Standard Rate 1/6 VAT Fraction on £120.00 Gross', () => {
+  // UK HMRC VAT fraction: 20 / (100 + 20) = 20 / 120 = 1/6
+  const gross = 120.00;
+  const vat = roundCent(gross * (1 / 6));
+  const net = roundCent(gross - vat);
+  assert.strictEqual(vat, 20.00);
+  assert.strictEqual(net, 100.00);
+});
+
+runTest('Case 6.2: 20% Standard Rate 1/6 VAT Fraction on £60.00 Gross', () => {
+  const gross = 60.00;
+  const vat = roundCent(gross / 6);
+  const net = roundCent(gross - vat);
+  assert.strictEqual(vat, 10.00);
+  assert.strictEqual(net, 50.00);
+});
+
+runTest('Case 6.3: 20% Standard Rate 1/6 VAT Fraction on £99.99 Gross', () => {
+  const gross = 99.99;
+  const vat = roundCent(gross / 6);
+  const net = roundCent(gross - vat);
+  assert.strictEqual(vat, 16.67);
+  assert.strictEqual(net, 83.32);
+});
+
+runTest('Case 6.4: 5% Reduced Rate 1/21 VAT Fraction on £105.00 Gross', () => {
+  // Reduced VAT fraction: 5 / (100 + 5) = 5 / 105 = 1/21
+  const gross = 105.00;
+  const vat = roundCent(gross / 21);
+  const net = roundCent(gross - vat);
+  assert.strictEqual(vat, 5.00);
+  assert.strictEqual(net, 100.00);
+});
+
+runTest('Case 6.5: Direct Division vs Fraction Equivalence Verification', () => {
+  const gross = 249.50;
+  const directNet = roundCent(gross / 1.20);
+  const directVat = roundCent(gross - directNet);
+  const fractionVat = roundCent(gross / 6);
+  const fractionNet = roundCent(gross - fractionVat);
+  assert.strictEqual(directNet, fractionNet);
+  assert.strictEqual(directVat, fractionVat);
+});
+
+// -------------------------------------------------------------
+// SECTION 7: E-commerce Break-Even ROAS Math
+// -------------------------------------------------------------
+console.log('\n[Suite 7] E-Commerce Break-Even ROAS Engine');
+
+runTest('Case 7.1: Amazon FBA $40 Product (15% Referral + $4.25 FBA Fee)', () => {
+  const res = calculateEcommerceProfit({
+    sellingPrice: 40.0,
+    productCost: 10.0,
+    shippingToWarehouse: 2.0,
+    packagingPrepCost: 0.5,
+    customerShippingCost: 0.0,
+    adSpendPerUnit: 0.0,
+    platform: 'amazon_fba',
+  });
+  // Landed = 10 + 2 + 0.5 = 12.50
+  // Referral = 40 * 0.15 = 6.00
+  // Fulfillment = 4.25
+  // Non-ad cost = 12.50 + 6.00 + 4.25 = 22.75
+  // Gross contribution = 40.00 - 22.75 = 17.25
+  // Break-even ROAS = 40.00 / 17.25 = 2.3188... -> 2.32
+  assert.strictEqual(res.landedCost, 12.50);
+  assert.strictEqual(res.platformFees, 6.00);
+  assert.strictEqual(res.fulfillmentFees, 4.25);
+  assert.strictEqual(res.breakEvenRoas, 2.32);
+});
+
+runTest('Case 7.2: Shopify DTC $100 Product (2.9% + $0.30 Fee)', () => {
+  const res = calculateEcommerceProfit({
+    sellingPrice: 100.0,
+    productCost: 30.0,
+    shippingToWarehouse: 0.0,
+    packagingPrepCost: 0.0,
+    customerShippingCost: 5.0,
+    adSpendPerUnit: 0.0,
+    platform: 'shopify',
+  });
+  // Non-ad costs = 30 + 5 + 3.20 = 38.20
+  // Gross contribution = 100 - 38.20 = 61.80
+  // Break-even ROAS = 100 / 61.80 = 1.618... -> 1.62
+  assert.strictEqual(res.platformFees, 3.20);
+  assert.strictEqual(res.breakEvenRoas, 1.62);
+});
+
+runTest('Case 7.3: Etsy Marketplace $50 Handmade Product (9.5% + $0.45 Fee)', () => {
+  const res = calculateEcommerceProfit({
+    sellingPrice: 50.0,
+    productCost: 15.0,
+    shippingToWarehouse: 0.0,
+    packagingPrepCost: 0.0,
+    customerShippingCost: 0.0,
+    adSpendPerUnit: 0.0,
+    platform: 'etsy',
+  });
+  // Fees = 50 * 0.095 + 0.45 = 4.75 + 0.45 = 5.20
+  // Non-ad costs = 15 + 5.20 = 20.20
+  // Contribution = 50 - 20.20 = 29.80
+  // Break-even ROAS = 50 / 29.80 = 1.6778... -> 1.68
+  assert.strictEqual(res.platformFees, 5.20);
+  assert.strictEqual(res.breakEvenRoas, 1.68);
+});
+
+runTest('Case 7.4: Zero Margin Boundary Safeguard (Non-ad costs >= Price)', () => {
+  const res = calculateEcommerceProfit({
+    sellingPrice: 20.0,
+    productCost: 25.0, // Underwater
+    shippingToWarehouse: 0.0,
+    packagingPrepCost: 0.0,
+    customerShippingCost: 0.0,
+    adSpendPerUnit: 0.0,
+    platform: 'shopify',
+  });
+  assert.strictEqual(res.breakEvenRoas, 999);
+  assert.strictEqual(res.isProfitable, false);
+});
+
+runTest('Case 7.5: eBay Store $200 Sale (13.25% + $0.30 Fee)', () => {
+  const res = calculateEcommerceProfit({
+    sellingPrice: 200.0,
+    productCost: 80.0,
+    shippingToWarehouse: 0.0,
+    packagingPrepCost: 0.0,
+    customerShippingCost: 0.0,
+    adSpendPerUnit: 0.0,
+    platform: 'ebay',
+  });
+  // Fees = 200 * 0.1325 + 0.30 = 26.50 + 0.30 = 26.80
+  // Non-ad costs = 80 + 26.80 = 106.80
+  // Contribution = 200 - 106.80 = 93.20
+  // Break-even ROAS = 200 / 93.20 = 2.1459... -> 2.15
+  assert.strictEqual(res.platformFees, 26.80);
+  assert.strictEqual(res.breakEvenRoas, 2.15);
 });
 
 console.log(`\n🎉 All ${passedTests} automated calculator unit tests PASSED cleanly with exact penny precision!\n`);

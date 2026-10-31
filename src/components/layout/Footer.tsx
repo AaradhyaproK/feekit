@@ -451,7 +451,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 <Lock className="h-4 w-4" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900">100% Client-Side Computation</div>
+                <div className="text-xs font-bold text-slate-900">Client-Side Computation</div>
                 <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
                   Financial calculations run entirely in your web browser memory. Your sensitive invoices, revenue figures, and margins are never sent to external servers.
                 </p>
@@ -460,24 +460,24 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
 
             <div className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5">
               <div className="rounded-lg bg-slate-100 p-2 text-slate-700 shrink-0 border border-slate-200">
-                <ShieldCheck className="h-4 w-4" />
+                <ShieldCheck className="h-4 w-4 text-emerald-600" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900">Client-Side Calculation Privacy</div>
+                <div className="text-xs font-bold text-slate-900">Primary Statutory Sources</div>
                 <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                  Calculations execute 100% inside your browser. Your calculation numbers, invoice values, and revenue inputs are never logged or stored on our servers.
+                  Benchmarked directly against official IRS circulars, SSA wage caps, UK HMRC MTD guidelines, and state departments of revenue.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-slate-50/70 p-3.5">
               <div className="rounded-lg bg-slate-100 p-2 text-slate-700 shrink-0 border border-slate-200">
-                <CheckCircle2 className="h-4 w-4" />
+                <CheckCircle2 className="h-4 w-4 text-blue-600" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900">2026 Fiscal Accuracy</div>
+                <div className="text-xs font-bold text-slate-900">Educational Planning Tool</div>
                 <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                  Benchmarked against published IRS circulars, UK HMRC Making Tax Digital (MTD) notices, and 50 state department of revenue tax schedules.
+                  FeeKit provides independent calculation utilities for commercial estimation. For formal tax filings, consult a certified CPA or tax attorney.
                 </p>
               </div>
             </div>

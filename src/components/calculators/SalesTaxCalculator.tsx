@@ -287,7 +287,7 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
           </div>
 
           <p>
-            <strong>Registration &amp; Collection Compliance:</strong> Once economic or physical nexus is established, sellers must register for an official sales and use tax permit directly through <strong>{state.filingAgency}</strong> before billing customers. Because sales tax constitutes state funds held in fiduciary trust, collecting tax without registration or failing to remit collections violates state tax law (such as Cal. Rev. &amp; Tax. Code § 6591 in California). Non-compliance can trigger statutory late penalties (typically 10%), personal liability assessments for corporate officers, and accrued statutory interest.
+            <strong>Registration &amp; Collection Compliance:</strong> Once economic or physical nexus is established, sellers must register for an official sales and use tax permit directly through <strong>{state.filingAgency}</strong> before billing customers. Because sales tax constitutes state funds held in fiduciary trust, collecting tax without registration or failing to remit collections violates state tax law. Non-compliance can trigger statutory late penalties (typically 5% to 10%), personal liability assessments for corporate officers, and accrued statutory interest.
           </p>
         </div>
       </section>
@@ -329,7 +329,7 @@ export function SalesTaxDeepContent({ state, embedded = false }: { state: StateT
               <span>Audit Defense &amp; Statutory Record Retention (4 Years)</span>
             </div>
             <p className="leading-relaxed">
-              Vendors must retain executed exemption certificates and transactional records on file for a minimum of <strong>4 years</strong> (under Cal. Rev. &amp; Tax. Code § 7053 and <a href="https://www.cdtfa.ca.gov/formspubs/pub17.pdf" target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:text-amber-950">CDTFA Publication 17</a> in California) to defend against retrospective state sales tax audit assessments. <em>Never accept a verbal exemption claim under any circumstance.</em> If an auditor discovers untaxed invoices lacking a valid certificate on file, {state.filingAgency} will assess the uncollected tax against the seller with statutory interest and penalties.
+              Vendors must retain executed exemption certificates and transactional records on file for a minimum of <strong>3 to 4 years</strong> under state statutory record-keeping regulations to defend against retrospective state sales tax audit assessments. <em>Never accept a verbal exemption claim under any circumstance.</em> If an auditor discovers untaxed invoices lacking a valid certificate on file, {state.filingAgency} will assess the uncollected tax against the seller with statutory interest and penalties.
             </p>
           </div>
         </div>
@@ -677,8 +677,8 @@ Calculated via: https://usefeekit.com/tools/sales-tax-calculator/${currentState.
         </div>
       </div>
 
-      {/* Comprehensive 800-1000 Word SEO & Compliance Section */}
-      <SalesTaxDeepContent state={currentState} embedded={embedded} />
+      {/* Comprehensive SEO & Compliance Section when not embedded in a full tool page */}
+      {!embedded && <SalesTaxDeepContent state={currentState} embedded={embedded} />}
     </div>
   );
 }

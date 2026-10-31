@@ -117,7 +117,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Wise Business:</strong> Mid-market FX rate with transparent ~0.45% fee and zero receiving fees for domestic ACH/wire payments.</span>
+                  <span><strong>Wise Business:</strong> Mid-market FX rate with transparent ~0.43% fee and zero receiving fees for domestic ACH/wire payments.</span>
                 </li>
               </ul>
             </div>

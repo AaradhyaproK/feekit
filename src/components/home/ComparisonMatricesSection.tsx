@@ -38,13 +38,13 @@ export function ComparisonMatricesSection() {
       paypalFee: '$0.84',
       paypalNet: '$9.16',
       paypalRate: '8.39%',
-      squareFee: '$0.59',
-      squareNet: '$9.41',
-      squareRate: '5.90%',
-      wiseFee: '$0.05',
-      wiseNet: '$9.95',
-      wiseRate: '0.45%',
-      lowestCard: 'Stripe / Square',
+      squareFee: '$0.63',
+      squareNet: '$9.37',
+      squareRate: '6.30%',
+      wiseFee: '$0.04',
+      wiseNet: '$9.96',
+      wiseRate: '0.43%',
+      lowestCard: 'Stripe',
       lowestBank: 'Wise',
     },
     {
@@ -55,13 +55,13 @@ export function ComparisonMatricesSection() {
       paypalFee: '$2.24',
       paypalNet: '$47.76',
       paypalRate: '4.47%',
-      squareFee: '$1.75',
-      squareNet: '$48.25',
-      squareRate: '3.50%',
-      wiseFee: '$0.23',
-      wiseNet: '$49.77',
-      wiseRate: '0.45%',
-      lowestCard: 'Stripe / Square',
+      squareFee: '$1.95',
+      squareNet: '$48.05',
+      squareRate: '3.90%',
+      wiseFee: '$0.22',
+      wiseNet: '$49.78',
+      wiseRate: '0.43%',
+      lowestCard: 'Stripe',
       lowestBank: 'Wise',
     },
     {
@@ -72,13 +72,13 @@ export function ComparisonMatricesSection() {
       paypalFee: '$3.98',
       paypalNet: '$96.02',
       paypalRate: '3.98%',
-      squareFee: '$3.20',
-      squareNet: '$96.80',
-      squareRate: '3.20%',
-      wiseFee: '$0.45',
-      wiseNet: '$99.55',
-      wiseRate: '0.45%',
-      lowestCard: 'Stripe / Square',
+      squareFee: '$3.60',
+      squareNet: '$96.40',
+      squareRate: '3.60%',
+      wiseFee: '$0.43',
+      wiseNet: '$99.57',
+      wiseRate: '0.43%',
+      lowestCard: 'Stripe',
       lowestBank: 'Wise',
     },
     {
@@ -89,13 +89,13 @@ export function ComparisonMatricesSection() {
       paypalFee: '$17.94',
       paypalNet: '$482.06',
       paypalRate: '3.59%',
-      squareFee: '$14.80',
-      squareNet: '$485.20',
-      squareRate: '2.96%',
-      wiseFee: '$2.25',
-      wiseNet: '$497.75',
-      wiseRate: '0.45%',
-      lowestCard: 'Stripe / Square',
+      squareFee: '$16.80',
+      squareNet: '$483.20',
+      squareRate: '3.36%',
+      wiseFee: '$2.15',
+      wiseNet: '$497.85',
+      wiseRate: '0.43%',
+      lowestCard: 'Stripe',
       lowestBank: 'Wise',
     },
     {
@@ -106,13 +106,13 @@ export function ComparisonMatricesSection() {
       paypalFee: '$35.39',
       paypalNet: '$964.61',
       paypalRate: '3.54%',
-      squareFee: '$29.30',
-      squareNet: '$970.70',
-      squareRate: '2.93%',
-      wiseFee: '$4.50',
-      wiseNet: '$995.50',
-      wiseRate: '0.45%',
-      lowestCard: 'Stripe / Square',
+      squareFee: '$33.30',
+      squareNet: '$966.70',
+      squareRate: '3.33%',
+      wiseFee: '$4.30',
+      wiseNet: '$995.70',
+      wiseRate: '0.43%',
+      lowestCard: 'Stripe',
       lowestBank: 'Wise',
     },
     {
@@ -123,13 +123,13 @@ export function ComparisonMatricesSection() {
       paypalFee: '$174.99',
       paypalNet: '$4,825.01',
       paypalRate: '3.50%',
-      squareFee: '$145.30',
-      squareNet: '$4,854.70',
-      squareRate: '2.91%',
-      wiseFee: '$22.50',
-      wiseNet: '$4,977.50',
-      wiseRate: '0.45%',
-      lowestCard: 'Stripe / Square',
+      squareFee: '$165.30',
+      squareNet: '$4,834.70',
+      squareRate: '3.31%',
+      wiseFee: '$21.50',
+      wiseNet: '$4,978.50',
+      wiseRate: '0.43%',
+      lowestCard: 'Stripe',
       lowestBank: 'Wise',
     },
   ];
@@ -157,11 +157,11 @@ export function ComparisonMatricesSection() {
   ];
 
   const freelanceTable = [
-    { targetNet: '$75,000', secaTax: '$11,475', incomeTaxEst: '$12,500', overheadEst: '$8,000', grossReq: '$106,975', hourlyRate: '$89 / hr', dayRate: '$713 / day' },
-    { targetNet: '$100,000', secaTax: '$15,300', incomeTaxEst: '$18,500', overheadEst: '$10,000', grossReq: '$143,800', hourlyRate: '$120 / hr', dayRate: '$959 / day' },
-    { targetNet: '$125,000', secaTax: '$19,125', incomeTaxEst: '$25,500', overheadEst: '$12,000', grossReq: '$181,625', hourlyRate: '$151 / hr', dayRate: '$1,211 / day' },
-    { targetNet: '$150,000', secaTax: '$22,950', incomeTaxEst: '$33,000', overheadEst: '$15,000', grossReq: '$220,950', hourlyRate: '$184 / hr', dayRate: '$1,473 / day' },
-    { targetNet: '$200,000', secaTax: '$27,500', incomeTaxEst: '$49,000', overheadEst: '$20,000', grossReq: '$296,500', hourlyRate: '$247 / hr', dayRate: '$1,977 / day' },
+    { targetNet: '$75,000', secaTax: '$10,597', incomeTaxEst: '$12,500', overheadEst: '$8,000', grossReq: '$106,097', hourlyRate: '$88 / hr', dayRate: '$707 / day' },
+    { targetNet: '$100,000', secaTax: '$14,130', incomeTaxEst: '$18,500', overheadEst: '$10,000', grossReq: '$142,630', hourlyRate: '$119 / hr', dayRate: '$951 / day' },
+    { targetNet: '$125,000', secaTax: '$17,662', incomeTaxEst: '$25,500', overheadEst: '$12,000', grossReq: '$180,162', hourlyRate: '$150 / hr', dayRate: '$1,201 / day' },
+    { targetNet: '$150,000', secaTax: '$21,194', incomeTaxEst: '$33,000', overheadEst: '$15,000', grossReq: '$219,194', hourlyRate: '$183 / hr', dayRate: '$1,461 / day' },
+    { targetNet: '$200,000', secaTax: '$28,234', incomeTaxEst: '$49,000', overheadEst: '$20,000', grossReq: '$297,234', hourlyRate: '$248 / hr', dayRate: '$1,982 / day' },
   ];
 
   return (
@@ -209,7 +209,7 @@ export function ComparisonMatricesSection() {
         <div className="space-y-3.5 animate-in fade-in duration-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <p className="text-slate-600">
-              Comparing merchant card processors vs. electronic bank rails: <strong>Stripe Standard &amp; Square Plus Online (2.9% + $0.30; Square Free is 3.3% + $0.30)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout)</strong> vs <strong>Wise Business (~0.45% B2B bank debit)</strong>.
+              Comparing merchant card processors vs. electronic bank rails: <strong>Stripe Standard &amp; Square Plus Online (2.9% + $0.30; Square Free is 3.3% + $0.30)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout)</strong> vs <strong>Wise Business (~0.43% B2B bank debit)</strong>.
             </p>
             <span className="shrink-0 font-mono font-bold text-[11px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
               2026 Statutory Rates
@@ -230,7 +230,7 @@ export function ComparisonMatricesSection() {
                   <th className="py-3 px-3.5 font-bold text-slate-800">Card Payout</th>
                   <th className="py-3 px-3.5 font-bold text-indigo-700">PayPal Checkout (3.49% + 49¢)</th>
                   <th className="py-3 px-3.5 font-bold text-slate-800">PayPal Payout</th>
-                  <th className="py-3 px-3.5 font-bold text-emerald-700">Wise Bank Rail (~0.45%)</th>
+                  <th className="py-3 px-3.5 font-bold text-emerald-700">Wise Bank Rail (~0.43%)</th>
                   <th className="py-3 px-3.5 font-bold text-slate-800">Wise Payout</th>
                   <th className="py-3 px-3.5 font-bold text-slate-900">Lowest by Rail</th>
                 </tr>
@@ -262,7 +262,7 @@ export function ComparisonMatricesSection() {
           </div>
 
           <div className="text-[11px] text-slate-500 bg-slate-50 rounded-lg p-2.5 border border-slate-200/80 leading-relaxed">
-            <strong>* Like-for-Like Comparison Note:</strong> Stripe, Square, and PayPal are commercial credit card merchant processors subject to wholesale Visa/Mastercard interchange fees (1.5%–2.8%) and risk reserves. Wise Business operates via direct electronic bank debit / ACH / wire rails with mid-market FX rates (~0.45%), which is built for contractor invoices and foreign bank transfers rather than retail shopping cart checkout. For in-person card payments, Square POS tap/dip/swipe is <strong>2.6% + 10¢</strong>.
+            <strong>* Like-for-Like Comparison Note:</strong> Stripe, Square, and PayPal are commercial credit card merchant processors subject to wholesale Visa/Mastercard interchange fees (1.5%–2.8%) and risk reserves. Wise Business operates via direct electronic bank debit / ACH / wire rails with mid-market FX rates (~0.43%), which is built for contractor invoices and foreign bank transfers rather than retail shopping cart checkout. For in-person card payments, Square POS tap/dip/swipe is <strong>2.6% + 15¢</strong>.
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1 text-xs">
@@ -287,7 +287,7 @@ export function ComparisonMatricesSection() {
             <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">
               <div className="font-bold text-slate-900">Card Interchange vs. Direct Bank Rail (Wise)</div>
               <p className="text-slate-600 leading-relaxed">
-                Wise Business (0.45%) is an electronic bank transfer/ACH rail, not a consumer credit card processor. Stripe, Square, and PayPal process credit cards with card brand interchange (1.5%–2.8%) and dispute protection.
+                Wise Business (0.43%) is an electronic bank transfer/ACH rail, not a consumer credit card processor. Stripe, Square, and PayPal process credit cards with card brand interchange (1.5%–2.8%) and dispute protection.
               </p>
             </div>
             <div className="p-3 rounded-xl border border-slate-200 bg-slate-50/60 space-y-1">

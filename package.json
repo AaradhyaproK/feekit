@@ -13,6 +13,8 @@
     "validate:states": "node --experimental-strip-types src/scripts/check-state-consistency.mjs",
     "audit:sitemap": "node --experimental-strip-types src/scripts/audit-sitemap-words.mjs",
     "test": "node --experimental-strip-types tests/calculators.test.mjs",
+    "content:check": "node --experimental-strip-types src/scripts/content-check.mjs",
+    "content:check:pilot": "node --experimental-strip-types src/scripts/content-check.mjs --pilot",
     "lint": "eslint"
   },
   "dependencies": {

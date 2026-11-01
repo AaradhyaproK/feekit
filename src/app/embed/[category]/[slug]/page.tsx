@@ -54,6 +54,15 @@ function findMatrixItem(category: string, slug: string) {
   return null;
 }
 
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return getMatrixItems().map((item) => ({
+    category: item.category,
+    slug: item.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category, slug } = await params;
   const item = findMatrixItem(category, slug);

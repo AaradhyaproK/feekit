@@ -24,6 +24,7 @@ export function ContextualSidebar() {
         <div className="space-y-2.5 text-xs">
           <Link
             href="/tools/sales-tax-calculator/california"
+            prefetch={false}
             className="flex items-center justify-between text-slate-600 hover:text-blue-600 transition-colors"
           >
             <span>California (8.82% Avg Tax)</span>
@@ -31,6 +32,7 @@ export function ContextualSidebar() {
           </Link>
           <Link
             href="/tools/sales-tax-calculator/texas"
+            prefetch={false}
             className="flex items-center justify-between text-slate-600 hover:text-blue-600 transition-colors"
           >
             <span>Texas (8.20% Max Tax)</span>
@@ -38,6 +40,7 @@ export function ContextualSidebar() {
           </Link>
           <Link
             href="/tools/vat-calculator/united-kingdom"
+            prefetch={false}
             className="flex items-center justify-between text-slate-600 hover:text-blue-600 transition-colors"
           >
             <span>UK HMRC VAT (20% Standard)</span>
@@ -45,6 +48,7 @@ export function ContextualSidebar() {
           </Link>
           <Link
             href="/tools/stripe-fee-calculator/usa"
+            prefetch={false}
             className="flex items-center justify-between text-slate-600 hover:text-blue-600 transition-colors"
           >
             <span>Stripe USA (2.9% + $0.30)</span>
@@ -52,6 +56,7 @@ export function ContextualSidebar() {
           </Link>
           <Link
             href="/tools/stripe-fee-calculator/uk"
+            prefetch={false}
             className="flex items-center justify-between text-slate-600 hover:text-blue-600 transition-colors"
           >
             <span>Stripe UK (1.5% + 20p)</span>

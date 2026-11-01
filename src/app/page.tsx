@@ -237,6 +237,7 @@ export default function FeeKitHome() {
           width={2172}
           height={724}
           priority
+          unoptimized
           sizes="100vw"
           className="w-full h-auto object-cover block rounded-none"
         />

@@ -126,6 +126,8 @@ const CATEGORY_NAMES: Record<string, { title: string; desc: string; defaultSlug:
   },
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const matrixList = Array.isArray(geoMatrix)
     ? (geoMatrix as Array<{ category: string }>)

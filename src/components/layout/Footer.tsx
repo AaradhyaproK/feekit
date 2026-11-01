@@ -113,6 +113,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
               <ul role="list" className="space-y-2">
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/sales-tax-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -121,6 +122,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/sales-tax-calculator/california"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -129,6 +131,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/sales-tax-calculator/texas"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -137,6 +140,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/sales-tax-calculator/new-york"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -145,6 +149,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/sales-tax-calculator/florida"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -153,6 +158,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/vat-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -161,6 +167,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/vat-calculator/united-kingdom"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -169,6 +176,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/canada-sales-tax"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -177,6 +185,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/canada-sales-tax/ontario"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -194,6 +203,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
               <ul role="list" className="space-y-2">
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/gateway-comparator/stripe-paypal-square"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -202,6 +212,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/stripe-fee-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -210,6 +221,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/stripe-fee-calculator/usa"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -218,6 +230,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/paypal-fee-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -226,6 +239,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/square-fee-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -234,6 +248,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/venmo-fee-calculator/standard"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -242,6 +257,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/shopify-fee-calculator/standard"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -250,6 +266,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/gumroad-fee-calculator/standard"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -258,6 +275,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/lemon-squeezy-calculator/standard"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -275,6 +293,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
               <ul role="list" className="space-y-2">
                 <li>
                   <Link
+                    prefetch={false}
                     href="/small-business"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -283,6 +302,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/invoice-generator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -291,6 +311,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/freelance-rate-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -299,6 +320,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/profit-margin-calculator/standard"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -307,6 +329,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/break-even-calculator/standard"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -315,6 +338,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/quarterly-tax-calculator/1040-es"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -323,6 +347,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/tools/ecommerce-profit-calculator"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -331,6 +356,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/guides/freshbooks-for-freelancers"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -339,6 +365,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/blog"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -356,6 +383,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
               <ul role="list" className="space-y-2">
                 <li>
                   <Link
+                    prefetch={false}
                     href="/editorial-policy"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -364,6 +392,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/methodology"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -372,6 +401,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/changelog"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -380,6 +410,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/affiliate-disclosure"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -388,6 +419,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/about"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -396,6 +428,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/contact"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -404,6 +437,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/privacy"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -412,6 +446,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/terms"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -420,6 +455,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 </li>
                 <li>
                   <Link
+                    prefetch={false}
                     href="/cookies"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -487,7 +523,9 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
         {/* 4. Bottom Legal, Copyright & Contact Row */}
         <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1">
-            <Link href="/" className="hover:opacity-85 transition-opacity inline-flex items-center">
+            <Link
+                    prefetch={false}
+                    href="/" className="hover:opacity-85 transition-opacity inline-flex items-center">
               <Image
                 src="/feekit-logo.png"
                 alt="FeeKit"

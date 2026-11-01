@@ -80,6 +80,8 @@ function findMatrixItem(category: string, slug: string) {
   return undefined;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return getMatrixItems().map((item) => ({
     category: item.category,

@@ -620,6 +620,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
                 <Link
                   key={rel.slug}
                   href={`/tools/${rel.category}/${rel.slug}`}
+                  prefetch={false}
                   className="group rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs"
                 >
                   <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors truncate">

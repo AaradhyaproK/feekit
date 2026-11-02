@@ -249,6 +249,7 @@ export default async function CategoryPage({ params }: Props) {
               </div>
               <Link
                 href={`/tools/${category}/${primaryTool.slug}`}
+                prefetch={false}
                 className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-xs hover:bg-blue-700 transition-colors"
               >
                 <span>Launch Calculator</span>
@@ -272,6 +273,7 @@ export default async function CategoryPage({ params }: Props) {
               <Link
                 key={tool.slug}
                 href={`/tools/${category}/${tool.slug}`}
+                prefetch={false}
                 className="group rounded-xl border border-slate-200 bg-slate-50/70 p-4 sm:p-5 shadow-2xs hover:border-blue-400 hover:bg-white hover:shadow-xs transition-all flex flex-col justify-between"
               >
                 <div className="space-y-2">

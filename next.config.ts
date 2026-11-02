@@ -3,6 +3,14 @@ import createMDX from '@next/mdx';
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  poweredByHeader: false,
+  outputFileTracingExcludes: {
+    '*': [
+      './tests/**',
+      './src/scripts/**',
+      './programmatic_pages_audit.csv',
+    ],
+  },
   async headers() {
     return [
       {

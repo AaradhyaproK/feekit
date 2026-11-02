@@ -199,6 +199,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
 
                 <Link
                   href={item.popularLink}
+                  prefetch={false}
                   className="text-[11px] font-medium text-slate-500 hover:text-slate-900 underline underline-offset-2 truncate max-w-[140px]"
                 >
                   {item.popularLabel}

@@ -73,6 +73,7 @@ export function EditorialGuidesSection() {
         </div>
         <Link
           href="/blog"
+          prefetch={false}
           className="text-xs font-bold text-blue-600 hover:text-blue-800 inline-flex items-center gap-1 group shrink-0"
         >
           <span>View all {blogManifest.length} guides</span>
@@ -118,6 +119,7 @@ export function EditorialGuidesSection() {
             <Link
               key={art.slug}
               href={`/blog/${art.slug}`}
+              prefetch={false}
               className="group flex flex-col justify-between rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 transition-all duration-200 shadow-2xs hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="space-y-2.5">

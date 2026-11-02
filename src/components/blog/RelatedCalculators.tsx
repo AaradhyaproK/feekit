@@ -33,6 +33,7 @@ export function RelatedCalculators({ calculators }: RelatedCalculatorsProps) {
           <Link
             key={calc.href}
             href={calc.href}
+            prefetch={false}
             className="tap-spring group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-3.5 hover:border-blue-400 hover:shadow-xs transition-all"
           >
             <div className="flex items-center gap-2.5 min-w-0">

@@ -70,7 +70,7 @@ export function BlogCard({ post }: BlogCardProps) {
 
         {/* Title */}
         <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
-          <Link href={`/blog/${post.slug}`} className="focus:outline-hidden">
+          <Link href={`/blog/${post.slug}`} prefetch={false} className="focus:outline-hidden">
             <span className="absolute inset-0 z-10" aria-hidden="true" />
             {post.title}
           </Link>

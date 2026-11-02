@@ -351,6 +351,7 @@ export function ComparisonMatricesSection() {
                     <td className="py-2.5 px-3.5 font-sans">
                       <Link
                         href={row.link}
+                        prefetch={false}
                         className="inline-flex items-center gap-1 font-bold text-blue-600 hover:text-blue-800 text-[11px]"
                       >
                         <span>Calculate</span>
@@ -369,6 +370,7 @@ export function ComparisonMatricesSection() {
             </span>
             <Link
               href="/tools/sales-tax-calculator"
+              prefetch={false}
               className="font-bold text-blue-600 hover:underline inline-flex items-center gap-1"
             >
               <span>Explore all 51 US state tax tools</span>
@@ -413,6 +415,7 @@ export function ComparisonMatricesSection() {
                     <td className="py-2.5 px-3.5 font-sans">
                       <Link
                         href={row.link}
+                        prefetch={false}
                         className="inline-flex items-center gap-1 font-bold text-blue-600 hover:text-blue-800 text-[11px]"
                       >
                         <span>Calculate</span>
@@ -431,6 +434,7 @@ export function ComparisonMatricesSection() {
             </span>
             <Link
               href="/tools/vat-calculator"
+              prefetch={false}
               className="font-bold text-blue-600 hover:underline inline-flex items-center gap-1"
             >
               <span>Explore all 28 country VAT tools</span>
@@ -492,6 +496,7 @@ export function ComparisonMatricesSection() {
             </span>
             <Link
               href="/tools/freelance-rate-calculator"
+              prefetch={false}
               className="font-bold text-blue-600 hover:underline inline-flex items-center gap-1"
             >
               <span>Explore all 37 role rate calculators</span>
@@ -555,6 +560,7 @@ export function ComparisonMatricesSection() {
               <div className="pt-2">
                 <Link
                   href="/tools/ecommerce-profit-calculator/shopify-dropshipping"
+                  prefetch={false}
                   className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800"
                 >
                   <span>Launch Interactive ROAS Simulator</span>

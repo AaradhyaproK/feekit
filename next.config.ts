@@ -39,6 +39,15 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/((?!api/|_next/static/|_next/image/|favicon.ico|robots.txt|sitemap.xml|ads.txt).*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=14400, stale-while-revalidate=86400',
+          },
+        ],
+      },
     ];
   },
   async redirects() {

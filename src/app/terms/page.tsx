@@ -110,8 +110,8 @@ export default function TermsPage() {
             </div>
             <div>
               <strong>Official Inquiries:</strong>{' '}
-              <a href="mailto:hello@snab.co.in" className="text-sky-600 underline font-semibold">
-                hello@snab.co.in
+              <a href="mailto:contact@usefeekit.com" className="text-sky-600 underline font-semibold">
+                contact@usefeekit.com
               </a>
             </div>
           </div>

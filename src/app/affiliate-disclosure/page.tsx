@@ -213,8 +213,8 @@ export default function AffiliateDisclosurePage() {
             <div><strong>Entity:</strong> Snab Innovations (Nashik, Maharashtra, India 422005)</div>
             <div>
               <strong>Email:</strong>{' '}
-              <a href="mailto:hello@snab.co.in" className="text-sky-600 underline font-semibold">
-                hello@snab.co.in
+              <a href="mailto:contact@usefeekit.com" className="text-sky-600 underline font-semibold">
+                contact@usefeekit.com
               </a>
             </div>
             <div>

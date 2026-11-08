@@ -267,8 +267,8 @@ export default function EditorialPolicyPage() {
               <Mail className="h-4 w-4 text-sky-600" />
               <span>
                 <strong>Direct Editorial Contact:</strong>{' '}
-                <a href="mailto:hello@snab.co.in" className="text-sky-600 underline font-semibold">
-                  hello@snab.co.in
+                <a href="mailto:editorial@usefeekit.com" className="text-sky-600 underline font-semibold">
+                  editorial@usefeekit.com
                 </a>
               </span>
             </div>

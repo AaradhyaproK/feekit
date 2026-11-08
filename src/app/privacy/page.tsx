@@ -148,8 +148,8 @@ export default function PrivacyPage() {
           </ul>
           <p className="text-xs text-slate-600 pt-1">
             For any formal data subject access requests or privacy inquiries, contact our Data Protection Officer at{' '}
-            <a href="mailto:hello@snab.co.in" className="text-blue-600 underline font-medium">
-              hello@snab.co.in
+            <a href="mailto:contact@usefeekit.com" className="text-blue-600 underline font-medium">
+              contact@usefeekit.com
             </a>.
           </p>
         </section>
@@ -193,8 +193,8 @@ export default function PrivacyPage() {
             </div>
             <div>
               <strong>Official Privacy Contact:</strong>{' '}
-              <a href="mailto:hello@snab.co.in" className="text-sky-600 underline font-semibold">
-                hello@snab.co.in
+              <a href="mailto:contact@usefeekit.com" className="text-sky-600 underline font-semibold">
+                contact@usefeekit.com
               </a>
             </div>
           </div>

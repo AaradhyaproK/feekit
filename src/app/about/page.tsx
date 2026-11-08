@@ -34,7 +34,7 @@ export default function AboutPage() {
     '@type': 'Person',
     name: 'Aaradhya Pathak',
     jobTitle: 'Founder & Lead Developer',
-    email: 'mailto:aaradhya1774@gmail.com',
+    email: 'mailto:aaradhya@usefeekit.com',
     worksFor: {
       '@type': 'Organization',
       name: 'Snab Innovations',
@@ -211,11 +211,11 @@ export default function AboutPage() {
                   </a>
 
                   <a
-                    href="mailto:aaradhya1774@gmail.com"
+                    href="mailto:aaradhya@usefeekit.com"
                     className="tap-spring inline-flex items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700 hover:bg-blue-100 transition-colors shadow-2xs"
                   >
                     <Mail className="h-3.5 w-3.5" />
-                    <span>aaradhya1774@gmail.com</span>
+                    <span>aaradhya@usefeekit.com</span>
                   </a>
 
                   <Link
@@ -432,10 +432,10 @@ export default function AboutPage() {
                 <p className="text-xs sm:text-sm text-slate-600">
                   Direct email:{' '}
                   <a
-                    href="mailto:hello@snab.co.in"
+                    href="mailto:editorial@usefeekit.com"
                     className="font-bold text-blue-600 hover:underline"
                   >
-                    hello@snab.co.in
+                    editorial@usefeekit.com
                   </a>
                 </p>
                 <p className="text-xs text-slate-500">

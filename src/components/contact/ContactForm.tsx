@@ -58,7 +58,7 @@ export function ContactForm() {
       }
     } catch (err: any) {
       setStatus('error');
-      setErrorMessage(err.message || 'Something went wrong. Please email hello@snab.co.in directly.');
+      setErrorMessage(err.message || 'Something went wrong. Please email contact@usefeekit.com directly.');
     }
   };
 
@@ -103,8 +103,8 @@ export function ContactForm() {
             <p className="font-semibold">Submission failed: {errorMessage}</p>
             <p>
               You can also email us directly at{' '}
-              <a href="mailto:hello@snab.co.in" className="font-bold underline">
-                hello@snab.co.in
+              <a href="mailto:contact@usefeekit.com" className="font-bold underline">
+                contact@usefeekit.com
               </a>.
             </p>
           </div>

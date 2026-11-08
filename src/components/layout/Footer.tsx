@@ -539,11 +539,11 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
             <span>© {new Date().getFullYear()} Snab Innovations. All rights reserved.</span>
             <span>•</span>
             <a
-              href="mailto:hello@snab.co.in"
+              href="mailto:contact@usefeekit.com"
               className="inline-flex items-center gap-1 text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
             >
               <Mail className="h-3 w-3 text-slate-400" />
-              <span>hello@snab.co.in</span>
+              <span>contact@usefeekit.com</span>
             </a>
           </div>
 

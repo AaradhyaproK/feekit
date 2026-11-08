@@ -349,8 +349,8 @@ export default function MethodologyPage() {
           <h2 className="text-lg font-bold text-slate-900">8. Data Updates & Reporting Inaccuracies</h2>
           <p className="text-xs text-slate-600 leading-relaxed">
             Our datasets are audited weekly against regulatory and corporate publications. If you detect an update or formula discrepancy, please notify our engineering team at{' '}
-            <a href="mailto:hello@snab.co.in" className="text-sky-600 underline font-semibold">
-              hello@snab.co.in
+            <a href="mailto:support@usefeekit.com" className="text-sky-600 underline font-semibold">
+              support@usefeekit.com
             </a>.
           </p>
         </section>

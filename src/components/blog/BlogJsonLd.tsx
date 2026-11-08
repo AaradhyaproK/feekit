@@ -28,7 +28,7 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
       '@type': 'Person',
       name: 'Aaradhya Pathak',
       jobTitle: 'Founder & Lead Developer',
-      email: 'mailto:aaradhya1774@gmail.com',
+      email: 'mailto:aaradhya@usefeekit.com',
       url: 'https://www.usefeekit.com/about',
       sameAs: [
         'https://www.usefeekit.com/about',

@@ -198,8 +198,8 @@ export default function CookiesPage() {
           <h2 className="text-lg font-bold text-slate-900">6. Questions & Data Protection Officer</h2>
           <p className="text-xs text-slate-600 leading-relaxed">
             FeeKit is owned and operated by <strong>Snab Innovations</strong>. If you have questions regarding our Cookie Policy, contact us directly at{' '}
-            <a href="mailto:hello@snab.co.in" className="text-blue-600 underline font-semibold">
-              hello@snab.co.in
+            <a href="mailto:contact@usefeekit.com" className="text-blue-600 underline font-semibold">
+              contact@usefeekit.com
             </a>{' '}
             or review our full <Link href="/privacy" className="text-blue-600 underline font-semibold">Privacy Policy</Link>.
           </p>

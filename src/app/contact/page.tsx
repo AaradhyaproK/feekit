@@ -142,10 +142,10 @@ export default function ContactPage() {
               <div>
                 <div className="text-xs text-slate-500 font-medium">Direct Inquiries Email</div>
                 <a
-                  href="mailto:hello@snab.co.in"
+                  href="mailto:contact@usefeekit.com"
                   className="text-sm font-bold text-slate-900 hover:text-sky-600 transition-colors"
                 >
-                  hello@snab.co.in
+                  contact@usefeekit.com
                 </a>
               </div>
             </div>

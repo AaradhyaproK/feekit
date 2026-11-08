@@ -3,7 +3,7 @@ import { GATEWAY_RATES, STATUTORY_TAX_RATES, US_STATE_SALES_TAX_RATES } from '..
 console.log('--- FeeKit Central Rates Validator ---');
 
 let errors = 0;
-let warnings = 0;
+const warnings = 0;
 
 const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 const HTTP_URL_REGEX = /^https?:\/\//;

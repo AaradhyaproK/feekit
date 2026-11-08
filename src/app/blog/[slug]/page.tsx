@@ -67,29 +67,29 @@ function formatBlogSeoTitle(rawTitle: string): string {
   clean = clean.replace(/Authorize\.Net vs Stripe Fees 2026: Pricing, Hidden Costs & Break-Even Math/gi, 'Authorize.Net vs Stripe Fees (2026)');
   clean = clean.replace(/Quarterly Estimated Taxes in 2026: Deadlines, Safe Harbor Rules & Calculator/gi, 'Quarterly Taxes 2026: Deadlines & Rules');
 
-  let candidate = `${clean} | FeeKit`;
+  const candidate = `${clean} | FeeKit`;
   if (candidate.length <= 58) return candidate;
 
-  let candidateNoBrand = clean;
+  const candidateNoBrand = clean;
   if (candidateNoBrand.length <= 58) return candidateNoBrand;
 
-  let truncated = candidate.slice(0, 46);
-  let lastSpace = truncated.lastIndexOf(' ');
+  const truncated = candidate.slice(0, 46);
+  const lastSpace = truncated.lastIndexOf(' ');
   return `${truncated.slice(0, lastSpace)}... | FeeKit`;
 }
 
 function formatBlogSeoDescription(rawDesc: string): string {
-  let clean = rawDesc.replace(/\s+/g, ' ').trim();
+  const clean = rawDesc.replace(/\s+/g, ' ').trim();
   if (clean.length >= 135 && clean.length <= 158) {
     return clean;
   }
   if (clean.length > 158) {
-    let truncated = clean.slice(0, 154);
-    let lastPeriod = truncated.lastIndexOf('.');
+    const truncated = clean.slice(0, 154);
+    const lastPeriod = truncated.lastIndexOf('.');
     if (lastPeriod > 110) {
       return truncated.slice(0, lastPeriod + 1);
     }
-    let lastSpace = truncated.lastIndexOf(' ');
+    const lastSpace = truncated.lastIndexOf(' ');
     return `${truncated.slice(0, lastSpace)}.`;
   }
   return clean;

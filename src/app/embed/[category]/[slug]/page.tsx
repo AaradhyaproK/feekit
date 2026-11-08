@@ -80,8 +80,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical,
     },
     robots: {
-      index: true,
+      index: false,
       follow: true,
+      googleBot: {
+        index: false,
+        follow: true,
+      },
     },
   };
 }

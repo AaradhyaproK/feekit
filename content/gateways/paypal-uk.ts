@@ -160,3 +160,4 @@ $$\\text{Gross Charge (GBP)} = \\frac{\\text{Target Net Payout} + 0.30}{1 - 0.02
 };
 
 export default paypalUkContent;
+

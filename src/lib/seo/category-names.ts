@@ -36,8 +36,8 @@ export const CATEGORY_NAMES: Record<string, CategoryMeta> = {
     defaultSlug: 'usa',
   },
   'paypal-fee-calculator': {
-    title: 'PayPal Fee Calculators: US, UK & Intl',
-    desc: 'Free PayPal fee calculator for commercial, goods and services, QR code, invoice and micropayment rates. See 2026 fees and exact net payouts instantly.',
+    title: 'PayPal Business Fee Calculators (2026 Rates)',
+    desc: 'Free PayPal business fee calculator for commercial, goods & services, UK 2.9% + 30p, QR and invoice fees. Calculate exact 2026 charges and net payouts.',
     defaultSlug: 'usa',
   },
   'freelance-rate-calculator': {

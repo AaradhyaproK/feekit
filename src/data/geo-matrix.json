@@ -4035,23 +4035,15 @@
       "faqs": [
         {
           "question": "How much does PayPal charge merchants in the UK?",
-          "answer": "Standard domestic PayPal checkout rate is 2.9% + 30p. In-person QR payments are discounted to 1.5% + 10p, while micropayments tier charges 4.99% + 9p."
+          "answer": "Standard domestic PayPal UK checkout rate is 2.9% + 30p. In-person UK QR payments over £10 cost 1.5% + 10p."
         },
         {
           "question": "What are international cross-border PayPal fees in the UK?",
-          "answer": "PayPal adds a 1.29% to 1.99% cross-border surcharge for payments originating outside the UK, plus an approximate 3% currency conversion margin."
+          "answer": "PayPal adds +1.29% for EEA buyers and +1.99% for Rest of World buyers outside the UK, plus ~3% currency conversion margin."
         },
         {
-          "question": "Which payment processor is cheaper: Stripe, PayPal, or Square?",
-          "answer": "For standard online domestic transactions, Stripe and Square tie at 2.9% + $0.30, while PayPal Commerce is noticeably more expensive at 3.49% + $0.49. For in-person point-of-sale card processing, Square (2.6% + $0.10) is the most cost-effective."
-        },
-        {
-          "question": "What is the cheapest payment processor for micropayments under $10?",
-          "answer": "For low-ticket transactions, PayPal offers a dedicated micropayments rate (5.0% + $0.05). On a $5 transaction, PayPal micropayments fee is $0.30, compared to $0.45 with Stripe’s standard $0.30 fixed fee."
-        },
-        {
-          "question": "How do international card surcharges compare across Stripe, PayPal, and Square?",
-          "answer": "Stripe charges a 1.5% international fee (plus 1% for currency conversion). PayPal adds 1.5% plus a 3–4% currency exchange margin. Square charges 1.0% on international cards."
+          "question": "Does PayPal UK charge to withdraw GBP to a British bank account?",
+          "answer": "No. Withdrawing GBP from a PayPal UK balance to a linked UK business bank account costs £0.00."
         }
       ]
     },
@@ -6212,54 +6204,46 @@
       "subtitle": "Stripe Japan processing fee model for domestic yen and JCB/Visa transactions.",
       "suiteType": "merchant",
       "gatewayId": "stripe",
-      "defaultAmount": 500,
+      "defaultAmount": 10000,
       "currencySymbol": "¥",
       "isInternational": false,
       "applyCurrencyConversion": false,
-      "formulaLatex": "\\text{Fee} = (\\text{Gross} \\times \\text{Rate}) + \\text{Fixed Fee} \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net} + \\text{Fixed}}{1 - \\text{Rate}}",
-      "formulaExplanation": "To calculate forward deductions: multiply gross volume by the gateway rate (e.g. 2.9%) and add the fixed fee ($0.30). To ensure you receive an exact net amount in your bank, use the reverse formula to invoice your customer accordingly.",
+      "formulaLatex": "\\text{Fee} = \\text{Gross} \\times 3.6\\% \\quad | \\quad \\text{Reverse Gross} = \\frac{\\text{Net}}{1 - 0.036}",
+      "formulaExplanation": "Stripe Japan applies a flat 3.6% domestic card rate with ¥0 fixed fee on Visa, Mastercard, Amex, and JCB. Divide target JPY payout by 0.964 to invoice exact net.",
       "sampleTiers": [
         {
-          "amount": 50,
-          "fee": 1.75,
-          "net": 48.25
-        },
-        {
-          "amount": 250,
-          "fee": 7.55,
-          "net": 242.45
-        },
-        {
           "amount": 1000,
-          "fee": 29.3,
-          "net": 970.7
+          "fee": 36,
+          "net": 964
         },
         {
-          "amount": 5000,
-          "fee": 145.3,
-          "net": 4854.7
+          "amount": 10000,
+          "fee": 360,
+          "net": 9640
+        },
+        {
+          "amount": 50000,
+          "fee": 1800,
+          "net": 48200
+        },
+        {
+          "amount": 100000,
+          "fee": 3600,
+          "net": 96400
         }
       ],
       "faqs": [
         {
-          "question": "How do I charge a client so I receive the full invoice amount?",
-          "answer": "Use FeeKit's reverse calculation mode. For a $1,000 target payout at 2.9% + $0.30, charge $1,030.18. Stripe takes $30.18, leaving you with exactly $1,000.00."
+          "question": "What is Stripe Japan’s standard transaction fee?",
+          "answer": "Stripe Japan charges a flat 3.6% per successful domestic card transaction with ¥0 fixed fee."
         },
         {
-          "question": "How much do international cards cost extra?",
-          "answer": "Most gateways add a +1.5% surcharge for cards issued outside your domestic country, plus an additional 1.0% to 3.0% if currency conversion is involved."
+          "question": "How do I charge a Japanese client to net 100% of ¥50,000?",
+          "answer": "Divide target net Yen by 0.964 (1 - 0.036). To receive ¥50,000 net after Stripe 3.6% fees, charge ¥51,867."
         },
         {
-          "question": "How does Wise compare to traditional merchant gateways?",
-          "answer": "Wise charges true mid-market exchange rates with a nominal ~0.45% transfer fee, saving merchants between 2% and 3% on foreign invoice settlements."
-        },
-        {
-          "question": "Which payment processor is cheaper: Stripe, PayPal, or Square?",
-          "answer": "For standard online domestic transactions, Stripe and Square tie at 2.9% + $0.30, while PayPal Commerce is noticeably more expensive at 3.49% + $0.49. For in-person point-of-sale card processing, Square (2.6% + $0.10) is the most cost-effective."
-        },
-        {
-          "question": "What is the cheapest payment processor for micropayments under $10?",
-          "answer": "For low-ticket transactions, PayPal offers a dedicated micropayments rate (5.0% + $0.05). On a $5 transaction, PayPal micropayments fee is $0.30, compared to $0.45 with Stripe’s standard $0.30 fixed fee."
+          "question": "Are international cards and currency conversions charged extra on Stripe Japan?",
+          "answer": "Yes. Foreign-issued cards add +1.5% (5.1% total) and currency conversions into JPY add +2.0%."
         }
       ],
       "geoRegion": "GLOBAL"

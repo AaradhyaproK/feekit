@@ -270,7 +270,7 @@ export function buildDescription(
   if (clean.length < DESC_MIN) {
     // Pad with a benefit statement rather than leaving a thin snippet.
     const pad = tidy(
-      filler || 'Free, instant, and updated for 2026 rates with full source citations'
+      filler || 'Free 2026 rates, instant net payouts and reverse fee math'
     ).replace(/[.\s]*$/, '');
     clean = `${clean.replace(/[.\s]*$/, '')}. ${pad}.`;
     if (clean.length > max) {
@@ -333,7 +333,7 @@ export function descriptionFiller(category?: string): string {
     case 'canada-sales-tax':
       return 'Calculate GST, HST, PST and QST for 2026 CRA-compliant invoices';
     default:
-      return 'Free, instant, and updated for 2026 rates with full source citations';
+      return 'Free 2026 rates, instant net payouts and reverse fee math';
   }
 }
 

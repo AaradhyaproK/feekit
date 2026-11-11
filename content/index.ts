@@ -148,8 +148,10 @@ import cadToUsdContent from './wise/cad-to-usd.ts';
 import audToUsdContent from './wise/aud-to-usd.ts';
 import usdToBrlContent from './wise/usd-to-brl.ts';
 import stripeUkContent from './gateways/stripe-uk.ts';
+import stripeJapanContent from './gateways/stripe-japan.ts';
 import stripeKeyedEntryContent from './gateways/stripe-keyed-entry.ts';
 import paypalUsaContent from './gateways/paypal-usa.ts';
+import paypalUkContent from './gateways/paypal-uk.ts';
 import paypalInvoiceContent from './gateways/paypal-invoice.ts';
 import paypalQrCodeContent from './gateways/paypal-qr-code.ts';
 import paypalMicropaymentsContent from './gateways/paypal-micropayments.ts';
@@ -263,8 +265,10 @@ const CONTENT_REGISTRY: Record<string, Record<string, PageContent>> = {
   'gateways': {
     'stripe-usa': stripeUsaContent,
     'stripe-uk': stripeUkContent,
+    'stripe-japan': stripeJapanContent,
     'stripe-keyed-entry': stripeKeyedEntryContent,
     'paypal-usa': paypalUsaContent,
+    'paypal-uk': paypalUkContent,
     'paypal-invoice': paypalInvoiceContent,
     'paypal-qr-code': paypalQrCodeContent,
     'paypal-micropayments': paypalMicropaymentsContent,
@@ -406,9 +410,11 @@ export function getPageContent(family: string, slug: string): PageContent | null
     } else if (family === 'stripe-fee-calculator') {
       if (s === 'usa' || s === 'us') s = 'stripe-usa';
       if (s === 'uk' || s === 'united-kingdom') s = 'stripe-uk';
+      if (s === 'japan' || s === 'jp') s = 'stripe-japan';
       if (s === 'keyed-entry' || s === 'manual-entry') s = 'stripe-keyed-entry';
     } else if (family === 'paypal-fee-calculator') {
       if (s === 'usa' || s === 'us' || s === 'standard') s = 'paypal-usa';
+      if (s === 'uk' || s === 'united-kingdom') s = 'paypal-uk';
       if (s === 'invoice' || s === 'invoicing') s = 'paypal-invoice';
       if (s === 'qr-code' || s === 'qr') s = 'paypal-qr-code';
       if (s === 'micropayments' || s === 'micro') s = 'paypal-micropayments';
@@ -432,8 +438,10 @@ export {
   softwareEngineerContent,
   stripeUsaContent,
   stripeUkContent,
+  stripeJapanContent,
   stripeKeyedEntryContent,
   paypalUsaContent,
+  paypalUkContent,
   paypalInvoiceContent,
   paypalQrCodeContent,
   paypalMicropaymentsContent,

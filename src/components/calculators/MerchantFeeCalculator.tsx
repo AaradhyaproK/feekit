@@ -31,6 +31,7 @@ interface MerchantFeeCalculatorProps {
 }
 
 const PRESET_AMOUNTS = [100, 500, 1000, 5000];
+const JPY_PRESET_AMOUNTS = [1000, 10000, 50000, 100000];
 
 export function MerchantFeeCalculator({
   initialGateway = 'stripe',
@@ -81,7 +82,18 @@ export function MerchantFeeCalculator({
   let customFixed: number | undefined = undefined;
 
   if (gateway === 'paypal') {
-    if (paypalTier === 'standard_card') {
+    if (currencySymbol === '£') {
+      if (paypalTier === 'standard_card') {
+        customRate = 0.015; // PayPal UK In-Person QR (> £10): 1.5% + 10p
+        customFixed = 0.10;
+      } else {
+        customRate = 0.029; // PayPal UK Standard Commercial Checkout: 2.9% + 30p
+        customFixed = 0.30;
+      }
+    } else if (currencySymbol === '€') {
+      customRate = 0.029; // PayPal EU Commercial Checkout: 2.9% + €0.35
+      customFixed = 0.35;
+    } else if (paypalTier === 'standard_card') {
       customRate = 0.0299; // Invoicing Paid by Card / Standard Goods & Services: 2.99% + $0.49
       customFixed = 0.49;
     } else {
@@ -105,6 +117,18 @@ export function MerchantFeeCalculator({
         customRate = 0.015; // Standard UK cards: 1.5% + 20p
         customFixed = 0.20;
       }
+    } else if (currencySymbol === '¥') {
+      customRate = 0.036; // Stripe Japan Standard Domestic Cards: 3.6% + ¥0 fixed
+      customFixed = 0;
+    } else if (currencySymbol === '€') {
+      customRate = 0.015; // Stripe Eurozone EEA Standard Cards: 1.5% + €0.25
+      customFixed = 0.25;
+    } else if (currencySymbol === 'A$') {
+      customRate = 0.0175; // Stripe Australia Domestic Cards: 1.75% + A$0.30
+      customFixed = 0.30;
+    } else if (currencySymbol === 'S$') {
+      customRate = 0.034; // Stripe Singapore Domestic Cards: 3.4% + S$0.50
+      customFixed = 0.50;
     } else {
       if (stripeTier === 'premium') {
         customRate = 0.034; // Manually entered / keyed-in card: 3.4% + $0.30
@@ -138,12 +162,12 @@ export function MerchantFeeCalculator({
 
   const handleCopyBreakdown = () => {
     const text = `FeeKit Calculation (${activeGatewayConfig.name}):
-Calculation Mode: ${direction === 'forward' ? 'Forward (Charge $X → Net)' : 'Reverse (Need $X → Charge)'}
+Calculation Mode: ${direction === 'forward' ? `Forward (Charge ${currencySymbol}X → Net)` : `Reverse (Need ${currencySymbol}X → Charge)`}
 You Invoice Client: ${currencySymbol}${result.grossAmount.toFixed(2)}
 Processing Fee: -${currencySymbol}${result.totalFee.toFixed(2)} (${result.effectiveFeeRate.toFixed(2)}% effective)
 Net In-Bank Payout: ${currencySymbol}${result.netAmount.toFixed(2)}
 Parameters: ${isInternational ? 'International Card (+1.5%)' : 'Domestic'}, ${applyFx ? 'FX Conversion Included' : 'No FX'}
-Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
+Calculated via: https://www.usefeekit.com/tools/stripe-fee-calculator`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -157,8 +181,8 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
           <span className="font-semibold text-slate-500">Mode:</span>
           <span className="font-bold text-slate-900 truncate">
             {direction === 'forward'
-              ? 'Forward (Charge $X → Net Received in Bank)'
-              : 'Reverse (Target Net $X → Client Invoice)'}
+              ? `Forward (Charge ${currencySymbol}X → Net Received in Bank)`
+              : `Reverse (Target Net ${currencySymbol}X → Client Invoice)`}
           </span>
         </div>
 
@@ -172,7 +196,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Forward (Charge $X)
+            Forward (Charge {currencySymbol}X)
           </button>
           <button
             type="button"
@@ -183,7 +207,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Reverse (Need $X)
+            Reverse (Need {currencySymbol}X)
           </button>
         </div>
       </div>
@@ -243,7 +267,49 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
       </div>
 
       {/* Gateway Sub-Tier Selector (PayPal, Venmo, Stripe) */}
-      {gateway === 'paypal' && (
+      {gateway === 'paypal' && currencySymbol === '£' && (
+        <div className="space-y-2">
+          <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+            <div className="text-xs">
+              <span className="font-bold text-slate-900 block">PayPal UK Merchant Rail:</span>
+              <span className="text-slate-500 text-[11px]">UK commercial online checkout vs. in-person QR code (&gt; £10)</span>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setPaypalTier('invoicing')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  paypalTier === 'invoicing'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                UK Checkout (2.9% + 30p)
+              </button>
+              <button
+                type="button"
+                onClick={() => setPaypalTier('standard_card')}
+                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all text-center ${
+                  paypalTier === 'standard_card'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                UK QR Code (1.5% + 10p)
+              </button>
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-amber-200 bg-amber-50/90 px-3 py-2 text-xs text-amber-900 flex items-start gap-2 shadow-2xs">
+            <Info className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+            <p className="leading-relaxed">
+              <strong>PayPal UK Breakdown:</strong> Standard domestic UK commercial payments incur <strong>2.9% + 30p</strong>, while in-person QR transactions above £10 incur <strong>1.5% + 10p</strong>. International EEA/Rest-of-World receipts add cross-border surcharges.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {gateway === 'paypal' && currencySymbol !== '£' && currencySymbol !== '€' && (
         <div className="space-y-2">
           <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
             <div className="text-xs">
@@ -319,7 +385,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
         </div>
       )}
 
-      {gateway === 'stripe' && (
+      {gateway === 'stripe' && ['$', 'CA$', '£'].includes(currencySymbol) && (
         <div className="space-y-2">
           <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
             <div className="text-xs">
@@ -427,7 +493,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
               value={amount}
               onFocus={(e) => e.target.select()}
               onChange={(e) => setAmount(cleanNumberInput(e.target.value))}
-              className="w-full bg-transparent py-3 pl-9 pr-10 font-mono text-lg font-bold text-slate-900 placeholder-slate-400 focus:outline-none"
+              className={`w-full bg-transparent py-3 ${currencySymbol.length > 1 ? 'pl-12' : 'pl-9'} pr-10 font-mono text-lg font-bold text-slate-900 placeholder-slate-400 focus:outline-none`}
               placeholder="0.00"
             />
             {amount !== '' && (
@@ -449,7 +515,7 @@ Calculated via: https://usefeekit.com/tools/stripe-fee-calculator`;
             Standard Volume Benchmarks
           </label>
           <div className="grid grid-cols-4 gap-2">
-            {PRESET_AMOUNTS.map((preset) => {
+            {(currencySymbol === '¥' ? JPY_PRESET_AMOUNTS : PRESET_AMOUNTS).map((preset) => {
               const isSelected = numericAmount === preset;
               return (
                 <button

@@ -51,6 +51,23 @@ export const TARGET_SEO_METADATA: Record<string, SeoMetaEntry> = {
     description:
       'Calculate Alberta sales tax at the 5% federal GST rate. Alberta charges 0% provincial sales tax, so the GST is the full combined rate in 2026.',
   },
+
+  // 3. Top GSC Impression & High-Intent International Gateway Queries
+  'paypal-fee-calculator/uk': {
+    title: 'PayPal UK Charges & Fee Calculator | 2.9% + 30p',
+    description:
+      'Calculate PayPal UK business charges for 2026: 2.9% + 30p domestic checkout, +1.29% EEA cross-border, +1.99% international fees and net GBP payouts.',
+  },
+  'stripe-fee-calculator/japan': {
+    title: 'Stripe Japan Pricing & Fee Calculator | 3.6%',
+    description:
+      'Calculate Stripe Japan pricing and net JPY payouts for 2026: 3.6% flat card rate, zero Yen fixed fee, JCB support and +1.5% international surcharges.',
+  },
+  'vat-calculator/hungary': {
+    title: 'Hungary VAT Calculator: 27%, 18% & 5% Rates',
+    description:
+      'Calculate 2026 Hungary VAT rates: 27% standard ÁFA rate, 18% and 5% reduced tiers, reverse VAT extraction and HUF invoice math for NAV compliance.',
+  },
 };
 
 /**

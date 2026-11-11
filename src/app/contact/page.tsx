@@ -18,9 +18,9 @@ import {
 import { ContactForm } from '@/components/contact/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact FeeKit — Technical Support & Custom Software Inquiries',
+  title: 'Contact FeeKit: Support & Custom Software | FeeKit',
   description:
-    'Contact FeeKit and Snab Innovations for technical inquiries, tax rate updates, or to hire our engineering team to build personalized software and custom calculation engines.',
+    'Contact FeeKit for technical support, tax rate updates, or to hire our engineering team to build custom calculators and calculation engines.',
   alternates: {
     canonical: 'https://www.usefeekit.com/contact',
   },

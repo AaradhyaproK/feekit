@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { ArrowLeft, ShieldCheck, Lock, Eye, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — FeeKit',
+  title: 'Privacy Policy & Data Protection Notice | FeeKit',
   description:
-    'FeeKit Privacy Policy: Calculations execute 100% locally in your browser with zero financial input logging. Review our full privacy disclosures, Google AdSense advertising cookie policies, and GDPR/CCPA rights.',
+    'FeeKit Privacy Policy: every calculation runs locally in your browser with no financial data logging. Read our disclosures and GDPR/CCPA rights.',
   alternates: {
     canonical: 'https://www.usefeekit.com/privacy',
   },

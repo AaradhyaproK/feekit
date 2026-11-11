@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import createMDX from '@next/mdx';
+import { CANONICAL_REDIRECTS } from './src/lib/seo/canonical-redirects';
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -52,6 +53,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Duplicate programmatic URLs that render identical calculators are
+      // consolidated into a single canonical page (see canonical-redirects.ts).
+      ...Object.entries(CANONICAL_REDIRECTS).map(([source, destination]) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
       // SEO Cannibalization & Overlapping Page Consolidation Redirects
       {
         source: '/blog/how-to-calculate-freelance-hourly-rate',

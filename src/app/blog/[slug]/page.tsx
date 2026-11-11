@@ -20,6 +20,7 @@ import { NewsletterSignup } from '@/components/shared/NewsletterSignup';
 import { ArrowLeft, Tag, HelpCircle, ShieldCheck } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
+import { brandTitle, buildDescription } from '@/lib/seo/meta-builder';
 
 interface PageProps {
   params: Promise<{
@@ -67,32 +68,29 @@ function formatBlogSeoTitle(rawTitle: string): string {
   clean = clean.replace(/Authorize\.Net vs Stripe Fees 2026: Pricing, Hidden Costs & Break-Even Math/gi, 'Authorize.Net vs Stripe Fees (2026)');
   clean = clean.replace(/Quarterly Estimated Taxes in 2026: Deadlines, Safe Harbor Rules & Calculator/gi, 'Quarterly Taxes 2026: Deadlines & Rules');
 
-  const candidate = `${clean} | FeeKit`;
-  if (candidate.length <= 58) return candidate;
+  // Second pass: shorten the remaining long headlines so the brand suffix
+  // still fits inside the SERP budget. A dropped brand reads as a different
+  // site, so the brand always wins over the tail of the headline.
+  clean = clean
+    .replace(/Interchange-Plus vs Flat-Rate Pricing: Processing Fee Guide/gi, 'Interchange-Plus vs Flat-Rate Pricing (2026)')
+    .replace(/Freelance Hourly Rate Formula: Billable Rate Formula 2026/gi, 'Freelance Hourly Rate Formula 2026')
+    .replace(/Invoice Payment Terms & Late Fees: Late Payment Guide 2026/gi, 'Invoice Payment Terms & Late Fees (2026)')
+    .replace(/LLC vs S-Corp for Freelancers \(2026\): Profit Savings Threshold/gi, 'LLC vs S-Corp for Freelancers: Tax Savings 2026')
+    .replace(/US Sales Tax Economic Nexus: 50-State Threshold Guide \(2026\)/gi, 'US Sales Tax Nexus: 50-State Threshold Guide')
+    .replace(/Shopify vs Amazon FBA Fees: 2026 Cost & Profit Breakdown/gi, 'Shopify vs Amazon FBA Fees: 2026 Breakdown')
+    .replace(/Invoice vs Receipt: What'?s the Difference and When to Use Each/gi, 'Invoice vs Receipt: Differences & When to Use Each')
+    .replace(/Stripe'?s Hidden Fees in 2026: 9 Hidden Costs Explained/gi, 'Stripe Hidden Fees 2026: 9 Costs Explained')
+    .replace(/ACH vs Wire Transfer vs Credit Card Fees: B2B Payment Fees/gi, 'ACH vs Wire vs Card Fees: B2B Cost Guide')
+    .replace(/Small Business Bookkeeping Basics: Beginner'?s Guide/gi, 'Small Business Bookkeeping: A Beginner\'s Guide')
+    .trim();
 
-  const candidateNoBrand = clean;
-  if (candidateNoBrand.length <= 58) return candidateNoBrand;
-
-  const truncated = candidate.slice(0, 46);
-  const lastSpace = truncated.lastIndexOf(' ');
-  return `${truncated.slice(0, lastSpace)}... | FeeKit`;
+  // Never emit a "... | FeeKit" title: Google renders the ellipsis in the SERP
+  // and it reads as a broken page. Trim on a word boundary instead.
+  return brandTitle(clean);
 }
 
 function formatBlogSeoDescription(rawDesc: string): string {
-  const clean = rawDesc.replace(/\s+/g, ' ').trim();
-  if (clean.length >= 135 && clean.length <= 158) {
-    return clean;
-  }
-  if (clean.length > 158) {
-    const truncated = clean.slice(0, 154);
-    const lastPeriod = truncated.lastIndexOf('.');
-    if (lastPeriod > 110) {
-      return truncated.slice(0, lastPeriod + 1);
-    }
-    const lastSpace = truncated.lastIndexOf(' ');
-    return `${truncated.slice(0, lastSpace)}.`;
-  }
-  return clean;
+  return buildDescription(rawDesc, ' Read the full 2026 guide with formulas and worked examples.');
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

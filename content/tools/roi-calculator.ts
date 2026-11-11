@@ -3,7 +3,7 @@ import type { PageContent } from '../types.ts';
 export const roiCalculatorContent: PageContent = {
   slug: 'roi-calculator',
   family: 'tools',
-  title: 'ROI Calculator (Return on Investment & Annualized CAGR %) | FeeKit',
+  title: 'ROI Calculator: Return on Investment & CAGR % | FeeKit',
   metaDescription:
     'Calculate exact Return on Investment (ROI), annualized return (CAGR), and net financial profit. Master the mathematics of capital allocation, marketing payback periods, and hurdle rates.',
   h1: 'ROI Calculator: Capital Allocation & Annualized Return Guide',

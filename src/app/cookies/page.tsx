@@ -15,9 +15,9 @@ import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { CookieConsentManager } from '@/components/cookies/CookieConsentManager';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy — FeeKit',
+  title: 'Cookie Policy & Advertising Disclosures | FeeKit',
   description:
-    'FeeKit Cookie Policy: Understand how we utilize essential technical cookies and third-party advertising cookies (Google AdSense) with zero personal financial tracking.',
+    'FeeKit Cookie Policy: how we use essential technical cookies and third-party advertising cookies (Google AdSense), with no personal financial tracking.',
   alternates: {
     canonical: 'https://www.usefeekit.com/cookies',
   },

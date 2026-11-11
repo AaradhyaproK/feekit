@@ -17,6 +17,10 @@ User-agent: Googlebot-Image
 User-agent: Googlebot-News
 User-agent: Googlebot-Video
 Allow: /
+# /embed/ routes are noindex iframe embeds - crawling them only wastes crawl
+# budget on duplicate calculator content.
+Disallow: /embed/
+Disallow: /api/
 
 # 4. OpenAI (ChatGPT, SearchGPT, and GPT-4 / GPT-5 models)
 User-agent: GPTBot
@@ -45,7 +49,15 @@ Allow: /
 # 9. All other web bots, AI models, and search engines (100% unblocked)
 User-agent: *
 Allow: /
-Disallow:
+
+# ---------------------------------------------------------------------------
+# Crawl budget protection
+# ---------------------------------------------------------------------------
+# The /embed/ routes are iframe-only calculator embeds. They are marked
+# noindex in the page metadata, so allowing them to be crawled only wastes
+# crawl budget on duplicate calculator content.
+Disallow: /embed/
+Disallow: /api/
 
 # Primary Sitemap index containing all 274+ static pages
 Sitemap: https://www.usefeekit.com/sitemap.xml

@@ -13,6 +13,12 @@ import {
 import { LeaderboardAd, RectangleAd } from '@/components/ads/AdSlots';
 import type { Metadata } from 'next';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
+import { CATEGORY_NAMES } from '@/lib/seo/category-names';
+import { buildDescription, buildTitle, stripTitleNoise } from '@/lib/seo/meta-builder';
+import { getCategoryFaqs } from '@/lib/seo/category-faqs';
+import { StateSalesTaxRateTable } from '@/components/seo/StateSalesTaxRateTable';
+import { VatRateTable } from '@/components/seo/VatRateTable';
+import { GatewayFeeTable } from '@/components/seo/GatewayFeeTable';
 import { CategoryJsonLd } from '@/components/seo/JsonLd';
 import { FaqSchema } from '@/components/seo/FaqSchema';
 import { FaqAccordion } from '@/components/ui/FaqAccordion';
@@ -21,109 +27,6 @@ import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 type Props = {
   params: Promise<{ category: string }>;
-};
-
-const CATEGORY_NAMES: Record<string, { title: string; desc: string; defaultSlug: string }> = {
-  'stripe-fee-calculator': {
-    title: 'Stripe Fee Calculators by Region',
-    desc: 'Calculate domestic, cross-border, and payout deductions for Stripe merchants across the US, UK, Europe, Canada, and Australia.',
-    defaultSlug: 'usa',
-  },
-  'vat-calculator': {
-    title: 'UK & EU VAT Compliance Calculators',
-    desc: 'Instant VAT additions and extractions for UK HMRC MTD quarterly returns and EU cross-border B2B reverse charge invoices.',
-    defaultSlug: 'united-kingdom',
-  },
-  'sales-tax-calculator': {
-    title: 'US 50-State Sales Tax Calculators',
-    desc: 'State statutory bases, county/district discretionary surtaxes, and economic nexus threshold monitoring for remote multichannel sellers.',
-    defaultSlug: 'california',
-  },
-  'paypal-fee-calculator': {
-    title: 'PayPal Merchant Fee Calculators',
-    desc: 'Standard commercial transaction rates, micropayments, QR codes, and international cross-border surcharges.',
-    defaultSlug: 'usa',
-  },
-  'freelance-rate-calculator': {
-    title: '1099 Tax Estimator & Freelance Rate Calculators',
-    desc: 'Estimate quarterly self-employment taxes with the 15.3% SE tax rate. Know exactly how much to set aside from every invoice and avoid IRS penalty fees.',
-    defaultSlug: 'software-engineer',
-  },
-  'ecommerce-profit-calculator': {
-    title: 'Amazon FBA & E-Commerce Profit Calculators',
-    desc: 'Calculate 2026 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and break-even ROAS to protect your e-commerce margins.',
-    defaultSlug: 'shopify-dropshipping',
-  },
-  'square-fee-calculator': {
-    title: 'Square Payment Processing Calculators',
-    desc: 'In-person POS tap, keyed-in virtual terminal, and online eCommerce checkout fee calculations.',
-    defaultSlug: 'usa',
-  },
-  'wise-vs-stripe': {
-    title: 'Wise vs Stripe International Transfer Calculators',
-    desc: 'Compare mid-market exchange rates and hidden FX spreads for cross-border contractor payouts and B2B invoices.',
-    defaultSlug: 'usd-to-eur',
-  },
-  'authorize-net-calculator': {
-    title: 'Authorize.Net Processing Calculators',
-    desc: 'Gateway monthly fees, per-transaction surcharges, and merchant account interchange-plus calculations.',
-    defaultSlug: 'standard-merchant',
-  },
-  'canada-sales-tax': {
-    title: 'Canadian Provincial Sales Tax Calculators (GST/HST/PST)',
-    desc: 'Calculate GST, PST, QST, and HST across all 10 Canadian provinces with CRA small-supplier threshold tracking.',
-    defaultSlug: 'ontario',
-  },
-  'venmo-fee-calculator': {
-    title: 'Venmo for Business Fee Calculators',
-    desc: 'Calculate 1.9% + $0.10 contactless QR and 2.29% + $0.10 app checkout deductions for commercial Venmo profiles.',
-    defaultSlug: 'standard',
-  },
-  'gumroad-fee-calculator': {
-    title: 'Gumroad Creator Fee Calculators',
-    desc: 'Calculate net payouts after Gumroad 10% platform fee and credit card processing charges for digital products.',
-    defaultSlug: 'standard',
-  },
-  'lemon-squeezy-calculator': {
-    title: 'Lemon Squeezy & MoR Fee Calculators',
-    desc: 'Calculate 5% + $0.50 Merchant of Record fees for SaaS, software subscriptions, and digital assets.',
-    defaultSlug: 'standard',
-  },
-  'shopify-fee-calculator': {
-    title: 'Shopify Payments Fee Calculators',
-    desc: 'Compare Basic (2.9% + $0.30), Shopify (2.6% + $0.30), and third-party gateway penalty fees.',
-    defaultSlug: 'standard',
-  },
-  'profit-margin-calculator': {
-    title: 'Profit Margin & Markup Calculators',
-    desc: 'Calculate Gross Margin %, Net Profit, and Cost-of-Goods-Sold markups with interactive waterfall charts.',
-    defaultSlug: 'standard',
-  },
-  'break-even-calculator': {
-    title: 'Break-Even Point & Contribution Margin Calculators',
-    desc: 'Determine minimum sales units and gross revenue required to cover fixed overhead costs.',
-    defaultSlug: 'standard',
-  },
-  'roi-calculator': {
-    title: 'Return on Investment (ROI) Calculators',
-    desc: 'Calculate absolute capital return %, annualized CAGR, and net gain multiples for investments.',
-    defaultSlug: 'standard',
-  },
-  'quarterly-tax-calculator': {
-    title: 'IRS 1040-ES Quarterly Estimated Tax Calculators',
-    desc: 'Calculate Schedule SE self-employment taxes (15.3%) and 4 quarterly IRS payment vouchers.',
-    defaultSlug: '1040-es',
-  },
-  'uk-ir35-calculator': {
-    title: 'UK IR35 Contractor Calculators',
-    desc: 'Compare Inside IR35 (umbrella deemed contract) vs Outside IR35 (limited company PSC) net take-home pay.',
-    defaultSlug: 'contractor',
-  },
-  'gateway-comparator': {
-    title: 'Stripe vs PayPal vs Square 3-Way Fee Comparator',
-    desc: 'Side-by-side merchant fee analysis to find the lowest fee processor for your transaction volume.',
-    defaultSlug: 'stripe-paypal-square',
-  },
 };
 
 export const dynamicParams = false;
@@ -140,26 +43,65 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
   const customSeo = getCustomSeoMetadata(category);
   const meta = CATEGORY_NAMES[category];
-  const title = customSeo ? customSeo.title : (meta ? `${meta.title} — FeeKit` : `${category.replace(/-/g, ' ')} Calculators — FeeKit`);
-  const description = customSeo ? customSeo.description : (meta ? meta.desc : `Free, instant client-side calculators for ${category.replace(/-/g, ' ')}.`);
+
+  const rawTitle = customSeo
+    ? customSeo.title
+    : (meta ? meta.title : `${category.replace(/-/g, ' ')} Calculators`);
+  const rawDescription = customSeo
+    ? customSeo.description
+    : (meta
+        ? meta.desc
+        : `Free, instant client-side calculators for ${category.replace(/-/g, ' ')}.`);
+
+  const { core, modifier } = stripTitleNoise(rawTitle);
+  const title = buildTitle(core, modifier);
+  const description = buildDescription(rawDescription);
+  const canonical = `https://www.usefeekit.com/tools/${category}`;
 
   return {
     title,
     description,
+    keywords: [core, `${core} 2026`, 'free online calculator', 'instant rates'].filter(
+      (k, i, arr) => k.length > 3 && arr.indexOf(k) === i
+    ),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     alternates: {
-      canonical: `https://www.usefeekit.com/tools/${category}`,
+      canonical,
+      languages: {
+        'en-US': canonical,
+        'x-default': canonical,
+      },
     },
     openGraph: {
       title,
       description,
-      url: `https://www.usefeekit.com/tools/${category}`,
+      url: canonical,
       siteName: 'FeeKit',
       type: 'website',
+      images: [
+        {
+          url: 'https://www.usefeekit.com/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: `${core} — FeeKit`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['https://www.usefeekit.com/og-image.png'],
     },
   };
 }
@@ -178,10 +120,19 @@ export default async function CategoryPage({ params }: Props) {
   const categoryMeta = CATEGORY_NAMES[category];
   const title = categoryMeta?.title || `${category.replace(/-/g, ' ').toUpperCase()} CALCULATORS`;
   const desc = categoryMeta?.desc || `Explore all ${tools.length} dedicated calculators and regional utilities in this suite.`;
-  
+
   // Find flagship tool
   const defaultSlug = categoryMeta?.defaultSlug;
   const primaryTool = (defaultSlug && tools.find((t) => t.slug === defaultSlug)) || tools[0];
+
+  // Hub-level FAQ block (written for the head term this hub targets) plus the
+  // flagship tool's own FAQs. This is what makes the hub eligible for Google
+  // FAQ rich results on queries like "sales tax calculator" or "stripe fees".
+  const hubFaqs = getCategoryFaqs(category);
+  const allFaqs =
+    hubFaqs.length > 0
+      ? hubFaqs
+      : (primaryTool?.faqs || []).map((f: any) => ({ question: f.question, answer: f.answer }));
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
@@ -230,6 +181,16 @@ export default async function CategoryPage({ params }: Props) {
 
         {/* AdSense Leaderboard Unit */}
         <LeaderboardAd />
+
+        {/* Full 50-state rate table - the block that ranks the hub for
+            "sales tax calculator" and "sales tax rate by state" queries. */}
+        {category === 'sales-tax-calculator' && <StateSalesTaxRateTable />}
+
+        {/* VAT rate table for the UK / EU / Canada hub. */}
+        {category === 'vat-calculator' && <VatRateTable />}
+
+        {/* Published fee schedule tables for the payment processor hubs. */}
+        <GatewayFeeTable category={category} />
 
         {/* Primary Flagship Launcher Banner */}
         {primaryTool && (
@@ -300,11 +261,11 @@ export default async function CategoryPage({ params }: Props) {
         </div>
 
         {/* Programmatic Category FAQs & Structured Data */}
-        {primaryTool?.faqs && primaryTool.faqs.length > 0 && (
+        {allFaqs.length > 0 && (
           <div className="pt-8 sm:pt-10 border-t border-slate-200/80 space-y-4">
-            <FaqSchema items={primaryTool.faqs} />
+            <FaqSchema items={allFaqs} />
             <FaqAccordion
-              items={primaryTool.faqs}
+              items={allFaqs}
               title={`${title} — Frequently Asked Questions`}
               embedded={true}
             />

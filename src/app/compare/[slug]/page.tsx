@@ -17,6 +17,7 @@ import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { COMPARISONS_DATA, type SoftwareComparison } from '@/data/comparisons';
 import { FaqSchema } from '@/components/seo/FaqSchema';
+import { brandTitle, buildDescription } from '@/lib/seo/meta-builder';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -38,9 +39,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const url = `https://www.usefeekit.com/compare/${slug}`;
 
+  const title = brandTitle(comparison.title);
+  const description = buildDescription(comparison.description);
+
   return {
-    title: `${comparison.title} | FeeKit`,
-    description: comparison.description,
+    title,
+    description,
     keywords: [
       comparison.toolAName,
       comparison.toolBName,
@@ -65,8 +69,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: `${comparison.title} | FeeKit`,
-      description: comparison.description,
+      title,
+      description,
       url,
       siteName: 'FeeKit',
       locale: 'en_US',
@@ -74,8 +78,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${comparison.title} | FeeKit`,
-      description: comparison.description,
+      title,
+      description,
       site: '@usefeekit',
     },
   };

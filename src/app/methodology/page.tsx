@@ -19,9 +19,9 @@ import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { FaqSchema } from '@/components/seo/FaqSchema';
 
 export const metadata: Metadata = {
-  title: 'Calculation Methodology & Mathematical Formulas — FeeKit',
+  title: 'Calculation Methodology & Formulas | FeeKit',
   description:
-    'Detailed mathematical methodology behind FeeKit’s financial calculators: payment processing fee formulas, 50-state US sales tax, UK VAT, 1099 freelance rates, and profit margin equations.',
+    'The mathematical methodology behind FeeKit calculators: payment fee formulas, 50-state US sales tax, UK VAT, 1099 freelance rates and profit margins.',
   keywords: [
     'financial calculation methodology',
     'payment processing fee formula',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Calculation Methodology & Mathematical Formulas — FeeKit',
+    title: 'Calculation Methodology & Formulas | FeeKit',
     description:
       'Transparent documentation of the mathematical formulas, data sources, and estimation models powering FeeKit calculators.',
     url: 'https://www.usefeekit.com/methodology',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Calculation Methodology & Mathematical Formulas — FeeKit',
+    title: 'Calculation Methodology & Formulas | FeeKit',
     description:
       'Detailed mathematical formulas and rounding models powering FeeKit financial calculators.',
     site: '@usefeekit',

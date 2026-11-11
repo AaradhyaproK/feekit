@@ -20,6 +20,7 @@ import './globals.css';
 import 'katex/dist/katex.min.css';
 import { AppShell } from '@/components/layout/AppShell';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { SiteSchema } from '@/components/seo/SiteSchema';
 
 export const viewport: Viewport = {
   themeColor: '#0057FF',
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.usefeekit.com'),
   title: 'FeeKit — Free Payment Fee, Sales Tax & VAT Calculators',
   description:
-    'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
+    'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal and Square fees, sales tax, VAT and 1099 taxes.',
   applicationName: 'FeeKit',
   authors: [{ name: 'Aaradhya Pathak', url: 'https://www.usefeekit.com/about' }],
   creator: 'Aaradhya Pathak',
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FeeKit — Free Payment Fee, Sales Tax & VAT Calculators',
     description:
-      'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
+      'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal and Square fees, sales tax, VAT and 1099 taxes.',
     url: 'https://www.usefeekit.com',
     siteName: 'FeeKit',
     images: [
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'FeeKit — Free Payment Fee, Sales Tax & VAT Calculators',
     description:
-      'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
+      'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal and Square fees, sales tax, VAT and 1099 taxes.',
     images: ['https://www.usefeekit.com/og-image.png'],
   },
   icons: {
@@ -155,6 +156,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-500/20 selection:text-blue-900">
         <GoogleAnalytics />
+        <SiteSchema />
         <AppShell>{children}</AppShell>
       </body>
     </html>

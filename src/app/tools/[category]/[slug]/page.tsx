@@ -29,6 +29,16 @@ import { isIndexableTool } from '@/lib/seo/indexing-policy';
 import Link from 'next/link';
 import { ArrowLeft, ShieldCheck, Info, Clock, Calendar, UserCheck } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
+import {
+  brandDescription,
+  brandTitle,
+  buildDescription,
+  buildTitle,
+  descriptionFiller,
+  localeForRegion,
+  stripTitleNoise,
+  tidy,
+} from '@/lib/seo/meta-builder';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { EmbedButton } from '@/components/embed/EmbedButton';
@@ -89,64 +99,37 @@ export async function generateStaticParams() {
   }));
 }
 
-function formatProgrammaticTitle(rawTitle: string): string {
-  let clean = rawTitle.replace(/\s*\([^)]*\)/g, '').trim();
-  clean = clean.replace(/\s+2026$/g, '').trim();
-  clean = clean.replace(/Freelance Rate Calculator/g, 'Freelance Rate');
-  clean = clean.replace(/Profit Margin Calculator/g, 'Profit Margin');
-  clean = clean.replace(/Profit & Fee Calculator/g, 'Fee Calculator');
-  clean = clean.replace(/Profit & Commission Calculator/g, 'Profit Calculator');
-  clean = clean.replace(/Profit & Listing Fee Calculator/g, 'Profit Calculator');
+/**
+ * Resolves the final SERP title + description for a tool page.
+ * Shared by generateMetadata and the page body so the JSON-LD structured data
+ * always matches the rendered <title> / meta description exactly.
+ */
+function resolveToolSeo(category: string, slug: string, item?: any) {
+  const bespoke = getPageContent(category, slug);
+  const customSeo = getCustomSeoMetadata(category, slug);
+  const filler = descriptionFiller(category);
 
-  let candidate = `${clean} (2026) | FeeKit`;
-  if (candidate.length <= 58) return candidate;
-
-  candidate = `${clean} | FeeKit`;
-  if (candidate.length <= 58) return candidate;
-
-  const truncated = candidate.slice(0, 48);
-  const lastSpace = truncated.lastIndexOf(' ');
-  return `${truncated.slice(0, lastSpace)}... | FeeKit`;
-}
-
-function formatProgrammaticDescription(subtitle?: string, category?: string): string {
-  const raw = (subtitle || '').trim();
-  if (raw.length >= 135 && raw.length <= 158) {
-    return raw;
-  }
-  if (raw.length > 158) {
-    const truncated = raw.slice(0, 154);
-    const lastPeriod = truncated.lastIndexOf('.');
-    if (lastPeriod > 110) {
-      return truncated.slice(0, lastPeriod + 1);
-    }
-    const lastSpace = truncated.lastIndexOf(' ');
-    const cleaned = truncated.slice(0, lastSpace).replace(/[,;:\s]+$/, '');
-    return `${cleaned}.`;
+  // 1. An explicit hand-written override always wins - it was written for
+  //    that exact page on purpose.
+  if (customSeo) {
+    return {
+      bespoke,
+      core: tidy(customSeo.title),
+      title: brandTitle(customSeo.title),
+      description: brandDescription(customSeo.description),
+    };
   }
 
-  let addition = ' Calculate exact net payouts and 2026 fee breakdowns on FeeKit.';
-  if (category === 'freelance-rate-calculator') {
-    addition = ' Model hourly rates, day rates, and 1099 taxes on FeeKit.';
-  } else if (category === 'sales-tax-calculator') {
-    addition = ' Calculate statutory sales tax, local rates, and totals on FeeKit.';
-  } else if (category === 'vat-calculator') {
-    addition = ' Calculate standard and reduced VAT rates and totals on FeeKit.';
-  }
+  const rawTitle = bespoke ? bespoke.title : (item?.title || '');
+  const rawDescription = bespoke ? bespoke.metaDescription : (item?.subtitle || '');
 
-  const baseWithPeriod = raw.endsWith('.') ? raw : `${raw}.`;
-  const expanded = `${baseWithPeriod}${addition}`;
-  if (expanded.length <= 158) {
-    return expanded;
-  }
-  const truncated = expanded.slice(0, 154);
-  const lastPeriod = truncated.lastIndexOf('.');
-  if (lastPeriod > 110) {
-    return truncated.slice(0, lastPeriod + 1);
-  }
-  const lastSpace = truncated.lastIndexOf(' ');
-  const cleaned = truncated.slice(0, lastSpace).replace(/[,;:\s]+$/, '');
-  return `${cleaned}.`;
+  const { core, modifier } = stripTitleNoise(rawTitle);
+  return {
+    bespoke,
+    core,
+    title: buildTitle(core, modifier),
+    description: buildDescription(rawDescription, filler),
+  };
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -161,34 +144,64 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const isUK = item?.geoRegion === 'UK';
-  const customSeo = getCustomSeoMetadata(category, slug);
-  const title = bespoke ? bespoke.title : (customSeo ? customSeo.title : formatProgrammaticTitle(item.title));
-  const description = bespoke ? bespoke.metaDescription : (customSeo ? customSeo.description : formatProgrammaticDescription(item.subtitle, category));
+
+  // Raw concept -> SERP-ready metadata. Bespoke content wins over hand-written
+  // overrides, which win over the auto-generated programmatic title.
+  const resolved = resolveToolSeo(category, slug, item);
+  const { core, title, description } = resolved;
 
   const isIndexable = isIndexableTool(category, slug);
+  const canonical = `https://www.usefeekit.com/tools/${category}/${slug}`;
+  const locale = localeForRegion(item?.geoRegion);
 
   return {
     title,
     description,
+    keywords: [core, `${core} 2026`, `${core} rates`, 'free online calculator'].filter(
+      (k, i, arr) => k.length > 3 && arr.indexOf(k) === i
+    ),
     robots: isIndexable
-      ? { index: true, follow: true }
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+          },
+        }
       : { index: false, follow: true },
     alternates: {
-      canonical: `https://www.usefeekit.com/tools/${category}/${slug}`,
+      canonical,
+      languages: {
+        [locale]: canonical,
+        'x-default': canonical,
+      },
     },
     openGraph: {
       title,
       description,
-      url: `https://www.usefeekit.com/tools/${category}/${slug}`,
+      url: canonical,
       siteName: 'FeeKit',
       locale: isUK ? 'en_GB' : 'en_US',
       alternateLocale: isUK ? ['en_US'] : ['en_GB'],
       type: 'website',
+      images: [
+        {
+          url: 'https://www.usefeekit.com/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: `${core} — FeeKit`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['https://www.usefeekit.com/og-image.png'],
     },
     other: {
       'geo.region': isUK ? 'GB' : (item.geoRegion === 'CA' ? 'CA' : 'US'),
@@ -243,9 +256,9 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
     .slice(0, 6);
 
   const bespoke = getPageContent(category, slug);
-  const customSeo = getCustomSeoMetadata(category, slug);
-  const seoTitle = bespoke ? bespoke.title : (customSeo ? customSeo.title : item.title);
-  const seoDesc = bespoke ? bespoke.metaDescription : (customSeo ? customSeo.description : item.subtitle);
+  const resolvedSeo = resolveToolSeo(category, slug, item);
+  const seoTitle = resolvedSeo.title;
+  const seoDesc = resolvedSeo.description;
   const pageH1 = bespoke ? (bespoke.h1 || item.title) : item.title;
   const pageSubtitle = bespoke ? (bespoke.overview.length > 280 ? bespoke.overview.slice(0, 277) + '...' : bespoke.overview) : item.subtitle;
   const dataSource = getDataSource(category, slug);
@@ -314,6 +327,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         category={category}
         sourceUrl={dataSource.sourceUrl}
         sourceName={dataSource.authorityName}
+        dateModified={lastVerifiedRaw}
       />
 
       {/* Top Navigation & Fast Search Bar */}
@@ -597,17 +611,29 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
           embedded={true}
         />
 
-        {/* Programmatic FAQ Accordion (only when bespoke content is not loaded) */}
-        {!bespoke && item.faqs && item.faqs.length > 0 && item.category !== 'sales-tax-calculator' && (
-          <>
-            <FaqSchema items={item.faqs} />
-            <FaqAccordion
-              items={item.faqs}
-              title={`${item.shortTitle || item.title} — Frequently Asked Questions`}
-              embedded={true}
-            />
-          </>
-        )}
+        {/* FAQ Accordion + FAQPage structured data.
+            Bespoke pages render their own FAQ block (and schema) inside
+            BespokeContentGuide, so this block only covers the pages that
+            still need one. Rendering two FAQPage schemas on the same URL
+            makes Google drop the rich result entirely. */}
+        {(() => {
+          const hasBespokeFaqs = Boolean(bespoke?.faqs && bespoke.faqs.length > 0);
+          const faqItems =
+            !hasBespokeFaqs && item.faqs && item.faqs.length > 0 ? item.faqs : [];
+
+          if (faqItems.length === 0) return null;
+
+          return (
+            <>
+              <FaqSchema items={faqItems} />
+              <FaqAccordion
+                items={faqItems}
+                title={`${item.shortTitle || item.title} — Frequently Asked Questions`}
+                embedded={true}
+              />
+            </>
+          );
+        })()}
 
         {/* Related Category Tools Cross-Linking */}
         {relatedTools.length > 0 && (

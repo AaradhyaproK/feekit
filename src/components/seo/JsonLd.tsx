@@ -11,6 +11,7 @@ export interface GeoSchemaProps {
   faqs?: Array<{ question: string; answer: string }>;
   sourceUrl?: string;
   sourceName?: string;
+  dateModified?: string;
 }
 
 export function generateGeoSchema({
@@ -24,6 +25,7 @@ export function generateGeoSchema({
   faqs = [],
   sourceUrl,
   sourceName,
+  dateModified,
 }: GeoSchemaProps) {
   const isUK = region === 'UK';
   const placeName = isUK ? 'United Kingdom' : `${stateName || 'United States'}`;
@@ -41,7 +43,8 @@ export function generateGeoSchema({
       price: '0',
       priceCurrency: currency,
     },
-    dateModified: '2026-10-01',
+    dateModified: dateModified || '2026-10-24',
+    datePublished: dateModified || '2026-10-24',
     author: {
       '@type': 'Person',
       name: 'Aaradhya Pathak',

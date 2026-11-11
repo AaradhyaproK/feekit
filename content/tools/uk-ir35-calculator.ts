@@ -3,7 +3,7 @@ import type { PageContent } from '../types.ts';
 export const ukIr35CalculatorContent: PageContent = {
   slug: 'uk-ir35-calculator',
   family: 'tools',
-  title: 'UK IR35 Calculator 2026 (Inside vs Outside IR35 Take-Home Pay) | FeeKit',
+  title: 'UK IR35 Calculator: Inside vs Outside Take-Home Pay | FeeKit',
   metaDescription:
     'Calculate exact take-home pay differences between Inside IR35 and Outside IR35 contracts in the UK. Detailed breakdown of deemed PAYE employment taxes, Employer NI (15.0%), Corporation Tax (19-25%), and dividend taxes.',
   h1: 'UK IR35 Calculator: Inside vs Outside IR35 Take-Home Pay Guide',

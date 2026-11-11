@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, AlertCircle, Scale, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — FeeKit',
+  title: 'Terms of Service & Financial Disclaimer | FeeKit',
   description:
     'FeeKit Terms of Service and Financial Disclaimer: Learn about our mathematical models, accuracy standards, and terms of use.',
   alternates: {

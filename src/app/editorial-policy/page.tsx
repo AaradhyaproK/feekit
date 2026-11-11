@@ -16,9 +16,9 @@ import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 export const metadata: Metadata = {
-  title: 'Editorial Policy & Research Standards — FeeKit',
+  title: 'Editorial Policy & Research Standards | FeeKit',
   description:
-    'Discover FeeKit’s editorial policy: our research methodology, source verification standards, calculation testing, error corrections, and editorial independence.',
+    'FeeKit editorial policy: research methodology, source verification standards, calculation testing, error corrections and editorial independence.',
   keywords: [
     'FeeKit editorial policy',
     'financial research standards',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Editorial Policy & Research Standards — FeeKit',
+    title: 'Editorial Policy & Research Standards | FeeKit',
     description:
       'How FeeKit researches, verifies, tests, and updates financial calculations and small business guides.',
     url: 'https://www.usefeekit.com/editorial-policy',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Editorial Policy & Research Standards — FeeKit',
+    title: 'Editorial Policy & Research Standards | FeeKit',
     description:
       'Research standards, calculation testing, and editorial integrity protocols at FeeKit.',
     site: '@usefeekit',
@@ -83,7 +83,7 @@ export default function EditorialPolicyPage() {
   const webPageJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: 'Editorial Policy & Research Standards — FeeKit',
+    name: 'Editorial Policy & Research Standards | FeeKit',
     url: 'https://www.usefeekit.com/editorial-policy',
     description:
       'Official documentation of FeeKit editorial standards, source verification rules, and calculation validation protocols.',

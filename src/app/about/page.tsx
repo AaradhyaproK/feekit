@@ -20,9 +20,9 @@ import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 export const metadata: Metadata = {
-  title: 'About FeeKit — Mission, Accuracy Standards & Founder Bio',
+  title: 'About FeeKit: Mission, Standards & Founder | FeeKit',
   description:
-    'Learn about FeeKit: 199+ client-side financial calculators for US & UK merchants and freelancers. Meet founder Aaradhya Pathak and explore our statutory accuracy commitments.',
+    'Learn about FeeKit: 199+ client-side financial calculators for US & UK merchants and freelancers. Meet founder Aaradhya Pathak and our accuracy standards.',
   alternates: {
     canonical: 'https://www.usefeekit.com/about',
   },

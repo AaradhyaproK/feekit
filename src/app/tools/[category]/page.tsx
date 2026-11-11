@@ -16,6 +16,7 @@ import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
 import { CATEGORY_NAMES } from '@/lib/seo/category-names';
 import { buildDescription, buildTitle, stripTitleNoise } from '@/lib/seo/meta-builder';
 import { getCategoryFaqs } from '@/lib/seo/category-faqs';
+import { CANONICAL_REDIRECTS } from '@/lib/seo/canonical-redirects';
 import { StateSalesTaxRateTable } from '@/components/seo/StateSalesTaxRateTable';
 import { VatRateTable } from '@/components/seo/VatRateTable';
 import { GatewayFeeTable } from '@/components/seo/GatewayFeeTable';
@@ -111,7 +112,11 @@ export default async function CategoryPage({ params }: Props) {
   const matrixList = Array.isArray(geoMatrix)
     ? (geoMatrix as Array<any>)
     : ((((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>));
-  const tools = matrixList.filter((x) => x.category === category);
+  const tools = matrixList.filter(
+    (x) =>
+      x.category === category &&
+      !CANONICAL_REDIRECTS[`/tools/${x.category}/${x.slug}`]
+  );
 
   if (tools.length === 0) {
     notFound();

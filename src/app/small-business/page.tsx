@@ -429,7 +429,7 @@ export default function SmallBusinessHubPage() {
           {[
             { title: 'Stripe Fee Calculator', href: '/tools/stripe-fee-calculator/usa', tag: '2.9% + $0.30' },
             { title: 'PayPal Merchant Fees', href: '/tools/paypal-fee-calculator/usa', tag: 'Standard & QR' },
-            { title: 'Square POS & Online', href: '/tools/square-fee-calculator/standard', tag: '2.6% + $0.10' },
+            { title: 'Square POS & Online', href: '/tools/square-fee-calculator/in-person', tag: '2.6% + $0.15' },
             { title: 'Venmo Business Fees', href: '/tools/venmo-fee-calculator/standard', tag: '1.9% - 2.29%' },
             { title: 'Gumroad Creator Fees', href: '/tools/gumroad-fee-calculator/standard', tag: '10% + $0.50' },
             { title: 'Lemon Squeezy SaaS Fees', href: '/tools/lemon-squeezy-calculator/standard', tag: '5% + $0.50' },

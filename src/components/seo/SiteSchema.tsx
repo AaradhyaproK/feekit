@@ -33,7 +33,6 @@ export function SiteSchema() {
         founder: {
           '@id': `${SITE_URL}/#person`,
         },
-        founderDate: '2026',
         areaServed: [
           { '@type': 'Country', name: 'United States' },
           { '@type': 'Country', name: 'United Kingdom' },
@@ -62,16 +61,22 @@ export function SiteSchema() {
             availableLanguage: ['English'],
           },
         ],
-        sameAs: [],
       },
       {
         '@type': 'Person',
         '@id': `${SITE_URL}/#person`,
         name: 'Aaradhya Pathak',
         jobTitle: 'Founder & Lead Developer',
+        email: 'mailto:aaradhya@usefeekit.com',
         description:
           'Software developer and founder of FeeKit. Builds and maintains the fee, tax and rate calculators, and authors the FeeKit methodology and editorial standards.',
         url: `${SITE_URL}/about`,
+        sameAs: [
+          'https://aaradhyadev.vercel.app/',
+          'https://www.linkedin.com/in/aaradhyapathak17',
+          'https://x.com/aaradhya1774',
+          'https://github.com/AaradhyaproK',
+        ],
         worksFor: {
           '@id': `${SITE_URL}/#organization`,
         },

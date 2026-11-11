@@ -73,13 +73,7 @@ for (const item of items) {
   rows.push({ url: `/tools/${category}/${slug}`, title, description, source });
 }
 
-// URLs that 301 redirect to a canonical page are excluded - they are not
-// indexed, so a shared title with the canonical page is expected.
-const redirectTargets = new Set(Object.values(CANONICAL_REDIRECTS));
-const indexedRows = rows.filter((r) => !redirectTargets.has(r.url));
-const redirectedRows = rows.filter((r) => redirectTargets.has(r.url));
-
-// Category hubs
+// Category hubs (included in rows so hubs are audited alongside tool pages)
 const cats = [...new Set(items.map((i) => i.category))];
 for (const category of cats) {
   const custom = getCustomSeoMetadata(category);
@@ -96,6 +90,12 @@ for (const category of cats) {
     source: 'hub',
   });
 }
+
+// URLs that 301 redirect to a canonical page are excluded - they are not
+// indexed, so a shared title with the canonical page is expected.
+const redirectSources = new Set(Object.keys(CANONICAL_REDIRECTS));
+const indexedRows = rows.filter((r) => !redirectSources.has(r.url));
+const redirectedRows = rows.filter((r) => redirectSources.has(r.url));
 
 // Reports
 const byTitle = new Map();

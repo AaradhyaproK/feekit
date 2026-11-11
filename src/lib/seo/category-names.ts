@@ -53,7 +53,7 @@ export const CATEGORY_NAMES: Record<string, CategoryMeta> = {
   'square-fee-calculator': {
     title: 'Square Fee Calculators: POS & Online',
     desc: 'Free Square fee calculator for in-person POS, keyed-in and online checkout. Compare 2026 Square, Stripe and PayPal fees on the same transaction instantly.',
-    defaultSlug: 'usa',
+    defaultSlug: 'online-store',
   },
   'wise-vs-stripe': {
     title: 'Wise vs Stripe Fee Comparison Calculators',

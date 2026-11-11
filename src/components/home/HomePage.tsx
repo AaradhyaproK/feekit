@@ -44,6 +44,7 @@ import { EditorialGuidesSection } from '@/components/home/EditorialGuidesSection
 import { UniversalGuideHub } from '@/components/seo/UniversalGuideHub';
 import { NewsletterSignup } from '@/components/shared/NewsletterSignup';
 import toolsIndex from '@/data/tools-index.json';
+import { CANONICAL_REDIRECTS } from '@/lib/seo/canonical-redirects';
 
 type ActiveSuite = 'merchant' | 'tax' | 'freelance' | 'ecommerce';
 
@@ -85,8 +86,8 @@ const POPULAR_TOOLS = [
   },
   {
     title: 'Square POS Fee',
-    href: '/tools/square-fee-calculator/standard',
-    badge: '2.6% + $0.10',
+    href: '/tools/square-fee-calculator/in-person',
+    badge: '2.6% + $0.15',
   },
 ];
 
@@ -192,7 +193,10 @@ export default function FeeKitHome() {
     { key: 'ecommerce-profit-calculator', label: 'E-Commerce & Dropshipping Profit Hubs', count: 21, group: 'ecommerce' },
   ];
 
-  const allMatrixItems = toolsIndex;
+  const allMatrixItems = useMemo(
+    () => toolsIndex.filter((x) => !CANONICAL_REDIRECTS[`/tools/${x.category}/${x.slug}`]),
+    []
+  );
 
   const filteredItems = useMemo(() => {
     let list = allMatrixItems;
@@ -847,6 +851,7 @@ export default function FeeKitHome() {
                     {/* Category Header with Pillar Hub Internal Link */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
                       <Link
+                        prefetch={false}
                         href={`/tools/${cat.key}`}
                         className="group inline-flex items-center gap-2 font-bold uppercase tracking-wider text-slate-800 hover:text-blue-600 transition-colors"
                       >
@@ -855,6 +860,7 @@ export default function FeeKitHome() {
                         <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all" />
                       </Link>
                       <Link
+                        prefetch={false}
                         href={`/tools/${cat.key}`}
                         className="text-[11px] font-semibold text-blue-600 hover:text-blue-800 transition-colors self-start sm:self-auto"
                       >
@@ -866,6 +872,7 @@ export default function FeeKitHome() {
                       {catItems.map((tool) => (
                         <Link
                           key={`${tool.category}-${tool.slug}`}
+                          prefetch={false}
                           href={`/tools/${tool.category}/${tool.slug}`}
                           className="group flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50/60 px-2.5 py-2 text-[11px] sm:text-xs transition-all hover:border-blue-400 hover:bg-white hover:shadow-xs min-h-[40px] sm:min-h-0"
                         >

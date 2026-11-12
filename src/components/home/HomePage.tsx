@@ -44,6 +44,7 @@ import { EditorialGuidesSection } from '@/components/home/EditorialGuidesSection
 import { UniversalGuideHub } from '@/components/seo/UniversalGuideHub';
 import { NewsletterSignup } from '@/components/shared/NewsletterSignup';
 import { CANONICAL_REDIRECTS } from '@/lib/seo/canonical-redirects';
+import { isGatewayCategory } from '@/lib/data/gateway-categories';
 import {
   TOOL_COUNT_LABEL_PLUS,
   CATEGORY_COUNT,
@@ -51,6 +52,7 @@ import {
   VAT_COUNT,
   CANADA_TAX_COUNT,
   GATEWAY_CATEGORY_COUNT,
+  GATEWAY_TOOL_COUNT,
   FREELANCE_ROLE_COUNT,
   ECOMMERCE_NICHE_COUNT,
   STRIPE_COUNT,
@@ -107,12 +109,17 @@ const POPULAR_TOOLS = [
   },
 ];
 
+/**
+ * The quick-suite chips. Every count is derived from the canonical matrix
+ * (see `src/lib/site-stats.ts`), so a chip can never advertise a number
+ * that does not match the calculators actually listed below.
+ */
 const QUICK_SUITE_CHIPS = [
-  { label: 'Payment Gateways', count: '40+', icon: CreditCard, suiteId: 'merchant' as ActiveSuite },
-  { label: '50 US States Sales Tax', count: '51 States', icon: Building2, suiteId: 'tax' as ActiveSuite },
-  { label: 'UK & Global VAT', count: '28 Countries', icon: Globe2, suiteId: 'tax' as ActiveSuite },
-  { label: '1099 Freelance Rates', count: '37 Roles', icon: Briefcase, suiteId: 'freelance' as ActiveSuite },
-  { label: 'E-Commerce & ROAS', count: '21 Niches', icon: ShoppingBag, suiteId: 'ecommerce' as ActiveSuite },
+  { label: 'Payment Gateways', count: `${GATEWAY_TOOL_COUNT} Tools`, icon: CreditCard, suiteId: 'merchant' as ActiveSuite },
+  { label: '50 US States Sales Tax', count: `${SALES_TAX_COUNT} States`, icon: Building2, suiteId: 'tax' as ActiveSuite },
+  { label: 'UK & Global VAT', count: `${VAT_COUNT} Countries`, icon: Globe2, suiteId: 'tax' as ActiveSuite },
+  { label: '1099 Freelance Rates', count: `${FREELANCE_ROLE_COUNT} Roles`, icon: Briefcase, suiteId: 'freelance' as ActiveSuite },
+  { label: 'E-Commerce & ROAS', count: `${ECOMMERCE_NICHE_COUNT} Niches`, icon: ShoppingBag, suiteId: 'ecommerce' as ActiveSuite },
 ];
 
 const HOME_FAQS = [
@@ -179,7 +186,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
       icon: MerchantFeeIcon,
       subtitle: 'Stripe, PayPal, Wise & Square',
       description: 'USA 2.9% + $0.30, UK 1.5% + 20p, micropayments & reverse invoice payout calculations',
-      badge: '40+ Gateways',
+      badge: `${GATEWAY_TOOL_COUNT} Gateway Tools`,
       indicatorText: 'Live Gateway Engine',
     },
     {
@@ -188,7 +195,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
       icon: TaxComplianceIcon,
       subtitle: '50 States Sales Tax & HMRC VAT',
       description: '50 US States Sales Tax with district surtax caps + UK HMRC VAT 20% Standard & 5% Reduced',
-      badge: '50 States + UK',
+      badge: `${SALES_TAX_COUNT} States + ${VAT_COUNT} Countries`,
       indicatorText: 'Live Tax Engine',
     },
     {
@@ -196,7 +203,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
       name: '1099 & Contractor Rates',
       icon: FreelanceRateIcon,
       subtitle: 'Hourly, Day Rate & SECA Tax',
-      badge: '37 Roles',
+      badge: `${FREELANCE_ROLE_COUNT} Roles`,
       description: 'Minimum hourly rate, 8h day rates, 15.3% SECA self-employment tax & client invoice proposal formatter',
       indicatorText: 'Live 1099 Engine',
     },
@@ -205,7 +212,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
       name: 'E-Commerce & ROAS Hub',
       icon: EcommerceRoasIcon,
       subtitle: 'Amazon FBA, Shopify & ROAS',
-      badge: '21 Niches',
+      badge: `${ECOMMERCE_NICHE_COUNT} Niches`,
       description: 'Amazon FBA, Shopify DTC, Etsy unit economics, landed COGS, and break-even ROAS targets',
       indicatorText: 'Live ROAS Engine',
     },
@@ -252,9 +259,10 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
     let list = allMatrixItems;
     if (selectedCategoryTab !== 'all') {
       if (selectedCategoryTab === 'gateways') {
-        list = list.filter((x) =>
-          ['stripe-fee-calculator', 'paypal-fee-calculator', 'square-fee-calculator', 'wise-vs-stripe', 'authorize-net-calculator'].includes(x.category)
-        );
+        // Every payment-gateway suite, not just the four biggest. The list
+        // is shared with the build-time stats so the pill's count always
+        // matches what the filter actually returns.
+        list = list.filter((x) => isGatewayCategory(x.category));
       } else {
         list = list.filter((x) => x.category === selectedCategoryTab);
       }
@@ -294,7 +302,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
           alt="FeeKit — Comprehensive Financial Calculation Utilities: Payment processing fees, 50-state sales tax, HMRC VAT compliance, 1099 contractor rate models, and e-commerce ROAS unit economics"
           width={2172}
           height={724}
-          priority
+          preload
           sizes="100vw"
           className="w-full h-auto object-cover block rounded-none"
         />
@@ -789,13 +797,13 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
         {/* 4. Universal Multi-Suite Knowledge & Compliance Guide */}
         <UniversalGuideHub inArticleSlot={<InArticleAd />} />
 
-        {/* 5. Programmatic 199-Tool Master Directory Section */}
+        {/* 5. Programmatic Master Directory Section */}
         <section className="space-y-5 sm:space-y-6 pt-2">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-200 pb-4 sm:pb-5">
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <h2 className="text-lg sm:text-2xl font-extrabold text-slate-900">
-                  US & UK Utility Matrix ({allMatrixItems.length}+ Dedicated Tools)
+                  US & UK Utility Matrix ({TOOL_COUNT_LABEL_PLUS} Dedicated Tools)
                 </h2>
                 <span className="rounded bg-blue-50 px-2 py-0.5 font-mono text-xs font-bold text-blue-700 border border-blue-200">
                   Geo-Targeted
@@ -813,7 +821,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
                 type="text"
                 value={directoryFilter}
                 onChange={(e) => setDirectoryFilter(e.target.value)}
-                placeholder={`Filter ${allMatrixItems.length}+ tools...`}
+                placeholder={`Filter ${TOOL_COUNT_LABEL_PLUS} tools...`}
                 className="w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-base sm:text-xs text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none shadow-xs"
               />
             </div>
@@ -831,7 +839,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
-                All Tools ({allMatrixItems.length}+)
+                All Tools ({TOOL_COUNT_LABEL_PLUS})
               </button>
               <button
                 type="button"
@@ -864,7 +872,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
-                Payment Gateways ({GATEWAY_CATEGORY_COUNT})
+                Payment Gateways ({GATEWAY_TOOL_COUNT})
               </button>
               <button
                 type="button"
@@ -875,7 +883,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
-                1099 Freelance Roles (37)
+                1099 Freelance Roles ({FREELANCE_ROLE_COUNT})
               </button>
               <button
                 type="button"
@@ -886,7 +894,7 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
-                E-Commerce &amp; ROAS (21)
+                E-Commerce &amp; ROAS ({ECOMMERCE_NICHE_COUNT})
               </button>
             </div>
             <div className="pointer-events-none absolute right-0 top-0 bottom-1.5 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />

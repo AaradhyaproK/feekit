@@ -61,6 +61,13 @@ export const VENMO_COUNT = stats.venmoCount;
 /** Number of payment gateway suites. */
 export const GATEWAY_CATEGORY_COUNT = stats.gatewayCategoryCount;
 
+/**
+ * Total number of calculators across every payment-gateway suite
+ * (Stripe, PayPal, Square, Authorize.Net, Venmo, Gumroad, Lemon Squeezy,
+ * Shopify Payments, Wise and the 3-way comparator).
+ */
+export const GATEWAY_TOOL_COUNT = stats.gatewayToolCount;
+
 /** Human-readable tool count, e.g. "197". */
 export const TOOL_COUNT_LABEL = String(TOOL_COUNT);
 

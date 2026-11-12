@@ -11,7 +11,15 @@ import {
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
-import { TOOL_COUNT_LABEL_PLUS, CATEGORY_COUNT } from '@/lib/site-stats';
+import {
+  TOOL_COUNT_LABEL_PLUS,
+  CATEGORY_COUNT,
+  GATEWAY_TOOL_COUNT,
+  SALES_TAX_COUNT,
+  VAT_COUNT,
+  FREELANCE_ROLE_COUNT,
+  ECOMMERCE_NICHE_COUNT,
+} from '@/lib/site-stats';
 
 interface SuiteShowcaseHubProps {
   onSelectSuite: (suiteId: 'merchant' | 'tax' | 'freelance' | 'ecommerce') => void;
@@ -25,7 +33,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
       name: 'Payment Processing & Merchant Fees',
       categorySlug: 'stripe-fee-calculator',
       icon: CreditCard,
-      badge: '40+ Gateways',
+      badge: `${GATEWAY_TOOL_COUNT} Gateway Tools`,
       badgeColor: 'border-blue-200 bg-blue-50 text-blue-700',
       tagline: 'Stripe, PayPal, Square, Wise & Authorize.Net',
       description:
@@ -43,7 +51,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
       name: '50 US States Sales Tax & Nexus',
       categorySlug: 'sales-tax-calculator',
       icon: Building2,
-      badge: '51 Jurisdictions',
+      badge: `${SALES_TAX_COUNT} Jurisdictions`,
       badgeColor: 'border-indigo-200 bg-indigo-50 text-indigo-700',
       tagline: 'State statutory bases + local district surtaxes',
       description:
@@ -58,10 +66,10 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
     },
     {
       id: 'tax' as const,
-      name: 'UK HMRC & Global 28-Country VAT',
+      name: `UK HMRC & Global ${VAT_COUNT}-Country VAT`,
       categorySlug: 'vat-calculator',
       icon: Globe2,
-      badge: '28 Countries',
+      badge: `${VAT_COUNT} Countries`,
       badgeColor: 'border-emerald-200 bg-emerald-50 text-emerald-700',
       tagline: 'HMRC 20% / 5% MTD + EU & International VAT',
       description:
@@ -79,7 +87,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
       name: '1099 Freelance & Contractor Rates',
       categorySlug: 'freelance-rate-calculator',
       icon: Briefcase,
-      badge: '37 Tech Roles',
+      badge: `${FREELANCE_ROLE_COUNT} Tech Roles`,
       badgeColor: 'border-purple-200 bg-purple-50 text-purple-700',
       tagline: '15.3% SECA self-employment tax & day rates',
       description:
@@ -97,7 +105,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
       name: 'E-Commerce Unit Economics & ROAS',
       categorySlug: 'ecommerce-profit-calculator',
       icon: ShoppingBag,
-      badge: '21 Niches',
+      badge: `${ECOMMERCE_NICHE_COUNT} Niches`,
       badgeColor: 'border-amber-200 bg-amber-50 text-amber-700',
       tagline: 'Amazon FBA, Shopify DTC & Break-Even ROAS',
       description:

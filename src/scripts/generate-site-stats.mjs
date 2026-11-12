@@ -38,22 +38,10 @@ const { isIndexableTool, isIndexableArticle } = await import(
 );
 const { CANONICAL_REDIRECTS } = await import('../lib/seo/canonical-redirects.ts');
 const { SITEMAP_STATIC_PAGES } = await import('../lib/seo/sitemap-pages.ts');
+const { GATEWAY_CATEGORIES } = await import('../lib/data/gateway-categories.ts');
 const { COMPARISONS_DATA } = await import('../data/comparisons.ts');
 
 const count = (category) => items.filter((x) => x.category === category).length;
-
-const GATEWAY_CATEGORIES = [
-  'stripe-fee-calculator',
-  'paypal-fee-calculator',
-  'square-fee-calculator',
-  'authorize-net-calculator',
-  'venmo-fee-calculator',
-  'gumroad-fee-calculator',
-  'lemon-squeezy-calculator',
-  'shopify-fee-calculator',
-  'wise-vs-stripe',
-  'gateway-comparator',
-];
 
 // ---------------------------------------------------------------------------
 // Sitemap URL count - mirrors src/app/sitemap.ts exactly.
@@ -97,6 +85,18 @@ const stats = {
   gatewayCategoryCount: new Set(
     items.filter((x) => GATEWAY_CATEGORIES.includes(x.category)).map((x) => x.category)
   ).size,
+  // Total number of calculators across every payment-gateway suite (Stripe,
+  // PayPal, Square, Authorize.Net, Venmo, Gumroad, Lemon Squeezy, Shopify
+  // Payments, Wise and the 3-way comparator).
+  //
+  // This counts the INDEXABLE gateway pages - the same set the homepage
+  // "Payment Gateways" filter actually lists - so the number on the chip is
+  // exactly the number of calculators a visitor sees after clicking it.
+  gatewayToolCount: items
+    .filter((x) => GATEWAY_CATEGORIES.includes(x.category))
+    .filter((item) => isIndexableTool(item.category, item.slug))
+    .filter((item) => !CANONICAL_REDIRECTS[`/tools/${item.category}/${item.slug}`])
+    .length,
   sitemapUrlCount,
 };
 

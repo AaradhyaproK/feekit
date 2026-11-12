@@ -51,7 +51,7 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
         <Link href="/" prefetch={false} className="flex items-center py-1 hover:opacity-85 transition-opacity">
           {/* The logo is served through the Next.js image optimizer. At 24px
               wide the raw 265x265 PNG was 51KB; the optimized variant is a
-              fraction of that. `priority` is kept because the header is above
+              fraction of that. `preload` is kept because the header is above
               the fold on every page. */}
           <Image
             src="/logo-icon.png"
@@ -59,7 +59,7 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
             width={32}
             height={32}
             className="hidden lg:block h-6 w-6 object-contain mr-1"
-            priority
+            preload
           />
           <Image
             src="/feekit-logo.png"
@@ -67,7 +67,7 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
             width={130}
             height={48}
             className="lg:hidden h-7 w-auto object-contain"
-            priority
+            preload
           />
         </Link>
 

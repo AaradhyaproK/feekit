@@ -5,9 +5,12 @@ import { CANONICAL_REDIRECTS } from './src/lib/seo/canonical-redirects';
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   poweredByHeader: false,
-  images: {
-    unoptimized: true,
-  },
+  // NOTE: `images.unoptimized` is deliberately NOT set. A global
+  // `unoptimized: true` overrode the per-image `unoptimized` prop, so every
+  // <Image> shipped its raw source file: the 2172x724 / 109KB homepage hero
+  // and the 265x265 / 51KB logo were downloaded at full size on every page.
+  // With the optimizer enabled, Next.js serves a responsive srcset and the
+  // browser only downloads the size it actually needs.
   outputFileTracingExcludes: {
     '*': [
       './tests/**',

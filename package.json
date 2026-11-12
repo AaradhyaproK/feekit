@@ -7,7 +7,7 @@
   "homepage": "https://www.usefeekit.com",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node --experimental-strip-types src/scripts/check-rates.mjs && node --experimental-strip-types src/scripts/check-state-consistency.mjs && node --experimental-strip-types tests/calculators.test.mjs && node src/scripts/generate-blog-manifest.mjs && node src/scripts/generate-og-images.mjs && node src/scripts/generate-tools-index.mjs && node src/scripts/generate-site-stats.mjs && node --experimental-strip-types src/scripts/content-check.mjs && node --experimental-strip-types src/scripts/audit-sitemap-words.mjs && node --experimental-strip-types src/scripts/audit-seo-metadata.mjs",
+    "prebuild": "node --experimental-strip-types src/scripts/check-rates.mjs && node --experimental-strip-types src/scripts/check-state-consistency.mjs && node --experimental-strip-types tests/calculators.test.mjs && node src/scripts/generate-blog-manifest.mjs && node src/scripts/generate-og-images.mjs && node src/scripts/generate-tools-index.mjs && node --experimental-strip-types src/scripts/generate-site-stats.mjs && node --experimental-strip-types src/scripts/content-check.mjs && node --experimental-strip-types src/scripts/audit-sitemap-words.mjs && node --experimental-strip-types src/scripts/audit-seo-metadata.mjs",
     "build": "next build --webpack",
     "start": "next start",
     "validate:rates": "node --experimental-strip-types src/scripts/check-rates.mjs",
@@ -21,7 +21,7 @@
     "lint": "eslint",
     "generate:og": "node src/scripts/generate-og-images.mjs",
     "generate:tools-index": "node src/scripts/generate-tools-index.mjs",
-    "generate:site-stats": "node src/scripts/generate-site-stats.mjs"
+    "generate:site-stats": "node --experimental-strip-types src/scripts/generate-site-stats.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

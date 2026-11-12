@@ -22,6 +22,7 @@ import { US_SITE_URL } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog';
 import { COMPARISONS_DATA } from '@/data/comparisons';
 import { isIndexableTool, isIndexableArticle } from '@/lib/seo/indexing-policy';
+import { SITEMAP_STATIC_PAGES } from '@/lib/seo/sitemap-pages';
 import { CANONICAL_REDIRECTS } from '@/lib/seo/canonical-redirects';
 import { resolveGeo } from '@/lib/seo/geo';
 import { getPageContent } from '../../content/index.ts';
@@ -85,23 +86,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // 1. Root and Core Hub & Trust Pages
-  const staticPages: MetadataRoute.Sitemap = [
-    entry(baseUrl, 1.0, 'daily'),
-    entry(`${baseUrl}/invoice-generator`, 0.95, 'daily'),
-    entry(`${baseUrl}/blog`, 0.9, 'daily'),
-    entry(`${baseUrl}/small-business`, 0.95, 'daily'),
-    entry(`${baseUrl}/compare`, 0.85, 'weekly'),
-    entry(`${baseUrl}/guides/freshbooks-for-freelancers`, 0.85, 'weekly'),
-    entry(`${baseUrl}/editorial-policy`, 0.6, 'monthly'),
-    entry(`${baseUrl}/methodology`, 0.7, 'monthly'),
-    entry(`${baseUrl}/affiliate-disclosure`, 0.6, 'monthly'),
-    entry(`${baseUrl}/about`, 0.6, 'monthly'),
-    entry(`${baseUrl}/privacy`, 0.5, 'monthly'),
-    entry(`${baseUrl}/cookies`, 0.5, 'monthly'),
-    entry(`${baseUrl}/terms`, 0.5, 'monthly'),
-    entry(`${baseUrl}/contact`, 0.5, 'monthly'),
-    entry(`${baseUrl}/changelog`, 0.7, 'weekly'),
-  ];
+  const staticPages: MetadataRoute.Sitemap = SITEMAP_STATIC_PAGES.map((page) =>
+    entry(
+      page.path ? `${baseUrl}${page.path}` : baseUrl,
+      page.priority,
+      page.changeFrequency
+    )
+  );
 
   // 2. Programmatic Regional and Specialized Tools (all 197 tool pages)
   const matrixList = Array.isArray(geoMatrix)

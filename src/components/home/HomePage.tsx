@@ -285,13 +285,16 @@ export default function FeeKitHome({ tools }: FeeKitHomeProps) {
 
       {/* Hero Banner: Full-Bleed on both Mobile and Desktop */}
       <div className="w-full overflow-hidden bg-white border-b border-slate-200/90 shadow-2xs">
+        {/* This is the LCP element, so it stays preloaded. `unoptimized` was
+            removed: the source is a 2172x724 / 109KB WebP, and the optimizer
+            now serves a responsive srcset so a mobile viewport downloads a
+            fraction of the desktop-sized file. */}
         <Image
           src="/bgimage-homepage.webp"
           alt="FeeKit — Comprehensive Financial Calculation Utilities: Payment processing fees, 50-state sales tax, HMRC VAT compliance, 1099 contractor rate models, and e-commerce ROAS unit economics"
           width={2172}
           height={724}
           priority
-          unoptimized
           sizes="100vw"
           className="w-full h-auto object-cover block rounded-none"
         />

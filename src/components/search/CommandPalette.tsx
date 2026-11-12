@@ -8,12 +8,16 @@ import type { ToolIndexEntry } from '@/lib/tools-index';
 
 interface CommandPaletteProps {
   isOpen: boolean;
+  /**
+   * Pre-filled query, used by the Google sitelinks searchbox (`/?q=term`).
+   */
+  initialQuery?: string;
   onClose: () => void;
 }
 
-export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
+export function CommandPalette({ isOpen, initialQuery = '', onClose }: CommandPaletteProps) {
   const router = useRouter();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(initialQuery);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [matrixList, setMatrixList] = useState<ToolIndexEntry[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -21,7 +25,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
 
   /**
    * The tool index is fetched the first time the palette opens, not on page
-   * load. It used to be a static import in the global AppShell, so all 268
+   * load. It used to be a static import in the global AppShell, so all 466
    * pages shipped it in the initial bundle.
    */
   const ensureLoaded = React.useCallback(async () => {
@@ -38,25 +42,17 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   useEffect(() => {
     if (isOpen) {
       ensureLoaded();
+      // Pre-fill the query that arrived via `/?q=` (Google sitelinks
+      // searchbox), otherwise fall back to an empty search.
+      setQuery(initialQuery);
+      setSelectedIndex(0);
       setTimeout(() => inputRef.current?.focus(), 50);
     } else {
       setQuery('');
       setSelectedIndex(0);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen]);
-
-  // Google sitelinks searchbox support: /?q=<term> opens the palette
-  // pre-filled with the query. Read from `window` rather than
-  // `useSearchParams()` so the component does not force a CSR bailout.
-  useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get('q');
-    if (q) {
-      setQuery(q);
-      ensureLoaded();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isOpen, initialQuery]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -89,7 +85,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
           item.title.toLowerCase().includes(q) ||
           item.category.toLowerCase().includes(q) ||
           item.slug.toLowerCase().includes(q) ||
-          item.subtitle.toLowerCase().includes(q)
+          item.subtitle.toLowerCase().includes(q) ||
+          item.keywords.includes(q)
       )
       .slice(0, 12);
   }, [query, matrixList]);

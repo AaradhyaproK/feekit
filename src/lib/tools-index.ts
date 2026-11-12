@@ -6,14 +6,23 @@
  * components do not have to reach into an untyped JSON import.
  */
 export interface ToolIndexEntry {
+  /** Full heading of the calculator, used in the palette result rows. */
   title: string;
+  /** Compact label used by the inline search dropdown and the home grid. */
   shortTitle: string;
+  /** Suite the tool belongs to, e.g. `sales-tax-calculator`. */
   category: string;
+  /** Tool slug within its category. */
   slug: string;
-  subtitle: string;
+  /** Pre-built site-root-relative path to the calculator. */
   href: string;
-  jurisdictionCode?: string;
-  stateName?: string;
+  /** One-line description shown under the title. */
+  subtitle: string;
+  /**
+   * Extra lowercased search tokens (state name, jurisdiction code) that are
+   * not part of any displayed field.
+   */
+  keywords: string;
+  /** Headline rate, shown next to the category label when present. */
   rate?: number;
-  badge?: string;
 }

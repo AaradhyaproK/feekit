@@ -48,16 +48,19 @@ export function FastSearchBar({
     }
   }, []);
 
-  // Support the Google sitelinks searchbox: /?q=<term> opens the palette
-  // pre-filled with the query. The query string is read from `window`
-  // rather than `useSearchParams()` because the latter forces a client-side
-  // rendering bailout that requires a Suspense boundary on every page that
-  // renders a search bar.
+  // Support the Google sitelinks searchbox: /?q=<term> pre-fills the search
+  // box with the term. The query string is read from `window` rather than
+  // `useSearchParams()` because the latter forces a client-side rendering
+  // bailout that requires a Suspense boundary on every page that renders a
+  // search bar.
+  //
+  // The dropdown itself is not force-opened here: the global CommandPalette
+  // is opened by the AppShell for the same query, and two search UIs open at
+  // once would fight each other for the visitor's attention.
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get('q');
     if (q) {
       setQuery(q);
-      setIsOpen(true);
       ensureLoaded();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -75,16 +78,16 @@ export function FastSearchBar({
         const category = (item.category || '').toLowerCase();
         const slug = (item.slug || '').toLowerCase();
         const subtitle = (item.subtitle || '').toLowerCase();
-        const jurisdiction = (item.jurisdictionCode || '').toLowerCase();
-        const stateName = (item.stateName || '').toLowerCase();
+        // `keywords` carries the extra search tokens (state name,
+        // jurisdiction code) that are not part of any displayed field.
+        const keywords = item.keywords || '';
         return (
           title.includes(q) ||
           shortTitle.includes(q) ||
           category.includes(q) ||
           slug.includes(q) ||
           subtitle.includes(q) ||
-          jurisdiction.includes(q) ||
-          stateName.includes(q)
+          keywords.includes(q)
         );
       })
       .slice(0, 10);

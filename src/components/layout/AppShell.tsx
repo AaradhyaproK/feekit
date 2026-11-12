@@ -14,10 +14,31 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     // Keep URL 100% clean and canonical for SEO
     clearUrlHash();
+  }, []);
+
+  /**
+   * Google sitelinks searchbox support.
+   *
+   * The SearchAction in the JSON-LD points at `/?q={search_term_string}`,
+   * so a visitor arriving from a Google search result lands on the homepage
+   * with the search term in the query string. The palette is opened with that
+   * term pre-filled so the result is one keystroke away.
+   *
+   * The query string is read from `window` rather than `useSearchParams()`
+   * because the latter forces a client-side rendering bailout that requires a
+   * Suspense boundary around every page.
+   */
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) {
+      setSearchQuery(q);
+      setCommandPaletteOpen(true);
+    }
   }, []);
 
   // For iframe embeds, render distraction-free widget canvas without sidebar/header/footer
@@ -55,7 +76,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Global Cmd+K Search Modal */}
       <CommandPalette
         isOpen={commandPaletteOpen}
-        onClose={() => setCommandPaletteOpen(false)}
+        initialQuery={searchQuery}
+        onClose={() => {
+          setCommandPaletteOpen(false);
+          setSearchQuery('');
+        }}
       />
 
       {/* GDPR / Google AdSense Cookie Consent Banner */}

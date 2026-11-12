@@ -49,6 +49,10 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
       {/* Mobile brand & breadcrumb */}
       <div className="flex items-center gap-3">
         <Link href="/" prefetch={false} className="flex items-center py-1 hover:opacity-85 transition-opacity">
+          {/* The logo is served through the Next.js image optimizer. At 24px
+              wide the raw 265x265 PNG was 51KB; the optimized variant is a
+              fraction of that. `priority` is kept because the header is above
+              the fold on every page. */}
           <Image
             src="/logo-icon.png"
             alt="FeeKit"
@@ -56,7 +60,6 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
             height={32}
             className="hidden lg:block h-6 w-6 object-contain mr-1"
             priority
-            unoptimized
           />
           <Image
             src="/feekit-logo.png"
@@ -65,7 +68,6 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
             height={48}
             className="lg:hidden h-7 w-auto object-contain"
             priority
-            unoptimized
           />
         </Link>
 

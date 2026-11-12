@@ -573,7 +573,6 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 width={84}
                 height={28}
                 className="h-5 w-auto object-contain"
-                unoptimized
               />
             </Link>
             <span>•</span>

@@ -115,13 +115,15 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
     <aside className="fixed inset-y-0 left-0 z-30 hidden lg:flex w-56 flex-col border-r border-slate-200 bg-white p-3.5 text-slate-700 select-none shadow-[1px_0_4px_rgba(0,0,0,0.02)]">
       {/* Brand Header with Official FeeKit Logo (No Badges) */}
       <Link href="/" prefetch={false} className="flex items-center px-1.5 py-2 group rounded-xl hover:bg-slate-50 transition-all">
+        {/* The rail logo is not preloaded: the rail is hidden below the `lg`
+            breakpoint and the brand is already painted by the header on the
+            viewports where the rail is visible. Optimizing the source PNG
+            cuts the transfer from 93KB to a few KB. */}
         <Image
           src="/feekit-logo.png"
           alt="FeeKit"
           width={130}
           height={48}
-          unoptimized
-          priority
           className="h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
         />
       </Link>

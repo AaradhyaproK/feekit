@@ -1,0 +1,136 @@
+---
+title: "Stripe International Fees: US, UK, EU & Japan 2026"
+description: "Verified 2026 Stripe pricing across US, UK, Eurozone, Canada, Australia, Japan (3.6% + ¥0), and Singapore—plus cross-border surcharges, FX fees, and reverse math."
+publishedAt: "2026-11-04"
+updatedAt: "2026-11-12"
+author: "Aaradhya Pathak"
+authorTitle: "Founder & Lead Developer"
+readTime: "9 min read"
+category: "Payment Fees"
+tags: ["Stripe International Fees", "Stripe Japan Pricing", "Stripe UK Fees", "Stripe Europe Fees", "Cross-Border Surcharge", "Currency Conversion", "Wise vs Stripe"]
+featuredImage: "/blog/images/stripe-international-uk-eu-japan-guide.webp"
+featured: false
+relatedCalculators:
+  - label: "Stripe Japan Pricing Calculator (3.6% + ¥0)"
+    href: "/tools/stripe-fee-calculator/japan"
+  - label: "Stripe UK Fee Calculator (1.5% + 20p)"
+    href: "/tools/stripe-fee-calculator/uk"
+  - label: "Stripe Eurozone Fee Calculator (1.5% + €0.25)"
+    href: "/tools/stripe-fee-calculator/eurozone"
+  - label: "Stripe US Cross-Border Calculator"
+    href: "/tools/stripe-fee-calculator/usa"
+  - label: "Wise vs Stripe USD to EUR FX Comparator"
+    href: "/tools/wise-vs-stripe/usd-to-eur"
+faq:
+  - question: "How much does Stripe charge in Japan in 2026?"
+    answer: "Stripe Japan charges a flat 3.6% with ¥0 fixed fee for standard domestic Visa, Mastercard, JCB, and Amex card transactions (plus a 1.5% surcharge on international cards or JCB-specific arrangements where applicable). Because there is zero Yen fixed component, a ¥1,000 order pays the exact same 3.6% effective rate (¥36) as a ¥100,000 order (¥3,600)."
+  - question: "Why are Stripe UK and EU domestic rates (1.5%) much lower than Stripe US (2.9%)?"
+    answer: "Interchange fee caps in the UK and European Economic Area limit consumer debit and credit card interchange far below US card network interchange rates. Consequently, Stripe UK charges 1.5% + 20p for domestic UK consumer cards and Stripe Eurozone charges 1.5% + €0.25 for standard EEA consumer cards, stepping up to 2.5%–3.25% (UK) or 2.5%–3.5% (EU) on non-domestic/international cards."
+  - question: "How do Stripe's international card fee and currency conversion fee stack?"
+    answer: "On a US Stripe account, accepting a foreign-issued card adds +1.5% on top of the 2.9% + $0.30 domestic rate (4.4% + $0.30). If the charge is also presented in a currency different from your payout settlement currency, Stripe adds another +1.0% (or +2.0% in markets like Canada/UK) for currency conversion—bringing total US cross-border + FX processing to 5.4% + $0.30 ($5.70 on a $100 payment)."
+  - question: "Can you avoid Stripe's currency conversion fee by holding multi-currency balances?"
+    answer: "Yes, when supported by your Stripe entity. Settling a EUR or GBP payment directly into a matching EUR or GBP bank account (like a Wise multi-currency account) avoids automatic conversion back to USD on every charge, eliminating the 1.0%–2.0% gateway FX conversion fee."
+  - question: "How do you reverse-calculate a gross Stripe invoice to net an exact international payout?"
+    answer: "Use Gross = (Desired Net + Fixed Fee) ÷ (1 − Total Percentage Rate). For example, to clear exactly $1,000.00 net on a US domestic card (2.9% + $0.30), bill $1,030.18; to clear $1,000.00 net after both the +1.5% international card fee and +1.0% FX fee (5.4% + $0.30 total), bill $1,057.40."
+---
+
+Most founders assume Stripe charges **"2.9% + 30 cents"** everywhere in the world. In reality, Stripe's published pricing varies dramatically across the **United States, United Kingdom, Eurozone, Canada, Australia, Japan, and Singapore**—and card origin plus foreign exchange conversion can more than **double** your effective processing cost on cross-border orders.
+
+A SaaS merchant incorporating in London pays **1.5% + 20p** on domestic UK cards, while a Tokyo digital store pays **3.6% with ¥0 fixed fee**, and a US merchant taking a converted European card pays **5.4% + $0.30** (`$5.70` on a `$100` checkout).
+
+![Global Multi-Currency Stripe Payment Rails Across US, UK, EU and Japan](/blog/images/stripe-international-uk-eu-japan-guide.webp)
+
+In this 2026 cross-border breakdown, we compare Stripe's country-by-country rate schedules, map out how international surcharges and FX spreads stack, and show how to price or route international payouts without leaking 2% to 4% per invoice.
+
+Calculate exact local deductions in our [Stripe Japan Calculator](/tools/stripe-fee-calculator/japan), [Stripe UK Calculator](/tools/stripe-fee-calculator/uk), [Stripe Eurozone Calculator](/tools/stripe-fee-calculator/eurozone), and [Stripe US Calculator](/tools/stripe-fee-calculator/usa).
+
+<AdBanner />
+
+---
+
+## 1. Stripe Official Rate Card Comparison by Country (2026)
+
+Every major Stripe jurisdiction sets its own domestic base rate, fixed fee, international card tier, and bank-debit alternative:
+
+| Merchant Country | Domestic Card Rate | Non-Domestic / Intl Card | FX Conversion Fee | Cheapest Local Bank Rail | Fee on 100 Local Units (Domestic) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **United States** | **2.9% + $0.30** | +1.5% (`4.4% + $0.30`) | **+1.0%** | ACH Direct Debit (`0.8%`, $5 cap) | **$3.20** |
+| **United Kingdom** | **1.5% + 20p** | `2.5% + 20p` (EEA) / `3.25% + 20p` (Intl) | **+2.0%** | BACS Direct Debit / Open Banking | **£1.70** |
+| **Eurozone (EEA)** | **1.5% + €0.25** | `2.5% + €0.25` (UK) / `3.5% + €0.25` (Non-EEA) | **+1.0%** | SEPA Direct Debit | **€1.75** |
+| **Canada** | **2.9% + CA$0.30** | +1.5% (`4.4% + CA$0.30`) | **+2.0%** | Interac (`1.5% + CA$0.30`) | **CA$3.20** |
+| **Australia** | **1.75% + A$0.30** | `2.9% + A$0.30` (`+1.15%`) | **+1.0%–2.0%** | BECS Direct Debit | **A$2.05** |
+| **Japan** | **3.6% + ¥0** | +1.5% (`5.1%`) | **+1.0%–2.0%** | Konbini / Local Bank | **¥360** (on ¥10,000 = 3.6%) |
+| **Singapore** | **3.4% + S$0.50** | +1.5% (`4.9% + S$0.50`) | **+1.0%–2.0%** | PayNow (`~1.0% + S$0.22`) | **S$3.90** |
+
+### Why Card-Origin Pricing Matters Most in the UK & Europe
+Because UK and EU interchange regulations heavily cap fees on domestic consumer cards, Stripe UK's **1.5% + 20p** and Stripe Eurozone's **1.5% + €0.25** look half as expensive as US card processing.
+
+However, the moment a US, Canadian, or Australian buyer enters their card on a UK or European checkout, the rate jumps to **3.25% + 20p** (UK) or **3.5% + €0.25** (Eurozone)—plus a **1.0% to 2.0% FX conversion surcharge** if converted across currencies. Global SaaS teams selling from London into New York often find their blended effective Stripe fee sits closer to **3.8%–4.5%**, not 1.5%.
+
+---
+
+## 2. Spotlight: Why Stripe Japan (3.6% + ¥0) Behaves Unlike Any Other Market
+
+Among major economies, **Stripe Japan (`stripe.com/jp/pricing`)** stands out because it charges **3.6% with ¥0 fixed fee** on standard domestic cards.
+
+In the US, UK, or Singapore, the fixed surcharge ($0.30, 20p, or S$0.50) turns small-ticket purchases into an effective fee trap:
+- On a **$5.00 US checkout** (`2.9% + $0.30`), the fee is **$0.45** (**9.0% effective**).
+- On a **S$10.00 Singapore checkout** (`3.4% + S$0.50`), the fee is **S$0.84** (**8.4% effective**).
+- On a **¥1,000 Japan checkout** (`3.6% + ¥0`), the fee is **¥36** (**3.6% effective**).
+- On a **¥100,000 Japan checkout** (`3.6% + ¥0`), the fee is **¥3,600** (**still 3.6% effective**).
+
+For Japanese digital content platforms, creator micro-subscriptions, or low-AOV consumer apps, zero fixed fee protects unit margins cleanly at every order value. Model any JPY ticket size in the [Stripe Japan Fee Calculator](/tools/stripe-fee-calculator/japan).
+
+---
+
+## 3. How International Surcharges & FX Conversion Stack (US Account Example)
+
+When a US business processes a `$100.00` order, compare the three cost tiers:
+
+1. **US Domestic Card Settled in USD:**
+   - Formula: `2.9% + $0.30 = $2.90 + $0.30 = $3.20`
+   - **Net Payout:** **`$96.80`** (`3.20%` effective fee)
+2. **Foreign-Issued Card Charged in USD (+1.5% Intl Surcharge):**
+   - Formula: `2.9% + 1.5% + $0.30 = 4.4% + $0.30 = $4.70`
+   - **Net Payout:** **`$95.30`** (`4.70%` effective fee)
+3. **Foreign-Issued Card Charged in Local Currency & Converted to USD (+1.5% Intl + 1.0% FX):**
+   - Formula: `2.9% + 1.5% + 1.0% + $0.30 = 5.4% + $0.30 = $5.70`
+   - **Net Payout:** **`$94.30`** (`5.70%` effective fee)
+
+> **Important Distinction:** Notice that the `+1.5%` international surcharge applies based on **where the customer's card was issued**, regardless of whether you bill in USD or EUR. The separate `+1.0%` (or `+2.0%` in UK/Canada) conversion fee applies whenever Stripe converts the transaction currency into your bank settlement currency.
+
+For full line-item breakdowns of Billing, Radar, and dispute fees in the US, see [Stripe's Hidden Fees in 2026: 9 Charges Explained](/blog/stripe-hidden-fees-2026).
+
+---
+
+## 4. Reverse Gross-Up Math for International Client Invoices
+
+If you want to clear **exact net cash** on a cross-border invoice after Stripe takes its international and currency deductions, never add `4.4%` or `5.4%` on top of your net quote—because Stripe deducts its percentage from the **gross total**.
+
+Apply the gross-up formula:
+
+```
+Gross Invoice = (Desired Net Payout + Fixed Fee) ÷ (1 − Total Percentage Rate)
+```
+
+### Worked Example: Netting Exactly $1,000.00 on a US Stripe Account
+- **Domestic US Card (`2.9% + $0.30`):**
+  - `Gross = ($1,000.00 + $0.30) ÷ (1 − 0.029) = $1,000.30 ÷ 0.971 = $1,030.18`
+  - Verify deduction: `$1,030.18 × 2.9% + $0.30 = $29.88 + $0.30 = $30.18` → **$1,000.00 net**
+- **International Card Settled in USD (`4.4% + $0.30`):**
+  - `Gross = ($1,000.00 + $0.30) ÷ (1 − 0.044) = $1,000.30 ÷ 0.956 = $1,046.34`
+  - Verify deduction: `$1,046.34 × 4.4% + $0.30 = $46.04 + $0.30 = $46.34` → **$1,000.00 net**
+- **International Card With 1% FX Conversion (`5.4% + $0.30`):**
+  - `Gross = ($1,000.00 + $0.30) ÷ (1 − 0.054) = $1,000.30 ÷ 0.946 = $1,057.40`
+  - Verify deduction: `$1,057.40 × 5.4% + $0.30 = $57.10 + $0.30 = $57.40` → **$1,000.00 net**
+
+---
+
+## 5. How to Cut Cross-Border Processing & FX Costs Immediately
+
+1. **Match Payout Accounts to Billing Currencies:** Add EUR, GBP, CAD, or AUD local receiving accounts (including multi-currency business accounts) in Stripe so foreign checkouts settle like-for-like without paying Stripe's 1.0%–2.0% conversion spread on every sale.
+2. **Route High-Ticket B2B Invoices Off Cards:** For US B2B invoices above $500, Stripe **ACH Direct Debit** (`0.8%` capped at **`$5.00`**) cuts a $2,000 invoice fee from `$58.30` (or `$108.30` international) down to `$5.00`. In Europe, enable SEPA Direct Debit.
+3. **Use Dedicated FX Rails for Contractor Payroll & Retainers:** Receiving $5,000+ client retainers or paying remote contractors abroad over a card rail loses hundreds per payment in cross-border + FX markups—compare exact payout gaps with our [Wise vs Stripe Fees Guide](/blog/wise-vs-stripe-fees-2026) and [Wise vs Stripe Comparator](/tools/wise-vs-stripe/usd-to-eur).
+
+Audit your local and cross-border card fees side by side with the [Stripe Fee Calculator](/tools/stripe-fee-calculator/usa) or [3-Way Processor Comparator](/tools/gateway-comparator/stripe-paypal-square).
+

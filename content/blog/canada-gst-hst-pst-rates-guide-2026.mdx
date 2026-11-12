@@ -1,0 +1,192 @@
+---
+title: "Canada GST, HST & PST Guide 2026: CRA Rates & Rules"
+description: "2026 Canada GST, HST, PST, and QST rates for all 13 provinces and territories, Nova Scotia's 14% HST cut, $30,000 CRA threshold, and Form GST34."
+publishedAt: "2026-11-12"
+updatedAt: "2026-11-12"
+author: "Aaradhya Pathak"
+authorTitle: "Founder & Lead Developer"
+readTime: "9 min read"
+category: "Guides"
+tags:
+  - "Canada Sales Tax"
+  - "GST HST PST"
+  - "CRA Compliance"
+  - "QST Quebec"
+  - "Cross-Border SaaS"
+featuredImage: "/blog/images/canada-gst-hst-pst-guide.webp"
+featured: false
+relatedCalculators:
+  - label: "Ontario HST Calculator (13%)"
+    href: "/tools/canada-sales-tax/ontario"
+  - label: "Quebec GST + QST Calculator"
+    href: "/tools/canada-sales-tax/quebec"
+  - label: "BC GST + PST Calculator (12%)"
+    href: "/tools/canada-sales-tax/british-columbia"
+  - label: "Nova Scotia HST Calculator (14%)"
+    href: "/tools/canada-sales-tax/nova-scotia"
+  - label: "Canada Tax Hub (All 13 Jurisdictions)"
+    href: "/tools/canada-sales-tax"
+faq:
+  - question: "What is the current Nova Scotia HST rate in 2026?"
+    answer: "Nova Scotia's combined HST rate is 14% (5% federal GST plus a 9% provincial portion). The provincial component dropped by one percentage point from 10% to 9% on April 1, 2025, bringing the combined HST down from 15% to 14%."
+  - question: "When must a small business register for Canadian GST/HST?"
+    answer: "Once worldwide taxable revenues (including zero-rated supplies, excluding financial services and goodwill) exceed $30,000 CAD over four consecutive calendar quarters or in any single calendar quarter, you cease to be a small supplier and must register with the CRA."
+  - question: "What form do businesses use to file Canadian GST/HST returns?"
+    answer: "Registrants report collected tax and claim Input Tax Credits (ITCs) on CRA Form GST34 (or electronic GST34-2), with annual, quarterly, or monthly filing frequency determined by annual taxable revenue tiers."
+  - question: "Does Quebec calculate QST on top of GST or on the pre-tax subtotal?"
+    answer: "Since January 1, 2013, Quebec Sales Tax (9.975%) applies directly to the pre-tax selling price rather than on the GST-inclusive amount, giving a combined effective rate of 14.975% alongside the 5% federal GST."
+---
+
+![Canada GST, HST, PST, and QST tax compliance overview for all 13 provinces and territories](/blog/images/canada-gst-hst-pst-guide.webp)
+
+Charging the wrong sales tax rate on a Canadian invoice rarely stems from math mistakes — it happens because Canada runs four distinct indirect tax systems side by side across 13 provinces and territories. An agency in Calgary invoicing a client in Toronto collects 13% Ontario HST rather than Alberta's 5% GST, while a SaaS vendor selling into Vancouver, Winnipeg, or Montreal must often register separately at the provincial level even after obtaining a federal Business Number.
+
+This reference breaks down every 2026 Canadian indirect tax rate, **Nova Scotia's reduced 14% HST rate** (effective April 1, 2025), **CRA Form GST34** reporting cadences, place-of-supply rules based on the buyer's location, and how Input Tax Credits (ITCs) interact with non-recoverable provincial retail taxes.
+
+---
+
+## 1. All 13 Provinces and Territories: 2026 Tax Rate Table
+
+Canada separates indirect consumption taxes into three buckets: **Harmonized Sales Tax (HST)** administered federally by the Canada Revenue Agency (CRA), **dual GST + Provincial/Retail Sales Tax (PST/RST/QST)** where federal and provincial regimes coexist, and **GST-only jurisdictions** with zero general provincial sales tax.
+
+| Jurisdiction | Tax Structure | Federal GST | Provincial Rate | Combined Rate | Administering Agency |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Ontario (ON)** | HST | 5.0% | 8.0% | **13.0%** | CRA |
+| **Nova Scotia (NS)** | HST *(reduced Apr 2025)* | 5.0% | 9.0% | **14.0%** | CRA |
+| **New Brunswick (NB)** | HST | 5.0% | 10.0% | **15.0%** | CRA |
+| **Newfoundland & Labrador (NL)** | HST | 5.0% | 10.0% | **15.0%** | CRA |
+| **Prince Edward Island (PE)** | HST | 5.0% | 10.0% | **15.0%** | CRA |
+| **Quebec (QC)** | GST + QST *(separate returns)* | 5.0% | 9.975% | **14.975%** | Revenu Québec *(administers both)* |
+| **British Columbia (BC)** | GST + PST | 5.0% | 7.0% | **12.0%** | CRA + BC Ministry of Finance |
+| **Manitoba (MB)** | GST + RST | 5.0% | 7.0% | **12.0%** | CRA + Manitoba Finance |
+| **Saskatchewan (SK)** | GST + PST | 5.0% | 6.0% | **11.0%** | CRA + Saskatchewan Finance |
+| **Alberta (AB)** | GST only | 5.0% | 0.0% | **5.0%** | CRA |
+| **Northwest Territories (NT)** | GST only | 5.0% | 0.0% | **5.0%** | CRA |
+| **Nunavut (NU)** | GST only | 5.0% | 0.0% | **5.0%** | CRA |
+| **Yukon (YT)** | GST only | 5.0% | 0.0% | **5.0%** | CRA |
+
+Need instant line-item calculations for a single province? Open our [Canada Sales Tax Hub](/tools/canada-sales-tax), or jump straight to [Ontario HST (13%)](/tools/canada-sales-tax/ontario), [Nova Scotia HST (14%)](/tools/canada-sales-tax/nova-scotia), [Quebec GST + QST (14.975%)](/tools/canada-sales-tax/quebec), or [British Columbia GST + PST (12%)](/tools/canada-sales-tax/british-columbia).
+
+<AdBanner />
+
+---
+
+## 2. Nova Scotia's 14% HST Reduction and Invoice Updates
+
+On **April 1, 2025**, Nova Scotia reduced the provincial portion of its Harmonized Sales Tax from 10% to 9%, lowering the combined Nova Scotia HST rate from **15% to 14%**. Three Atlantic provinces — New Brunswick, Prince Edward Island, and Newfoundland and Labrador — remain at 15%.
+
+Hardcoded 15% Maritime tax presets inside older accounting templates or Stripe Tax overrides are a recurring audit error in 2026. Over-collecting 1% HST in Nova Scotia does not create a windfall for your business: under the *Excise Tax Act*, any amount billed and collected "as or on account of tax" must still be remitted to the CRA or formally refunded to the customer via a credit note adjustment. Always run current quotes against the [Nova Scotia HST Calculator](/tools/canada-sales-tax/nova-scotia) before issuing contracts.
+
+---
+
+## 3. Place-of-Supply Rules: Whose Address Sets the Rate?
+
+For domestic B2B and B2C sales within Canada, you charge the tax rate of **where the customer receives the supply** — not where your company is incorporated or operates.
+
+- **Physical Goods:** Determined by the delivery address (where legal possession or delivery occurs). Shipping furniture from an Alberta warehouse (5% GST province) to a buyer in Ontario requires charging **13% Ontario HST**.
+- **Services & Consulting:** Determined by the client's ordinary business or residential address obtained in the normal course of business. A Montreal designer billing a Vancouver agency applies BC's GST rules (plus BC PST only if the service is an explicitly taxable BC service such as specific legal, telecommunication, or software-maintenance services).
+- **Digital Products & SaaS:** Under place-of-supply rules for intangible personal property (IPP), the customer's billing/home address or primary IP/use location controls the HST/GST rate. If you cannot verify a provincial address for an online download, the CRA defaults to the rules associated with the billing data collected.
+- **Exports Outside Canada:** Supplies delivered to customers physically located outside Canada (for example, US consulting clients or UK software buyers) are generally **zero-rated (0%)** for GST/HST — meaning you collect 0% tax on the invoice while still retaining full eligibility to claim Input Tax Credits on your Canadian business expenses. Always verify whether the buyer also falls under foreign VAT or economic nexus thresholds using our [US Sales Tax Economic Nexus Guide](/blog/us-sales-tax-economic-nexus-guide) or [EU VAT & OSS Guide](/blog/eu-vat-oss-reverse-charge-rates-guide-2026).
+
+---
+
+## 4. The $30,000 CRA Small-Supplier Threshold & Voluntary Registration
+
+Under CRA rules, businesses are classified as a **small supplier** and do not have to register for GST/HST until worldwide taxable revenues (before deducting expenses, and including zero-rated exports plus revenue of associated entities) exceed **$30,000 CAD** ($50,000 CAD for public service bodies):
+
+```
+Trigger A — Single Calendar Quarter > $30,000 CAD
+  -> You cease to be a small supplier IMMEDIATELY on the transaction that pushes you over $30,000.
+  -> Collect GST/HST starting on THAT sale and register within 29 days.
+
+Trigger B — Rolling 4 Consecutive Calendar Quarters > $30,000 CAD
+  -> Small-supplier status ends at the end of the month following the 4th quarter.
+  -> Effective registration date: first day of the second month after exceeding $30,000.
+```
+
+Two exceptions override the $30,000 grace buffer:
+
+1. **Taxi & Ride-Sharing Drivers:** Must register from dollar one regardless of annual turnover.
+2. **Non-Resident Digital Platforms & Sellers:** Non-resident vendors supplying digital services or goods directly to Canadian consumers (non-registrants) must register under either the simplified or regular GST/HST regime once taxable Canadian B2C revenues exceed **$30,000 CAD over a 12-month period**. Marketplace facilitators are often responsible for collecting and remitting tax on third-party B2C sales made through their platform.
+
+### Should You Register Voluntarily Under $30,000?
+
+Even at $12,000 in annual revenue, **voluntary GST/HST registration** can improve margins depending on your customer mix:
+
+- **B2B Consultants & Agencies:** Your registered Canadian clients recover the GST/HST you charge via their own ITCs, so charging tax does not raise their net cost. Meanwhile, registering unlocks **Input Tax Credits** so you recover 5%–15% GST/HST paid on laptops, software subscriptions, accounting fees, and commercial rent.
+- **B2C Service Providers:** Retail consumers cannot claim ITCs, so registering early increases your out-the-door sticker price by 5%–15% unless you absorb the margin hit yourself. Wait until you cross $30,000 if most buyers are individuals.
+
+---
+
+## 5. Dual-Tax Provinces: Why PST/RST Differs From HST & QST
+
+Unlike HST (which operates as a unified value-added tax) or Quebec's QST (which works structurally like a VAT with **Input Tax Refunds**), **British Columbia PST (7%)**, **Manitoba RST (7%)**, and **Saskatchewan PST (6%)** are **retail sales taxes**. That distinction creates three operational headaches for growing merchants:
+
+1. **Separate Provincial Registrations:** Having a CRA RT0001 GST/HST number does *not* satisfy BC, Manitoba, Saskatchewan, or Quebec registration requirements. Each province issues its own tax account and imposes lower or zero small-seller thresholds for remote software, SaaS, and shipped goods.
+2. **No Business ITC Recovery on PST/RST:** When your company pays 7% BC PST on office equipment, computers, or SaaS tools, that 7% becomes a permanent sunk operating expense (unlike the 5% federal GST portion, which you recover on Form GST34). Only qualifying inventory purchased strictly for resale is typically exempt using a provincial exemption certificate.
+3. **Different Taxable Bases on SaaS and Digital Services:** While federal GST applies broadly to almost all commercial supplies unless exempt, BC PST, Manitoba RST, and Saskatchewan PST tax **SaaS, cloud computing, and downloadable software** under specific provincial definitions while exempting many pure bespoke consulting services. Never assume an item exempt from PST is exempt from GST, or vice versa.
+
+### Quebec QST: Non-Compounded 9.975% Math
+
+Before 2013, Quebec compounded QST on top of the GST-inclusive subtotal. Today, both taxes apply independently to the **pre-tax invoice amount**, giving an exact combined factor of **14.975%**.
+
+```
+Pre-Tax SaaS Invoice (Montreal Client): $2,000.00 CAD
+  + Federal GST (5.000%):               $100.00 CAD
+  + Quebec QST (9.975%):                $199.50 CAD
+---------------------------------------------------
+Total Invoice Due:                    $2,299.50 CAD
+```
+
+Uniquely, **Revenu Québec administers both GST and QST** for businesses based in Quebec — meaning Quebec-resident businesses obtain their federal GST account through Revenu Québec rather than directly through the CRA. Non-Quebec businesses with QST obligations register separately with Revenu Québec's non-resident QST portal.
+
+---
+
+## 6. CRA Form GST34 Reporting Periods and ITC Documentation
+
+Once registered, the CRA assigns a reporting period based on your prior fiscal year's taxable supplies in Canada (plus associated entities), though smaller businesses can elect more frequent filing to receive Input Tax Credit refunds faster:
+
+| Annual Taxable Canadian Sales | Default Filing Frequency | Optional Election | Return Form |
+| :--- | :--- | :--- | :--- |
+| **$1,500,000 or less** | Annual | Monthly or Quarterly | **CRA Form GST34** |
+| **Over $1,500,000 to $6,000,000** | Quarterly | Monthly | **CRA Form GST34** |
+| **Over $6,000,000** | Monthly | *(Mandatory Monthly)* | **CRA Form GST34** |
+
+### Mandatory Invoice Fields to Protect Your Client's ITCs
+
+To keep B2B customers compliant during CRA Input Tax Credit audits, every taxable Canadian invoice you send must include prescribed documentary information scaled by total invoice value (including tax):
+
+- **Under $100 CAD:** Supplier name/trading name, invoice date, total payable, and GST/HST charged (or statement that tax is included).
+- **$100 to $499.99 CAD:** Adds your **9-digit CRA Business Number + RT0001** GST/HST registration number and a breakdown showing which line items are taxable and at what rate.
+- **$500 CAD or more:** Adds the **recipient's name**, payment terms, and a clear description identifying each good or service supplied.
+
+Our [Free Invoice Generator](/invoice-generator) includes configurable tax lines and registration number blocks so freelancers and agencies meet CRA invoice requirements cleanly. For more guidance on compliant billing documents, read [How to Create an Invoice for Freelance Work](/blog/how-to-create-an-invoice-for-freelance-work) and [Invoice vs. Receipt: Key Differences](/blog/invoice-vs-receipt).
+
+---
+
+## 7. Quick-Reference Worked Examples ($1,000 Invoice by Province)
+
+Compare how much indirect tax an Ontario vendor adds to a **$1,000.00 CAD** taxable B2B service or software invoice depending solely on where the Canadian customer is located:
+
+| Customer Location | Tax Breakdown | Total Tax | Invoice Total | Client ITC / ITR Recovery (If Registered) |
+| :--- | :--- | :---: | :---: | :--- |
+| **Toronto, ON** | 13% HST | $130.00 | **$1,130.00** | $130.00 via CRA Form GST34 |
+| **Halifax, NS** | 14% HST | $140.00 | **$1,140.00** | $140.00 via CRA Form GST34 |
+| **Moncton, NB** | 15% HST | $150.00 | **$1,150.00** | $150.00 via CRA Form GST34 |
+| **Montreal, QC** | $50 GST + $99.75 QST | $149.75 | **$1,149.75** | $50 ITC + $99.75 QST ITR via Revenu Québec |
+| **Vancouver, BC** | $50 GST + $70 PST *(if taxable)* | $120.00 | **$1,120.00** | $50 GST ITC only *(PST is sunk cost)* |
+| **Calgary, AB** | 5% GST | $50.00 | **$1,050.00** | $50.00 via CRA Form GST34 |
+| **New York, US** | 0% *(zero-rated export)* | $0.00 | **$1,000.00** | N/A *(supplier keeps full input ITCs)* |
+
+---
+
+## Summary Checklist for 2026 Canadian Tax Compliance
+
+1. **Track rolling 4-quarter taxable turnover** against the **$30,000 CAD** CRA small-supplier cap (remembering that a single large quarter over $30,000 triggers immediate registration).
+2. **Audit your checkout and invoice templates for Nova Scotia** to verify you collect **14% HST**, not the pre-April-2025 15% rate.
+3. **Map customer billing and shipping addresses** to the buyer's province using our [Canada Sales Tax Calculators](/tools/canada-sales-tax) or [Canada GST/HST Calculator](/tools/vat-calculator/canada).
+4. **Separate PST/RST obligations in BC, Manitoba, Saskatchewan, and Quebec** so non-resident digital sales do not miss provincial thresholds.
+5. **Print your RT0001 registration number** on every invoice over $100 CAD and file **Form GST34** returns on schedule.
+
+Selling across North America, the UK, and Europe? Pair this guide with our [Stripe International Fees Guide](/blog/stripe-international-uk-eu-japan-fees-guide-2026) and [PayPal vs. Stripe vs. Square](/compare) hub to verify payment processing deductions alongside tax collection.
+

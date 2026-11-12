@@ -74,5 +74,8 @@ export const TOOL_COUNT_LABEL = String(TOOL_COUNT);
 /** Human-readable tool count with the "plus" suffix, e.g. "197+". */
 export const TOOL_COUNT_LABEL_PLUS = `${TOOL_COUNT}+`;
 
+/** Number of indexable editorial blog guides. */
+export const BLOG_COUNT = (stats as { blogCount?: number }).blogCount ?? 32;
+
 /** Number of URLs in the XML sitemap. */
 export const SITEMAP_URL_COUNT = stats.sitemapUrlCount;

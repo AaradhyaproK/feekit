@@ -13,7 +13,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from 'lucide-react';
-import { TOOL_COUNT_LABEL_PLUS, SITEMAP_URL_COUNT } from '@/lib/site-stats';
+import { TOOL_COUNT_LABEL_PLUS, SITEMAP_URL_COUNT, BLOG_COUNT } from '@/lib/site-stats';
 
 interface FooterProps {
   onOpenCommandPalette: () => void;
@@ -410,7 +410,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     href="/blog"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    Business Finance Knowledge Base (32 Guides)
+                    Business Finance Knowledge Base ({BLOG_COUNT} Guides)
                   </Link>
                 </li>
               </ul>

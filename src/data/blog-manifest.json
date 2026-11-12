@@ -1,5 +1,114 @@
 [
   {
+    "slug": "canada-gst-hst-pst-rates-guide-2026",
+    "title": "Canada GST, HST & PST Guide 2026: CRA Rates & Rules",
+    "description": "2026 Canada GST, HST, PST, and QST rates for all 13 provinces and territories, Nova Scotia's 14% HST cut, $30,000 CRA threshold, and Form GST34.",
+    "publishedAt": "2026-11-12",
+    "updatedAt": "2026-11-12",
+    "author": "Aaradhya Pathak",
+    "authorTitle": "Founder & Lead Developer",
+    "readTime": "11 min read",
+    "category": "Guides",
+    "featured": false,
+    "featuredImage": "/blog/images/canada-gst-hst-pst-guide.webp",
+    "tags": [
+      "Canada Sales Tax",
+      "GST HST PST",
+      "CRA Compliance",
+      "QST Quebec",
+      "Cross-Border SaaS"
+    ]
+  },
+  {
+    "slug": "eu-vat-oss-reverse-charge-rates-guide-2026",
+    "title": "EU VAT Rates & OSS Guide 2026: Reverse Charge Rules",
+    "description": "Complete 2026 EU VAT guide covering standard rates across all 27 member states (17% to 27%), the €10,000 One-Stop Shop threshold, and B2B reverse charge math.",
+    "publishedAt": "2026-11-10",
+    "updatedAt": "2026-11-12",
+    "author": "Aaradhya Pathak",
+    "authorTitle": "Founder & Lead Developer",
+    "readTime": "9 min read",
+    "category": "Guides",
+    "featured": false,
+    "featuredImage": "/blog/images/eu-vat-oss-reverse-charge-guide.webp",
+    "tags": [
+      "EU VAT",
+      "VAT Calculator",
+      "Hungary VAT 27%",
+      "One-Stop Shop OSS",
+      "Reverse Charge VAT",
+      "Article 196",
+      "Cross-Border VAT",
+      "VIES"
+    ]
+  },
+  {
+    "slug": "uk-ir35-inside-vs-outside-take-home-pay-guide-2026",
+    "title": "Inside vs Outside IR35 Guide: UK Take-Home Pay Math",
+    "description": "Complete 2026/27 UK IR35 guide comparing Inside IR35 umbrella PAYE deductions (Employer NI 15%, Class 1 NI 8%/2%) against Outside IR35 limited company dividends.",
+    "publishedAt": "2026-11-08",
+    "updatedAt": "2026-11-12",
+    "author": "Aaradhya Pathak",
+    "authorTitle": "Founder & Lead Developer",
+    "readTime": "7 min read",
+    "category": "Business Finance",
+    "featured": false,
+    "featuredImage": "/blog/images/uk-ir35-inside-vs-outside-guide.webp",
+    "tags": [
+      "UK IR35",
+      "Inside vs Outside IR35",
+      "Contractor Tax UK",
+      "Umbrella Company",
+      "Limited Company Dividends",
+      "Employer NI 15%",
+      "HMRC"
+    ]
+  },
+  {
+    "slug": "break-even-roas-contribution-margin-ecommerce-guide-2026",
+    "title": "Break-Even ROAS & Contribution Margin Guide (2026)",
+    "description": "How to calculate Break-Even ROAS and Target ROAS from landed COGS, payment fees, shipping, and return reserves so paid ad scaling never loses cash.",
+    "publishedAt": "2026-11-06",
+    "updatedAt": "2026-11-12",
+    "author": "Aaradhya Pathak",
+    "authorTitle": "Founder & Lead Developer",
+    "readTime": "6 min read",
+    "category": "Ecommerce",
+    "featured": false,
+    "featuredImage": "/blog/images/break-even-roas-contribution-margin-guide.webp",
+    "tags": [
+      "Break-Even ROAS",
+      "Contribution Margin",
+      "Ecommerce Profit Margin",
+      "Meta Ads ROAS",
+      "Shopify Unit Economics",
+      "Amazon FBA",
+      "Target ROAS"
+    ]
+  },
+  {
+    "slug": "stripe-international-uk-eu-japan-fees-guide-2026",
+    "title": "Stripe International Fees: US, UK, EU & Japan 2026",
+    "description": "Verified 2026 Stripe pricing across US, UK, Eurozone, Canada, Australia, Japan (3.6% + ¥0), and Singapore—plus cross-border surcharges, FX fees, and reverse math.",
+    "publishedAt": "2026-11-04",
+    "updatedAt": "2026-11-12",
+    "author": "Aaradhya Pathak",
+    "authorTitle": "Founder & Lead Developer",
+    "readTime": "6 min read",
+    "category": "Payment Fees",
+    "featured": false,
+    "featuredImage": "/blog/images/stripe-international-uk-eu-japan-guide.webp",
+    "tags": [
+      "Stripe International Fees",
+      "Stripe Japan Pricing",
+      "Stripe UK Fees",
+      "Stripe Europe Fees",
+      "Cross-Border Surcharge",
+      "Currency Conversion",
+      "Wise vs Stripe"
+    ]
+  },
+  {
     "slug": "chargeback-and-dispute-fees-guide-2026",
     "title": "Credit Card Chargeback & Dispute Fees Guide (2026): Prevention, Win Rates & Rules",
     "description": "Complete 2026 guide to credit card chargeback and dispute fees across Stripe, PayPal, Square, and Authorize.Net. Learn Visa VROL thresholds, evidence rules, and how to protect merchant margins.",

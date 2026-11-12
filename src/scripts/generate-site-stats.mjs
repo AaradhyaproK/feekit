@@ -97,6 +97,7 @@ const stats = {
     .filter((item) => isIndexableTool(item.category, item.slug))
     .filter((item) => !CANONICAL_REDIRECTS[`/tools/${item.category}/${item.slug}`])
     .length,
+  blogCount: indexableBlogCount,
   sitemapUrlCount,
 };
 

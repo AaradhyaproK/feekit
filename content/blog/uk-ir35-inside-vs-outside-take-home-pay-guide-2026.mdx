@@ -1,0 +1,142 @@
+---
+title: "Inside vs Outside IR35 Guide: UK Take-Home Pay Math"
+description: "Complete 2026/27 UK IR35 guide comparing Inside IR35 umbrella PAYE deductions (Employer NI 15%, Class 1 NI 8%/2%) against Outside IR35 limited company dividends."
+publishedAt: "2026-11-08"
+updatedAt: "2026-11-12"
+author: "Aaradhya Pathak"
+authorTitle: "Founder & Lead Developer"
+readTime: "9 min read"
+category: "Business Finance"
+tags: ["UK IR35", "Inside vs Outside IR35", "Contractor Tax UK", "Umbrella Company", "Limited Company Dividends", "Employer NI 15%", "HMRC"]
+featuredImage: "/blog/images/uk-ir35-inside-vs-outside-guide.webp"
+featured: false
+relatedCalculators:
+  - label: "UK IR35 Take-Home Pay Calculator"
+    href: "/tools/uk-ir35-calculator/contractor"
+  - label: "UK HMRC VAT Calculator (20% & 5%)"
+    href: "/tools/vat-calculator/united-kingdom"
+  - label: "Stripe UK Fee Calculator (1.5% + 20p)"
+    href: "/tools/stripe-fee-calculator/uk"
+  - label: "Wise vs Stripe USD to GBP Transfer Audit"
+    href: "/tools/wise-vs-stripe/usd-to-gbp"
+faq:
+  - question: "What is the actual take-home pay difference between Inside and Outside IR35?"
+    answer: "On a £550 day rate across 220 working days (£121,000 gross billing), an Inside IR35 umbrella contractor typically keeps around 56.9% (~£68,800 net) after Employer NI (15%), Apprenticeship Levy (0.5%), PAYE income tax, and Employee Class 1 NI. Operating Outside IR35 through a limited company typically retains around 71.2% (~£86,200 net) after £3,000 expenses, Corporation Tax, salary, and dividend tax—a difference of roughly £17,400 per year."
+  - question: "Why does Employer National Insurance (15%) come out of an Inside IR35 contractor's rate?"
+    answer: "In law, Employer Class 1 NICs (15% above the £5,000 secondary threshold) and the 0.5% Apprenticeship Levy are the fee-payer's or umbrella company's statutory liabilities, not the worker's. However, when agencies quote an umbrella 'assignment rate', they budget the total employment cost inside that headline rate, so both Employer NI and the levy are deducted before arriving at your gross taxable PAYE pay."
+  - question: "Who determines IR35 status under Chapter 10 in 2026?"
+    answer: "For medium and large private-sector clients (and all public-sector bodies), Chapter 10 ITEPA 2003 requires the end client to determine IR35 status with reasonable care and issue a written Status Determination Statement (SDS). Only when the end client qualifies as a small company under the Companies Act 2006 (two of: turnover ≤ £10.2m, balance sheet ≤ £5.1m, employees ≤ 50) does Chapter 8 shift responsibility back to the contractor's Personal Services Company."
+  - question: "What day rate uplift do I need to accept an Inside IR35 role?"
+    answer: "Because Inside IR35 adds Employer NI (15%), loses business expense deductions against revenue, and replaces lower dividend tax rates with PAYE income tax, contractors typically need a 23% to 28% higher Inside IR35 headline day rate just to clear the same net take-home cash as an Outside IR35 contract."
+  - question: "What are the three core HMRC employment status tests?"
+    answer: "UK tribunals and HMRC test IR35 status around three pillars: Right of Substitution (can your limited company genuinely send a qualified substitute?), Control (does the client control how, when, and where you work?), and Mutuality of Obligation (is there an ongoing expectation to provide and accept continuous work beyond a defined deliverable?)."
+---
+
+For UK limited company contractors, IT architects, and specialist consultants, the gap between an **Inside IR35** contract and an **Outside IR35** contract at the exact same £550 daily rate can exceed **£17,000 a year in lost take-home cash**.
+
+The frustration for most contractors is that recruiters advertise a headline day rate—for example, *"£550/day Inside IR35"*—without showing how **Employer National Insurance (15.0%)**, the **Apprenticeship Levy (0.5%)**, **PAYE income tax**, and **Employee Class 1 NICs (8% and 2%)** stack together before a penny reaches your bank account.
+
+![UK Inside vs Outside IR35 Take-Home Pay and Tax Split Comparison](/blog/images/uk-ir35-inside-vs-outside-guide.webp)
+
+In this 2026/27 engineering breakdown, we unpack the exact statutory waterfall for **Inside IR35 vs. Outside IR35**, run a side-by-side £550/day numerical audit, and derive the **reverse day-rate formula** you should use before negotiating any umbrella contract.
+
+Run your own day rate and working days through our [UK IR35 Take-Home Pay Calculator](/tools/uk-ir35-calculator/contractor) or check UK VAT thresholds in our [UK HMRC VAT Calculator](/tools/vat-calculator/united-kingdom).
+
+<AdBanner />
+
+---
+
+## 1. The Statutory Rules: Chapter 8 vs. Chapter 10 (ITEPA 2003)
+
+IR35—officially the **Off-Payroll Working Rules** under Chapters 8 and 10 of the *Income Tax (Earnings and Pensions) Act 2003 (ITEPA)*—prevents disguised employment through an intermediary such as a Personal Services Company (**PSC**).
+
+Who carries the legal risk of determining your status depends entirely on the size and sector of the end client:
+
+- **Medium & Large Private Sector Clients + All Public Sector (Chapter 10):**
+  - The **end client** holds the legal duty to determine IR35 status and issue a formal **Status Determination Statement (SDS)** explaining its decision.
+  - If the client fails to take "reasonable care," the PAYE/NIC tax liability stays with the client rather than transferring down the chain to the agency.
+- **Small Private Sector Clients (Chapter 8 Exemption):**
+  - If your end client meets at least **two** Companies Act 2006 small-company criteria (**annual turnover ≤ £10.2 million**, **balance sheet total ≤ £5.1 million**, **≤ 50 employees**), the off-payroll reform does not apply.
+  - Your own limited company remains responsible for assessing IR35 status under Chapter 8.
+
+### HMRC's Three Primary Status Pillars
+HMRC and tax tribunals look past contract labels and evaluate real working practices:
+1. **Right of Substitution:** Does your company hold a genuine, unfettered right to send an equally qualified substitute to complete the deliverables at your own expense?
+2. **Control:** Does the client dictate *what* outcome you deliver, or do they supervise *how, when, and where* you perform daily tasks like a line-managed employee?
+3. **Mutuality of Obligation (MOO):** Does the engagement terminate cleanly upon project delivery without any contractual obligation for the client to keep offering rolling work or for you to accept it?
+
+---
+
+## 2. Inside IR35 vs. Outside IR35: The Complete Tax Waterfall
+
+When an assignment falls **Inside IR35** (typically paid via an umbrella company or agency deemed-employment payroll), employment taxes are carved out of the assignment rate before personal tax applies:
+
+| Tax Layer | Inside IR35 (Umbrella / PAYE) | Outside IR35 (UK Limited Company) |
+| :--- | :--- | :--- |
+| **Allowable Business Expenses** | Disallowed against day rate (save limited reimbursed client travel/subsistence) | **Deducted pre-tax** (accountancy, insurance, hardware, software, pension) |
+| **Employer Class 1 NICs** | **15.0%** above £5,000/yr secondary threshold (deducted from assignment rate) | **£0** on director salary set at £12,570 if Employment Allowance applies / low threshold impact vs £121k |
+| **Apprenticeship Levy** | **0.50%** of gross payroll (where applicable on umbrella payroll) | **£0** |
+| **Employee Class 1 NICs** | **8.0%** (£12,570–£50,270) + **2.0%** above £50,270 | **£0** on £12,570 optimal salary |
+| **Income / Corporation Tax** | **PAYE**: 20% basic, 40% higher (>£50,270), 45% additional (>£125,140) | **Corporation Tax**: 19% (≤£50k profit), marginal taper up to 25% (≥£250k) |
+| **Dividend Tax (Post-Corp Tax)** | N/A | **8.75%** basic, **33.75%** higher, **39.35%** additional (£500 tax-free allowance) |
+| **Typical Gross Retention** | **~54% to 58%** | **~71% to 78%** |
+
+> **Why the £100,000–£125,140 Band Hurts Inside IR35:** Under PAYE, every £2 of taxable salary above **£100,000** strips away **£1 of your £12,570 Personal Allowance**, creating an effective **60% income tax + 2% Employee NIC = 62% marginal tax trap** unless diverted via salary-sacrifice pension contributions. Outside IR35, retaining surplus profit inside the limited company avoids crossing £100,000 personal income until you choose to draw dividends.
+
+---
+
+## 3. Worked Comparison: £550/Day Across 220 Working Days (£121,000 Billing)
+
+Consider a senior UK technology contractor working **220 billable days** at **£550.00/day** (**£121,000.00** annual gross billing) with **£3,000** in normal operating costs (accountant, PI insurance, software, equipment).
+
+### Scenario A: Inside IR35 (Umbrella Assignment Rate Model)
+1. **Gross Assignment Revenue:** `220 × £550.00 = £121,000.00`
+2. **Umbrella Margin + Employer NI (15.0%) + Levy (0.5%):** `~£18,250.00` deducted from the assignment pool
+3. **Gross Taxable PAYE Pay:** `£121,000.00 − £18,250.00 = £102,750.00`
+4. **Employee Class 1 NI + PAYE Income Tax:** `~£33,950.00`
+5. **Net Take-Home Cash:** **`£68,800.00`** (**`56.9%` net retention**)
+
+### Scenario B: Outside IR35 (Limited Company + Optimal Salary & Dividends)
+1. **Gross Limited Company Revenue:** `£121,000.00`
+2. **Deduct Allowable Expenses:** `−£3,000.00` (leaves `£118,000.00` pre-salary profit; less `£12,570` director salary = `£105,430` profit before Corp Tax)
+3. **Corporation Tax (19%–25% Marginal Band):** `~£22,450.00`
+4. **Personal Dividend & Income Tax:** `~£12,350.00`
+5. **Net Take-Home Cash:** **`£86,200.00`** (**`71.2%` net retention**)
+
+### The Annual Penalty of Inside IR35
+- **Inside IR35 Net Cash:** `£68,800.00`
+- **Outside IR35 Net Cash:** `£86,200.00`
+- **Net Annual Loss:** **`£17,400.00`** (`£1,450/month` less disposable income for the exact same client work!)
+
+---
+
+## 4. How to Negotiate: Required Inside IR35 Day Rate Formula
+
+Never accept a 1-for-1 day rate when a client switches an existing role from Outside IR35 to Inside IR35. Use the target-net equivalence formula before quoting:
+
+```
+Required Inside Annual Gross = Target Outside Net Cash ÷ Expected Inside Retention Ratio
+Required Inside Day Rate = Required Inside Annual Gross ÷ Annual Billable Days
+```
+
+Suppose you currently earn **£500/day Outside IR35** across 220 days (`£110,000` gross), retaining approximately **£78,000 net** after taxes and expenses:
+
+1. At an average Inside IR35 retention ratio of **56.5%**:
+   - `Required Inside Gross = £78,000 ÷ 0.565 = £138,053.10`
+2. Divide across `220` working days:
+   - `Required Inside Day Rate = £138,053.10 ÷ 220 = £627.51/day`
+3. Percentage rate premium needed:
+   - `(£627.51 − £500.00) ÷ £500.00 = +25.5%`
+
+In other words, a **£500/day Outside IR35** contract delivers the same cash in your pocket as a **~£628/day Inside IR35** umbrella contract. (And on a **£550/day Outside** rate, you need roughly **£690/day Inside** to stand still.)
+
+---
+
+## 5. Practical Ways to Reduce Tax Leakage Inside & Outside IR35
+
+- **Use Salary-Sacrifice Pension Contributions (Inside IR35):** Redirecting earnings above £100,000 (or £50,270) directly into a SIPP through an umbrella salary-sacrifice arrangement saves Employer NI, Employee NI, and 40%–60% marginal income tax.
+- **Avoid Over-Retaining or Missing VAT Registration:** Remember that IR35 status applies to *income tax and NICs*, **not VAT**. Once rolling 12-month UK taxable turnover exceeds **£90,000** (note: umbrella PAYE workers do not charge VAT themselves, whereas Outside IR35 PSCs billing UK clients do), review our [UK VAT Compliance Guide](/blog/uk-vat-guide-freelancers-merchants).
+- **Watch Foreign Currency Conversion on Overseas Contracts:** If you are a UK contractor billing US or EU clients Outside IR35, avoid receiving USD through expensive card links or wire spreads—compare UK settlement options in our [Wise vs Stripe Fees Guide](/blog/wise-vs-stripe-fees-2026) and [Wise vs Stripe USD to GBP Calculator](/tools/wise-vs-stripe/usd-to-gbp).
+
+Test your exact numbers right now with the [UK IR35 Take-Home Pay Calculator](/tools/uk-ir35-calculator/contractor).
+

@@ -20,19 +20,21 @@ export const CATEGORY_BLOG_SLUGS: Record<string, string[]> = {
     'invoice-vs-receipt',
   ],
   'canada-sales-tax': [
+    'canada-gst-hst-pst-rates-guide-2026',
     'us-sales-tax-economic-nexus-guide',
     'how-to-create-an-invoice-for-freelance-work',
   ],
   'vat-calculator': [
     'uk-vat-guide-freelancers-merchants',
+    'eu-vat-oss-reverse-charge-rates-guide-2026',
     'gumroad-vs-lemon-squeezy-fees-2026',
     'how-to-create-an-invoice-for-freelance-work',
   ],
   'stripe-fee-calculator': [
     'stripe-vs-paypal-fees-2026',
     'stripe-hidden-fees-2026',
+    'stripe-international-uk-eu-japan-fees-guide-2026',
     'paypal-goods-and-services-fee-guide-2026',
-    'chargeback-and-dispute-fees-guide-2026',
   ],
   'paypal-fee-calculator': [
     'paypal-goods-and-services-fee-guide-2026',
@@ -70,6 +72,7 @@ export const CATEGORY_BLOG_SLUGS: Record<string, string[]> = {
   ],
   'wise-vs-stripe': [
     'wise-vs-stripe-fees-2026',
+    'stripe-international-uk-eu-japan-fees-guide-2026',
     'stripe-vs-paypal-fees-2026',
   ],
   'gateway-comparator': [
@@ -79,10 +82,10 @@ export const CATEGORY_BLOG_SLUGS: Record<string, string[]> = {
     'wise-vs-stripe-fees-2026',
   ],
   'ecommerce-profit-calculator': [
+    'break-even-roas-contribution-margin-ecommerce-guide-2026',
     'shopify-vs-amazon-fba-fees-2026',
     'etsy-vs-shopify-fees-2026',
     'gumroad-vs-lemon-squeezy-fees-2026',
-    'service-business-profit-margin',
   ],
   'freelance-rate-calculator': [
     'freelance-hourly-rate-formula-guide',
@@ -90,15 +93,17 @@ export const CATEGORY_BLOG_SLUGS: Record<string, string[]> = {
     'llc-vs-scorp-freelance-tax-guide',
   ],
   'profit-margin-calculator': [
+    'break-even-roas-contribution-margin-ecommerce-guide-2026',
     'service-business-profit-margin',
     'saas-profit-margin-benchmarks-guide',
-    'shopify-vs-amazon-fba-fees-2026',
   ],
   'break-even-calculator': [
+    'break-even-roas-contribution-margin-ecommerce-guide-2026',
     'service-business-profit-margin',
     'saas-profit-margin-benchmarks-guide',
   ],
   'roi-calculator': [
+    'break-even-roas-contribution-margin-ecommerce-guide-2026',
     'saas-profit-margin-benchmarks-guide',
     'service-business-profit-margin',
   ],
@@ -108,6 +113,7 @@ export const CATEGORY_BLOG_SLUGS: Record<string, string[]> = {
     '1099-vs-w2-tax-rate-freelance-guide',
   ],
   'uk-ir35-calculator': [
+    'uk-ir35-inside-vs-outside-take-home-pay-guide-2026',
     'uk-vat-guide-freelancers-merchants',
     'freelance-hourly-rate-formula-guide',
   ],

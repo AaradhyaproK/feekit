@@ -1,0 +1,169 @@
+---
+title: "EU VAT Rates & OSS Guide 2026: Reverse Charge Rules"
+description: "Complete 2026 EU VAT guide covering standard rates across all 27 member states (17% to 27%), the €10,000 One-Stop Shop threshold, and B2B reverse charge math."
+publishedAt: "2026-11-10"
+updatedAt: "2026-11-12"
+author: "Aaradhya Pathak"
+authorTitle: "Founder & Lead Developer"
+readTime: "9 min read"
+category: "Guides"
+tags: ["EU VAT", "VAT Calculator", "Hungary VAT 27%", "One-Stop Shop OSS", "Reverse Charge VAT", "Article 196", "Cross-Border VAT", "VIES"]
+featuredImage: "/blog/images/eu-vat-oss-reverse-charge-guide.webp"
+featured: false
+relatedCalculators:
+  - label: "Hungary VAT Calculator (27% ÁFA)"
+    href: "/tools/vat-calculator/hungary"
+  - label: "Germany MwSt / VAT Calculator (19%)"
+    href: "/tools/vat-calculator/germany"
+  - label: "France TVA Calculator (20%)"
+    href: "/tools/vat-calculator/france"
+  - label: "UK HMRC VAT Calculator (20% & 5%)"
+    href: "/tools/vat-calculator/united-kingdom"
+  - label: "Lemon Squeezy Merchant of Record Calculator"
+    href: "/tools/lemon-squeezy-calculator/standard"
+faq:
+  - question: "Which EU country has the highest and lowest standard VAT rate in 2026?"
+    answer: "Hungary levies the highest standard VAT rate in the European Union at 27% (ÁFA), followed by Finland at 25.5% and Sweden, Denmark, and Croatia at 25%. Luxembourg levies the lowest EU standard VAT rate at 17%, with Malta at 18% and Germany, Romania, and Cyprus at 19%."
+  - question: "When does the €10,000 EU VAT One-Stop Shop (OSS) threshold apply?"
+    answer: "For EU-established businesses making B2C distance sales of goods or digital/TBE services to consumers in other EU member states, the €10,000 annual EU-wide threshold applies. Below €10,000, the seller may charge their home-country VAT rate; once total cross-border EU B2C sales exceed €10,000, VAT must be charged at each buyer's destination rate via a single OSS return. Non-EU sellers generally have zero threshold and must charge destination VAT from their first EU B2C sale."
+  - question: "How does Article 196 EU B2B Reverse Charge work?"
+    answer: "When a VAT-registered business supplies B2B services to a VAT-registered client in another EU member state, Article 196 of the EU VAT Directive shifts the tax liability to the buyer. You verify the client's VAT number on the EU VIES portal, issue a 0% VAT invoice stating 'Reverse Charge', and the buyer self-accounts for output and input VAT on their domestic return."
+  - question: "How do I extract 27% Hungarian VAT or 19% German VAT from a gross total?"
+    answer: "Divide the VAT-inclusive gross total by (1 + VAT rate). For Hungary at 27%, divide Gross by 1.27 to find the net amount, then subtract Net from Gross to isolate VAT. For example, €1,270.00 gross divided by 1.27 equals €1,000.00 net and €270.00 VAT. For Germany at 19%, divide Gross by 1.19."
+  - question: "What is the difference between OSS and IOSS (€150 import scheme)?"
+    answer: "The Union/Non-Union One-Stop Shop (OSS) covers cross-border B2C services and intra-EU distance sales of goods, allowing one quarterly return across all 27 states. The Import One-Stop Shop (IOSS) covers B2C physical goods imported from outside the EU in consignments valued at €150 or less, collecting destination VAT at checkout so parcels clear customs without surprise buyer fees."
+---
+
+Selling digital software, consulting services, or physical products into the European Union means navigating **27 separate national VAT schedules** alongside unified EU cross-border rules.
+
+A single pricing error—like treating a €1,000 B2C sale to Budapest as tax-free instead of applying Hungary's **27% ÁFA**, or forgetting to verify a buyer's VAT ID before issuing a 0% B2B invoice—can turn a profitable quarter into an unexpected back-tax bill plus statutory penalties.
+
+![EU VAT Rates, One-Stop Shop OSS and B2B Reverse Charge Architecture 2026](/blog/images/eu-vat-oss-reverse-charge-guide.webp)
+
+Whether you are an EU freelancer invoicing clients across borders, a UK agency post-Brexit, or a US SaaS merchant selling into Europe, this 2026 guide breaks down the exact country rates, the **€10,000 OSS threshold**, the **Article 196 B2B Reverse Charge**, and the reverse extraction math you need on every invoice.
+
+Model any country's net-to-gross or VAT-inclusive invoice instantly with our [Hungary VAT Calculator (27%)](/tools/vat-calculator/hungary), [Germany VAT Calculator (19%)](/tools/vat-calculator/germany), or [France VAT Calculator (20%)](/tools/vat-calculator/france).
+
+<AdBanner />
+
+---
+
+## 1. EU Standard & Reduced VAT Rates Across All 27 Member States (2026)
+
+Under the **EU VAT Directive (2006/112/EC)**, member states must set a standard VAT rate of at least **15%**, though in practice standard rates in 2026 span from **17% in Luxembourg** to **27% in Hungary**.
+
+| Country | Local Tax Name | Standard Rate | Reduced Rate | Currency | Domestic Registration Threshold |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Hungary** | ÁFA | **27.0%** | 18.0% / 5.0% | EUR / HUF | 12,000,000 HUF (~€30,000) |
+| **Finland** | ALV | **25.5%** | 14.0% / 10.0% | EUR | €20,000 |
+| **Sweden** | Moms | **25.0%** | 12.0% / 6.0% | EUR / SEK | 80,000 SEK (~€7,000) |
+| **Denmark** | Moms | **25.0%** | — | EUR / DKK | 50,000 DKK (~€6,700) |
+| **Croatia** | PDV | **25.0%** | 13.0% / 5.0% | EUR | €40,000 |
+| **Greece** | FPA | **24.0%** | 13.0% / 6.0% | EUR | €10,000 |
+| **Ireland** | VAT | **23.0%** | 13.5% / 9.0% | EUR | €40,000 services / €80,000 goods |
+| **Poland** | VAT | **23.0%** | 8.0% / 5.0% | EUR / PLN | 200,000 PLN (~€45,000) |
+| **Portugal** | IVA | **23.0%** | 13.0% / 6.0% | EUR | €15,000 |
+| **Italy** | IVA | **22.0%** | 10.0% / 5.0% / 4.0% | EUR | €85,000 (Regime Forfettario) |
+| **Slovenia** | DDV | **22.0%** | 9.5% / 5.0% | EUR | €50,000 |
+| **Estonia** | KM | **22.0%** | 9.0% | EUR | €40,000 |
+| **Spain** | IVA | **21.0%** | 10.0% / 4.0% | EUR | €0 (All commercial traders) |
+| **Netherlands** | BTW | **21.0%** | 9.0% | EUR | €20,000 (KOR) |
+| **Belgium** | BTW / TVA | **21.0%** | 12.0% / 6.0% | EUR | €25,000 |
+| **Czech Republic** | DPH | **21.0%** | 12.0% | EUR / CZK | 2,000,000 CZK (~€80,000) |
+| **Latvia** | PVN | **21.0%** | 12.0% / 5.0% | EUR | €50,000 |
+| **Lithuania** | PVM | **21.0%** | 9.0% / 5.0% | EUR | €45,000 |
+| **France** | TVA | **20.0%** | 10.0% / 5.5% | EUR | €36,800 services / €91,900 goods |
+| **Austria** | USt. | **20.0%** | 10.0% / 13.0% | EUR | €35,000 |
+| **Slovakia** | DPH | **20.0%** | 10.0% / 5.0% | EUR | €50,000 |
+| **Bulgaria** | DDS | **20.0%** | 9.0% | EUR / BGN | 100,000 BGN (~€51,000) |
+| **Germany** | MwSt. / USt. | **19.0%** | 7.0% | EUR | €22,000 (Kleinunternehmer) |
+| **Romania** | TVA | **19.0%** | 9.0% / 5.0% | EUR / RON | 300,000 RON (~€60,000) |
+| **Cyprus** | FPA | **19.0%** | 9.0% / 5.0% | EUR | €15,600 |
+| **Malta** | VAT | **18.0%** | 7.0% / 5.0% | EUR | €20,000 – €35,000 |
+| **Luxembourg** | TVA | **17.0%** | 14.0% / 8.0% | EUR | €35,000 |
+
+> **Important UK Distinction:** Following Brexit, the United Kingdom is outside the EU VAT area. Standard UK VAT remains **20%** with a £90,000 domestic registration threshold—detailed separately in our [UK HMRC VAT Guide for Freelancers & Merchants](/blog/uk-vat-guide-freelancers-merchants).
+
+---
+
+## 2. How VAT Pricing Math Works: Adding vs. Extracting VAT
+
+The single most common invoicing mistake occurs when extracting VAT from a **gross (tax-inclusive) receipt**. Multiplying a gross total by the headline VAT rate (e.g., `27%` or `19%`) always overstates the tax because the VAT rate applies to the **net price**, not the gross sum.
+
+```
+Adding VAT (Net → Gross):
+  VAT Amount = Net Price × VAT Rate
+  Gross Total = Net Price × (1 + VAT Rate)
+
+Extracting VAT (Gross → Net):
+  Net Price = Gross Total ÷ (1 + VAT Rate)
+  VAT Amount = Gross Total − Net Price
+```
+
+### Worked Example A: Hungary 27% ÁFA (Net vs. Gross)
+Suppose an agency bills a consumer in Budapest on a **€1,000.00 net** scope of work, or reconciles a **€1,270.00 gross** checkout payment:
+
+- **Forward (Add 27% VAT to €1,000.00 net):**
+  - `VAT = €1,000.00 × 0.27 = €270.00`
+  - `Gross Invoice = €1,000.00 + €270.00 = €1,270.00`
+- **Reverse (Extract 27% VAT from €1,270.00 gross):**
+  - **Wrong method:** `€1,270.00 × 0.27 = €342.90` (overstates VAT by €72.90!)
+  - **Correct statutory method:** `€1,270.00 ÷ 1.27 = €1,000.00` net, leaving **`€270.00` VAT** (an effective `21.26%` of the gross sum).
+
+### Worked Example B: Germany 19% Mehrwertsteuer
+On a **€595.00 gross** receipt inclusive of Germany's standard **19% MwSt.**:
+- `Net Revenue = €595.00 ÷ 1.19 = €500.00`
+- `VAT Payable to BZSt = €595.00 − €500.00 = €95.00`
+
+Check any gross receipt instantly using the [Hungary VAT Calculator](/tools/vat-calculator/hungary) or [Germany VAT Calculator](/tools/vat-calculator/germany).
+
+---
+
+## 3. B2C Cross-Border Sales: The €10,000 EU One-Stop Shop (OSS) Rule
+
+If you sell consumer software, digital downloads, online courses, or physical goods shipped across EU borders to **non-VAT-registered individuals (B2C)**, place-of-supply rules tax the purchase in the **customer's country**, not yours.
+
+### How the €10,000 Threshold Works
+1. **EU-Based Sellers (Union OSS):**
+   - If your total cross-border EU B2C sales of goods and TBE (telecommunications, broadcasting, and electronic) services stay **at or below €10,000** across all 26 other member states combined, you can charge your **own domestic VAT rate** and report it on your home VAT return.
+   - The moment cross-border EU B2C sales exceed **€10,000 in a calendar year**, you must charge the **buyer's local VAT rate** (e.g., 27% for Hungary, 19% for Germany, 20% for France) on every subsequent cross-border order.
+2. **Non-EU Sellers (US, UK, Canadian SaaS & Agencies — Non-Union OSS):**
+   - The €10,000 threshold **does not apply** to businesses established outside the EU.
+   - Non-EU merchants selling digital services directly to EU consumers must charge destination VAT **from their very first €1 sale**.
+   - Registering once under the **Non-Union OSS** in a single EU member state (such as Ireland for English portals) lets you collect destination VAT for all 27 EU countries and file one consolidated quarterly OSS return instead of holding 27 separate VAT registrations.
+
+> **Alternative for SaaS & Digital Creators:** Using a **Merchant of Record (MoR)** like Lemon Squeezy or Paddle shifts the legal VAT collection and OSS remittance onto the platform—compare MoR costs in our [Gumroad vs Lemon Squeezy Fees Guide](/blog/gumroad-vs-lemon-squeezy-fees-2026) and [Lemon Squeezy Fee Calculator](/tools/lemon-squeezy-calculator/standard).
+
+---
+
+## 4. B2B Cross-Border Sales: Article 196 Reverse Charge & VIES Verification
+
+Business-to-business (**B2B**) cross-border invoicing inside the EU works completely differently from B2C sales.
+
+Under **Article 196 of the EU VAT Directive**, when you supply services to a VAT-registered business established in another EU member state, you do **not** charge VAT on the invoice. Instead, the tax obligation reverses onto your client.
+
+### 4-Step B2B Reverse Charge Checklist
+1. **Collect the Client's VAT ID:** Obtain the customer's EU VAT registration number before issuing the invoice (for example `DE123456789` for Germany or `FRXX999999999` for France).
+2. **Verify on VIES Before Invoicing:** Run the VAT ID through the European Commission's official **VIES (VAT Information Exchange System)** database and save a timestamped PDF or consultation number as audit proof. Without a valid VIES check, tax authorities can reclassify the sale as B2C and bill you for the missing VAT.
+3. **Charge 0% VAT with Mandatory Wording:** Set VAT to `0%` and print **"Reverse Charge — Article 196 EU VAT Directive (VAT to be accounted for by the recipient)"** along with both your VAT ID and the client's VAT ID.
+4. **Report on Your EC Sales List:** Log the net B2B supply on your domestic VAT return and **EC Sales List** (Zusammenfassende Meldung in Germany, DES in France, or equivalent national filing).
+
+---
+
+## 5. Physical Goods Imports & IOSS (€150 Threshold)
+
+If you ship low-value physical e-commerce parcels directly from outside the EU (such as the US, UK, or China) to EU consumers:
+
+- **Consignments ≤ €150:** The **Import One-Stop Shop (IOSS)** lets you collect the customer's local VAT at checkout (e.g., 21% in Spain or 23% in Ireland) so the parcel bypasses import VAT collection delays at customs.
+- **Consignments > €150:** IOSS cannot be used; normal customs clearance, import VAT, and applicable customs duties apply at the border (either Delivery Duty Paid via courier or billed to the customer upon arrival).
+
+---
+
+## Summary: Which EU VAT Workflow Applies to You?
+
+- **Selling B2B to an EU company with a valid VIES VAT number:** Issue a `0%` Reverse Charge invoice referencing Article 196.
+- **Selling B2C digital services from outside the EU:** Register for **Non-Union OSS** (zero threshold) or route checkout through a Merchant of Record.
+- **Selling B2C from inside the EU:** Monitor the **€10,000 EU-wide threshold**; once crossed, enroll in **Union OSS** and bill each country's destination rate.
+
+Validate every invoice line item with our [UK & EU VAT Calculators](/tools/vat-calculator) or compare cross-border merchant conversion costs in our [UK HMRC VAT Guide](/blog/uk-vat-guide-freelancers-merchants) and [Stripe International Fees Guide](/blog/stripe-international-uk-eu-japan-fees-guide-2026).
+

@@ -58,6 +58,14 @@ export const metadata: Metadata = {
     siteName: 'FeeKit',
     locale: 'en_US',
     type: 'article',
+    images: [
+      {
+        url: 'https://www.usefeekit.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'FreshBooks for freelancers — invoicing and accounting guide by FeeKit',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -65,6 +73,7 @@ export const metadata: Metadata = {
     description:
       'Neutral informational guide exploring FreshBooks invoicing, expense tracking, and accounting tools for independent contractors.',
     site: '@usefeekit',
+    images: ['https://www.usefeekit.com/og-image.png'],
   },
 };
 
@@ -109,11 +118,22 @@ export default function FreshBooksGuidePage() {
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://www.usefeekit.com/#organization',
       name: 'FeeKit',
       url: 'https://www.usefeekit.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.usefeekit.com/logo-icon.png',
+        width: 265,
+        height: 265,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://www.usefeekit.com/guides/freshbooks-for-freelancers',
     },
     datePublished: '2026-01-15',
-    dateModified: '2026-01-20',
+    dateModified: '2026-01-15',
   };
 
   const freshbooksFaqs = [
@@ -140,7 +160,7 @@ export default function FreshBooksGuidePage() {
   ];
 
   return (
-    <div className="space-y-8 pb-14 animate-in fade-in duration-200">
+    <div className="space-y-8 pb-14 animate-fade-in">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

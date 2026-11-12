@@ -24,6 +24,7 @@ import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { ProfitMarginCalculator } from '@/components/calculators/ProfitMarginCalculator';
 import { FaqSchema } from '@/components/seo/FaqSchema';
+import { TOOL_COUNT_LABEL_PLUS, FREELANCE_ROLE_COUNT } from '@/lib/site-stats';
 
 export const metadata: Metadata = {
   title: 'Small Business Tools & Calculators | FeeKit',
@@ -61,6 +62,14 @@ export const metadata: Metadata = {
     siteName: 'FeeKit',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.usefeekit.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'FeeKit small business tools and financial calculators',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -68,6 +77,7 @@ export const metadata: Metadata = {
     description:
       'Free financial calculators, invoicing utilities, tax models, and guides for freelancers, agencies, and small businesses.',
     site: '@usefeekit',
+    images: ['https://www.usefeekit.com/og-image.png'],
   },
 };
 
@@ -109,7 +119,7 @@ export default function SmallBusinessHubPage() {
     {
       question: 'What free financial tools does FeeKit provide for small businesses?',
       answer:
-        'FeeKit provides 199+ dedicated, free financial calculators across payment processing fee modeling (Stripe, PayPal, Square, Wise), US state sales tax, UK VAT, freelance hourly and day rates, landed cost e-commerce profit margins, and a client-side PDF invoice generator.',
+        `FeeKit provides ${TOOL_COUNT_LABEL_PLUS} dedicated, free financial calculators across payment processing fee modeling (Stripe, PayPal, Square, Wise), US state sales tax, UK VAT, freelance hourly and day rates, landed cost e-commerce profit margins, and a client-side PDF invoice generator.`,
     },
     {
       question: 'How does FeeKit protect sensitive business financial data?',
@@ -129,7 +139,7 @@ export default function SmallBusinessHubPage() {
   ];
 
   return (
-    <div className="space-y-8 pb-14 animate-in fade-in duration-200">
+    <div className="space-y-8 pb-14 animate-fade-in">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -376,7 +386,7 @@ export default function SmallBusinessHubPage() {
           >
             <div className="font-bold text-sm text-slate-900">1099 Freelance Rate Calculator</div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Derive minimum hourly and day rates across 27 tech and creative professions factoring in SECA and overhead.
+              Derive minimum hourly and day rates across {FREELANCE_ROLE_COUNT} tech and creative professions factoring in SECA and overhead.
             </p>
           </Link>
 

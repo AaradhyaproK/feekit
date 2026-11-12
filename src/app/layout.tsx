@@ -16,11 +16,64 @@
  */
 
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
-import 'katex/dist/katex.min.css';
 import { AppShell } from '@/components/layout/AppShell';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { SiteSchema } from '@/components/seo/SiteSchema';
+
+const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-1291898061670715';
+
+// EEA member states + UK + Switzerland for Google Consent Mode v2 regional default.
+const CONSENT_RESTRICTED_REGIONS =
+  "['AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MT','NL','NO','PL','PT','RO','SE','SI','SK']";
+
+const CONSENT_INIT_SCRIPT = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+try {
+  var saved = window.localStorage.getItem('feekit_cookie_consent');
+  if (saved === 'essential') {
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
+  } else if (saved === 'accepted') {
+    gtag('consent', 'default', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+  } else {
+    gtag('consent', 'default', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      region: ${CONSENT_RESTRICTED_REGIONS},
+      wait_for_update: 500
+    });
+  }
+} catch (e) {
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    region: ${CONSENT_RESTRICTED_REGIONS},
+    wait_for_update: 500
+  });
+}
+`.trim();
 
 export const viewport: Viewport = {
   themeColor: '#0057FF',
@@ -82,11 +135,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/logo-icon.png', sizes: '256x256', type: 'image/png' },
+      { url: '/logo-icon.png', sizes: '265x265', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' },
     ],
     shortcut: '/logo-icon.png',
-    apple: [{ url: '/logo-icon.png', sizes: '256x256', type: 'image/png' }],
+    apple: [{ url: '/logo-icon.png', sizes: '265x265', type: 'image/png' }],
   },
   robots: {
     index: true,
@@ -128,11 +181,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/logo-icon.png" sizes="256x256" />
         <link rel="shortcut icon" href="/logo-icon.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
+          rel="preload"
+          href="/fonts/inter-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
         />
 
         {/* Mobile Chrome & Safari Web App Chrome */}
@@ -144,18 +198,25 @@ export default function RootLayout({
         {/* Shopify / Impact.com Affiliate Site Verification */}
         <meta name="impact-site-verification" {...({ value: 'c974a8df-bc8a-4870-912e-d90250862fd9' } as any)} content="c974a8df-bc8a-4870-912e-d90250862fd9" />
 
-        {/* Google AdSense Verification & Auto Ads Script */}
+        {/* Google Consent Mode v2 regional default (executes synchronously in head) */}
         <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1291898061670715"
-          crossOrigin="anonymous"
+          id="google-consent-default"
+          dangerouslySetInnerHTML={{ __html: CONSENT_INIT_SCRIPT }}
         />
-        {/* US and UK Regional indexing hints */}
-        <meta name="geo.region" content="US" />
-        <meta httpEquiv="content-language" content="en-US, en-GB" />
+
+        {/* NOTE: the geo.region / content-language meta tags are set per page
+            from src/lib/seo/geo.ts so a Germany VAT calculator declares DE
+            rather than inheriting a hardcoded US value. Declaring them here
+            as well produced two conflicting geo.region tags on every page. */}
       </head>
       <body className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-500/20 selection:text-blue-900">
         <GoogleAnalytics />
+        <Script
+          id="adsense-loader"
+          strategy="afterInteractive"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossOrigin="anonymous"
+        />
         <SiteSchema />
         <AppShell>{children}</AppShell>
       </body>

@@ -87,7 +87,7 @@ export function NewsletterSignup({
         {/* Right: Email Input Form or Success State */}
         <div className="w-full lg:w-auto shrink-0">
           {status === 'success' ? (
-            <div className="inline-flex items-center gap-2.5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs sm:text-sm font-semibold text-emerald-800 shadow-2xs animate-in fade-in">
+            <div className="inline-flex items-center gap-2.5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs sm:text-sm font-semibold text-emerald-800 shadow-2xs animate-fade-in">
               <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
               <span>You&apos;re subscribed! You&apos;ll receive our next rate update.</span>
             </div>

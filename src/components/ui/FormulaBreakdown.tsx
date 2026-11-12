@@ -1,6 +1,12 @@
 import React from 'react';
 import { Sigma, Info } from 'lucide-react';
 import katex from 'katex';
+// The KaTeX stylesheet is imported here rather than in the root layout.
+// It is 26KB of CSS that was being shipped on all 268 pages, but the only
+// component that renders KaTeX is this one, which appears solely on the
+// tool pages. Next.js scopes component-level CSS imports to the routes that
+// actually use the component.
+import 'katex/dist/katex.min.css';
 
 interface FormulaBreakdownProps {
   formulaLatex: string;

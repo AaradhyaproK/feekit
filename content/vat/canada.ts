@@ -23,7 +23,8 @@ export const canadaVatContent: PageContent = {
 
 1. **Harmonized Sales Tax (HST) Provinces (Single Tax Collected by CRA)**:
    - **Ontario**: **13.0% HST** (5.0% federal GST + 8.0% provincial component).
-   - **Nova Scotia, New Brunswick, Newfoundland and Labrador, Prince Edward Island**: **15.0% HST** (5.0% federal GST + 10.0% provincial component).
+   - **Nova Scotia**: **14.0% HST** (5.0% federal GST + 9.0% provincial component, effective 1 April 2025).
+   - **New Brunswick, Newfoundland and Labrador, Prince Edward Island**: **15.0% HST** (5.0% federal GST + 10.0% provincial component).
 2. **Dual-Tax Provinces (Separate GST and Provincial Sales Tax)**:
    - **Quebec**: **14.975% combined** (5.0% federal GST + 9.975% Quebec Sales Tax / QST administered by Revenu Québec).
    - **British Columbia**: **12.0% combined** (5.0% federal GST + 7.0% Provincial Sales Tax / PST).

@@ -54,7 +54,7 @@ export function EmbedCalculatorModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="embed-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-fade-in"
     >
       <div className="relative w-full max-w-2xl rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 shadow-2xl space-y-5">
         {/* Modal Header */}

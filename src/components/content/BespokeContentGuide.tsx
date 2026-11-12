@@ -31,8 +31,12 @@ export function BespokeContentGuide({ content, inArticleSlot }: BespokeContentGu
           <BookOpen className="h-4 w-4" />
           <span>Verified Statutory Analysis &amp; Technical Guide</span>
         </div>
+        {/* The H1 is already rendered by the page shell above this component.
+            Repeating it verbatim as the first H2 created a duplicated
+            heading on all 163 bespoke pages, so the banner now opens with a
+            descriptive heading instead. */}
         <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          {content.h1 || title}
+          {title.replace(/\s*\|\s*FeeKit\s*$/i, '')}
         </h2>
         <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-4xl">
           {overview}

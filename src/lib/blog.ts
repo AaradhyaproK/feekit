@@ -106,7 +106,7 @@ export function getAllPosts(): BlogPost[] {
         featuredImage:
           typeof data.featuredImage === 'string'
             ? data.featuredImage
-            : '/blog/images/stripe-vs-paypal.png',
+            : '/blog/images/stripe-vs-paypal.webp',
         featured: Boolean(data.featured),
         relatedCalculators: Array.isArray(data.relatedCalculators)
           ? (data.relatedCalculators as RelatedCalculator[])
@@ -173,7 +173,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent {
     featuredImage:
       typeof data.featuredImage === 'string'
         ? data.featuredImage
-        : '/blog/images/stripe-vs-paypal.png',
+        : '/blog/images/stripe-vs-paypal.webp',
     featured: Boolean(data.featured),
     relatedCalculators: Array.isArray(data.relatedCalculators)
       ? (data.relatedCalculators as RelatedCalculator[])

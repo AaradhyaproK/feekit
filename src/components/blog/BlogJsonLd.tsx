@@ -7,9 +7,13 @@ interface BlogJsonLdProps {
 
 export function BlogJsonLd({ post }: BlogJsonLdProps) {
   const articleUrl = `https://www.usefeekit.com/blog/${post.slug}`;
-  const imageUrl = post.featuredImage.startsWith('http')
-    ? post.featuredImage
-    : `https://www.usefeekit.com${post.featuredImage}`;
+  // The OG/JSON-LD image is the generated 1200x630 JPEG. Social scrapers do
+  // not reliably render WebP, and the declared dimensions must match the
+  // real file or the rich result is rejected.
+  const ogImagePath = post.featuredImage.replace(/\.webp$/i, '.jpg');
+  const imageUrl = ogImagePath.startsWith('http')
+    ? ogImagePath
+    : `https://www.usefeekit.com${ogImagePath}`;
 
   // 1. Exact Article Schema enhanced for Google Rich Results
   const articleSchema = {
@@ -26,8 +30,9 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
     keywords: post.tags.join(', '),
     author: {
       '@type': 'Person',
-      name: 'Aaradhya Pathak',
-      jobTitle: 'Founder & Lead Developer',
+      '@id': 'https://www.usefeekit.com/#person',
+      name: post.author || 'Aaradhya Pathak',
+      jobTitle: post.authorTitle || 'Founder & Lead Developer',
       email: 'mailto:aaradhya@usefeekit.com',
       url: 'https://www.usefeekit.com/about',
       sameAs: [
@@ -40,19 +45,21 @@ export function BlogJsonLd({ post }: BlogJsonLdProps) {
     },
     reviewedBy: {
       '@type': 'Person',
+      '@id': 'https://www.usefeekit.com/#person',
       name: 'Aaradhya Pathak',
       jobTitle: 'Founder & Lead Developer',
       url: 'https://www.usefeekit.com/about',
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://www.usefeekit.com/#organization',
       name: 'FeeKit',
       url: 'https://www.usefeekit.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.usefeekit.com/logo.png',
-        width: 512,
-        height: 512,
+        url: 'https://www.usefeekit.com/logo-icon.png',
+        width: 265,
+        height: 265,
       },
     },
     mainEntityOfPage: {

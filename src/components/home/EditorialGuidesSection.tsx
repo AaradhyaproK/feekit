@@ -7,6 +7,7 @@ import blogManifest from '@/data/blog-manifest.json';
 
 const CATEGORY_COLORS: Record<string, string> = {
   'Payment Fees': 'border-blue-200 bg-blue-50 text-blue-700',
+  'Payment Processing': 'border-rose-200 bg-rose-50 text-rose-700',
   Ecommerce: 'border-cyan-200 bg-cyan-50 text-cyan-700',
   Invoicing: 'border-violet-200 bg-violet-50 text-violet-700',
   'Small Business': 'border-emerald-200 bg-emerald-50 text-emerald-700',

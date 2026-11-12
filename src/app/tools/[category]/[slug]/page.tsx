@@ -27,18 +27,20 @@ import { InvoiceGenerator } from '@/components/calculators/InvoiceGenerator';
 import { US_STATE_SALES_TAX_RATES, GATEWAY_RATES, STATUTORY_TAX_RATES } from '@/data/rates';
 import { isIndexableTool } from '@/lib/seo/indexing-policy';
 import Link from 'next/link';
-import { ArrowLeft, ShieldCheck, Info, Clock, Calendar, UserCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ShieldCheck, Info, Clock, Calendar, UserCheck, BookOpen } from 'lucide-react';
 import { getCustomSeoMetadata } from '@/lib/seo/meta-overrides';
+import { getRelatedBlogPosts } from '@/lib/blog-links';
 import {
   brandDescription,
   brandTitle,
   buildDescription,
   buildTitle,
   descriptionFiller,
-  localeForRegion,
   stripTitleNoise,
   tidy,
 } from '@/lib/seo/meta-builder';
+import { resolveGeo } from '@/lib/seo/geo';
+import { CATEGORY_NAMES } from '@/lib/seo/category-names';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { EmbedButton } from '@/components/embed/EmbedButton';
@@ -140,19 +142,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!item && !bespoke) {
     return {
       title: 'Tool Not Found — FeeKit',
+      robots: { index: false, follow: true },
     };
   }
 
-  const isUK = item?.geoRegion === 'UK';
+  const geo = resolveGeo({
+    geoRegion: item?.geoRegion,
+    stateName: item?.stateName,
+    slug,
+    jurisdictionCode: item?.jurisdictionCode,
+    currencySymbol: item?.currencySymbol,
+  });
 
-  // Raw concept -> SERP-ready metadata. Bespoke content wins over hand-written
-  // overrides, which win over the auto-generated programmatic title.
+  // Raw concept -> SERP-ready metadata. A hand-written override is applied
+  // first because it was authored for that exact page; bespoke programmatic
+  // content is next; the auto-generated matrix title is the fallback.
   const resolved = resolveToolSeo(category, slug, item);
   const { core, title, description } = resolved;
 
   const isIndexable = isIndexableTool(category, slug);
   const canonical = `https://www.usefeekit.com/tools/${category}/${slug}`;
-  const locale = localeForRegion(item?.geoRegion);
 
   return {
     title,
@@ -175,18 +184,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : { index: false, follow: true },
     alternates: {
       canonical,
-      languages: {
-        [locale]: canonical,
-        'x-default': canonical,
-      },
     },
     openGraph: {
       title,
       description,
       url: canonical,
       siteName: 'FeeKit',
-      locale: isUK ? 'en_GB' : 'en_US',
-      alternateLocale: isUK ? ['en_US'] : ['en_GB'],
+      locale: geo.openGraphLocale,
+      alternateLocale: geo.openGraphLocale === 'en_US' ? ['en_GB', 'en_CA'] : ['en_US'],
       type: 'website',
       images: [
         {
@@ -204,8 +209,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: ['https://www.usefeekit.com/og-image.png'],
     },
     other: {
-      'geo.region': isUK ? 'GB' : (item.geoRegion === 'CA' ? 'CA' : 'US'),
-      'content-language': isUK ? 'en-GB' : (item.geoRegion === 'CA' ? 'en-CA' : 'en-US'),
+      'geo.region': geo.geoRegion,
+      'content-language': geo.contentLanguage,
     },
   };
 }
@@ -251,9 +256,28 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
     };
   });
 
-  const relatedTools = getMatrixItems()
-    .filter((x) => x.category === category && x.slug !== slug)
-    .slice(0, 6);
+  const allItems = getMatrixItems();
+
+  // Sibling tools in the same category.
+  const siblingTools = allItems.filter((x) => x.category === category && x.slug !== slug);
+
+  // Single-tool categories have no siblings. Fall back to the highest-value
+  // tools from other categories so no tool page is left with zero internal
+  // links (an orphan page has no path for a crawler to follow).
+  const relatedTools = siblingTools.length > 0
+    ? siblingTools.slice(0, 6)
+    : allItems
+        .filter((x) => x.category !== category && x.slug !== slug)
+        .filter((x) =>
+          ['stripe-fee-calculator', 'paypal-fee-calculator', 'square-fee-calculator', 'freelance-rate-calculator', 'ecommerce-profit-calculator', 'sales-tax-calculator'].includes(
+            x.category
+          )
+        )
+        .slice(0, 6);
+
+  // Blog guides that genuinely match this tool category. These are the
+  // long-form explainers behind the numbers the calculator produces.
+  const relatedBlogPosts = getRelatedBlogPosts(category);
 
   const bespoke = getPageContent(category, slug);
   const resolvedSeo = resolveToolSeo(category, slug, item);
@@ -316,7 +340,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
     : 'October 2026';
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="space-y-6 animate-fade-in">
       {/* Schema.org SoftwareApplication + spatialCoverage + isBasedOn citation + BreadcrumbList */}
       <GeoJsonLd
         title={seoTitle}
@@ -324,7 +348,10 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
         url={`https://www.usefeekit.com/tools/${category}/${slug}`}
         region={item.geoRegion || 'US'}
         stateName={item.stateName}
+        slug={slug}
+        currencySymbol={item.currencySymbol}
         category={category}
+        categoryName={CATEGORY_NAMES[category]?.title}
         sourceUrl={dataSource.sourceUrl}
         sourceName={dataSource.authorityName}
         dateModified={lastVerifiedRaw}
@@ -332,7 +359,20 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
 
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3.5 sm:px-0">
-        <BackButton fallbackHref={`/tools/${category}`} label="Back to previous page" />
+        <div className="flex items-center gap-3">
+          <BackButton fallbackHref={`/tools/${category}`} label="Back to previous page" />
+          {/* Crawlable link back to the category hub. The BackButton is a
+              <button>, so without this every leaf page was orphaned from
+              its parent hub as far as link equity was concerned. */}
+          <Link
+            href={`/tools/${category}`}
+            prefetch={false}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-600 hover:border-blue-400 hover:text-blue-600 transition-colors"
+          >
+            <span className="capitalize">{category.replace(/-/g, ' ')}</span>
+            <span className="text-slate-400">hub</span>
+          </Link>
+        </div>
         <div className="w-full sm:w-72 md:w-80">
           <FastSearchBar placeholder="Search tools..." />
         </div>
@@ -365,6 +405,7 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
             <div className="flex items-center gap-2">
               <Link
                 href="/methodology"
+                prefetch={false}
                 className="hidden sm:inline-flex items-center gap-1 rounded-lg border border-slate-200/80 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:text-blue-600 hover:border-slate-300 transition-colors shadow-2xs"
                 title="Review our documented mathematical and statutory calculation methodology"
               >
@@ -654,6 +695,45 @@ export default async function ProgrammaticToolPage({ params }: PageProps) {
                   </div>
                   <p className="text-[11px] text-slate-500 truncate mt-1">
                     {rel.subtitle}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related FeeKit Guides: passes editorial authority from the blog
+            cluster into the calculator pages and gives readers the long-form
+            explanation of the figures above. */}
+        {relatedBlogPosts.length > 0 && (
+          <section className="pt-8 sm:pt-10 border-t border-slate-200/80 space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-800">
+              <BookOpen className="h-4 w-4 text-blue-600" />
+              <span>Related FeeKit Guides</span>
+            </div>
+            <p className="text-xs text-slate-500">
+              In-depth FeeKit guides that explain the statutory rules, gateway
+              schedules, and worked examples behind these numbers.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {relatedBlogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={post.href}
+                  prefetch={false}
+                  className="group rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-blue-400 hover:shadow-xs"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-700">
+                      {post.category}
+                    </span>
+                    <ArrowRight className="h-3 w-3 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                  </div>
+                  <div className="mt-2 text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {post.title}
+                  </div>
+                  <p className="mt-1 text-[11px] leading-relaxed text-slate-500 line-clamp-3">
+                    {post.description}
                   </p>
                 </Link>
               ))}

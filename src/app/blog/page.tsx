@@ -7,6 +7,7 @@ import { BlogIndexClient } from '@/components/blog/BlogIndexClient';
 import { BookOpen, ShieldCheck, ArrowRight } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
+import { TOOL_COUNT_LABEL_PLUS } from '@/lib/site-stats';
 
 export const metadata: Metadata = {
   title: 'FeeKit Blog — Payment Fee & Tax Guides for Merchants',
@@ -46,6 +47,14 @@ export const metadata: Metadata = {
     siteName: 'FeeKit',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.usefeekit.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'FeeKit Blog — payment fee and tax guides for merchants',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -54,6 +63,7 @@ export const metadata: Metadata = {
       'In-depth merchant fee breakdowns, 50-state US sales tax nexus rules, UK HMRC VAT compliance guides and 1099 freelance tax strategies, updated for 2026.',
     creator: '@usefeekit',
     site: '@usefeekit',
+    images: ['https://www.usefeekit.com/og-image.png'],
   },
 };
 
@@ -77,11 +87,34 @@ export default function BlogIndexPage() {
     })),
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.usefeekit.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://www.usefeekit.com/blog',
+      },
+    ],
+  };
+
   return (
     <div className="space-y-8 pb-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3.5 sm:px-0">
@@ -156,7 +189,7 @@ export default function BlogIndexPage() {
             Need real-time calculation on your numbers?
           </h3>
           <p className="mt-1 text-xs sm:text-sm text-slate-600">
-            Use our 199+ interactive calculators for Stripe, PayPal, US sales tax by state, and UK VAT.
+            Use our {TOOL_COUNT_LABEL_PLUS} interactive calculators for Stripe, PayPal, US sales tax by state, and UK VAT.
           </p>
         </div>
         <Link

@@ -8340,7 +8340,7 @@
     {
       "category": "freelance-rate-calculator",
       "slug": "business-consultant",
-      "title": "Management & Strategy Consultant Day Rate",
+      "title": "Strategy Consultant Day Rate Calculator",
       "shortTitle": "Strategy Consultant Rate",
       "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Strategy Consultants.",
       "suiteType": "freelance",
@@ -8505,7 +8505,7 @@
     {
       "category": "freelance-rate-calculator",
       "slug": "photographer",
-      "title": "Commercial & Editorial Photographer Day Rate",
+      "title": "Commercial Photographer Day Rate Calculator",
       "shortTitle": "Commercial Photographer Rate",
       "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Commercial Photographers.",
       "suiteType": "freelance",
@@ -9939,7 +9939,7 @@
       "defaultAmount": 500,
       "currencySymbol": "C$",
       "formulaLatex": "\\text{Gross} = \\text{Net} \\times (1 + \\text{Tax Rate}) \\quad | \\quad \\text{Net} = \\frac{\\text{Gross}}{1 + \\text{Tax Rate}}",
-      "formulaExplanation": "In Canada, the CRA levies a 5% federal GST. In participating provinces (Ontario 13%, Nova Scotia, New Brunswick, PEI, and Newfoundland & Labrador 15%), it is combined into a single Harmonized Sales Tax (HST). Businesses with worldwide taxable supplies exceeding C,000 over four consecutive calendar quarters must register with the CRA.",
+      "formulaExplanation": "In Canada, the CRA levies a 5% federal GST. In participating provinces (Ontario 13%, Nova Scotia 14%, New Brunswick, PEI, and Newfoundland & Labrador 15%), it is combined into a single Harmonized Sales Tax (HST). Businesses with worldwide taxable supplies exceeding C$30,000 over four consecutive calendar quarters must register with the CRA.",
       "sampleTiers": [
         {
           "amount": 50,
@@ -9965,11 +9965,11 @@
       "faqs": [
         {
           "question": "What is the CRA GST/HST registration threshold in Canada?",
-          "answer": "The mandatory registration threshold is C,000 in gross revenue from taxable supplies across a single calendar quarter or four consecutive quarters."
+          "answer": "The mandatory registration threshold is C$30,000 in gross revenue from taxable supplies across a single calendar quarter or four consecutive quarters."
         },
         {
           "question": "What are the current GST/HST rates across Canadian provinces?",
-          "answer": "Federal GST is 5% (AB, BC, MB, NT, NU, QC, SK, YT). HST is 13% in Ontario and 15% in New Brunswick, Newfoundland and Labrador, Nova Scotia, and Prince Edward Island."
+          "answer": "Federal GST is 5% (AB, BC, MB, NT, NU, QC, SK, YT). HST is 13% in Ontario, 14% in Nova Scotia (from April 2025), and 15% in New Brunswick, Newfoundland and Labrador, and Prince Edward Island."
         }
       ],
       "rate": 5,

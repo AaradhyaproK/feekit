@@ -50,8 +50,8 @@ const canadianProvinces = [
     slug: 'nova-scotia',
     name: 'Nova Scotia',
     taxType: 'HST',
-    rate: 15,
-    notes: 'Nova Scotia levies a 15% Harmonized Sales Tax (HST) on commercial taxable transactions.',
+    rate: 14,
+    notes: 'Nova Scotia levies a 14% Harmonized Sales Tax (HST, reduced from 15% on 1 April 2025).',
     threshold: '$30,000 CAD',
   },
   {

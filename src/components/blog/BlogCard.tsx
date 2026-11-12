@@ -15,6 +15,7 @@ const CATEGORY_COLORS: Record<BlogCategory, { bg: string; text: string; border: 
   'Business Finance': { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
   'Accounting Software': { bg: 'bg-teal-50', text: 'text-teal-700', border: 'border-teal-200' },
   'Payment Fees': { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200' },
+  'Payment Processing': { bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200' },
   'US Sales Tax': { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
   'UK VAT': { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200' },
   '1099 & Freelance': { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },

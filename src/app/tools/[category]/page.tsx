@@ -78,10 +78,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: {
       canonical,
-      languages: {
-        'en-US': canonical,
-        'x-default': canonical,
-      },
     },
     openGraph: {
       title,
@@ -130,17 +126,15 @@ export default async function CategoryPage({ params }: Props) {
   const defaultSlug = categoryMeta?.defaultSlug;
   const primaryTool = (defaultSlug && tools.find((t) => t.slug === defaultSlug)) || tools[0];
 
-  // Hub-level FAQ block (written for the head term this hub targets) plus the
-  // flagship tool's own FAQs. This is what makes the hub eligible for Google
-  // FAQ rich results on queries like "sales tax calculator" or "stripe fees".
+  // Hub-level FAQ block, written specifically for the head term this hub
+  // targets. Every category now has its own set - previously 13 hubs had
+  // none and silently fell back to their flagship tool's FAQs, which emitted
+  // a byte-identical FAQPage schema on the hub and on the leaf page.
   const hubFaqs = getCategoryFaqs(category);
-  const allFaqs =
-    hubFaqs.length > 0
-      ? hubFaqs
-      : (primaryTool?.faqs || []).map((f: any) => ({ question: f.question, answer: f.answer }));
+  const allFaqs = hubFaqs;
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="space-y-6 animate-fade-in">
       {/* Schema.org CollectionPage + ItemList + BreadcrumbList */}
       <CategoryJsonLd
         category={category}
@@ -182,6 +176,27 @@ export default async function CategoryPage({ params }: Props) {
               {desc}
             </p>
           </div>
+
+          {/* Category-specific intro copy. The single-tool hubs were only
+              266-300 words of body content, which is far too thin to compete
+              for the head terms they target. */}
+          {categoryMeta?.intro && (
+            <div className="space-y-4">
+              <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+                {categoryMeta.intro}
+              </p>
+              {categoryMeta.highlights && categoryMeta.highlights.length > 0 && (
+                <ul className="space-y-2 text-sm text-slate-700 max-w-3xl">
+                  {categoryMeta.highlights.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
         </header>
 
         {/* AdSense Leaderboard Unit */}

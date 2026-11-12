@@ -13,6 +13,7 @@ import {
   Sparkles,
   CheckCircle2,
 } from 'lucide-react';
+import { TOOL_COUNT_LABEL_PLUS, SITEMAP_URL_COUNT } from '@/lib/site-stats';
 
 interface FooterProps {
   onOpenCommandPalette: () => void;
@@ -39,7 +40,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-medium text-slate-700 border border-slate-200">
                   <Sparkles className="h-3 w-3 text-slate-500" />
-                  199+ Financial Tools
+                  {TOOL_COUNT_LABEL_PLUS} Financial Tools
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-medium text-slate-700 border border-slate-200">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -69,6 +70,10 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                   width={250}
                   height={54}
                   className="h-10 w-auto"
+                  /* Below the fold on every page - loading it eagerly
+                     competed with the LCP element for bandwidth. */
+                  loading="lazy"
+                  decoding="async"
                 />
               </a>
 
@@ -76,11 +81,11 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 type="button"
                 onClick={onOpenCommandPalette}
                 className="tap-spring inline-flex items-center justify-between sm:justify-start gap-3 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs text-slate-600 hover:border-blue-500 hover:text-slate-900 hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 transition-all cursor-pointer shadow-2xs"
-                aria-label="Open search palette to search 199+ calculators"
+                aria-label={`Open search palette to search ${TOOL_COUNT_LABEL_PLUS} calculators`}
               >
                 <div className="flex items-center gap-2.5">
                   <Search className="h-4 w-4 text-slate-500 shrink-0" />
-                  <span className="font-medium text-slate-700">Search 199+ calculators...</span>
+                  <span className="font-medium text-slate-700">Search {TOOL_COUNT_LABEL_PLUS} calculators...</span>
                 </div>
                 <kbd className="hidden sm:inline-block rounded bg-slate-100 px-2 py-0.5 font-mono text-[10px] font-semibold text-slate-500 border border-slate-200">
                   ⌘K
@@ -282,6 +287,15 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     Lemon Squeezy SaaS MoR (5% + 50¢)
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    prefetch={false}
+                    href="/tools/authorize-net-calculator/standard-merchant"
+                    className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
+                  >
+                    Authorize.Net Fee Hub (All-in-One vs Gateway)
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -357,6 +371,33 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                 <li>
                   <Link
                     prefetch={false}
+                    href="/tools/roi-calculator/standard"
+                    className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
+                  >
+                    ROI &amp; Annualized CAGR Calculator
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    prefetch={false}
+                    href="/tools/uk-ir35-calculator/contractor"
+                    className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
+                  >
+                    UK IR35 Inside vs Outside Take-Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    prefetch={false}
+                    href="/compare"
+                    className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
+                  >
+                    Accounting Software Comparisons
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    prefetch={false}
                     href="/guides/freshbooks-for-freelancers"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
@@ -369,7 +410,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     href="/blog"
                     className="inline-block py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    Business Finance Knowledge Base (25+ Guides)
+                    Business Finance Knowledge Base (32 Guides)
                   </Link>
                 </li>
               </ul>
@@ -469,7 +510,7 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 py-0.5 text-xs text-slate-600 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded transition-colors"
                   >
-                    <span>XML Sitemap (274+ Pages)</span>
+                    <span>XML Sitemap ({SITEMAP_URL_COUNT}+ Pages)</span>
                     <ExternalLink className="h-3 w-3 text-slate-400" aria-hidden="true" />
                     <span className="sr-only">(opens in new window)</span>
                   </a>

@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, Calculator, ArrowRight, X } from 'lucide-react';
-import toolsIndex from '@/data/tools-index.json';
+import type { ToolIndexEntry } from '@/lib/tools-index';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -14,16 +15,48 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [matrixList, setMatrixList] = useState<ToolIndexEntry[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
+  const loadedRef = useRef(false);
+
+  /**
+   * The tool index is fetched the first time the palette opens, not on page
+   * load. It used to be a static import in the global AppShell, so all 268
+   * pages shipped it in the initial bundle.
+   */
+  const ensureLoaded = React.useCallback(async () => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+    try {
+      const mod = await import('@/data/tools-index.json');
+      setMatrixList(mod.default as unknown as ToolIndexEntry[]);
+    } catch {
+      loadedRef.current = false;
+    }
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
+      ensureLoaded();
       setTimeout(() => inputRef.current?.focus(), 50);
     } else {
       setQuery('');
       setSelectedIndex(0);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
+
+  // Google sitelinks searchbox support: /?q=<term> opens the palette
+  // pre-filled with the query. Read from `window` rather than
+  // `useSearchParams()` so the component does not force a CSR bailout.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) {
+      setQuery(q);
+      ensureLoaded();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,8 +77,6 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  const matrixList = toolsIndex;
-
   const filteredItems = React.useMemo(() => {
     if (!query.trim()) {
       return matrixList.slice(0, 10);
@@ -53,18 +84,19 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     const q = query.toLowerCase();
 
     return matrixList
-      .filter((item) =>
-        item.title.toLowerCase().includes(q) ||
-        item.category.toLowerCase().includes(q) ||
-        item.slug.toLowerCase().includes(q) ||
-        item.subtitle.toLowerCase().includes(q)
+      .filter(
+        (item) =>
+          item.title.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q) ||
+          item.slug.toLowerCase().includes(q) ||
+          item.subtitle.toLowerCase().includes(q)
       )
       .slice(0, 12);
   }, [query, matrixList]);
 
-  const handleSelect = (item: any) => {
+  const handleSelect = (item: ToolIndexEntry) => {
     onClose();
-    router.push(`/tools/${item.category}/${item.slug}`);
+    router.push(item.href || `/tools/${item.category}/${item.slug}`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -85,7 +117,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 p-4 bg-slate-900/40 backdrop-blur-sm animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 p-4 bg-slate-900/40 backdrop-blur-sm animate-fade-in duration-150">
       <div
         className="w-full max-w-2xl rounded-2xl border border-slate-200 bg-white shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
@@ -102,7 +134,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            placeholder="Search 199+ tools (e.g. California, UK VAT, Stripe USA, 1099 Contractor)..."
+            placeholder="Search calculators (e.g. California, UK VAT, Stripe USA, 1099 Contractor)..."
             className="w-full bg-transparent text-sm sm:text-base font-medium text-slate-900 placeholder-slate-400 focus:outline-none"
           />
           <button
@@ -118,17 +150,27 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         <div className="max-h-[60vh] overflow-y-auto p-2 divide-y divide-slate-100">
           {filteredItems.length === 0 ? (
             <div className="py-12 text-center text-sm text-slate-500">
-              No matching financial utilities found for &quot;{query}&quot;
+              {matrixList.length === 0
+                ? 'Loading calculators...'
+                : `No matching financial utilities found for "${query}"`}
             </div>
           ) : (
             filteredItems.map((item, index) => {
               const isSelected = index === selectedIndex;
+              const href = item.href || `/tools/${item.category}/${item.slug}`;
               return (
-                <button
+                /* A real <a> element. The previous <button> + router.push()
+                   implementation produced zero crawlable links from the
+                   palette, which is the only site-wide navigation surface. */
+                <Link
                   key={`${item.category}-${item.slug}`}
-                  type="button"
-                  onClick={() => handleSelect(item)}
+                  href={href}
+                  prefetch={false}
                   onMouseEnter={() => setSelectedIndex(index)}
+                  onClick={() => {
+                    onClose();
+                    setQuery('');
+                  }}
                   className={`flex w-full items-center justify-between rounded-xl px-3.5 py-3 text-left transition-all ${
                     isSelected
                       ? 'bg-blue-50 border border-blue-200 text-slate-900'
@@ -164,7 +206,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                       isSelected ? 'translate-x-1 text-blue-600' : 'text-slate-400'
                     }`}
                   />
-                </button>
+                </Link>
               );
             })
           )}
@@ -173,10 +215,17 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         {/* Footer shortcuts */}
         <div className="flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-2.5 text-[11px] text-slate-500">
           <div className="flex items-center gap-3">
-            <span>Use <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↑</kbd> <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↓</kbd> to navigate</span>
-            <span><kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">Enter</kbd> to open</span>
+            <span>
+              Use <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↑</kbd>{' '}
+              <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">↓</kbd> to navigate
+            </span>
+            <span>
+              <kbd className="rounded bg-white px-1.5 py-0.5 font-mono text-slate-600 border border-slate-200">Enter</kbd> to open
+            </span>
           </div>
-          <span className="text-blue-600 font-bold">{matrixList.length}+ Calculators Available</span>
+          <span className="text-blue-600 font-bold">
+            {matrixList.length ? `${matrixList.length}+ Calculators Available` : 'Calculators Available'}
+          </span>
         </div>
       </div>
     </div>

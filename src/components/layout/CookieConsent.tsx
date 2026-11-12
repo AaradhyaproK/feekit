@@ -3,13 +3,24 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Cookie, ShieldCheck, X } from 'lucide-react';
+import { CONSENT_KEY, applyConsentUpdate } from '@/components/analytics/GoogleAnalytics';
+
+/**
+ * Persist the visitor's choice, push a Google Consent Mode v2 update, and
+ * notify listeners.
+ */
+function persistConsent(value: 'accepted' | 'essential') {
+  window.localStorage.setItem(CONSENT_KEY, value);
+  applyConsentUpdate(value);
+  window.dispatchEvent(new Event('feekit:consent-change'));
+}
 
 export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Check if user has already made a choice
-    const consent = localStorage.getItem('feekit_cookie_consent');
+    const consent = localStorage.getItem(CONSENT_KEY);
     if (!consent) {
       // Delay slightly for smooth non-intrusive appearance
       const timer = setTimeout(() => {
@@ -20,12 +31,12 @@ export function CookieConsent() {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('feekit_cookie_consent', 'accepted');
+    persistConsent('accepted');
     setIsVisible(false);
   };
 
   const handleEssential = () => {
-    localStorage.setItem('feekit_cookie_consent', 'essential');
+    persistConsent('essential');
     setIsVisible(false);
   };
 
@@ -35,7 +46,7 @@ export function CookieConsent() {
     <div
       role="region"
       aria-label="Cookie and Privacy Consent"
-      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 animate-in slide-in-from-bottom-5 duration-300"
+      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 animate-fade-slide"
     >
       <div className="rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-md p-5 shadow-xl text-slate-800 space-y-3.5">
         <div className="flex items-start justify-between gap-3">
@@ -55,7 +66,11 @@ export function CookieConsent() {
         </div>
 
         <p className="text-xs text-slate-600 leading-relaxed">
-          FeeKit uses essential cookies and trusted third-party partners (such as Google AdSense) to deliver free financial tools and evaluate traffic. Your calculation figures remain <strong>100% private</strong> in your web browser.
+          FeeKit uses essential storage to save your privacy choice, plus Google Consent Mode v2 for
+          Google Analytics and AdSense. Choose <strong>Accept All</strong> for full analytics and
+          relevant ads, or <strong>Essential Only</strong> for non-personalized ads without
+          advertising cookies. Your calculation figures remain <strong>100% private</strong> in
+          your browser.
         </p>
 
         <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-100">

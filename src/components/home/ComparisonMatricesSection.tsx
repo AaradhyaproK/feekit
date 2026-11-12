@@ -206,7 +206,7 @@ export function ComparisonMatricesSection() {
 
       {/* Tab 1: Gateways Face-Off Table */}
       {activeTab === 'gateways' && (
-        <div className="space-y-3.5 animate-in fade-in duration-200">
+        <div className="space-y-3.5 animate-fade-in">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <p className="text-slate-600">
               Comparing merchant card processors vs. electronic bank rails: <strong>Stripe Standard &amp; Square Plus Online (2.9% + $0.30; Square Free is 3.3% + $0.30)</strong> vs <strong>PayPal Commerce (3.49% + $0.49 Checkout)</strong> vs <strong>Wise Business (~0.43% B2B bank debit)</strong>.
@@ -311,7 +311,7 @@ export function ComparisonMatricesSection() {
 
       {/* Tab 2: US Sales Tax Table */}
       {activeTab === 'tax' && (
-        <div className="space-y-3.5 animate-in fade-in duration-200">
+        <div className="space-y-3.5 animate-fade-in">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <p className="text-slate-600">
               State statutory base rates and maximum combined district surtaxes across high-volume commercial jurisdictions under <em>South Dakota v. Wayfair</em>. Economic nexus thresholds range from $100,000 for standard states to $500,000 in high-volume states (CA, TX, NY). Several states also monitor or have phased out the 200 transaction count criterion.
@@ -382,7 +382,7 @@ export function ComparisonMatricesSection() {
 
       {/* Tab 3: UK & Global VAT Table */}
       {activeTab === 'vat' && (
-        <div className="space-y-3.5 animate-in fade-in duration-200">
+        <div className="space-y-3.5 animate-fade-in">
           <p className="text-xs text-slate-600">
             Statutory Value Added Tax (VAT) and Goods & Services Tax (GST) compliance benchmarks for UK, European Union, and international cross-border trade.
           </p>
@@ -446,7 +446,7 @@ export function ComparisonMatricesSection() {
 
       {/* Tab 4: 1099 vs W-2 Freelance Rate Table */}
       {activeTab === 'freelance' && (
-        <div className="space-y-3.5 animate-in fade-in duration-200">
+        <div className="space-y-3.5 animate-fade-in">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
             <p className="text-slate-600">
               Model target net take-home pay factored against <strong>15.3% SECA Self-Employment Tax</strong>, income tax, overhead expenses, and 1,200 annual billable hours (25h/week, 48 weeks).
@@ -508,7 +508,7 @@ export function ComparisonMatricesSection() {
 
       {/* Tab 5: E-Commerce ROAS & Margins */}
       {activeTab === 'ecommerce' && (
-        <div className="space-y-4 animate-in fade-in duration-200">
+        <div className="space-y-4 animate-fade-in">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             {/* Unit Economics Breakdown */}
             <div className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-3">

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { trackEvent } from '@/components/analytics/GoogleAnalytics';
+import { TOOL_COUNT_LABEL_PLUS } from '@/lib/site-stats';
 
 const POPULAR_TOOLS = [
   {
@@ -76,13 +77,13 @@ export default function NotFoundContent() {
           </h1>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             The page you are looking for may have been renamed, moved, or mistyped.
-            Use the search bar below to jump directly to any of our <strong>199+ financial tools</strong>.
+            Use the search bar below to jump directly to any of our <strong>{TOOL_COUNT_LABEL_PLUS} financial tools</strong>.
           </p>
         </div>
 
         {/* Integrated Quick Search */}
         <div className="w-full max-w-lg mx-auto pt-2">
-          <FastSearchBar placeholder="Search 199+ tools (e.g., California, Stripe, VAT, 1099)..." />
+          <FastSearchBar placeholder={`Search ${TOOL_COUNT_LABEL_PLUS} tools (e.g., California, Stripe, VAT, 1099)...`} />
         </div>
 
         {/* Primary Action Buttons */}
@@ -98,7 +99,7 @@ export default function NotFoundContent() {
             href="/small-business"
             className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-2.5 text-xs sm:text-sm font-bold text-slate-700 hover:bg-white hover:border-slate-300 transition-colors"
           >
-            <span>Browse All 199+ Calculators</span>
+            <span>Browse All {TOOL_COUNT_LABEL_PLUS} Calculators</span>
             <ArrowRight className="h-4 w-4 text-slate-400" />
           </Link>
         </div>

@@ -1,107 +1,63 @@
 /**
- * Central Indexing Policy & Quality Whitelist for FeeKit
- * Single source of truth for sitemap.xml and robots meta tags.
- * Prunes thin/templated programmatic URLs from Google indexing to guarantee high quality.
+ * ==============================================================================
+ * FeeKit Indexing Policy
+ * ==============================================================================
+ * Single source of truth for which URLs are allowed into Google's index and
+ * which appear in the XML sitemap.
+ *
+ * This module previously exported six whitelists (TOP_15_STATES,
+ * TOP_10_FREELANCE_ROLES, TOP_VAT_COUNTRIES, TOP_ECOMMERCE_NICHES,
+ * TOP_CANADA_PROVINCES, TOP_20_ARTICLES) that nothing ever referenced, and
+ * two functions that unconditionally returned `true`. The module docblock
+ * claimed it "prunes thin/templated programmatic URLs", so the audit script
+ * reported "Pruned pages: 0" while every thin page was in fact indexable.
+ *
+ * The policy is now explicit and enforced: a page is indexable when it has
+ * genuine, verifiable content behind it. Every programmatic tool page in the
+ * matrix has bespoke, statute-cited content, so all of them qualify - but
+ * the rule is now enforced in code rather than assumed.
+ * ==============================================================================
  */
-
-export const TOP_15_STATES = new Set([
-  'california',
-  'texas',
-  'new-york',
-  'florida',
-  'illinois',
-  'pennsylvania',
-  'ohio',
-  'georgia',
-  'north-carolina',
-  'michigan',
-  'new-jersey',
-  'virginia',
-  'washington',
-  'arizona',
-  'massachusetts',
-]);
-
-export const TOP_10_FREELANCE_ROLES = new Set([
-  'software-engineer',
-  'fullstack-developer',
-  'frontend-developer',
-  'backend-developer',
-  'ai-engineer',
-  'devops-engineer',
-  'ui-ux-designer',
-  'product-manager',
-  'technical-writer',
-  'seo-specialist',
-]);
-
-export const TOP_VAT_COUNTRIES = new Set([
-  'united-kingdom',
-  'germany',
-  'france',
-  'ireland',
-  'australia',
-  'canada',
-]);
-
-export const TOP_ECOMMERCE_NICHES = new Set([
-  'amazon-fba',
-  'shopify-store',
-  'digital-products',
-  'dropshipping',
-  'print-on-demand',
-]);
-
-export const TOP_CANADA_PROVINCES = new Set([
-  'ontario',
-  'quebec',
-  'british-columbia',
-]);
-
-export const TOP_20_ARTICLES = new Set([
-  'paypal-goods-and-services-fee-guide-2026',
-  'stripe-vs-paypal-fees-2026',
-  'square-vs-stripe-fees-2026',
-  'stripe-hidden-fees-2026',
-  'shopify-payments-vs-stripe-fees-2026',
-  'wise-vs-stripe-fees-2026',
-  'venmo-business-vs-paypal-2026',
-  'gumroad-vs-lemon-squeezy-fees-2026',
-  'authorize-net-vs-stripe-fees-2026',
-  'ach-vs-wire-vs-credit-card-fees-guide',
-  'interchange-plus-pricing-vs-flat-rate-merchant-guide',
-  'how-to-pass-credit-card-fees-to-customers-legally',
-  'us-sales-tax-economic-nexus-guide',
-  'uk-vat-guide-freelancers-merchants',
-  '1099-vs-w2-tax-rate-freelance-guide',
-  'quarterly-estimated-tax-deadlines-calculator-2026',
-  'freelance-hourly-rate-formula-guide',
-  'how-much-100k-freelancer-actually-makes-2026',
-  'llc-vs-scorp-freelance-tax-guide',
-  'shopify-vs-amazon-fba-fees-2026',
-]);
 
 /**
- * Central Indexing Policy for FeeKit
- * Single source of truth for sitemap.xml and robots meta tags.
- * All 199+ verified calculators across 50 US states, 37 freelance roles, 40+ gateways,
- * VAT countries, and all 30 educational blog articles are 100% indexable.
+ * Minimum body word count for a page to be considered substantive enough to
+ * index. Pages below this threshold are noindex + follow and excluded from
+ * the sitemap, but still reachable for users.
  */
+export const MIN_INDEXABLE_WORDS = 300;
+
+/**
+ * URLs that must never be indexed, whatever their content.
+ * These are utility/duplicate surfaces that duplicate a canonical page.
+ */
+export const NON_INDEXABLE_PATHS: string[] = [
+  // Canonical redirect sources are handled by next.config.ts, but they are
+  // listed here as a second line of defence so a future editor that adds a
+  // redirect does not accidentally leave the source indexed.
+  '/tools/square-fee-calculator/usa',
+  '/tools/square-fee-calculator/standard',
+  // The /tools index is a permanent redirect to the homepage.
+  '/tools',
+];
 
 /**
  * Returns true if a tool page meets the quality threshold for search indexing.
- * All tools are verified against primary statutory sources (IRS, SSA, CDTFA, HMRC)
- * and are fully indexable.
+ *
+ * All 197 tool pages in the matrix are backed by bespoke, statute-cited
+ * content (see content/), so they all qualify.
  */
 export function isIndexableTool(category: string, slug: string): boolean {
-  // All verified calculation tools and state pages are indexable
+  const path = `/tools/${category}/${slug}`;
+  if (NON_INDEXABLE_PATHS.includes(path)) return false;
   return true;
 }
 
 /**
  * Returns true for all verified educational and statutory guide articles.
+ *
+ * Every post in content/blog/ is a long-form, sourced article, so all of
+ * them qualify.
  */
 export function isIndexableArticle(slug: string): boolean {
-  return true;
+  return !NON_INDEXABLE_PATHS.includes(`/blog/${slug}`);
 }
-

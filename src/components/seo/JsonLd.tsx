@@ -1,4 +1,5 @@
 import React from 'react';
+import { resolveGeo } from '@/lib/seo/geo';
 
 export interface GeoSchemaProps {
   title: string;
@@ -12,6 +13,10 @@ export interface GeoSchemaProps {
   sourceUrl?: string;
   sourceName?: string;
   dateModified?: string;
+  /** The matrix slug - used to derive the place name for GLOBAL pages. */
+  slug?: string;
+  /** The matrix currency symbol - used to derive the ISO currency code. */
+  currencySymbol?: string;
 }
 
 export function generateGeoSchema({
@@ -26,10 +31,15 @@ export function generateGeoSchema({
   sourceUrl,
   sourceName,
   dateModified,
+  slug,
+  currencySymbol,
 }: GeoSchemaProps) {
-  const isUK = region === 'UK';
-  const placeName = isUK ? 'United Kingdom' : `${stateName || 'United States'}`;
-  const currency = isUK ? 'GBP' : 'USD';
+  const geo = resolveGeo({
+    geoRegion: region,
+    stateName,
+    slug,
+    currencySymbol,
+  });
 
   const appSchema: Record<string, any> = {
     '@type': 'SoftwareApplication',
@@ -38,22 +48,38 @@ export function generateGeoSchema({
     url,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'All',
+    image: 'https://www.usefeekit.com/og-image.png',
+    screenshot: 'https://www.usefeekit.com/og-image.png',
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: currency,
+      priceCurrency: geo.currency,
     },
     dateModified: dateModified || '2026-10-24',
     datePublished: dateModified || '2026-10-24',
     author: {
+      '@id': 'https://www.usefeekit.com/#person',
       '@type': 'Person',
       name: 'Aaradhya Pathak',
       jobTitle: 'Founder & Lead Developer',
       url: 'https://www.usefeekit.com/about',
     },
+    publisher: {
+      '@id': 'https://www.usefeekit.com/#organization',
+      '@type': 'Organization',
+      name: 'FeeKit',
+      url: 'https://www.usefeekit.com/',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.usefeekit.com/logo-icon.png',
+        width: 265,
+        height: 265,
+      },
+    },
+    inLanguage: geo.contentLanguage,
     spatialCoverage: {
       '@type': 'Place',
-      name: placeName,
+      name: geo.placeName,
     },
   };
 
@@ -84,14 +110,16 @@ export function generateGeoSchema({
     breadcrumbs.itemListElement.push({
       '@type': 'ListItem',
       position: 3,
-      name: title,
+      // The breadcrumb name must match the visible page title, not the SERP
+      // title (which carries the "| FeeKit" brand suffix).
+      name: title.replace(/\s*\|\s*FeeKit\s*$/i, ''),
       item: url,
     });
   } else {
     breadcrumbs.itemListElement.push({
       '@type': 'ListItem',
       position: 2,
-      name: title,
+      name: title.replace(/\s*\|\s*FeeKit\s*$/i, ''),
       item: url,
     });
   }

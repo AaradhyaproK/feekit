@@ -64,7 +64,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-8 text-center space-y-4 animate-in fade-in duration-300">
+      <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-8 text-center space-y-4 animate-fade-in">
         <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
           <CheckCircle2 className="h-6 w-6" />
         </div>
@@ -176,7 +176,7 @@ export function ContactForm() {
         </div>
 
         {isSoftwareProject && (
-          <div className="rounded-xl border border-sky-100 bg-sky-50/50 p-3.5 space-y-1.5 animate-in fade-in duration-200">
+          <div className="rounded-xl border border-sky-100 bg-sky-50/50 p-3.5 space-y-1.5 animate-fade-in">
             <label htmlFor="contact-budget" className="block text-[11px] font-bold text-sky-900">
               Estimated Project Budget / Scope (Optional)
             </label>

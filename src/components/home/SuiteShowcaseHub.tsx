@@ -11,6 +11,7 @@ import {
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
+import { TOOL_COUNT_LABEL_PLUS, CATEGORY_COUNT } from '@/lib/site-stats';
 
 interface SuiteShowcaseHubProps {
   onSelectSuite: (suiteId: 'merchant' | 'tax' | 'freelance' | 'ecommerce') => void;
@@ -122,7 +123,7 @@ export function SuiteShowcaseHub({ onSelectSuite, activeSuite }: SuiteShowcaseHu
             </h2>
           </div>
           <p className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight mt-0.5">
-            10 Financial Suites. 199+ Precision Calculators.
+            {CATEGORY_COUNT} Financial Suites. {TOOL_COUNT_LABEL_PLUS} Precision Calculators.
           </p>
         </div>
         <p className="text-xs text-slate-500 max-w-md hidden md:block">

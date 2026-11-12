@@ -117,7 +117,7 @@ export default function MethodologyPage() {
   ];
 
   return (
-    <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">
+    <div className="space-y-6 sm:space-y-7 animate-fade-in">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

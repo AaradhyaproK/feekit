@@ -26,11 +26,29 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
 
   const pathParts = pathname.split('/').filter(Boolean);
 
+  /**
+   * Breadcrumb ancestors that do NOT have their own landing page. Linking to
+   * these produced hard 404s (/compare and /guides both 404'd in production).
+   * The parent segment is rendered as plain text instead of a link.
+   */
+  const NON_PAGE_SEGMENTS = new Set(['guides', 'embed', 'api']);
+
+  /**
+   * Resolve the href for a breadcrumb segment. Returns null when the
+   * segment has no landing page of its own.
+   */
+  const breadcrumbHref = (part: string, index: number): string | null => {
+    if (part === 'tools') return '/';
+    // Only index=0 routes listed in NON_PAGE_SEGMENTS lack an index page.
+    if (index === 0 && NON_PAGE_SEGMENTS.has(part)) return null;
+    return `/${pathParts.slice(0, index + 1).join('/')}`;
+  };
+
   return (
     <header className="sticky top-0 z-20 flex h-14 w-full items-center justify-between border-b border-slate-200 bg-white/95 backdrop-blur-md px-4 sm:px-6 shadow-xs">
       {/* Mobile brand & breadcrumb */}
       <div className="flex items-center gap-3">
-        <Link href="/" className="flex items-center py-1 hover:opacity-85 transition-opacity">
+        <Link href="/" prefetch={false} className="flex items-center py-1 hover:opacity-85 transition-opacity">
           <Image
             src="/logo-icon.png"
             alt="FeeKit"
@@ -53,25 +71,29 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
 
         {/* Desktop Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="hidden sm:flex items-center gap-2 text-xs font-medium text-slate-500">
-          <Link href="/" className="hover:text-blue-600 transition-colors">
+          <Link href="/" prefetch={false} className="hover:text-blue-600 transition-colors">
             Hub
           </Link>
           {pathParts.length > 0 && (
             <>
               <span>/</span>
               {pathParts.map((part, index) => {
-                const href = part === 'tools' ? '/' : `/${pathParts.slice(0, index + 1).join('/')}`;
+                const href = breadcrumbHref(part, index);
                 const isLast = index === pathParts.length - 1;
                 const formatted = part === 'tools' ? 'All Tools' : part.replace(/-/g, ' ');
                 return (
-                  <React.Fragment key={`${href}-${index}`}>
-                    {isLast ? (
-                      <span className="font-semibold text-slate-900 capitalize truncate max-w-[220px]">
+                  <React.Fragment key={`${part}-${index}`}>
+                    {isLast || !href ? (
+                      <span
+                        className={`capitalize truncate max-w-[220px] ${
+                          isLast ? 'font-semibold text-slate-900' : 'text-slate-400'
+                        }`}
+                      >
                         {formatted}
                       </span>
                     ) : (
                       <>
-                        <Link href={href} className="hover:text-blue-600 capitalize transition-colors">
+                        <Link href={href} prefetch={false} className="hover:text-blue-600 capitalize transition-colors">
                           {formatted}
                         </Link>
                         <span>/</span>
@@ -168,7 +190,21 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
               >
-                Merchant Fees
+                Stripe Fees
+              </Link>
+              <Link
+                href="/tools/paypal-fee-calculator"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                PayPal Fees
+              </Link>
+              <Link
+                href="/tools/square-fee-calculator"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                Square Fees
               </Link>
               <Link
                 href="/tools/freelance-rate-calculator"
@@ -183,6 +219,34 @@ export function Header({ onOpenCommandPalette }: HeaderProps) {
                 className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
               >
                 E-Commerce Profit
+              </Link>
+              <Link
+                href="/tools/gateway-comparator/stripe-paypal-square"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                Compare Processors
+              </Link>
+              <Link
+                href="/invoice-generator"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                Invoice Generator
+              </Link>
+              <Link
+                href="/compare"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                Software Comparisons
+              </Link>
+              <Link
+                href="/small-business"
+                onClick={() => setMobileMenuOpen(false)}
+                className="tap-spring block rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600"
+              >
+                Small Business Hub
               </Link>
               <Link
                 href="/blog"

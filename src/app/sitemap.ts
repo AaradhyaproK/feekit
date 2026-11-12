@@ -23,8 +23,49 @@ import { getAllPosts } from '@/lib/blog';
 import { COMPARISONS_DATA } from '@/data/comparisons';
 import { isIndexableTool, isIndexableArticle } from '@/lib/seo/indexing-policy';
 import { CANONICAL_REDIRECTS } from '@/lib/seo/canonical-redirects';
-import { localeForRegion } from '@/lib/seo/meta-builder';
+import { resolveGeo } from '@/lib/seo/geo';
 import { getPageContent } from '../../content/index.ts';
+
+/**
+ * ==============================================================================
+ * FeeKit XML Sitemap Generator
+ * ==============================================================================
+ *
+ * NO hreflang ANNOTATIONS ARE EMITTED.
+ *
+ * The site publishes 100% English content and ships zero translated
+ * variants. hreflang exists to tell Google which URLs are alternate
+ * language versions of the same content - it is NOT a regional targeting
+ * tool. Emitting it here was actively harmful in three ways:
+ *
+ *   1. The sitemap declared `hreflang="en-US"` for the static and blog
+ *      pages while those pages declared nothing, so the sitemap and the
+ *      page head contradicted each other on 49 URLs.
+ *   2. 38 EU VAT and Wise pages declared `hreflang="en"` while 159 others
+ *      declared `en-US`, creating two competing generic-English clusters
+ *      on a single-language site.
+ *   3. `en-GB`, `en-CA` and `en-US` are the same language, so treating
+ *      them as hreflang alternates is semantically wrong - Google expects
+ *      genuine translations to reference each other.
+ *
+ * Regional targeting is handled correctly instead: every page declares a
+ * per-jurisdiction `geo.region` and `content-language` meta tag resolved
+ * from src/lib/seo/geo.ts, the pages are separate URLs, and the Google
+ * Search Console geographic target covers the rest.
+ *
+ * GOOGLE SEARCH CONSOLE MANUAL POST-DEPLOYMENT STEPS:
+ * 1. Submit Sitemap:
+ *    - In Google Search Console, navigate to Indexing -> Sitemaps.
+ *    - Submit: https://www.usefeekit.com/sitemap.xml
+ * 2. Request Indexing:
+ *    - Use the URL Inspection tool for https://www.usefeekit.com and
+ *      key tool pages.
+ *    - Click "Request Indexing" to accelerate crawler discovery.
+ * 3. Set Geographic Target:
+ *    - Confirm international targeting / geographic target is
+ *      configured for the United States (US).
+ * ==============================================================================
+ */
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = US_SITE_URL;
@@ -35,16 +76,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: string,
     priority: number,
     changeFrequency: 'daily' | 'weekly' | 'monthly' | 'yearly',
-    lastModified: Date = defaultVerifiedDate,
-    locale?: string
+    lastModified: Date = defaultVerifiedDate
   ): MetadataRoute.Sitemap[number] => ({
     url,
     lastModified,
     changeFrequency,
     priority,
-    alternates: locale
-      ? { languages: { [locale]: url, 'x-default': url } }
-      : undefined,
   });
 
   // 1. Root and Core Hub & Trust Pages
@@ -53,6 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`${baseUrl}/invoice-generator`, 0.95, 'daily'),
     entry(`${baseUrl}/blog`, 0.9, 'daily'),
     entry(`${baseUrl}/small-business`, 0.95, 'daily'),
+    entry(`${baseUrl}/compare`, 0.85, 'weekly'),
     entry(`${baseUrl}/guides/freshbooks-for-freelancers`, 0.85, 'weekly'),
     entry(`${baseUrl}/editorial-policy`, 0.6, 'monthly'),
     entry(`${baseUrl}/methodology`, 0.7, 'monthly'),
@@ -65,7 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`${baseUrl}/changelog`, 0.7, 'weekly'),
   ];
 
-  // 2. Programmatic Regional and Specialized Tools (all 197+ tool pages)
+  // 2. Programmatic Regional and Specialized Tools (all 197 tool pages)
   const matrixList = Array.isArray(geoMatrix)
     ? (geoMatrix as Array<any>)
     : (((geoMatrix as any).items || (geoMatrix as any).tools || []) as Array<any>);
@@ -101,12 +139,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${baseUrl}/tools/${item.category}/${item.slug}`,
         priority,
         'weekly',
-        lastMod,
-        localeForRegion(item.geoRegion)
+        lastMod
       );
     });
 
-  // 3. Statically Generated MDX Blog Posts (Top 20 quality guides)
+  // 3. Statically Generated MDX Blog Posts
   const blogPosts = getAllPosts();
   const blogUrls: MetadataRoute.Sitemap = blogPosts
     .filter((post) => isIndexableArticle(post.slug))
@@ -115,8 +152,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${baseUrl}/blog/${post.slug}`,
         0.85,
         'monthly',
-        new Date(post.updatedAt || post.publishedAt || defaultVerifiedDate),
-        'en-US'
+        new Date(post.updatedAt || post.publishedAt || defaultVerifiedDate)
       )
     );
 

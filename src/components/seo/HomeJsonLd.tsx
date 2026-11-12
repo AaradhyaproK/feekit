@@ -2,7 +2,20 @@ import React from 'react';
 
 /**
  * Homepage Structured Data (Schema.org)
- * Includes WebSite with Sitelinks SearchAction, Organization, and SoftwareApplication.
+ *
+ * NOTE ON ENTITY IDS
+ *
+ * The `#website` and `#organization` nodes are defined ONCE, in
+ * `src/components/seo/SiteSchema.tsx`, which is rendered in the root layout
+ * on every page. They used to be duplicated here as well, with the SAME
+ * `@id` but DIFFERENT properties (different description, a trailing slash on
+ * the url, `/og-image.png` vs `/logo.png` for the image, and `logo.width` as
+ * the number 256 in one place and the string "256" in the other).
+ *
+ * Google merges nodes that share an `@id`, so two conflicting definitions
+ * produce one entity with contradictory properties. Only the
+ * `SoftwareApplication` node belongs on the homepage, and it references the
+ * site graph by `@id`.
  *
  * Test schema validity at: https://search.google.com/test/rich-results
  */
@@ -11,46 +24,17 @@ export function HomeJsonLd() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebSite',
-        '@id': 'https://www.usefeekit.com/#website',
-        url: 'https://www.usefeekit.com',
-        name: 'FeeKit',
-        description:
-          'Free financial calculators for US & UK merchants and freelancers. Calculate Stripe, PayPal, Square fees, 50-state sales tax, HMRC VAT, and 1099 contractor taxes.',
-        publisher: {
-          '@id': 'https://www.usefeekit.com/#organization',
-        },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: 'https://www.usefeekit.com/?q={search_term_string}',
-          },
-          'query-input': 'required name=search_term_string',
-        },
-        inLanguage: 'en-US',
-      },
-      {
-        '@type': 'Organization',
-        '@id': 'https://www.usefeekit.com/#organization',
-        name: 'FeeKit',
-        url: 'https://www.usefeekit.com',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://www.usefeekit.com/logo-icon.png',
-          width: '256',
-          height: '256',
-          caption: 'FeeKit Logo',
-        },
-        image: 'https://www.usefeekit.com/logo.png',
-      },
-      {
         '@type': 'SoftwareApplication',
         '@id': 'https://www.usefeekit.com/#app',
         name: 'FeeKit Financial Calculators',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
+        url: 'https://www.usefeekit.com',
+        image: 'https://www.usefeekit.com/og-image.png',
+        isPartOf: {
+          '@id': 'https://www.usefeekit.com/#website',
+        },
         offers: {
           '@type': 'Offer',
           price: '0',

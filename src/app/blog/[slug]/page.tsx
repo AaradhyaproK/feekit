@@ -99,9 +99,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   try {
     const post = getPostBySlug(slug);
     const url = `https://www.usefeekit.com/blog/${slug}`;
-    const imageUrl = post.featuredImage.startsWith('http')
-      ? post.featuredImage
-      : `https://www.usefeekit.com${post.featuredImage}`;
+
+    // Open Graph images are served as JPEG. Facebook, LinkedIn, Slack and X
+    // do not reliably render WebP in a social preview, so the on-page
+    // artwork stays as .webp (optimised by next/image) while the OG card
+    // points at the generated 1200x630 .jpg.
+    const ogImagePath = post.featuredImage.replace(/\.webp$/i, '.jpg');
+    const imageUrl = ogImagePath.startsWith('http')
+      ? ogImagePath
+      : `https://www.usefeekit.com${ogImagePath}`;
 
     const seoTitle = formatBlogSeoTitle(post.title);
     const seoDescription = formatBlogSeoDescription(post.description);
@@ -146,7 +152,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             url: imageUrl,
             width: 1200,
             height: 630,
-            type: 'image/webp',
+            type: 'image/jpeg',
             alt: post.title,
           },
         ],
@@ -293,6 +299,31 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </div>
               </section>
             )}
+
+            {/* Editorial Standards: trust-page links. Every article states how
+                it was researched, sourced, and maintained. */}
+            <section className="mt-10 pt-6 border-t border-slate-200 not-prose">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700">
+                <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                <span>Editorial Standards</span>
+              </div>
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Every figure in this guide is checked against primary sources
+                before publication. Read our{' '}
+                <Link href="/methodology" className="text-blue-600 underline font-semibold">
+                  calculation methodology
+                </Link>
+                , our{' '}
+                <Link href="/editorial-policy" className="text-blue-600 underline font-semibold">
+                  editorial policy and research standards
+                </Link>
+                , and the{' '}
+                <Link href="/changelog" className="text-blue-600 underline font-semibold">
+                  public rate changelog
+                </Link>{' '}
+                for the dates and verification records behind every number.
+              </p>
+            </section>
           </div>
 
           {/* Slot 3: AdSense slot above related calculators */}

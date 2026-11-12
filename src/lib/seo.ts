@@ -19,39 +19,11 @@ export const US_SITE_URL = 'https://www.usefeekit.com';
 
 /**
  * Returns full https canonical URL for a given path.
+ *
+ * NOTE: this module is intentionally minimal. The authoritative title and
+ * description builders live in `src/lib/seo/meta-builder.ts`, which applies
+ * a hard SERP character budget. The previous `buildTitle` / `buildDescription`
+ * exports in this file were unused, had no character budget, and produced a
+ * different output format - keeping two builders with different rules is a
+ * guaranteed source of drift, so they were removed.
  */
-export function buildCanonical(path: string = ''): string {
-  if (!path || path === '/') {
-    return US_SITE_URL;
-  }
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  // Remove trailing slash except for root
-  return `${US_SITE_URL}${cleanPath.replace(/\/+$/, '')}`;
-}
-
-/**
- * Formats page title in "Page | FeeKit" format.
- */
-export function buildTitle(page: string): string {
-  if (!page || page.trim() === '' || page.trim() === 'FeeKit') {
-    return 'FeeKit — Financial Precision Calculators for US & UK Merchants';
-  }
-  const trimmed = page.trim();
-  if (trimmed.endsWith('| FeeKit')) {
-    return trimmed;
-  }
-  // If it ends with "— FeeKit", replace it for consistency or maintain format
-  const base = trimmed.replace(/\s*[-—|]\s*FeeKit$/i, '');
-  return `${base} | FeeKit`;
-}
-
-/**
- * Returns a high-converting, accurate meta description for a tool and region.
- */
-export function buildDescription(tool: string, region: string = 'US'): string {
-  const isUK = region.toUpperCase() === 'UK' || region.toLowerCase().includes('united kingdom');
-  if (isUK) {
-    return `Free ${tool} for UK businesses, merchants, and freelancers. Calculate accurate HMRC rates, VAT compliance, and payment fees with zero latency.`;
-  }
-  return `Free ${tool} for US merchants, businesses, and contractors. Calculate accurate ${region} rates, transaction fees, and net payouts instantly.`;
-}

@@ -5,7 +5,7 @@ publishedAt: "2026-07-23"
 updatedAt: "2026-10-02"
 author: "Aaradhya Pathak"
 authorTitle: "Founder & Lead Developer"
-readTime: "10 min read"
+readTime: "9 min read"
 category: "Payment Fees"
 tags: ["Payment Fees", "Interchange Plus", "Stripe", "Square", "Merchant Accounts", "Credit Card Processing", "Ecommerce", "Surcharging"]
 featuredImage: "/blog/images/interchange-plus-vs-flat-rate.webp"
@@ -155,6 +155,26 @@ To offset rising merchant interchange, many merchants explore adding a checkout 
    Look out for PCI non-compliance fees ($20–$40/mo), monthly minimum discount fees, and batch settlement fees. A compliant provider will waive PCI fees once you complete the annual Self-Assessment Questionnaire (SAQ).
 4. **Negotiate with Stripe/PayPal When Crossing $100k/mo:**  
    Stripe offers custom enterprise volume pricing once your annualized gross processing surpasses $1,000,000. Do not hesitate to request an interchange-plus rate schedule from your account representative.
+
+## Where Flat-Rate and Interchange-Plus Sit Against Each Other
+
+Once you have decided that flat-rate pricing is costing too much, the practical question is which interchange-plus route to take. There are two common ones, and they are not equivalent:
+
+- **A dedicated merchant account with a named acquirer** (Authorize.Net is the clearest example) charges a monthly gateway fee on top of wholesale interchange, and the account file lives entirely with that acquirer. The economics - including the exact volume at which the monthly fee stops being worth it - are modelled in our [Authorize.Net vs Stripe Fees Breakdown](/blog/authorize-net-vs-stripe-fees-2026).
+- **Negotiated interchange-plus pricing inside your existing Stripe account** keeps Stripe's developer tooling, dashboards, and payout rails, but reprices the interchange component. You keep one integration and one reconciliation workflow.
+
+For businesses that also invoice clients rather than selling at checkout, the rail choice often matters more than the percentage. Compare card, ACH, and wire settlement side by side in our [ACH vs Wire vs Credit Card Fees Guide](/blog/ach-vs-wire-vs-credit-card-fees-guide), and see how the fee stacks behave across a full ticket-size range in [Stripe vs PayPal Fee Breakdown](/blog/stripe-vs-paypal-fees-2026).
+
+## Surcharging Rules: Passing the Cost On Legally
+
+Once your effective cost of acceptance is higher than the headline rate, many merchants try to recover it from the customer. This is legally permissible in most US states, but it is tightly constrained:
+
+- Visa and Mastercard reduced the maximum credit card surcharge cap to **3.0%** (or your actual cost of acceptance, whichever is lower) in April 2023.
+- **Debit card surcharges are prohibited outright**, including signature debit run as "credit".
+- You must give the card networks **30 days' advance written notice** before assessing your first surcharge.
+- The surcharge must appear as a **separate line item** on the invoice or receipt, never folded into the price or tax line.
+
+State-by-state surcharge legality, disclosure rules, and ready-to-copy contract clauses are covered in our [How to Pass Credit Card Fees to Customers Legally](/blog/how-to-pass-credit-card-fees-to-customers-legally).
 
 ---
 

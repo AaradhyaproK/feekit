@@ -16,6 +16,8 @@ export interface SoftwareComparison {
   toolAName: string;
   toolBName: string;
   description: string;
+  datePublished: string;
+  dateModified: string;
   bestForToolA: string;
   bestForToolB: string;
   overviewToolA: string;
@@ -35,6 +37,8 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
     toolBName: 'QuickBooks Online',
     description:
       'A factual, side-by-side comparison of FreshBooks and QuickBooks Online for freelancers, consultants, service businesses, and growing companies.',
+    datePublished: '2026-01-15',
+    dateModified: '2026-10-24',
     bestForToolA:
       'Freelancers, service professionals, consultants, and agencies focused on client time billing, project tracking, and streamlined invoicing.',
     bestForToolB:
@@ -106,6 +110,8 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
     toolBName: 'Wave Accounting',
     description:
       'Compare FreshBooks and Wave Accounting for freelancers, sole proprietors, and early-stage small businesses evaluating software costs and features.',
+    datePublished: '2026-02-03',
+    dateModified: '2026-10-24',
     bestForToolA:
       'Established freelancers, consultants, and agencies that require built-in project time tracking, automated late payment fees, and project profitability.',
     bestForToolB:
@@ -177,6 +183,8 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
     toolBName: 'Zoho Books',
     description:
       'An objective comparison of FreshBooks and Zoho Books: workflow specialization, ecosystem integrations, and feature depth for service providers.',
+    datePublished: '2026-02-17',
+    dateModified: '2026-10-24',
     bestForToolA:
       'Independent freelancers, creative consultants, and service agencies seeking an intuitive, client-focused invoicing and time-tracking experience.',
     bestForToolB:
@@ -236,6 +244,8 @@ export const COMPARISONS_DATA: Record<string, SoftwareComparison> = {
     toolBName: 'Xero',
     description:
       'Evaluate FreshBooks and Xero for small businesses, contractors, and agencies. Review user seat models, banking reconciliations, and reporting capabilities.',
+    datePublished: '2026-03-05',
+    dateModified: '2026-10-24',
     bestForToolA:
       'Solo contractors, consultants, and client-centric service providers who prioritize streamlined invoicing and time tracking.',
     bestForToolB:

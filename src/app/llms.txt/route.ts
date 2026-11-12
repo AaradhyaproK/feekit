@@ -116,13 +116,25 @@ export function GET() {
   }
   lines.push('');
 
-  // 6. Trust pages
+  // 6. Core money pages and hubs
+  lines.push('## Core Hubs & Money Pages');
+  lines.push('');
+  lines.push(`- [FeeKit Home](${US_SITE_URL}): Every free payment fee, sales tax and VAT calculator in one place.`);
+  lines.push(`- [Small Business Hub](${US_SITE_URL}/small-business): Curated finance, invoicing and bookkeeping tools for small business owners.`);
+  lines.push(`- [Invoice Generator](${US_SITE_URL}/invoice-generator): Free client-side invoice generator with tax and currency support.`);
+  lines.push(`- [Software Comparisons](${US_SITE_URL}/compare): Independent side-by-side accounting software comparisons for small business.`);
+  lines.push(`- [FreshBooks for Freelancers Guide](${US_SITE_URL}/guides/freshbooks-for-freelancers): Independent evaluation of FreshBooks for freelance and service workflows.`);
+  lines.push(`- [Blog Index](${US_SITE_URL}/blog): All FeeKit research guides and comparisons.`);
+  lines.push('');
+
+  // 7. Trust pages
   lines.push('## Methodology & Trust Pages');
   lines.push('');
   lines.push(`- [Methodology](${US_SITE_URL}/methodology): How every FeeKit rate is sourced, verified and published.`);
   lines.push(`- [Editorial Policy](${US_SITE_URL}/editorial-policy): Review, correction and update standards.`);
   lines.push(`- [Affiliate Disclosure](${US_SITE_URL}/affiliate-disclosure): How FeeKit makes money and where that does and does not affect rankings.`);
   lines.push(`- [About FeeKit](${US_SITE_URL}/about): Who builds FeeKit and why.`);
+  lines.push(`- [Changelog](${US_SITE_URL}/changelog): Every rate revision, with the previous value, the new value and the source.`);
   lines.push('');
 
   lines.push('## Usage');

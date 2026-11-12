@@ -31,7 +31,7 @@ import { FastSearchBar } from '@/components/search/FastSearchBar';
 
 export default function ContactPage() {
   return (
-    <div className="space-y-6 sm:space-y-7 animate-in fade-in duration-200">
+    <div className="space-y-6 sm:space-y-7 animate-fade-in">
       {/* Top Navigation & Fast Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <BackButton fallbackHref="/" label="Back to previous page" />

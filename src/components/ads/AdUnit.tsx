@@ -150,8 +150,10 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     };
   }
 
-  // If no valid ad slot is configured (e.g. before AdSense approval), do not render
-  if (isDummySlot || isUnfilled) {
+  // If no valid ad slot is configured (e.g. before AdSense approval), do not
+  // render anything at all. There is no reserved box in this case, so there
+  // is nothing that can shift.
+  if (isDummySlot) {
     return null;
   }
 
@@ -160,18 +162,25 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     return null;
   }
 
+  // An ad that was requested but came back unfilled must NOT collapse its
+  // reserved box. Removing the box at that point shifts every element below
+  // it upward, which is a direct Cumulative Layout Shift hit on a Core Web
+  // Vitals metric. The space stays reserved and empty instead.
   return (
     <div
       className={`adsense-wrapper relative w-full flex items-center justify-center overflow-hidden transition-all ${containerDimensions} ${placeholderHeight} ${className}`.trim()}
+      data-ad-unfilled={isUnfilled ? 'true' : undefined}
     >
-      <ins
-        ref={adRef}
-        className="adsbygoogle"
-        style={adStyle}
-        data-ad-client={PUBLISHER_ID}
-        data-ad-slot={slot}
-        {...extraAttributes}
-      />
+      {!isUnfilled && (
+        <ins
+          ref={adRef}
+          className="adsbygoogle"
+          style={adStyle}
+          data-ad-client={PUBLISHER_ID}
+          data-ad-slot={slot}
+          {...extraAttributes}
+        />
+      )}
     </div>
   );
 }

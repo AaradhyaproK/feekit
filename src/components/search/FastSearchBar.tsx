@@ -1,29 +1,67 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, X, ArrowRight, Calculator } from 'lucide-react';
-import toolsIndex from '@/data/tools-index.json';
+import type { ToolIndexEntry } from '@/lib/tools-index';
 
 export interface FastSearchBarProps {
   placeholder?: string;
   className?: string;
   autoFocus?: boolean;
+  /** Number of tools in the catalogue, used for the "N+" label. */
+  toolCount?: number;
 }
 
+/**
+ * The full tool index (197 entries) is loaded lazily, on first interaction.
+ *
+ * It used to be a static import in the global AppShell, which meant every
+ * one of the 268 pages shipped it in the initial JavaScript bundle even
+ * though the vast majority of visitors never opened the search box.
+ */
 export function FastSearchBar({
-  placeholder = 'Search 199+ tools...',
+  placeholder = 'Search tools...',
   className = '',
   autoFocus = false,
+  toolCount,
 }: FastSearchBarProps) {
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [matrixList, setMatrixList] = useState<ToolIndexEntry[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const loadedRef = useRef(false);
 
-  const matrixList = toolsIndex;
+  // Load the index on first focus (or on first open).
+  const ensureLoaded = React.useCallback(async () => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+    try {
+      const mod = await import('@/data/tools-index.json');
+      setMatrixList(mod.default as unknown as ToolIndexEntry[]);
+    } catch {
+      loadedRef.current = false;
+    }
+  }, []);
+
+  // Support the Google sitelinks searchbox: /?q=<term> opens the palette
+  // pre-filled with the query. The query string is read from `window`
+  // rather than `useSearchParams()` because the latter forces a client-side
+  // rendering bailout that requires a Suspense boundary on every page that
+  // renders a search bar.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) {
+      setQuery(q);
+      setIsOpen(true);
+      ensureLoaded();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const results = useMemo(() => {
     if (!query.trim()) {
@@ -68,16 +106,17 @@ export function FastSearchBar({
     setSelectedIndex(0);
   }, [results]);
 
-  const handleSelect = (item: any) => {
+  const handleSelect = (item: ToolIndexEntry) => {
     setIsOpen(false);
     setQuery('');
     inputRef.current?.blur();
-    router.push(`/tools/${item.category}/${item.slug}`);
+    router.push(item.href || `/tools/${item.category}/${item.slug}`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isOpen && (e.key === 'ArrowDown' || e.key === 'Enter')) {
       setIsOpen(true);
+      ensureLoaded();
       return;
     }
 
@@ -109,10 +148,14 @@ export function FastSearchBar({
           autoComplete="off"
           spellCheck="false"
           placeholder={placeholder}
-          onFocus={() => setIsOpen(true)}
+          onFocus={() => {
+            setIsOpen(true);
+            ensureLoaded();
+          }}
           onChange={(e) => {
             setQuery(e.target.value);
             setIsOpen(true);
+            ensureLoaded();
           }}
           onKeyDown={handleKeyDown}
           className="w-full rounded-xl bg-transparent py-2.5 sm:py-2 pl-9 pr-14 text-base sm:text-xs font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
@@ -139,10 +182,12 @@ export function FastSearchBar({
 
       {/* Instant Fast Search Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 z-50 mt-1.5 max-h-72 sm:max-h-80 overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-xl py-1 divide-y divide-slate-100 animate-in fade-in zoom-in-95 duration-100 overscroll-contain">
+        <div className="absolute top-full left-0 right-0 z-50 mt-1.5 max-h-72 sm:max-h-80 overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-xl py-1 divide-y divide-slate-100 animate-fade-in overscroll-contain">
           {results.length === 0 ? (
             <div className="px-4 py-3 text-center text-xs text-slate-500">
-              No calculators found for &quot;<span className="font-semibold text-slate-700">{query}</span>&quot;
+              {matrixList.length === 0
+                ? 'Loading calculators...'
+                : `No calculators found for "${query}"`}
             </div>
           ) : (
             <div className="p-1">
@@ -152,12 +197,19 @@ export function FastSearchBar({
               {results.map((item, index) => {
                 const isSelected = index === selectedIndex;
                 const categoryLabel = (item.category || '').replace(/-/g, ' ');
+                const href = item.href || `/tools/${item.category}/${item.slug}`;
                 return (
-                  <button
+                  /* A real <a> element, not a <button>. Buttons carry no href,
+                     so every search result was invisible to a crawler. */
+                  <Link
                     key={`${item.category}-${item.slug}`}
-                    type="button"
+                    href={href}
+                    prefetch={false}
                     onMouseEnter={() => setSelectedIndex(index)}
-                    onClick={() => handleSelect(item)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      setQuery('');
+                    }}
                     className={`tap-spring w-full flex items-center justify-between rounded-lg px-3 py-2.5 sm:py-2 text-left transition-all ${
                       isSelected
                         ? 'bg-blue-50 text-blue-900 font-semibold'
@@ -165,9 +217,13 @@ export function FastSearchBar({
                     }`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0 pr-2">
-                      <div className={`flex h-6 w-6 items-center justify-center rounded-md border text-xs shrink-0 ${
-                        isSelected ? 'border-blue-300 bg-blue-100 text-blue-700' : 'border-slate-200 bg-slate-100 text-slate-500'
-                      }`}>
+                      <div
+                        className={`flex h-6 w-6 items-center justify-center rounded-md border text-xs shrink-0 ${
+                          isSelected
+                            ? 'border-blue-300 bg-blue-100 text-blue-700'
+                            : 'border-slate-200 bg-slate-100 text-slate-500'
+                        }`}
+                      >
                         <Calculator className="h-3.5 w-3.5" />
                       </div>
                       <div className="min-w-0">
@@ -179,10 +235,12 @@ export function FastSearchBar({
                         </div>
                       </div>
                     </div>
-                    <ArrowRight className={`h-3.5 w-3.5 shrink-0 transition-transform ${
-                      isSelected ? 'text-blue-600 translate-x-0.5' : 'text-slate-300'
-                    }`} />
-                  </button>
+                    <ArrowRight
+                      className={`h-3.5 w-3.5 shrink-0 transition-transform ${
+                        isSelected ? 'text-blue-600 translate-x-0.5' : 'text-slate-300'
+                      }`}
+                    />
+                  </Link>
                 );
               })}
             </div>

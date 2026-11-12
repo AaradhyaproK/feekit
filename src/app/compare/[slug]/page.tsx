@@ -16,6 +16,7 @@ import {
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
 import { COMPARISONS_DATA, type SoftwareComparison } from '@/data/comparisons';
+import { getComparisonBlogPosts } from '@/lib/blog-links';
 import { FaqSchema } from '@/components/seo/FaqSchema';
 import { brandTitle, buildDescription } from '@/lib/seo/meta-builder';
 
@@ -75,12 +76,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'FeeKit',
       locale: 'en_US',
       type: 'article',
+      images: [
+        {
+          url: 'https://www.usefeekit.com/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: `${comparison.toolAName} vs ${comparison.toolBName} — FeeKit comparison`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
       site: '@usefeekit',
+      images: ['https://www.usefeekit.com/og-image.png'],
+    },
+    other: {
+      'geo.region': 'US',
+      'content-language': 'en-US',
     },
   };
 }
@@ -95,6 +109,8 @@ export default async function ComparisonPage({ params }: Props) {
 
   const otherComparisons = Object.values(COMPARISONS_DATA).filter((c) => c.slug !== slug);
 
+  const comparisonBlogPosts = getComparisonBlogPosts();
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -103,12 +119,12 @@ export default async function ComparisonPage({ params }: Props) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.usefeekit.com',
+        item: 'https://www.usefeekit.com/',
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Small Business Hub',
+        name: 'Small Business',
         item: 'https://www.usefeekit.com/small-business',
       },
       {
@@ -132,11 +148,22 @@ export default async function ComparisonPage({ params }: Props) {
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://www.usefeekit.com/#organization',
       name: 'FeeKit',
       url: 'https://www.usefeekit.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.usefeekit.com/logo-icon.png',
+        width: 265,
+        height: 265,
+      },
     },
-    datePublished: '2026-01-15',
-    dateModified: '2026-01-20',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.usefeekit.com/compare/${slug}`,
+    },
+    datePublished: comparison.datePublished,
+    dateModified: comparison.dateModified,
   };
 
   const softwareSchema = {
@@ -160,7 +187,7 @@ export default async function ComparisonPage({ params }: Props) {
   };
 
   return (
-    <div className="space-y-8 pb-14 animate-in fade-in duration-200">
+    <div className="space-y-8 pb-14 animate-fade-in">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -192,7 +219,7 @@ export default async function ComparisonPage({ params }: Props) {
             <span className="text-slate-300">/</span>
             <Link href="/small-business" className="hover:text-blue-600 transition-colors">Small Business</Link>
             <span className="text-slate-300">/</span>
-            <span className="text-slate-700 font-medium">Software Comparison</span>
+            <span className="text-slate-700 font-medium">{comparison.title}</span>
           </nav>
 
           <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-200">
@@ -382,6 +409,37 @@ export default async function ComparisonPage({ params }: Props) {
                   </div>
                   <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
                     {c.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related FeeKit Guides: the long-form accounting and invoicing
+            explainers that sit behind this comparison. */}
+        {comparisonBlogPosts.length > 0 && (
+          <section className="border-t border-slate-200 pt-6 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700">
+              <BookOpen className="h-4 w-4 text-blue-600" />
+              <span>Related FeeKit Guides</span>
+            </div>
+            <h3 className="text-sm font-bold text-slate-900">
+              In-Depth Guides on Accounting Software &amp; Bookkeeping
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {comparisonBlogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={post.href}
+                  prefetch={false}
+                  className="group rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-blue-300 hover:shadow-xs space-y-1"
+                >
+                  <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {post.title}
+                  </div>
+                  <p className="text-[11px] text-slate-500 line-clamp-3 leading-relaxed">
+                    {post.description}
                   </p>
                 </Link>
               ))}

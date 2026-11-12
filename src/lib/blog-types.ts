@@ -5,6 +5,7 @@ export type BlogCategory =
   | 'Business Finance'
   | 'Accounting Software'
   | 'Payment Fees'
+  | 'Payment Processing'
   | 'US Sales Tax'
   | 'UK VAT'
   | '1099 & Freelance'
@@ -19,6 +20,7 @@ export const BLOG_CATEGORIES: Array<'All' | BlogCategory> = [
   'Business Finance',
   'Accounting Software',
   'Payment Fees',
+  'Payment Processing',
   'US Sales Tax',
   'UK VAT',
   '1099 & Freelance',
@@ -50,7 +52,7 @@ export interface BlogPost {
   wordCount?: number;
   category: BlogCategory;
   tags: string[];
-  featuredImage: string; // "/blog/images/stripe-vs-paypal.png"
+  featuredImage: string; // "/blog/images/stripe-vs-paypal.webp"
   featured: boolean; // shows at top of blog index
   relatedCalculators: Array<{
     label: string;

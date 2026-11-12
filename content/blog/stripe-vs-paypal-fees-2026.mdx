@@ -5,7 +5,7 @@ publishedAt: "2026-01-08"
 updatedAt: "2026-10-14"
 author: "Aaradhya Pathak"
 authorTitle: "Founder & Lead Developer"
-readTime: "8 min read"
+readTime: "9 min read"
 category: "Payment Fees"
 tags: ["Stripe", "PayPal", "Payment Fees", "Ecommerce", "Fintech", "Credit Card Processing", "Square vs Stripe", "Merchant Fees", "Interchange Plus"]
 featuredImage: "/blog/images/stripe-vs-paypal.webp"
@@ -86,11 +86,61 @@ Consider a **$5.00 digital asset sale**:
 
 Stripe provides custom micropayment arrangements (typically 5.0% + $0.10) for qualified digital goods accounts, reducing the fee on a $5.00 sale to $0.35 (7.0%). PayPal also provides a dedicated micropayment schedule (4.99% + $0.09 for domestic US).
 
+## Effective Fee Rate by Ticket Size: Where the Gap Actually Opens
+
+The headline spread of 0.59% + $0.19 is not a flat number in practice - it splits into a variable component that scales with volume and a fixed component that scales with transaction count. The table below isolates both parts at four common average order values:
+
+| Average Order Value | Stripe Fee (2.9% + $0.30) | PayPal Fee (3.49% + $0.49) | Per-Transaction Gap | Stripe Effective Rate | PayPal Effective Rate |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **$10.00** | $0.59 | $0.84 | $0.25 | 5.90% | 8.39% |
+| **$50.00** | $1.75 | $2.24 | $0.49 | 3.50% | 4.47% |
+| **$100.00** | $3.20 | $3.98 | $0.78 | 3.20% | 3.98% |
+| **$500.00** | $14.80 | $17.94 | $3.14 | 2.96% | 3.59% |
+| **$1,000.00** | $29.30 | $35.39 | $6.09 | 2.93% | 3.54% |
+
+Two patterns matter here. First, **the absolute gap widens with ticket size**: a single $1,000 PayPal order costs **$35.39** in fees, more than twenty-five $10.00 Stripe orders cost (**$14.75** combined). Second, **the effective rate gap narrows as tickets grow**: on a $1,000 invoice the two gateways are only 61 basis points apart, while on a $10 order they are 249 basis points apart. A high-volume, low-ticket business (marketplaces, app stores, digital downloads) therefore faces a proportionally much larger penalty on PayPal than a low-volume, high-ticket business does. Model either profile with our [Stripe vs PayPal vs Square 3-Way Fee Comparator](/tools/gateway-comparator/stripe-paypal-square).
+
+## B2B Invoices: Why ACH Direct Debit Dominates Above $625
+
+For service businesses, agencies, and B2B sellers, invoice size is usually the single biggest controllable fee variable - and it is the one most merchants never model.
+
+Stripe supports **ACH Direct Debit** at **0.80%**, strictly capped at a **$5.00 maximum fee** with no fixed cent surcharge. PayPal does not offer a native ACH Direct Debit product at all: a PayPal invoice paid by a customer is processed on the 3.49% + $0.49 commercial schedule, so the 0.80% ACH rate is unavailable no matter how large the invoice is.
+
+On a **$2,500 B2B invoice**:
+
+- **Stripe ACH Direct Debit**: $2,500.00 x 0.008 = **$5.00** (capped) - net payout **$2,495.00**
+- **Stripe card (2.9% + $0.30)**: $2,500.00 x 0.029 + $0.30 = **$72.80** - net payout **$2,427.20**
+- **PayPal invoice (3.49% + $0.49)**: $2,500.00 x 0.0349 + $0.49 = **$87.74** - net payout **$2,412.26**
+
+The ACH fee reaches its $5.00 ceiling at exactly **$625.00** ($625.00 x 0.008 = $5.00). Below that threshold, cards still win on convenience; above it, ACH is dramatically cheaper - **$67.80 cheaper than a Stripe card on a $2,500 invoice**. Route your large invoices through bank transfer and small ones through the card rail, and the average fee collapses. Our [Stripe Fee Calculator USA](/tools/stripe-fee-calculator/usa) models the card side, and the [ACH vs Wire vs Credit Card Fees Guide](/blog/ach-vs-wire-vs-credit-card-fees-guide) compares all three rails end to end.
+
+## Refunds: The Fee You Never Get Back
+
+Both gateways retain the original processing fee when a merchant issues a refund, and this is the single most-missed line item in ecommerce unit economics.
+
+Take a **$500.00** order:
+- Stripe debits **$14.80** on the sale and deposits $485.20.
+- If the customer cancels and you refund $500.00, Stripe deducts the full $500.00 from your balance and **keeps the $14.80 fee**.
+- On PayPal, the equivalent $500.00 checkout costs **$17.94** and PayPal **retains that fee** on a full refund.
+
+For a fashion or apparel store running a 15% return rate, that retained fee is worth roughly 0.3% to 0.5% of gross revenue - money that never appears in a gross-margin calculation but comes straight out of net profit. Model the true post-return cost in the [Ecommerce Profit Calculator](/tools/ecommerce-profit-calculator).
+
+## Payout Timing and the Cost of Same-Day Cash
+
+Processing rate is only half of the cost of a gateway; **when the money lands** is the other half.
+
+- **Stripe**: standard US payouts run on a rolling **2-business-day** schedule. Eligible accounts can pull funds forward with Instant Payouts to a debit card for a percentage surcharge with a $0.50 minimum.
+- **PayPal**: standard transfer from PayPal balance to a linked bank account typically settles in **1 to 3 business days**. An instant card transfer is available for a **1.75% surcharge** (minimum $0.25, capped at $25.00 per transfer).
+
+The commercial consequence: a business paying contractors weekly in cash cannot afford to wait for a standard settlement cycle, and both gateways price that impatience. On a **$10,000** instant transfer, a 1.75% surcharge costs **$175.00** for same-day access to money you have already paid fees on. If you can bridge a two-day gap with a business credit line instead, the effective saving is the entire surcharge. Compare settlement options in our [Venmo Business vs PayPal 2026 Comparison](/blog/venmo-business-vs-paypal-2026) and the [Stripe Hidden Fees Breakdown](/blog/stripe-hidden-fees-2026).
+
 ## Chargebacks and Merchant Dispute Protection
 
 A lost chargeback incurs both the loss of product/revenue and an administrative fee:
 - **Stripe**: Charges a flat **$15.00** dispute fee. If you submit counter-evidence and win the dispute, Stripe refunds the $15.00 fee in full.
 - **PayPal**: Charges a flat **$20.00** fee ($15.00 standard, or £14 in the UK). If the transaction qualified under PayPal Seller Protection, the dispute fee may be waived.
+
+For every 100 disputes you win or lose, that fee line is **$1,500 (Stripe) or $2,000 (PayPal)** - before a single dollar of principal is counted. The full rules, win-rate thresholds, and Visa dispute-monitoring ratios are broken down in the [Chargeback & Dispute Fees Guide](/blog/chargeback-and-dispute-fees-guide-2026).
 
 ## Final Verdict & Architecture Recommendation
 
@@ -106,3 +156,5 @@ To audit your exact numbers down to the cent:
 - Benchmark in-person point-of-sale checkout with our [Square Fee Calculator](/tools/square-fee-calculator)
 - Compare physical terminal processing in our [Square vs Stripe 2026 Fee Guide](/blog/square-vs-stripe-fees-2026)
 - Evaluate DTC marketplace economics in our [Shopify vs Amazon FBA Fee Breakdown](/blog/shopify-vs-amazon-fba-fees-2026)
+- Audit PayPal's full commercial schedule in our [PayPal Goods and Services Fee Guide](/blog/paypal-goods-and-services-fee-guide-2026)
+- Model cross-border settlement in our [Wise vs Stripe FX Fee Comparison](/blog/wise-vs-stripe-fees-2026)

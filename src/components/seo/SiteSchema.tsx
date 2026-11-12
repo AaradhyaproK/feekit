@@ -23,8 +23,8 @@ export function SiteSchema() {
         logo: {
           '@type': 'ImageObject',
           url: `${SITE_URL}/logo-icon.png`,
-          width: 256,
-          height: 256,
+          width: 265,
+          height: 265,
         },
         image: `${SITE_URL}/og-image.png`,
         description:
@@ -99,6 +99,14 @@ export function SiteSchema() {
           '@id': `${SITE_URL}/#organization`,
         },
         inLanguage: 'en-US',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
       },
     ],
   };

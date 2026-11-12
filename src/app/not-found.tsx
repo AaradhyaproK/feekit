@@ -10,7 +10,13 @@ import NotFoundContent from '@/components/shared/NotFoundContent';
 export const metadata: Metadata = {
   title: 'Page Not Found (404) — FeeKit',
   description:
-    'That FeeKit page could not be found. Search 199+ free payment fee, sales tax, VAT and freelance rate calculators instead.',
+    'That FeeKit page could not be found. Search our free payment fee, sales tax, VAT and freelance rate calculators instead.',
+  // Explicitly clear the site-wide canonical that the root layout sets.
+  // Without this the 404 page shipped a canonical pointing at the homepage,
+  // which tells Google the 404 URL is a duplicate of the home page.
+  alternates: {
+    canonical: '',
+  },
   robots: {
     index: false,
     follow: true,

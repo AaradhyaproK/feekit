@@ -43,8 +43,24 @@ import { ComparisonMatricesSection } from '@/components/home/ComparisonMatricesS
 import { EditorialGuidesSection } from '@/components/home/EditorialGuidesSection';
 import { UniversalGuideHub } from '@/components/seo/UniversalGuideHub';
 import { NewsletterSignup } from '@/components/shared/NewsletterSignup';
-import toolsIndex from '@/data/tools-index.json';
 import { CANONICAL_REDIRECTS } from '@/lib/seo/canonical-redirects';
+import {
+  TOOL_COUNT_LABEL_PLUS,
+  CATEGORY_COUNT,
+  SALES_TAX_COUNT,
+  VAT_COUNT,
+  CANADA_TAX_COUNT,
+  GATEWAY_CATEGORY_COUNT,
+  FREELANCE_ROLE_COUNT,
+  ECOMMERCE_NICHE_COUNT,
+  STRIPE_COUNT,
+  PAYPAL_COUNT,
+  SQUARE_COUNT,
+  WISE_COUNT,
+  AUTHORIZENET_COUNT,
+  VENMO_COUNT,
+} from '@/lib/site-stats';
+import type { ToolIndexEntry } from '@/lib/tools-index';
 
 type ActiveSuite = 'merchant' | 'tax' | 'freelance' | 'ecommerce';
 
@@ -103,7 +119,7 @@ const HOME_FAQS = [
   {
     question: 'What is FeeKit and what calculators does it provide?',
     answer:
-      'FeeKit is a free, high-precision financial utility suite built for US, UK, and Canadian businesses, online merchants, and freelancers. It offers 199+ dedicated calculators across 10 core domains: 50-state sales tax with local district surtaxes, 10 Canadian provincial tax rates, UK HMRC VAT compliance (20% standard and 5% reduced), payment gateway deductions (Stripe, PayPal, Square, Venmo, Gumroad, Lemon Squeezy, Shopify Payments, Wise, Authorize.Net), 1099 freelance hourly and day rates (accounting for 15.3% SECA tax), quarterly estimated tax vouchers, and business metrics (profit margin, break-even, ROI).',
+      `FeeKit is a free, high-precision financial utility suite built for US, UK, and Canadian businesses, online merchants, and freelancers. It offers ${TOOL_COUNT_LABEL_PLUS} dedicated calculators across ${CATEGORY_COUNT} core domains: 50-state sales tax with local district surtaxes, 10 Canadian provincial tax rates, UK HMRC VAT compliance (20% standard and 5% reduced), payment gateway deductions (Stripe, PayPal, Square, Venmo, Gumroad, Lemon Squeezy, Shopify Payments, Wise, Authorize.Net), 1099 freelance hourly and day rates (accounting for 15.3% SECA tax), quarterly estimated tax vouchers, and business metrics (profit margin, break-even, ROI).`,
   },
   {
     question: 'Are FeeKit fee and tax calculations completely free and private?',
@@ -137,7 +153,21 @@ const HOME_FAQS = [
   },
 ];
 
-export default function FeeKitHome() {
+export interface FeeKitHomeProps {
+  /**
+   * The tool catalogue, passed in from the server component.
+   *
+   * It used to be a static import of `src/data/tools-index.json` inside
+   * this client component. Because that module is also lazily imported by
+   * the search palette, webpack placed the whole payload in a chunk that
+   * was part of the INITIAL JavaScript payload for every one of the 268
+   * pages - including the 267 that never render this component. Passing
+   * the data in as a prop keeps it out of the shared JS bundle.
+   */
+  tools: ToolIndexEntry[];
+}
+
+export default function FeeKitHome({ tools }: FeeKitHomeProps) {
   const [activeSuite, setActiveSuite] = useState<ActiveSuite>('merchant');
   const [directoryFilter, setDirectoryFilter] = useState('');
   const [selectedCategoryTab, setSelectedCategoryTab] = useState<string>('all');
@@ -181,21 +211,41 @@ export default function FeeKitHome() {
     },
   ];
 
+  /**
+   * The homepage directory. Every one of the 20 tool categories is listed
+   * here - the previous version omitted 11 of them (Canada sales tax, Venmo,
+   * Gumroad, Lemon Squeezy, Shopify Payments, the gateway comparator, profit
+   * margin, break-even, ROI, quarterly tax and UK IR35), which left those
+   * hubs with no inbound link from the homepage at all.
+   *
+   * The counts are derived from the canonical matrix, so they cannot drift.
+   */
   const categories = [
-    { key: 'sales-tax-calculator', label: '50 US States Sales Tax Calculators', count: 51, group: 'tax' },
-    { key: 'vat-calculator', label: 'UK HMRC VAT & European Compliance', count: 30, group: 'vat' },
-    { key: 'stripe-fee-calculator', label: 'Stripe Merchant Fee Calculators (US & UK)', count: 13, group: 'gateway' },
-    { key: 'paypal-fee-calculator', label: 'PayPal Processing Fee Calculators (US & UK)', count: 8, group: 'gateway' },
-    { key: 'square-fee-calculator', label: 'Square Online & In-Person POS Calculators', count: 7, group: 'gateway' },
-    { key: 'wise-vs-stripe', label: 'Wise vs Stripe Currency & Invoice Comparisons', count: 8, group: 'gateway' },
-    { key: 'authorize-net-calculator', label: 'Authorize.Net Gateway Calculators', count: 4, group: 'gateway' },
-    { key: 'freelance-rate-calculator', label: 'Freelance 1099 & Contractor Rates by Role', count: 37, group: 'freelance' },
-    { key: 'ecommerce-profit-calculator', label: 'E-Commerce & Dropshipping Profit Hubs', count: 21, group: 'ecommerce' },
+    { key: 'sales-tax-calculator', label: '50 US States Sales Tax Calculators', count: SALES_TAX_COUNT, group: 'tax' },
+    { key: 'canada-sales-tax', label: 'Canada GST, HST & PST Calculators', count: CANADA_TAX_COUNT, group: 'tax' },
+    { key: 'vat-calculator', label: 'UK HMRC VAT & European Compliance', count: VAT_COUNT, group: 'vat' },
+    { key: 'stripe-fee-calculator', label: 'Stripe Merchant Fee Calculators (US & UK)', count: STRIPE_COUNT, group: 'gateway' },
+    { key: 'paypal-fee-calculator', label: 'PayPal Processing Fee Calculators (US & UK)', count: PAYPAL_COUNT, group: 'gateway' },
+    { key: 'square-fee-calculator', label: 'Square Online & In-Person POS Calculators', count: SQUARE_COUNT, group: 'gateway' },
+    { key: 'wise-vs-stripe', label: 'Wise vs Stripe Currency & Invoice Comparisons', count: WISE_COUNT, group: 'gateway' },
+    { key: 'authorize-net-calculator', label: 'Authorize.Net Gateway Calculators', count: AUTHORIZENET_COUNT, group: 'gateway' },
+    { key: 'gateway-comparator', label: 'Stripe vs PayPal vs Square Comparator', count: 1, group: 'gateway' },
+    { key: 'venmo-fee-calculator', label: 'Venmo Business Fee Calculators', count: VENMO_COUNT, group: 'gateway' },
+    { key: 'gumroad-fee-calculator', label: 'Gumroad Creator Fee Calculators', count: 1, group: 'gateway' },
+    { key: 'lemon-squeezy-calculator', label: 'Lemon Squeezy Merchant of Record Fees', count: 1, group: 'gateway' },
+    { key: 'shopify-fee-calculator', label: 'Shopify Payments Fee Calculators', count: 1, group: 'gateway' },
+    { key: 'freelance-rate-calculator', label: 'Freelance 1099 & Contractor Rates by Role', count: FREELANCE_ROLE_COUNT, group: 'freelance' },
+    { key: 'ecommerce-profit-calculator', label: 'E-Commerce & Dropshipping Profit Hubs', count: ECOMMERCE_NICHE_COUNT, group: 'ecommerce' },
+    { key: 'profit-margin-calculator', label: 'Profit Margin & Markup Calculators', count: 1, group: 'business' },
+    { key: 'break-even-calculator', label: 'Break-Even Point Calculators', count: 1, group: 'business' },
+    { key: 'roi-calculator', label: 'ROI & Annualized Return Calculators', count: 1, group: 'business' },
+    { key: 'quarterly-tax-calculator', label: 'IRS 1040-ES Quarterly Tax Calculators', count: 1, group: 'business' },
+    { key: 'uk-ir35-calculator', label: 'UK IR35 Contractor Take-Home Calculators', count: 1, group: 'business' },
   ];
 
   const allMatrixItems = useMemo(
-    () => toolsIndex.filter((x) => !CANONICAL_REDIRECTS[`/tools/${x.category}/${x.slug}`]),
-    []
+    () => tools.filter((x) => !CANONICAL_REDIRECTS[`/tools/${x.category}/${x.slug}`]),
+    [tools]
   );
 
   const filteredItems = useMemo(() => {
@@ -229,7 +279,7 @@ export default function FeeKitHome() {
   };
 
   return (
-    <div className="w-full animate-in fade-in duration-200">
+    <div className="w-full animate-fade-in">
       {/* Schema.org WebSite, Organization, and SoftwareApplication Structured Data */}
       <HomeJsonLd />
 
@@ -264,7 +314,7 @@ export default function FeeKitHome() {
           {/* Search Input Bar & Quick-Jump Suite Badges */}
           <div className="space-y-2.5">
             <div className="w-full">
-              <FastSearchBar placeholder="Search 199+ tools (e.g., California, Stripe, VAT, 1099, Amazon FBA)..." />
+              <FastSearchBar placeholder={`Search ${TOOL_COUNT_LABEL_PLUS} tools (e.g., California, Stripe, VAT, 1099, Amazon FBA)...`} />
             </div>
 
             {/* Quick-Jump Suite Badges with Mobile Scroll Cue */}
@@ -544,7 +594,7 @@ export default function FeeKitHome() {
                 <Globe2 className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-xs font-bold text-slate-900 truncate">199+ Calculators</div>
+                <div className="text-xs font-bold text-slate-900 truncate">{TOOL_COUNT_LABEL_PLUS} Calculators</div>
                 <div className="text-[11px] text-slate-500 leading-tight truncate">
                   US, Canada, UK & Global
                 </div>
@@ -789,7 +839,7 @@ export default function FeeKitHome() {
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
-                50 States Sales Tax (51)
+                50 States Sales Tax ({SALES_TAX_COUNT})
               </button>
               <button
                 type="button"
@@ -800,7 +850,7 @@ export default function FeeKitHome() {
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
-                UK &amp; Global VAT (28)
+                UK &amp; Global VAT ({VAT_COUNT})
               </button>
               <button
                 type="button"
@@ -811,7 +861,7 @@ export default function FeeKitHome() {
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
-                Payment Gateways (29)
+                Payment Gateways ({GATEWAY_CATEGORY_COUNT})
               </button>
               <button
                 type="button"

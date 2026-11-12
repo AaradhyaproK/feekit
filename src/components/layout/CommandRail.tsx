@@ -16,8 +16,10 @@ import {
   FileText,
   Layers,
   TrendingUp,
+  Scale,
 } from 'lucide-react';
 import { cn } from '@/lib/utils/formatters';
+import { TOOL_COUNT_LABEL_PLUS } from '@/lib/site-stats';
 
 interface CommandRailProps {
   onOpenCommandPalette: () => void;
@@ -68,6 +70,16 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
       icon: CreditCard,
     },
     {
+      name: 'PayPal Fees',
+      href: '/tools/paypal-fee-calculator',
+      icon: CreditCard,
+    },
+    {
+      name: 'Square Fees',
+      href: '/tools/square-fee-calculator',
+      icon: CreditCard,
+    },
+    {
       name: 'Freelance Rates',
       href: '/tools/freelance-rate-calculator',
       icon: Briefcase,
@@ -76,6 +88,21 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
       name: 'E-Commerce Profit',
       href: '/tools/ecommerce-profit-calculator',
       icon: ShoppingBag,
+    },
+    {
+      name: 'Break-Even & ROI',
+      href: '/tools/break-even-calculator',
+      icon: TrendingUp,
+    },
+    {
+      name: 'Quarterly Tax',
+      href: '/tools/quarterly-tax-calculator',
+      icon: Receipt,
+    },
+    {
+      name: 'Software Comparisons',
+      href: '/compare',
+      icon: Scale,
     },
     {
       name: 'Blog & Guides',
@@ -87,15 +114,15 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden lg:flex w-56 flex-col border-r border-slate-200 bg-white p-3.5 text-slate-700 select-none shadow-[1px_0_4px_rgba(0,0,0,0.02)]">
       {/* Brand Header with Official FeeKit Logo (No Badges) */}
-      <Link href="/" className="flex items-center px-1.5 py-2 group rounded-xl hover:bg-slate-50 transition-all">
+      <Link href="/" prefetch={false} className="flex items-center px-1.5 py-2 group rounded-xl hover:bg-slate-50 transition-all">
         <Image
           src="/feekit-logo.png"
           alt="FeeKit"
           width={130}
           height={48}
-          className="h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
-          priority
           unoptimized
+          priority
+          className="h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
         />
       </Link>
 
@@ -108,7 +135,7 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
           className="flex w-full items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-xs text-slate-500 hover:border-blue-400 hover:bg-white hover:text-slate-900 transition-all shadow-2xs"
         >
           <Search className="h-3.5 w-3.5 text-blue-600 shrink-0" />
-          <span className="font-medium truncate">Search 199+ tools...</span>
+          <span className="font-medium truncate">Search {TOOL_COUNT_LABEL_PLUS} tools...</span>
         </button>
       </div>
 
@@ -124,6 +151,7 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
             <Link
               key={suite.name}
               href={suite.href}
+              prefetch={false}
               className={cn(
                 'group flex items-center gap-2.5 rounded-xl px-2.5 py-2 text-xs font-semibold transition-all truncate',
                 isActive
@@ -153,6 +181,7 @@ export function CommandRail({ onOpenCommandPalette }: CommandRailProps) {
             <Link
               key={item.href}
               href={item.href}
+              prefetch={false}
               className="block truncate rounded-lg px-2.5 py-1.5 text-xs text-slate-500 hover:bg-slate-50 hover:text-blue-600 transition-colors"
             >
               {item.title}

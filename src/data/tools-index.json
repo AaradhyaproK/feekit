@@ -4,10 +4,10 @@
     "shortTitle": "California Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "california",
-    "subtitle": "Calculate combined state (7.25%) and county/municipal surtaxes in California. Instant net-to-gross a",
-    "stateName": "California",
+    "subtitle": "Calculate combined state (7.25%) and county/municipal surtaxes in Cal...",
+    "href": "/tools/sales-tax-calculator/california",
     "jurisdictionCode": "CA",
-    "badge": "",
+    "stateName": "California",
     "rate": 7.25
   },
   {
@@ -15,10 +15,10 @@
     "shortTitle": "Texas Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "texas",
-    "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Texas. Instant net-to-gross and gr",
-    "stateName": "Texas",
+    "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Texas.",
+    "href": "/tools/sales-tax-calculator/texas",
     "jurisdictionCode": "TX",
-    "badge": "",
+    "stateName": "Texas",
     "rate": 6.25
   },
   {
@@ -26,10 +26,10 @@
     "shortTitle": "New York Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "new-york",
-    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in New York. Instant net-to-gross and gr",
-    "stateName": "New York",
+    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in New York.",
+    "href": "/tools/sales-tax-calculator/new-york",
     "jurisdictionCode": "NY",
-    "badge": "",
+    "stateName": "New York",
     "rate": 4
   },
   {
@@ -37,10 +37,10 @@
     "shortTitle": "Florida Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "florida",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Florida. Instant net-to-gross and gro",
-    "stateName": "Florida",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Florida.",
+    "href": "/tools/sales-tax-calculator/florida",
     "jurisdictionCode": "FL",
-    "badge": "",
+    "stateName": "Florida",
     "rate": 6
   },
   {
@@ -48,10 +48,10 @@
     "shortTitle": "Illinois Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "illinois",
-    "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Illinois. Instant net-to-gross and",
-    "stateName": "Illinois",
+    "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Ill...",
+    "href": "/tools/sales-tax-calculator/illinois",
     "jurisdictionCode": "IL",
-    "badge": "",
+    "stateName": "Illinois",
     "rate": 6.25
   },
   {
@@ -59,10 +59,10 @@
     "shortTitle": "Pennsylvania Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "pennsylvania",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Pennsylvania. Instant net-to-gross an",
-    "stateName": "Pennsylvania",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Pennsy...",
+    "href": "/tools/sales-tax-calculator/pennsylvania",
     "jurisdictionCode": "PA",
-    "badge": "",
+    "stateName": "Pennsylvania",
     "rate": 6
   },
   {
@@ -70,10 +70,10 @@
     "shortTitle": "Ohio Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "ohio",
-    "subtitle": "Calculate combined state (5.75%) and county/municipal surtaxes in Ohio. Instant net-to-gross and gro",
-    "stateName": "Ohio",
+    "subtitle": "Calculate combined state (5.75%) and county/municipal surtaxes in Ohio.",
+    "href": "/tools/sales-tax-calculator/ohio",
     "jurisdictionCode": "OH",
-    "badge": "",
+    "stateName": "Ohio",
     "rate": 5.75
   },
   {
@@ -81,10 +81,10 @@
     "shortTitle": "Georgia Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "georgia",
-    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Georgia. Instant net-to-gross and gro",
-    "stateName": "Georgia",
+    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Georgia.",
+    "href": "/tools/sales-tax-calculator/georgia",
     "jurisdictionCode": "GA",
-    "badge": "",
+    "stateName": "Georgia",
     "rate": 4
   },
   {
@@ -92,10 +92,10 @@
     "shortTitle": "North Carolina Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "north-carolina",
-    "subtitle": "Calculate combined state (4.75%) and county/municipal surtaxes in North Carolina. Instant net-to-gro",
-    "stateName": "North Carolina",
+    "subtitle": "Calculate combined state (4.75%) and county/municipal surtaxes in Nor...",
+    "href": "/tools/sales-tax-calculator/north-carolina",
     "jurisdictionCode": "NC",
-    "badge": "",
+    "stateName": "North Carolina",
     "rate": 4.75
   },
   {
@@ -103,10 +103,10 @@
     "shortTitle": "Michigan Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "michigan",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Michigan. Instant net-to-gross and gr",
-    "stateName": "Michigan",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Michigan.",
+    "href": "/tools/sales-tax-calculator/michigan",
     "jurisdictionCode": "MI",
-    "badge": "",
+    "stateName": "Michigan",
     "rate": 6
   },
   {
@@ -114,10 +114,10 @@
     "shortTitle": "New Jersey Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "new-jersey",
-    "subtitle": "Calculate combined state (6.625%) and county/municipal surtaxes in New Jersey. Instant net-to-gross ",
-    "stateName": "New Jersey",
+    "subtitle": "Calculate combined state (6.625%) and county/municipal surtaxes in Ne...",
+    "href": "/tools/sales-tax-calculator/new-jersey",
     "jurisdictionCode": "NJ",
-    "badge": "",
+    "stateName": "New Jersey",
     "rate": 6.625
   },
   {
@@ -125,10 +125,10 @@
     "shortTitle": "Virginia Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "virginia",
-    "subtitle": "Calculate combined state (5.3%) and county/municipal surtaxes in Virginia. Instant net-to-gross and ",
-    "stateName": "Virginia",
+    "subtitle": "Calculate combined state (5.3%) and county/municipal surtaxes in Virg...",
+    "href": "/tools/sales-tax-calculator/virginia",
     "jurisdictionCode": "VA",
-    "badge": "",
+    "stateName": "Virginia",
     "rate": 5.3
   },
   {
@@ -136,10 +136,10 @@
     "shortTitle": "Washington Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "washington",
-    "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Washington. Instant net-to-gross an",
-    "stateName": "Washington",
+    "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Wash...",
+    "href": "/tools/sales-tax-calculator/washington",
     "jurisdictionCode": "WA",
-    "badge": "",
+    "stateName": "Washington",
     "rate": 6.5
   },
   {
@@ -147,10 +147,10 @@
     "shortTitle": "Arizona Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "arizona",
-    "subtitle": "Calculate combined state (5.6%) and county/municipal surtaxes in Arizona. Instant net-to-gross and g",
-    "stateName": "Arizona",
+    "subtitle": "Calculate combined state (5.6%) and county/municipal surtaxes in Ariz...",
+    "href": "/tools/sales-tax-calculator/arizona",
     "jurisdictionCode": "AZ",
-    "badge": "",
+    "stateName": "Arizona",
     "rate": 5.6
   },
   {
@@ -158,10 +158,10 @@
     "shortTitle": "Massachusetts Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "massachusetts",
-    "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Massachusetts. Instant net-to-gros",
-    "stateName": "Massachusetts",
+    "subtitle": "Calculate combined state (6.25%) and county/municipal surtaxes in Mas...",
+    "href": "/tools/sales-tax-calculator/massachusetts",
     "jurisdictionCode": "MA",
-    "badge": "",
+    "stateName": "Massachusetts",
     "rate": 6.25
   },
   {
@@ -169,10 +169,10 @@
     "shortTitle": "Tennessee Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "tennessee",
-    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Tennessee. Instant net-to-gross and g",
-    "stateName": "Tennessee",
+    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Tennes...",
+    "href": "/tools/sales-tax-calculator/tennessee",
     "jurisdictionCode": "TN",
-    "badge": "",
+    "stateName": "Tennessee",
     "rate": 7
   },
   {
@@ -180,10 +180,10 @@
     "shortTitle": "Indiana Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "indiana",
-    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Indiana. Instant net-to-gross and gro",
-    "stateName": "Indiana",
+    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Indiana.",
+    "href": "/tools/sales-tax-calculator/indiana",
     "jurisdictionCode": "IN",
-    "badge": "",
+    "stateName": "Indiana",
     "rate": 7
   },
   {
@@ -191,10 +191,10 @@
     "shortTitle": "Missouri Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "missouri",
-    "subtitle": "Calculate combined state (4.225%) and county/municipal surtaxes in Missouri. Instant net-to-gross an",
-    "stateName": "Missouri",
+    "subtitle": "Calculate combined state (4.225%) and county/municipal surtaxes in Mi...",
+    "href": "/tools/sales-tax-calculator/missouri",
     "jurisdictionCode": "MO",
-    "badge": "",
+    "stateName": "Missouri",
     "rate": 4.225
   },
   {
@@ -202,10 +202,10 @@
     "shortTitle": "Maryland Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "maryland",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Maryland. Instant net-to-gross and gr",
-    "stateName": "Maryland",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Maryland.",
+    "href": "/tools/sales-tax-calculator/maryland",
     "jurisdictionCode": "MD",
-    "badge": "",
+    "stateName": "Maryland",
     "rate": 6
   },
   {
@@ -213,10 +213,10 @@
     "shortTitle": "Wisconsin Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "wisconsin",
-    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in Wisconsin. Instant net-to-gross and g",
-    "stateName": "Wisconsin",
+    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in Wiscon...",
+    "href": "/tools/sales-tax-calculator/wisconsin",
     "jurisdictionCode": "WI",
-    "badge": "",
+    "stateName": "Wisconsin",
     "rate": 5
   },
   {
@@ -224,10 +224,10 @@
     "shortTitle": "Colorado Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "colorado",
-    "subtitle": "Calculate combined state (2.9%) and county/municipal surtaxes in Colorado. Instant net-to-gross and ",
-    "stateName": "Colorado",
+    "subtitle": "Calculate combined state (2.9%) and county/municipal surtaxes in Colo...",
+    "href": "/tools/sales-tax-calculator/colorado",
     "jurisdictionCode": "CO",
-    "badge": "",
+    "stateName": "Colorado",
     "rate": 2.9
   },
   {
@@ -235,10 +235,10 @@
     "shortTitle": "Minnesota Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "minnesota",
-    "subtitle": "Calculate combined state (6.875%) and county/municipal surtaxes in Minnesota. Instant net-to-gross a",
-    "stateName": "Minnesota",
+    "subtitle": "Calculate combined state (6.875%) and county/municipal surtaxes in Mi...",
+    "href": "/tools/sales-tax-calculator/minnesota",
     "jurisdictionCode": "MN",
-    "badge": "",
+    "stateName": "Minnesota",
     "rate": 6.875
   },
   {
@@ -246,10 +246,10 @@
     "shortTitle": "South Carolina Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "south-carolina",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in South Carolina. Instant net-to-gross ",
-    "stateName": "South Carolina",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in South...",
+    "href": "/tools/sales-tax-calculator/south-carolina",
     "jurisdictionCode": "SC",
-    "badge": "",
+    "stateName": "South Carolina",
     "rate": 6
   },
   {
@@ -257,10 +257,10 @@
     "shortTitle": "Alabama Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "alabama",
-    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Alabama. Instant net-to-gross and gro",
-    "stateName": "Alabama",
+    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Alabama.",
+    "href": "/tools/sales-tax-calculator/alabama",
     "jurisdictionCode": "AL",
-    "badge": "",
+    "stateName": "Alabama",
     "rate": 4
   },
   {
@@ -268,21 +268,21 @@
     "shortTitle": "Louisiana Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "louisiana",
-    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in Louisiana. Instant net-to-gross and gross-to-net reverse calculations.",
-    "stateName": "Louisiana",
+    "subtitle": "Calculate combined state (5%) and parish surtaxes in Louisiana.",
+    "href": "/tools/sales-tax-calculator/louisiana",
     "jurisdictionCode": "LA",
-    "badge": "",
-    "rate": 5.00
+    "stateName": "Louisiana",
+    "rate": 5
   },
   {
     "title": "Kentucky Sales Tax Calculator (2026 Updated Rates)",
     "shortTitle": "Kentucky Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "kentucky",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Kentucky. Instant net-to-gross and gr",
-    "stateName": "Kentucky",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Kentucky.",
+    "href": "/tools/sales-tax-calculator/kentucky",
     "jurisdictionCode": "KY",
-    "badge": "",
+    "stateName": "Kentucky",
     "rate": 6
   },
   {
@@ -290,10 +290,10 @@
     "shortTitle": "Oregon Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "oregon",
-    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Oregon. Instant net-to-gross and gros",
-    "stateName": "Oregon",
+    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Oregon.",
+    "href": "/tools/sales-tax-calculator/oregon",
     "jurisdictionCode": "OR",
-    "badge": "",
+    "stateName": "Oregon",
     "rate": 0
   },
   {
@@ -301,10 +301,10 @@
     "shortTitle": "Oklahoma Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "oklahoma",
-    "subtitle": "Calculate combined state (4.5%) and county/municipal surtaxes in Oklahoma. Instant net-to-gross and ",
-    "stateName": "Oklahoma",
+    "subtitle": "Calculate combined state (4.5%) and county/municipal surtaxes in Okla...",
+    "href": "/tools/sales-tax-calculator/oklahoma",
     "jurisdictionCode": "OK",
-    "badge": "",
+    "stateName": "Oklahoma",
     "rate": 4.5
   },
   {
@@ -312,10 +312,10 @@
     "shortTitle": "Connecticut Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "connecticut",
-    "subtitle": "Calculate combined state (6.35%) and county/municipal surtaxes in Connecticut. Instant net-to-gross ",
-    "stateName": "Connecticut",
+    "subtitle": "Calculate combined state (6.35%) and county/municipal surtaxes in Con...",
+    "href": "/tools/sales-tax-calculator/connecticut",
     "jurisdictionCode": "CT",
-    "badge": "",
+    "stateName": "Connecticut",
     "rate": 6.35
   },
   {
@@ -323,10 +323,10 @@
     "shortTitle": "Utah Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "utah",
-    "subtitle": "Calculate combined state (6.1%) and county/municipal surtaxes in Utah. Instant net-to-gross and gros",
-    "stateName": "Utah",
+    "subtitle": "Calculate combined state (6.1%) and county/municipal surtaxes in Utah.",
+    "href": "/tools/sales-tax-calculator/utah",
     "jurisdictionCode": "UT",
-    "badge": "",
+    "stateName": "Utah",
     "rate": 6.1
   },
   {
@@ -334,10 +334,10 @@
     "shortTitle": "Iowa Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "iowa",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Iowa. Instant net-to-gross and gross-",
-    "stateName": "Iowa",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Iowa.",
+    "href": "/tools/sales-tax-calculator/iowa",
     "jurisdictionCode": "IA",
-    "badge": "",
+    "stateName": "Iowa",
     "rate": 6
   },
   {
@@ -345,10 +345,10 @@
     "shortTitle": "Nevada Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "nevada",
-    "subtitle": "Calculate combined state (6.85%) and county/municipal surtaxes in Nevada. Instant net-to-gross and g",
-    "stateName": "Nevada",
+    "subtitle": "Calculate combined state (6.85%) and county/municipal surtaxes in Nev...",
+    "href": "/tools/sales-tax-calculator/nevada",
     "jurisdictionCode": "NV",
-    "badge": "",
+    "stateName": "Nevada",
     "rate": 6.85
   },
   {
@@ -356,10 +356,10 @@
     "shortTitle": "Arkansas Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "arkansas",
-    "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Arkansas. Instant net-to-gross and ",
-    "stateName": "Arkansas",
+    "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Arka...",
+    "href": "/tools/sales-tax-calculator/arkansas",
     "jurisdictionCode": "AR",
-    "badge": "",
+    "stateName": "Arkansas",
     "rate": 6.5
   },
   {
@@ -367,10 +367,10 @@
     "shortTitle": "Mississippi Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "mississippi",
-    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Mississippi. Instant net-to-gross and",
-    "stateName": "Mississippi",
+    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Missis...",
+    "href": "/tools/sales-tax-calculator/mississippi",
     "jurisdictionCode": "MS",
-    "badge": "",
+    "stateName": "Mississippi",
     "rate": 7
   },
   {
@@ -378,10 +378,10 @@
     "shortTitle": "Kansas Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "kansas",
-    "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Kansas. Instant net-to-gross and gr",
-    "stateName": "Kansas",
+    "subtitle": "Calculate combined state (6.5%) and county/municipal surtaxes in Kansas.",
+    "href": "/tools/sales-tax-calculator/kansas",
     "jurisdictionCode": "KS",
-    "badge": "",
+    "stateName": "Kansas",
     "rate": 6.5
   },
   {
@@ -389,10 +389,10 @@
     "shortTitle": "New Mexico Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "new-mexico",
-    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in New Mexico. Instant net-to-gross and ",
-    "stateName": "New Mexico",
+    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in New Me...",
+    "href": "/tools/sales-tax-calculator/new-mexico",
     "jurisdictionCode": "NM",
-    "badge": "",
+    "stateName": "New Mexico",
     "rate": 5
   },
   {
@@ -400,10 +400,10 @@
     "shortTitle": "Nebraska Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "nebraska",
-    "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Nebraska. Instant net-to-gross and ",
-    "stateName": "Nebraska",
+    "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Nebr...",
+    "href": "/tools/sales-tax-calculator/nebraska",
     "jurisdictionCode": "NE",
-    "badge": "",
+    "stateName": "Nebraska",
     "rate": 5.5
   },
   {
@@ -411,10 +411,10 @@
     "shortTitle": "Idaho Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "idaho",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Idaho. Instant net-to-gross and gross",
-    "stateName": "Idaho",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Idaho.",
+    "href": "/tools/sales-tax-calculator/idaho",
     "jurisdictionCode": "ID",
-    "badge": "",
+    "stateName": "Idaho",
     "rate": 6
   },
   {
@@ -422,10 +422,10 @@
     "shortTitle": "West Virginia Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "west-virginia",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in West Virginia. Instant net-to-gross a",
-    "stateName": "West Virginia",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in West V...",
+    "href": "/tools/sales-tax-calculator/west-virginia",
     "jurisdictionCode": "WV",
-    "badge": "",
+    "stateName": "West Virginia",
     "rate": 6
   },
   {
@@ -433,10 +433,10 @@
     "shortTitle": "Hawaii Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "hawaii",
-    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Hawaii. Instant net-to-gross and gros",
-    "stateName": "Hawaii",
+    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Hawaii.",
+    "href": "/tools/sales-tax-calculator/hawaii",
     "jurisdictionCode": "HI",
-    "badge": "",
+    "stateName": "Hawaii",
     "rate": 4
   },
   {
@@ -444,10 +444,10 @@
     "shortTitle": "New Hampshire Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "new-hampshire",
-    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in New Hampshire. Instant net-to-gross a",
-    "stateName": "New Hampshire",
+    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in New Ha...",
+    "href": "/tools/sales-tax-calculator/new-hampshire",
     "jurisdictionCode": "NH",
-    "badge": "",
+    "stateName": "New Hampshire",
     "rate": 0
   },
   {
@@ -455,10 +455,10 @@
     "shortTitle": "Maine Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "maine",
-    "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Maine. Instant net-to-gross and gro",
-    "stateName": "Maine",
+    "subtitle": "Calculate combined state (5.5%) and county/municipal surtaxes in Maine.",
+    "href": "/tools/sales-tax-calculator/maine",
     "jurisdictionCode": "ME",
-    "badge": "",
+    "stateName": "Maine",
     "rate": 5.5
   },
   {
@@ -466,10 +466,10 @@
     "shortTitle": "Rhode Island Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "rhode-island",
-    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Rhode Island. Instant net-to-gross an",
-    "stateName": "Rhode Island",
+    "subtitle": "Calculate combined state (7%) and county/municipal surtaxes in Rhode...",
+    "href": "/tools/sales-tax-calculator/rhode-island",
     "jurisdictionCode": "RI",
-    "badge": "",
+    "stateName": "Rhode Island",
     "rate": 7
   },
   {
@@ -477,10 +477,10 @@
     "shortTitle": "Montana Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "montana",
-    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Montana. Instant net-to-gross and gro",
-    "stateName": "Montana",
+    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Montana.",
+    "href": "/tools/sales-tax-calculator/montana",
     "jurisdictionCode": "MT",
-    "badge": "",
+    "stateName": "Montana",
     "rate": 0
   },
   {
@@ -488,10 +488,10 @@
     "shortTitle": "Delaware Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "delaware",
-    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Delaware. Instant net-to-gross and gr",
-    "stateName": "Delaware",
+    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Delaware.",
+    "href": "/tools/sales-tax-calculator/delaware",
     "jurisdictionCode": "DE",
-    "badge": "",
+    "stateName": "Delaware",
     "rate": 0
   },
   {
@@ -499,10 +499,10 @@
     "shortTitle": "South Dakota Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "south-dakota",
-    "subtitle": "Calculate combined state (4.2%) and county/municipal surtaxes in South Dakota. Instant net-to-gross ",
-    "stateName": "South Dakota",
+    "subtitle": "Calculate combined state (4.2%) and county/municipal surtaxes in Sout...",
+    "href": "/tools/sales-tax-calculator/south-dakota",
     "jurisdictionCode": "SD",
-    "badge": "",
+    "stateName": "South Dakota",
     "rate": 4.2
   },
   {
@@ -510,10 +510,10 @@
     "shortTitle": "North Dakota Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "north-dakota",
-    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in North Dakota. Instant net-to-gross an",
-    "stateName": "North Dakota",
+    "subtitle": "Calculate combined state (5%) and county/municipal surtaxes in North...",
+    "href": "/tools/sales-tax-calculator/north-dakota",
     "jurisdictionCode": "ND",
-    "badge": "",
+    "stateName": "North Dakota",
     "rate": 5
   },
   {
@@ -521,10 +521,10 @@
     "shortTitle": "Alaska Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "alaska",
-    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Alaska. Instant net-to-gross and gros",
-    "stateName": "Alaska",
+    "subtitle": "Calculate combined state (0%) and county/municipal surtaxes in Alaska.",
+    "href": "/tools/sales-tax-calculator/alaska",
     "jurisdictionCode": "AK",
-    "badge": "",
+    "stateName": "Alaska",
     "rate": 0
   },
   {
@@ -532,10 +532,10 @@
     "shortTitle": "Vermont Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "vermont",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Vermont. Instant net-to-gross and gro",
-    "stateName": "Vermont",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Vermont.",
+    "href": "/tools/sales-tax-calculator/vermont",
     "jurisdictionCode": "VT",
-    "badge": "",
+    "stateName": "Vermont",
     "rate": 6
   },
   {
@@ -543,10 +543,10 @@
     "shortTitle": "Wyoming Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "wyoming",
-    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Wyoming. Instant net-to-gross and gro",
-    "stateName": "Wyoming",
+    "subtitle": "Calculate combined state (4%) and county/municipal surtaxes in Wyoming.",
+    "href": "/tools/sales-tax-calculator/wyoming",
     "jurisdictionCode": "WY",
-    "badge": "",
+    "stateName": "Wyoming",
     "rate": 4
   },
   {
@@ -554,10 +554,10 @@
     "shortTitle": "District of Columbia Sales Tax",
     "category": "sales-tax-calculator",
     "slug": "district-of-columbia",
-    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in District of Columbia. Instant net-to-",
-    "stateName": "District of Columbia",
+    "subtitle": "Calculate combined state (6%) and county/municipal surtaxes in Distri...",
+    "href": "/tools/sales-tax-calculator/district-of-columbia",
     "jurisdictionCode": "DC",
-    "badge": "",
+    "stateName": "District of Columbia",
     "rate": 6
   },
   {
@@ -565,10 +565,9 @@
     "shortTitle": "UK VAT Calculator",
     "category": "vat-calculator",
     "slug": "united-kingdom",
-    "subtitle": "Calculate HMRC Value Added Tax in the United Kingdom. Add 20% standard VAT to net quotes or remove V",
-    "stateName": "",
+    "subtitle": "Calculate HMRC Value Added Tax in the United Kingdom.",
+    "href": "/tools/vat-calculator/united-kingdom",
     "jurisdictionCode": "GB",
-    "badge": "",
     "rate": 20
   },
   {
@@ -576,87 +575,65 @@
     "shortTitle": "Stripe UK Fee",
     "category": "stripe-fee-calculator",
     "slug": "uk",
-    "subtitle": "Exact Stripe processing deductions for UK businesses. Calculate standard UK consumer cards (1.5% + 2",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Exact Stripe processing deductions for UK businesses.",
+    "href": "/tools/stripe-fee-calculator/uk"
   },
   {
     "title": "PayPal UK Fee Calculator (2.9% + 30p Domestic Transactions)",
     "shortTitle": "PayPal UK Fee",
     "category": "paypal-fee-calculator",
     "slug": "uk",
-    "subtitle": "Calculate PayPal merchant deductions in the United Kingdom with reverse invoice charge markup.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate PayPal merchant deductions in the United Kingdom with rever...",
+    "href": "/tools/paypal-fee-calculator/uk"
   },
   {
     "title": "UK Freelance Contractor Day Rate & Tax Calculator (Inside/Outside IR35)",
     "shortTitle": "UK Contractor Rate",
     "category": "freelance-rate-calculator",
     "slug": "uk-contractor",
-    "subtitle": "Calculate optimal day rates, corporation tax allowances, and dividend splits for UK Ltd contractors.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal day rates, corporation tax allowances, and dividend...",
+    "href": "/tools/freelance-rate-calculator/uk-contractor"
   },
   {
     "title": "Stripe Fee Calculator USA (2.9% + $0.30 Domestic Cards)",
     "shortTitle": "Stripe US Fee",
     "category": "stripe-fee-calculator",
     "slug": "usa",
-    "subtitle": "Official US Stripe credit card processing fee calculator. Forward & reverse invoice calculations for",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Official US Stripe credit card processing fee calculator.",
+    "href": "/tools/stripe-fee-calculator/usa"
   },
   {
     "title": "Stripe Keyed-In Card Fee Calculator (3.4% + $0.30)",
     "shortTitle": "Stripe Keyed-In Fee",
     "category": "stripe-fee-calculator",
     "slug": "keyed-entry",
-    "subtitle": "Calculate Stripe Virtual Terminal and manually entered card processing fees (3.4% + $0.30) in the US",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate Stripe Virtual Terminal and manually entered card processin...",
+    "href": "/tools/stripe-fee-calculator/keyed-entry"
   },
   {
     "title": "PayPal Fee Calculator USA (3.49% + $0.49 Commerce Rate)",
     "shortTitle": "PayPal US Fee",
     "category": "paypal-fee-calculator",
     "slug": "usa",
-    "subtitle": "Standard US PayPal checkout and commercial invoice calculator with reverse fee absorption math.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Standard US PayPal checkout and commercial invoice calculator with re...",
+    "href": "/tools/paypal-fee-calculator/usa"
   },
   {
     "title": "Square Fee Calculator USA (2.6% + $0.10 POS / 2.9% + $0.30 Online)",
     "shortTitle": "Square US Fee",
     "category": "square-fee-calculator",
     "slug": "usa",
-    "subtitle": "Calculate processing deductions for Square in-person hardware, online storefronts, and invoices.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate processing deductions for Square in-person hardware, online...",
+    "href": "/tools/square-fee-calculator/usa"
   },
   {
     "title": "Germany VAT Calculator (19% Standard Rate)",
     "shortTitle": "Germany VAT",
     "category": "vat-calculator",
     "slug": "germany",
-    "subtitle": "Calculate Value Added Tax in Germany. Instantly add 19% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Germany.",
+    "href": "/tools/vat-calculator/germany",
     "jurisdictionCode": "DE",
-    "badge": "",
     "rate": 19
   },
   {
@@ -664,10 +641,9 @@
     "shortTitle": "France VAT",
     "category": "vat-calculator",
     "slug": "france",
-    "subtitle": "Calculate Value Added Tax in France. Instantly add 20% VAT to net quotes or remove VAT from gross co",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in France.",
+    "href": "/tools/vat-calculator/france",
     "jurisdictionCode": "FR",
-    "badge": "",
     "rate": 20
   },
   {
@@ -675,10 +651,9 @@
     "shortTitle": "Italy VAT",
     "category": "vat-calculator",
     "slug": "italy",
-    "subtitle": "Calculate Value Added Tax in Italy. Instantly add 22% VAT to net quotes or remove VAT from gross com",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Italy.",
+    "href": "/tools/vat-calculator/italy",
     "jurisdictionCode": "IT",
-    "badge": "",
     "rate": 22
   },
   {
@@ -686,10 +661,9 @@
     "shortTitle": "Spain VAT",
     "category": "vat-calculator",
     "slug": "spain",
-    "subtitle": "Calculate Value Added Tax in Spain. Instantly add 21% VAT to net quotes or remove VAT from gross com",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Spain.",
+    "href": "/tools/vat-calculator/spain",
     "jurisdictionCode": "ES",
-    "badge": "",
     "rate": 21
   },
   {
@@ -697,10 +671,9 @@
     "shortTitle": "Netherlands VAT",
     "category": "vat-calculator",
     "slug": "netherlands",
-    "subtitle": "Calculate Value Added Tax in Netherlands. Instantly add 21% VAT to net quotes or remove VAT from gro",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Netherlands.",
+    "href": "/tools/vat-calculator/netherlands",
     "jurisdictionCode": "NL",
-    "badge": "",
     "rate": 21
   },
   {
@@ -708,10 +681,9 @@
     "shortTitle": "Poland VAT",
     "category": "vat-calculator",
     "slug": "poland",
-    "subtitle": "Calculate Value Added Tax in Poland. Instantly add 23% VAT to net quotes or remove VAT from gross co",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Poland.",
+    "href": "/tools/vat-calculator/poland",
     "jurisdictionCode": "PL",
-    "badge": "",
     "rate": 23
   },
   {
@@ -719,10 +691,9 @@
     "shortTitle": "Sweden VAT",
     "category": "vat-calculator",
     "slug": "sweden",
-    "subtitle": "Calculate Value Added Tax in Sweden. Instantly add 25% VAT to net quotes or remove VAT from gross co",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Sweden.",
+    "href": "/tools/vat-calculator/sweden",
     "jurisdictionCode": "SE",
-    "badge": "",
     "rate": 25
   },
   {
@@ -730,10 +701,9 @@
     "shortTitle": "Belgium VAT",
     "category": "vat-calculator",
     "slug": "belgium",
-    "subtitle": "Calculate Value Added Tax in Belgium. Instantly add 21% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Belgium.",
+    "href": "/tools/vat-calculator/belgium",
     "jurisdictionCode": "BE",
-    "badge": "",
     "rate": 21
   },
   {
@@ -741,10 +711,9 @@
     "shortTitle": "Austria VAT",
     "category": "vat-calculator",
     "slug": "austria",
-    "subtitle": "Calculate Value Added Tax in Austria. Instantly add 20% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Austria.",
+    "href": "/tools/vat-calculator/austria",
     "jurisdictionCode": "AT",
-    "badge": "",
     "rate": 20
   },
   {
@@ -752,10 +721,9 @@
     "shortTitle": "Ireland VAT",
     "category": "vat-calculator",
     "slug": "ireland",
-    "subtitle": "Calculate Value Added Tax in Ireland. Instantly add 23% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Ireland.",
+    "href": "/tools/vat-calculator/ireland",
     "jurisdictionCode": "IE",
-    "badge": "",
     "rate": 23
   },
   {
@@ -763,10 +731,9 @@
     "shortTitle": "Denmark VAT",
     "category": "vat-calculator",
     "slug": "denmark",
-    "subtitle": "Calculate Value Added Tax in Denmark. Instantly add 25% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Denmark.",
+    "href": "/tools/vat-calculator/denmark",
     "jurisdictionCode": "DK",
-    "badge": "",
     "rate": 25
   },
   {
@@ -774,10 +741,9 @@
     "shortTitle": "Finland VAT",
     "category": "vat-calculator",
     "slug": "finland",
-    "subtitle": "Calculate Value Added Tax in Finland. Instantly add 25.5% VAT to net quotes or remove VAT from gross",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Finland.",
+    "href": "/tools/vat-calculator/finland",
     "jurisdictionCode": "FI",
-    "badge": "",
     "rate": 25.5
   },
   {
@@ -785,10 +751,9 @@
     "shortTitle": "Portugal VAT",
     "category": "vat-calculator",
     "slug": "portugal",
-    "subtitle": "Calculate Value Added Tax in Portugal. Instantly add 23% VAT to net quotes or remove VAT from gross ",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Portugal.",
+    "href": "/tools/vat-calculator/portugal",
     "jurisdictionCode": "PT",
-    "badge": "",
     "rate": 23
   },
   {
@@ -796,10 +761,9 @@
     "shortTitle": "Greece VAT",
     "category": "vat-calculator",
     "slug": "greece",
-    "subtitle": "Calculate Value Added Tax in Greece. Instantly add 24% VAT to net quotes or remove VAT from gross co",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Greece.",
+    "href": "/tools/vat-calculator/greece",
     "jurisdictionCode": "GR",
-    "badge": "",
     "rate": 24
   },
   {
@@ -807,10 +771,9 @@
     "shortTitle": "Czech Republic VAT",
     "category": "vat-calculator",
     "slug": "czech-republic",
-    "subtitle": "Calculate Value Added Tax in Czech Republic. Instantly add 21% VAT to net quotes or remove VAT from ",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Czech Republic.",
+    "href": "/tools/vat-calculator/czech-republic",
     "jurisdictionCode": "CZ",
-    "badge": "",
     "rate": 21
   },
   {
@@ -818,10 +781,9 @@
     "shortTitle": "Romania VAT",
     "category": "vat-calculator",
     "slug": "romania",
-    "subtitle": "Calculate Value Added Tax in Romania. Instantly add 19% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Romania.",
+    "href": "/tools/vat-calculator/romania",
     "jurisdictionCode": "RO",
-    "badge": "",
     "rate": 19
   },
   {
@@ -829,10 +791,9 @@
     "shortTitle": "Hungary VAT",
     "category": "vat-calculator",
     "slug": "hungary",
-    "subtitle": "Calculate Value Added Tax in Hungary. Instantly add 27% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Hungary.",
+    "href": "/tools/vat-calculator/hungary",
     "jurisdictionCode": "HU",
-    "badge": "",
     "rate": 27
   },
   {
@@ -840,10 +801,9 @@
     "shortTitle": "Slovakia VAT",
     "category": "vat-calculator",
     "slug": "slovakia",
-    "subtitle": "Calculate Value Added Tax in Slovakia. Instantly add 20% VAT to net quotes or remove VAT from gross ",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Slovakia.",
+    "href": "/tools/vat-calculator/slovakia",
     "jurisdictionCode": "SK",
-    "badge": "",
     "rate": 20
   },
   {
@@ -851,10 +811,9 @@
     "shortTitle": "Bulgaria VAT",
     "category": "vat-calculator",
     "slug": "bulgaria",
-    "subtitle": "Calculate Value Added Tax in Bulgaria. Instantly add 20% VAT to net quotes or remove VAT from gross ",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Bulgaria.",
+    "href": "/tools/vat-calculator/bulgaria",
     "jurisdictionCode": "BG",
-    "badge": "",
     "rate": 20
   },
   {
@@ -862,10 +821,9 @@
     "shortTitle": "Croatia VAT",
     "category": "vat-calculator",
     "slug": "croatia",
-    "subtitle": "Calculate Value Added Tax in Croatia. Instantly add 25% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Croatia.",
+    "href": "/tools/vat-calculator/croatia",
     "jurisdictionCode": "HR",
-    "badge": "",
     "rate": 25
   },
   {
@@ -873,10 +831,9 @@
     "shortTitle": "Lithuania VAT",
     "category": "vat-calculator",
     "slug": "lithuania",
-    "subtitle": "Calculate Value Added Tax in Lithuania. Instantly add 21% VAT to net quotes or remove VAT from gross",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Lithuania.",
+    "href": "/tools/vat-calculator/lithuania",
     "jurisdictionCode": "LT",
-    "badge": "",
     "rate": 21
   },
   {
@@ -884,10 +841,9 @@
     "shortTitle": "Slovenia VAT",
     "category": "vat-calculator",
     "slug": "slovenia",
-    "subtitle": "Calculate Value Added Tax in Slovenia. Instantly add 22% VAT to net quotes or remove VAT from gross ",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Slovenia.",
+    "href": "/tools/vat-calculator/slovenia",
     "jurisdictionCode": "SI",
-    "badge": "",
     "rate": 22
   },
   {
@@ -895,10 +851,9 @@
     "shortTitle": "Latvia VAT",
     "category": "vat-calculator",
     "slug": "latvia",
-    "subtitle": "Calculate Value Added Tax in Latvia. Instantly add 21% VAT to net quotes or remove VAT from gross co",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Latvia.",
+    "href": "/tools/vat-calculator/latvia",
     "jurisdictionCode": "LV",
-    "badge": "",
     "rate": 21
   },
   {
@@ -906,10 +861,9 @@
     "shortTitle": "Estonia VAT",
     "category": "vat-calculator",
     "slug": "estonia",
-    "subtitle": "Calculate Value Added Tax in Estonia. Instantly add 22% VAT to net quotes or remove VAT from gross c",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Estonia.",
+    "href": "/tools/vat-calculator/estonia",
     "jurisdictionCode": "EE",
-    "badge": "",
     "rate": 22
   },
   {
@@ -917,10 +871,9 @@
     "shortTitle": "Cyprus VAT",
     "category": "vat-calculator",
     "slug": "cyprus",
-    "subtitle": "Calculate Value Added Tax in Cyprus. Instantly add 19% VAT to net quotes or remove VAT from gross co",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Cyprus.",
+    "href": "/tools/vat-calculator/cyprus",
     "jurisdictionCode": "CY",
-    "badge": "",
     "rate": 19
   },
   {
@@ -928,10 +881,9 @@
     "shortTitle": "Luxembourg VAT",
     "category": "vat-calculator",
     "slug": "luxembourg",
-    "subtitle": "Calculate Value Added Tax in Luxembourg. Instantly add 17% VAT to net quotes or remove VAT from gros",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Luxembourg.",
+    "href": "/tools/vat-calculator/luxembourg",
     "jurisdictionCode": "LU",
-    "badge": "",
     "rate": 17
   },
   {
@@ -939,10 +891,9 @@
     "shortTitle": "Malta VAT",
     "category": "vat-calculator",
     "slug": "malta",
-    "subtitle": "Calculate Value Added Tax in Malta. Instantly add 18% VAT to net quotes or remove VAT from gross com",
-    "stateName": "",
+    "subtitle": "Calculate Value Added Tax in Malta.",
+    "href": "/tools/vat-calculator/malta",
     "jurisdictionCode": "MT",
-    "badge": "",
     "rate": 18
   },
   {
@@ -950,66 +901,48 @@
     "shortTitle": "Stripe International Card Fee Calculator",
     "category": "stripe-fee-calculator",
     "slug": "international",
-    "subtitle": "Account for the +1.5% international card fee and +1% currency conversion fee.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Account for the +1.5% international card fee and +1% currency convers...",
+    "href": "/tools/stripe-fee-calculator/international"
   },
   {
     "title": "Stripe Europe Fee Calculator (1.5% + €0.25)",
     "shortTitle": "Stripe Europe Fee Calculator",
     "category": "stripe-fee-calculator",
     "slug": "eurozone",
-    "subtitle": "Standard European interchange-plus fee structure for EEA card processing.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Standard European interchange-plus fee structure for EEA card process...",
+    "href": "/tools/stripe-fee-calculator/eurozone"
   },
   {
     "title": "Stripe Canada Fee Calculator (2.9% + $0.30 CAD)",
     "shortTitle": "Stripe Canada Fee Calculator",
     "category": "stripe-fee-calculator",
     "slug": "canada",
-    "subtitle": "Domestic and international Canadian dollar fee calculator for Stripe accounts.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Domestic and international Canadian dollar fee calculator for Stripe...",
+    "href": "/tools/stripe-fee-calculator/canada"
   },
   {
     "title": "Stripe Australia Fee Calculator (1.75% + A$0.30)",
     "shortTitle": "Stripe Australia Fee Calculator",
     "category": "stripe-fee-calculator",
     "slug": "australia",
-    "subtitle": "Calculate Stripe Australia domestic and international credit card merchant fees.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate Stripe Australia domestic and international credit card mer...",
+    "href": "/tools/stripe-fee-calculator/australia"
   },
   {
     "title": "Stripe Japan Fee Calculator (3.6% No Fixed Fee)",
     "shortTitle": "Stripe Japan Fee Calculator",
     "category": "stripe-fee-calculator",
     "slug": "japan",
-    "subtitle": "Stripe Japan processing fee model for domestic yen and JCB/Visa transactions.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Stripe Japan processing fee model for domestic yen and JCB/Visa trans...",
+    "href": "/tools/stripe-fee-calculator/japan"
   },
   {
     "title": "Stripe Singapore Fee Calculator (3.4% + S$0.50)",
     "shortTitle": "Stripe Singapore Fee Calculator",
     "category": "stripe-fee-calculator",
     "slug": "singapore",
-    "subtitle": "Stripe processing fees in Singapore for domestic and cross-border digital payments.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Stripe processing fees in Singapore for domestic and cross-border dig...",
+    "href": "/tools/stripe-fee-calculator/singapore"
   },
   {
     "title": "Stripe Micropayments Fee Calculator (5% + $0.10)",
@@ -1017,65 +950,47 @@
     "category": "stripe-fee-calculator",
     "slug": "micropayments",
     "subtitle": "Specialized low-ticket fee modeling for transactions under $10.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/stripe-fee-calculator/micropayments"
   },
   {
     "title": "Stripe Non-Profit Discount Calculator (2.2% + $0.30)",
     "shortTitle": "Stripe Non-Profit Discount Calculator",
     "category": "stripe-fee-calculator",
     "slug": "non-profit",
-    "subtitle": "Calculate 501(c)(3) registered non-profit charity discount rates on Stripe.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate 501(c)(3) registered non-profit charity discount rates on S...",
+    "href": "/tools/stripe-fee-calculator/non-profit"
   },
   {
     "title": "PayPal International Fee Calculator (+1.5% Cross-Border)",
     "shortTitle": "PayPal International Fee Calculator",
     "category": "paypal-fee-calculator",
     "slug": "international",
-    "subtitle": "Calculate cross-border and currency conversion fees on international PayPal sales.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate cross-border and currency conversion fees on international...",
+    "href": "/tools/paypal-fee-calculator/international"
   },
   {
     "title": "PayPal In-Person QR Code Fee Calculator (2.29% + $0.09)",
     "shortTitle": "PayPal In-Person QR Code Fee Calculator",
     "category": "paypal-fee-calculator",
     "slug": "qr-code",
-    "subtitle": "Calculate PayPal QR contactless payment fees for brick-and-mortar sales (2.29% + $0.09).",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate PayPal QR contactless payment fees for brick-and-mortar sal...",
+    "href": "/tools/paypal-fee-calculator/qr-code"
   },
   {
     "title": "PayPal Invoicing Fee Calculator (3.49% + $0.49)",
     "shortTitle": "PayPal Invoicing Fee Calculator",
     "category": "paypal-fee-calculator",
     "slug": "invoice",
-    "subtitle": "Determine exact charge amount so client invoices cover all PayPal processing cuts.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Determine exact charge amount so client invoices cover all PayPal pro...",
+    "href": "/tools/paypal-fee-calculator/invoice"
   },
   {
     "title": "PayPal Micropayments Calculator (4.99% + $0.09)",
     "shortTitle": "PayPal Micropayments Calculator",
     "category": "paypal-fee-calculator",
     "slug": "micropayments",
-    "subtitle": "Optimize small transaction revenue using PayPal specialized micropayment tier.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Optimize small transaction revenue using PayPal specialized micropaym...",
+    "href": "/tools/paypal-fee-calculator/micropayments"
   },
   {
     "title": "PayPal Charity Fee Calculator (1.99% + $0.49)",
@@ -1083,43 +998,31 @@
     "category": "paypal-fee-calculator",
     "slug": "charitable",
     "subtitle": "Calculate processing deductions for non-profit fundraising campaigns.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/paypal-fee-calculator/charitable"
   },
   {
     "title": "PayPal Europe Fee Calculator (2.9% + €0.35)",
     "shortTitle": "PayPal Europe Fee Calculator",
     "category": "paypal-fee-calculator",
     "slug": "eu",
-    "subtitle": "Euro commercial checkout fees and reverse invoice generator for PayPal EU.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Euro commercial checkout fees and reverse invoice generator for PayPa...",
+    "href": "/tools/paypal-fee-calculator/eu"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (USD to EUR)",
     "shortTitle": "Wise vs Stripe USD to EUR Calculator",
     "category": "wise-vs-stripe",
     "slug": "usd-to-eur",
-    "subtitle": "Compare mid-market exchange rate savings with Wise vs Stripe 1% fx buffer.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Compare mid-market exchange rate savings with Wise vs Stripe 1% fx bu...",
+    "href": "/tools/wise-vs-stripe/usd-to-eur"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (USD to GBP)",
     "shortTitle": "Wise vs Stripe USD to GBP Calculator",
     "category": "wise-vs-stripe",
     "slug": "usd-to-gbp",
-    "subtitle": "See how much you save on transatlantic client retainers using Wise Business.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "See how much you save on transatlantic client retainers using Wise Bu...",
+    "href": "/tools/wise-vs-stripe/usd-to-gbp"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (GBP to EUR)",
@@ -1127,10 +1030,7 @@
     "category": "wise-vs-stripe",
     "slug": "gbp-to-eur",
     "subtitle": "UK to Eurozone cross-border merchant fee comparison.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/wise-vs-stripe/gbp-to-eur"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (EUR to USD)",
@@ -1138,10 +1038,7 @@
     "category": "wise-vs-stripe",
     "slug": "eur-to-usd",
     "subtitle": "European exporters and freelancers invoicing US clients with Wise.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/wise-vs-stripe/eur-to-usd"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (USD to INR)",
@@ -1149,10 +1046,7 @@
     "category": "wise-vs-stripe",
     "slug": "usd-to-inr",
     "subtitle": "Compare direct bank wire conversion vs payment gateway deductions.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/wise-vs-stripe/usd-to-inr"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (CAD to USD)",
@@ -1160,21 +1054,15 @@
     "category": "wise-vs-stripe",
     "slug": "cad-to-usd",
     "subtitle": "Cross-border North American merchant remittance savings calculator.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/wise-vs-stripe/cad-to-usd"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (AUD to USD)",
     "shortTitle": "Wise vs Stripe AUD to USD Calculator",
     "category": "wise-vs-stripe",
     "slug": "aud-to-usd",
-    "subtitle": "Calculate Australian dollar to US dollar international payout efficiency.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate Australian dollar to US dollar international payout efficie...",
+    "href": "/tools/wise-vs-stripe/aud-to-usd"
   },
   {
     "title": "Wise vs Stripe Fee Calculator (USD to BRL)",
@@ -1182,10 +1070,7 @@
     "category": "wise-vs-stripe",
     "slug": "usd-to-brl",
     "subtitle": "Save on Brazilian real currency exchange fees for global contracts.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/wise-vs-stripe/usd-to-brl"
   },
   {
     "title": "Square In-Person POS Fee Calculator (2.6% + $0.10)",
@@ -1193,10 +1078,7 @@
     "category": "square-fee-calculator",
     "slug": "in-person",
     "subtitle": "Card present tap, dip, and swipe fee calculator for retail & pop-ups.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/square-fee-calculator/in-person"
   },
   {
     "title": "Square Online Fee Calculator (2.9% + $0.30)",
@@ -1204,10 +1086,7 @@
     "category": "square-fee-calculator",
     "slug": "online-store",
     "subtitle": "E-commerce and online order processing fees for Square merchants.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/square-fee-calculator/online-store"
   },
   {
     "title": "Square Invoice Fee Calculator (3.3% + $0.30)",
@@ -1215,10 +1094,7 @@
     "category": "square-fee-calculator",
     "slug": "invoice",
     "subtitle": "Square client billing and recurring contract invoice calculator.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/square-fee-calculator/invoice"
   },
   {
     "title": "Square Manual Keyed-In Fee Calculator (3.5% + $0.15)",
@@ -1226,32 +1102,23 @@
     "category": "square-fee-calculator",
     "slug": "keyed-entry",
     "subtitle": "Calculate higher risk card-not-present manually entered phone orders.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/square-fee-calculator/keyed-entry"
   },
   {
     "title": "Square for Restaurants Fee Calculator (2.6% + $0.10)",
     "shortTitle": "Square for Restaurants Fee Calculator",
     "category": "square-fee-calculator",
     "slug": "restaurant",
-    "subtitle": "Calculate hospitality credit card interchange deductions and net ticket payout.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate hospitality credit card interchange deductions and net tick...",
+    "href": "/tools/square-fee-calculator/restaurant"
   },
   {
     "title": "Authorize.Net All-in-One Fee Calculator (2.9% + $0.30)",
     "shortTitle": "Authorize.Net All-in-One Fee Calculator",
     "category": "authorize-net-calculator",
     "slug": "standard-merchant",
-    "subtitle": "Calculate Authorize.Net merchant gateway deductions plus $25/mo amortized.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate Authorize.Net merchant gateway deductions plus $25/mo amort...",
+    "href": "/tools/authorize-net-calculator/standard-merchant"
   },
   {
     "title": "Authorize.Net Payment Gateway Only Calculator ($0.10/tx)",
@@ -1259,10 +1126,7 @@
     "category": "authorize-net-calculator",
     "slug": "gateway-only",
     "subtitle": "Gateway-only pricing with your own third-party merchant account.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/authorize-net-calculator/gateway-only"
   },
   {
     "title": "Authorize.Net eCheck Fee Calculator (0.75%)",
@@ -1270,10 +1134,7 @@
     "category": "authorize-net-calculator",
     "slug": "echeck",
     "subtitle": "ACH and electronic direct debit fee calculator for enterprise merchants.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/authorize-net-calculator/echeck"
   },
   {
     "title": "Authorize.Net International Fee Calculator (+1.5%)",
@@ -1281,548 +1142,400 @@
     "category": "authorize-net-calculator",
     "slug": "international",
     "subtitle": "Global transaction processing with Authorize.Net cross-border surcharge.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "href": "/tools/authorize-net-calculator/international"
   },
   {
     "title": "Software Engineer Hourly Rate & Tax Calculator",
     "shortTitle": "Software Engineer Rate",
     "category": "freelance-rate-calculator",
     "slug": "software-engineer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Software Engin",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/software-engineer"
   },
   {
     "title": "Fullstack Developer Freelance Rate Calculator",
     "shortTitle": "Fullstack Developer Rate",
     "category": "freelance-rate-calculator",
     "slug": "fullstack-developer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Fullstack Deve",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/fullstack-developer"
   },
   {
     "title": "Frontend Developer Hourly Rate Calculator",
     "shortTitle": "Frontend Developer Rate",
     "category": "freelance-rate-calculator",
     "slug": "frontend-developer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Frontend Devel",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/frontend-developer"
   },
   {
     "title": "Backend Developer Freelance Rate Calculator",
     "shortTitle": "Backend Developer Rate",
     "category": "freelance-rate-calculator",
     "slug": "backend-developer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Backend Develo",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/backend-developer"
   },
   {
     "title": "AI & Machine Learning Engineer Rate Calculator",
     "shortTitle": "AI Engineer Rate",
     "category": "freelance-rate-calculator",
     "slug": "ai-engineer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for AI Engineers.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/ai-engineer"
   },
   {
     "title": "DevOps & Cloud Architect Freelance Rate Calculator",
     "shortTitle": "DevOps Architect Rate",
     "category": "freelance-rate-calculator",
     "slug": "devops-engineer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for DevOps Archite",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/devops-engineer"
   },
   {
     "title": "UI/UX Product Designer Freelance Rate Calculator",
     "shortTitle": "Product Designer Rate",
     "category": "freelance-rate-calculator",
     "slug": "ui-ux-designer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Product Design",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/ui-ux-designer"
   },
   {
     "title": "Senior Product Designer Day Rate Calculator",
     "shortTitle": "Lead Product Designer Rate",
     "category": "freelance-rate-calculator",
     "slug": "product-designer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Lead Product D",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/product-designer"
   },
   {
     "title": "Direct-Response Copywriter Rate Calculator",
     "shortTitle": "Senior Copywriter Rate",
     "category": "freelance-rate-calculator",
     "slug": "copywriter",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Senior Copywri",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/copywriter"
   },
   {
     "title": "Technical Documentation Writer Rate Calculator",
     "shortTitle": "Technical Writer Rate",
     "category": "freelance-rate-calculator",
     "slug": "technical-writer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Technical Writ",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/technical-writer"
   },
   {
     "title": "SEO Consultant & Strategist Rate Calculator",
     "shortTitle": "SEO Strategist Rate",
     "category": "freelance-rate-calculator",
     "slug": "seo-specialist",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for SEO Strategist",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/seo-specialist"
   },
   {
     "title": "Digital Marketing Strategist Rate Calculator",
     "shortTitle": "Digital Marketing Strategist Rate",
     "category": "freelance-rate-calculator",
     "slug": "digital-marketer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Digital Market",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/digital-marketer"
   },
   {
     "title": "Video Editor & Motion Designer Rate Calculator",
     "shortTitle": "Motion Designer Rate",
     "category": "freelance-rate-calculator",
     "slug": "video-editor",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Motion Designe",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/video-editor"
   },
   {
     "title": "iOS / Android Mobile Developer Freelance Rate",
     "shortTitle": "Mobile App Developer Rate",
     "category": "freelance-rate-calculator",
     "slug": "mobile-app-developer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Mobile App Dev",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/mobile-app-developer"
   },
   {
     "title": "Web3 & Solidity Smart Contract Auditor Rate",
     "shortTitle": "Smart Contract Auditor Rate",
     "category": "freelance-rate-calculator",
     "slug": "smart-contract-developer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Smart Contract",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/smart-contract-developer"
   },
   {
     "title": "Freelance Data Scientist & Analyst Rate Calculator",
     "shortTitle": "Data Scientist Rate",
     "category": "freelance-rate-calculator",
     "slug": "data-scientist",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Data Scientist",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/data-scientist"
   },
   {
     "title": "Indie Hacker & Solopreneur Hourly Worth Calculator",
     "shortTitle": "Indie Hacker Rate",
     "category": "freelance-rate-calculator",
     "slug": "indie-hacker",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Indie Hackers.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/indie-hacker"
   },
   {
     "title": "Fractional CTO Retainer & Advisory Rate Calculator",
     "shortTitle": "Fractional CTO Rate",
     "category": "freelance-rate-calculator",
     "slug": "fractional-cto",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Fractional CTO",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/fractional-cto"
   },
   {
-    "title": "Management & Strategy Consultant Day Rate",
+    "title": "Strategy Consultant Day Rate Calculator",
     "shortTitle": "Strategy Consultant Rate",
     "category": "freelance-rate-calculator",
     "slug": "business-consultant",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Strategy Consu",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/business-consultant"
   },
   {
     "title": "Executive Virtual Assistant Hourly Rate Calculator",
     "shortTitle": "Executive VA Rate",
     "category": "freelance-rate-calculator",
     "slug": "virtual-assistant",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Executive VAs.",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/virtual-assistant"
   },
   {
     "title": "Executive Ghostwriter Book & Article Rate Calculator",
     "shortTitle": "Executive Ghostwriter Rate",
     "category": "freelance-rate-calculator",
     "slug": "ghostwriter",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Executive Ghos",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/ghostwriter"
   },
   {
-    "title": "Commercial & Editorial Photographer Day Rate",
+    "title": "Commercial Photographer Day Rate Calculator",
     "shortTitle": "Commercial Photographer Rate",
     "category": "freelance-rate-calculator",
     "slug": "photographer",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Commercial Pho",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/photographer"
   },
   {
     "title": "Cybersecurity & Pentesting Consultant Rate",
     "shortTitle": "Security Consultant Rate",
     "category": "freelance-rate-calculator",
     "slug": "cybersecurity-analyst",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Security Consu",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/cybersecurity-analyst"
   },
   {
     "title": "Fractional Product Manager Retainer Calculator",
     "shortTitle": "Fractional PM Rate",
     "category": "freelance-rate-calculator",
     "slug": "product-manager",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Fractional PMs",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/product-manager"
   },
   {
     "title": "Fintech & Financial Modeler Hourly Rate Calculator",
     "shortTitle": "Financial Modeler Rate",
     "category": "freelance-rate-calculator",
     "slug": "financial-modeler",
-    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax allocations for Financial Mode",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate optimal hourly rate, day rate, and 1099 self-employment tax...",
+    "href": "/tools/freelance-rate-calculator/financial-modeler"
   },
   {
     "title": "Amazon FBA Private Label Profit Calculator",
     "shortTitle": "Amazon FBA Private Label Profit",
     "category": "ecommerce-profit-calculator",
     "slug": "amazon-fba-private-label",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for a",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/amazon-fba-private-label"
   },
   {
     "title": "Amazon FBA Online Arbitrage Profit Margin Calculator",
     "shortTitle": "Amazon FBA Online Arbitrage Profit Margin",
     "category": "ecommerce-profit-calculator",
     "slug": "amazon-fba-arbitrage",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for a",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/amazon-fba-arbitrage"
   },
   {
     "title": "Amazon FBA Electronics Profit & Referral Fee Calculator",
     "shortTitle": "Amazon FBA Electronics Profit & Referral Fee",
     "category": "ecommerce-profit-calculator",
     "slug": "amazon-fba-electronics",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for a",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/amazon-fba-electronics"
   },
   {
     "title": "Amazon FBA Apparel & Clothing Profit Calculator (17% Referral)",
     "shortTitle": "Amazon FBA Apparel & Clothing Profit",
     "category": "ecommerce-profit-calculator",
     "slug": "amazon-fba-apparel",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for a",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/amazon-fba-apparel"
   },
   {
     "title": "Amazon FBA Beauty & Personal Care Margin Calculator",
     "shortTitle": "Amazon FBA Beauty & Personal Care Margin",
     "category": "ecommerce-profit-calculator",
     "slug": "amazon-fba-beauty",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for a",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/amazon-fba-beauty"
   },
   {
     "title": "Shopify Dropshipping Break-Even ROAS & Profit Calculator",
     "shortTitle": "Shopify Dropshipping Break-Even ROAS & Profit",
     "category": "ecommerce-profit-calculator",
     "slug": "shopify-dropshipping",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for s",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/shopify-dropshipping"
   },
   {
     "title": "Shopify DTC Apparel Brand Profit Margin Calculator",
     "shortTitle": "Shopify DTC Apparel Brand Profit Margin",
     "category": "ecommerce-profit-calculator",
     "slug": "shopify-apparel-brand",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for s",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/shopify-apparel-brand"
   },
   {
     "title": "Shopify Dietary Supplements & Nutrition Profit Calculator",
     "shortTitle": "Shopify Dietary Supplements & Nutrition Profit",
     "category": "ecommerce-profit-calculator",
     "slug": "shopify-supplements",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for s",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/shopify-supplements"
   },
   {
     "title": "Etsy Digital Downloads Fee & Profit Calculator (0% COGS)",
     "shortTitle": "Etsy Digital Downloads Fee & Profit",
     "category": "ecommerce-profit-calculator",
     "slug": "etsy-digital-downloads",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for e",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/etsy-digital-downloads"
   },
   {
     "title": "Etsy Handmade Jewelry Profit & Listing Fee Calculator",
     "shortTitle": "Etsy Handmade Jewelry Profit & Listing Fee",
     "category": "ecommerce-profit-calculator",
     "slug": "etsy-handmade-jewelry",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for e",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/etsy-handmade-jewelry"
   },
   {
     "title": "Etsy Custom Apparel & Gift Profit Margin Calculator",
     "shortTitle": "Etsy Custom Apparel & Gift Profit Margin",
     "category": "ecommerce-profit-calculator",
     "slug": "etsy-custom-apparel",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for e",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/etsy-custom-apparel"
   },
   {
     "title": "Etsy Print on Demand (POD) Break-Even Calculator",
     "shortTitle": "Etsy Print on Demand",
     "category": "ecommerce-profit-calculator",
     "slug": "etsy-print-on-demand",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for e",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/etsy-print-on-demand"
   },
   {
     "title": "eBay Electronics & Gadgets Final Value Fee Calculator",
     "shortTitle": "eBay Electronics & Gadgets Final Value Fee",
     "category": "ecommerce-profit-calculator",
     "slug": "ebay-electronics",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for e",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/ebay-electronics"
   },
   {
     "title": "eBay Vintage & Collectibles Profit Margin Calculator",
     "shortTitle": "eBay Vintage & Collectibles Profit Margin",
     "category": "ecommerce-profit-calculator",
     "slug": "ebay-vintage-collectibles",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for e",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/ebay-vintage-collectibles"
   },
   {
     "title": "eBay Refurbished Tech Margin & Buyer Shipping Calculator",
     "shortTitle": "eBay Refurbished Tech Margin & Buyer Shipping",
     "category": "ecommerce-profit-calculator",
     "slug": "ebay-refurbished-tech",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for e",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/ebay-refurbished-tech"
   },
   {
     "title": "TikTok Shop Dropshipping Profit & Commission Calculator",
     "shortTitle": "TikTok Shop Dropshipping Profit & Commission",
     "category": "ecommerce-profit-calculator",
     "slug": "tiktok-shop-dropshipping",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for t",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/tiktok-shop-dropshipping"
   },
   {
     "title": "WooCommerce Wholesale & B2B Margin Calculator",
     "shortTitle": "WooCommerce Wholesale & B2B Margin",
     "category": "ecommerce-profit-calculator",
     "slug": "woocommerce-b2b",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for w",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/woocommerce-b2b"
   },
   {
     "title": "Subscription Box Unit Economics & Churn Profit Calculator",
     "shortTitle": "Subscription Box Unit Economics & Churn Profit",
     "category": "ecommerce-profit-calculator",
     "slug": "subscription-box-profit",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for s",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/subscription-box-profit"
   },
   {
     "title": "DTC Skincare Brand Unit Economics & ROAS Calculator",
     "shortTitle": "DTC Skincare Brand Unit Economics & ROAS",
     "category": "ecommerce-profit-calculator",
     "slug": "direct-to-consumer-skincare",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for d",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/direct-to-consumer-skincare"
   },
   {
     "title": "High Ticket Dropshipping Profit Margin Calculator",
     "shortTitle": "High Ticket Dropshipping Profit Margin",
     "category": "ecommerce-profit-calculator",
     "slug": "high-ticket-dropshipping",
-    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packaging, and break-even ROAS for h",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Analyze unit economics, landed COGS, platform marketplace fees, packa...",
+    "href": "/tools/ecommerce-profit-calculator/high-ticket-dropshipping"
   },
   {
     "title": "1099 Tax Estimator | Calculate 15.3% SE Tax",
     "shortTitle": "1099 Tax Estimator",
     "category": "freelance-rate-calculator",
     "slug": "1099-tax-estimator",
-    "subtitle": "Estimate quarterly self-employment taxes with the 15.3% SE tax rate. Know exactly how much to set as",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Estimate quarterly self-employment taxes with the 15.3% SE tax rate.",
+    "href": "/tools/freelance-rate-calculator/1099-tax-estimator"
   },
   {
     "title": "Amazon FBA Fee Calculator | 2026 Rates & Profit",
     "shortTitle": "Amazon FBA Fee Calculator",
     "category": "ecommerce-profit-calculator",
     "slug": "amazon-fba-fee-calculator",
-    "subtitle": "Calculate 2026 Amazon FBA fulfillment and 15% referral fees. See your exact net profit per unit and ",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate 2026 Amazon FBA fulfillment and 15% referral fees.",
+    "href": "/tools/ecommerce-profit-calculator/amazon-fba-fee-calculator"
   },
   {
     "title": "Square Standard POS & Merchant Fee Calculator (2.6% + $0.10)",
     "shortTitle": "Square Standard Fee Calculator",
     "category": "square-fee-calculator",
     "slug": "standard",
-    "subtitle": "Calculate processing deductions for Square standard in-person hardware (2.6% + $0.10), online checko",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate processing deductions for Square standard in-person hardwar...",
+    "href": "/tools/square-fee-calculator/standard"
   },
   {
     "title": "Australia GST Calculator 2026 (ATO Standard 10% Goods & Services Tax)",
     "shortTitle": "Australia GST Calculator",
     "category": "vat-calculator",
     "slug": "australia",
-    "subtitle": "Calculate 10% Goods and Services Tax (GST) in Australia. Add GST to net quotes or remove GST from gr",
-    "stateName": "",
+    "subtitle": "Calculate 10% Goods and Services Tax (GST) in Australia.",
+    "href": "/tools/vat-calculator/australia",
     "jurisdictionCode": "AU",
-    "badge": "",
     "rate": 10
   },
   {
@@ -1830,10 +1543,9 @@
     "shortTitle": "Canada GST/HST Calculator",
     "category": "vat-calculator",
     "slug": "canada",
-    "subtitle": "Calculate Canada 5% Goods and Services Tax (GST) and Harmonized Sales Tax (HST) up to 15%. Add or re",
-    "stateName": "",
+    "subtitle": "Calculate Canada 5% Goods and Services Tax (GST) and Harmonized Sales...",
+    "href": "/tools/vat-calculator/canada",
     "jurisdictionCode": "CA",
-    "badge": "",
     "rate": 5
   },
   {
@@ -1841,10 +1553,10 @@
     "shortTitle": "Ontario Sales Tax",
     "category": "canada-sales-tax",
     "slug": "ontario",
-    "subtitle": "Calculate Ontario HST (13%). Add sales tax to net quotes or remove tax from gross invoices for CRA c",
-    "stateName": "Ontario",
+    "subtitle": "Calculate Ontario HST (13%).",
+    "href": "/tools/canada-sales-tax/ontario",
     "jurisdictionCode": "ONTARIO",
-    "badge": "",
+    "stateName": "Ontario",
     "rate": 13
   },
   {
@@ -1852,10 +1564,10 @@
     "shortTitle": "British Columbia Sales Tax",
     "category": "canada-sales-tax",
     "slug": "british-columbia",
-    "subtitle": "Calculate British Columbia GST + PST (12%). Add sales tax to net quotes or remove tax from gross inv",
-    "stateName": "British Columbia",
+    "subtitle": "Calculate British Columbia GST + PST (12%).",
+    "href": "/tools/canada-sales-tax/british-columbia",
     "jurisdictionCode": "BRITISH-COLUMBIA",
-    "badge": "",
+    "stateName": "British Columbia",
     "rate": 12
   },
   {
@@ -1863,10 +1575,10 @@
     "shortTitle": "Quebec Sales Tax",
     "category": "canada-sales-tax",
     "slug": "quebec",
-    "subtitle": "Calculate Quebec GST + QST (14.975%). Add sales tax to net quotes or remove tax from gross invoices ",
-    "stateName": "Quebec",
+    "subtitle": "Calculate Quebec GST + QST (14.975%).",
+    "href": "/tools/canada-sales-tax/quebec",
     "jurisdictionCode": "QUEBEC",
-    "badge": "",
+    "stateName": "Quebec",
     "rate": 14.975
   },
   {
@@ -1874,32 +1586,32 @@
     "shortTitle": "Alberta Sales Tax",
     "category": "canada-sales-tax",
     "slug": "alberta",
-    "subtitle": "Calculate Alberta GST Only (5%). Add sales tax to net quotes or remove tax from gross invoices for C",
-    "stateName": "Alberta",
+    "subtitle": "Calculate Alberta GST Only (5%).",
+    "href": "/tools/canada-sales-tax/alberta",
     "jurisdictionCode": "ALBERTA",
-    "badge": "",
+    "stateName": "Alberta",
     "rate": 5
   },
   {
-    "title": "Nova Scotia Sales Tax Calculator 2026 (HST 15%)",
+    "title": "Nova Scotia Sales Tax Calculator 2026 (HST 14%)",
     "shortTitle": "Nova Scotia Sales Tax",
     "category": "canada-sales-tax",
     "slug": "nova-scotia",
-    "subtitle": "Calculate Nova Scotia HST (15%). Add sales tax to net quotes or remove tax from gross invoices for C",
-    "stateName": "Nova Scotia",
+    "subtitle": "Calculate Nova Scotia HST (14%).",
+    "href": "/tools/canada-sales-tax/nova-scotia",
     "jurisdictionCode": "NOVA-SCOTIA",
-    "badge": "",
-    "rate": 15
+    "stateName": "Nova Scotia",
+    "rate": 14
   },
   {
     "title": "New Brunswick Sales Tax Calculator 2026 (HST 15%)",
     "shortTitle": "New Brunswick Sales Tax",
     "category": "canada-sales-tax",
     "slug": "new-brunswick",
-    "subtitle": "Calculate New Brunswick HST (15%). Add sales tax to net quotes or remove tax from gross invoices for",
-    "stateName": "New Brunswick",
+    "subtitle": "Calculate New Brunswick HST (15%).",
+    "href": "/tools/canada-sales-tax/new-brunswick",
     "jurisdictionCode": "NEW-BRUNSWICK",
-    "badge": "",
+    "stateName": "New Brunswick",
     "rate": 15
   },
   {
@@ -1907,10 +1619,10 @@
     "shortTitle": "Manitoba Sales Tax",
     "category": "canada-sales-tax",
     "slug": "manitoba",
-    "subtitle": "Calculate Manitoba GST + PST (RST) (12%). Add sales tax to net quotes or remove tax from gross invoi",
-    "stateName": "Manitoba",
+    "subtitle": "Calculate Manitoba GST + PST (RST) (12%).",
+    "href": "/tools/canada-sales-tax/manitoba",
     "jurisdictionCode": "MANITOBA",
-    "badge": "",
+    "stateName": "Manitoba",
     "rate": 12
   },
   {
@@ -1918,10 +1630,10 @@
     "shortTitle": "Saskatchewan Sales Tax",
     "category": "canada-sales-tax",
     "slug": "saskatchewan",
-    "subtitle": "Calculate Saskatchewan GST + PST (11%). Add sales tax to net quotes or remove tax from gross invoice",
-    "stateName": "Saskatchewan",
+    "subtitle": "Calculate Saskatchewan GST + PST (11%).",
+    "href": "/tools/canada-sales-tax/saskatchewan",
     "jurisdictionCode": "SASKATCHEWAN",
-    "badge": "",
+    "stateName": "Saskatchewan",
     "rate": 11
   },
   {
@@ -1929,10 +1641,10 @@
     "shortTitle": "Prince Edward Island Sales Tax",
     "category": "canada-sales-tax",
     "slug": "prince-edward-island",
-    "subtitle": "Calculate Prince Edward Island HST (15%). Add sales tax to net quotes or remove tax from gross invoi",
-    "stateName": "Prince Edward Island",
+    "subtitle": "Calculate Prince Edward Island HST (15%).",
+    "href": "/tools/canada-sales-tax/prince-edward-island",
     "jurisdictionCode": "PRINCE-EDWARD-ISLAND",
-    "badge": "",
+    "stateName": "Prince Edward Island",
     "rate": 15
   },
   {
@@ -1940,10 +1652,10 @@
     "shortTitle": "Newfoundland and Labrador Sales Tax",
     "category": "canada-sales-tax",
     "slug": "newfoundland-and-labrador",
-    "subtitle": "Calculate Newfoundland and Labrador HST (15%). Add sales tax to net quotes or remove tax from gross ",
-    "stateName": "Newfoundland and Labrador",
+    "subtitle": "Calculate Newfoundland and Labrador HST (15%).",
+    "href": "/tools/canada-sales-tax/newfoundland-and-labrador",
     "jurisdictionCode": "NEWFOUNDLAND-AND-LABRADOR",
-    "badge": "",
+    "stateName": "Newfoundland and Labrador",
     "rate": 15
   },
   {
@@ -1951,219 +1663,159 @@
     "shortTitle": "AI Prompt Engineer Rate",
     "category": "freelance-rate-calculator",
     "slug": "ai-prompt-engineer",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance AI ",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/ai-prompt-engineer"
   },
   {
     "title": "Fractional CMO Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "Fractional CMO Rate",
     "category": "freelance-rate-calculator",
     "slug": "fractional-cmo",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Fra",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/fractional-cmo"
   },
   {
     "title": "Motion Graphics Designer Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "Motion Graphics Designer Rate",
     "category": "freelance-rate-calculator",
     "slug": "motion-graphics-designer",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Mot",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/motion-graphics-designer"
   },
   {
     "title": "Shopify Developer Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "Shopify Developer Rate",
     "category": "freelance-rate-calculator",
     "slug": "shopify-developer",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Sho",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/shopify-developer"
   },
   {
     "title": "Cloud Solutions Architect Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "Cloud Solutions Architect Rate",
     "category": "freelance-rate-calculator",
     "slug": "cloud-architect",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Clo",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/cloud-architect"
   },
   {
     "title": "UX Researcher Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "UX Researcher Rate",
     "category": "freelance-rate-calculator",
     "slug": "ux-researcher",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance UX ",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/ux-researcher"
   },
   {
     "title": "Growth Marketer Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "Growth Marketer Rate",
     "category": "freelance-rate-calculator",
     "slug": "growth-marketer",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Gro",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/growth-marketer"
   },
   {
     "title": "Podcast Audio Producer Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "Podcast Audio Producer Rate",
     "category": "freelance-rate-calculator",
     "slug": "podcast-editor",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Pod",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/podcast-editor"
   },
   {
     "title": "No-Code Developer (Webflow & Bubble) Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "No-Code Developer (Webflow & Bubble) Rate",
     "category": "freelance-rate-calculator",
     "slug": "no-code-developer",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance No-",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/no-code-developer"
   },
   {
     "title": "Executive Leadership Coach Freelance Rate Calculator (2026 Benchmark)",
     "shortTitle": "Executive Leadership Coach Rate",
     "category": "freelance-rate-calculator",
     "slug": "executive-coach",
-    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment tax allocations for freelance Exe",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate billable hourly rate, day rate, and 1099 self-employment ta...",
+    "href": "/tools/freelance-rate-calculator/executive-coach"
   },
   {
     "title": "Venmo for Business Fee Calculator (2026 QR & App Rates)",
     "shortTitle": "Venmo Business Fee",
     "category": "venmo-fee-calculator",
     "slug": "standard",
-    "subtitle": "Calculate exact Venmo Business transaction deductions: 1.9% + $0.10 for QR payments and 2.29% + $0.1",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate exact Venmo Business transaction deductions: 1.9% + $0.10 f...",
+    "href": "/tools/venmo-fee-calculator/standard"
   },
   {
     "title": "Gumroad Fee Calculator (10% Creator Platform Fee + $0.50 Processing)",
     "shortTitle": "Gumroad Fee Calculator",
     "category": "gumroad-fee-calculator",
     "slug": "standard",
-    "subtitle": "Calculate net payouts for creator sales on Gumroad. Understand the flat 10% platform fee and $0.50 b",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate net payouts for creator sales on Gumroad.",
+    "href": "/tools/gumroad-fee-calculator/standard"
   },
   {
     "title": "Lemon Squeezy Fee Calculator (5% + $0.50 Merchant of Record)",
     "shortTitle": "Lemon Squeezy Fee",
     "category": "lemon-squeezy-calculator",
     "slug": "standard",
-    "subtitle": "Calculate exact fees for selling SaaS, digital downloads, and subscriptions with Lemon Squeezy Merch",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate exact fees for selling SaaS, digital downloads, and subscri...",
+    "href": "/tools/lemon-squeezy-calculator/standard"
   },
   {
     "title": "Shopify Payments Fee Calculator (2026 Online & In-Person Rates)",
     "shortTitle": "Shopify Payments Fee",
     "category": "shopify-fee-calculator",
     "slug": "standard",
-    "subtitle": "Calculate credit card transaction fees across Shopify Basic (2.9% + $0.30), Shopify (2.6% + $0.30), ",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate credit card transaction fees across Shopify Basic (2.9% + $...",
+    "href": "/tools/shopify-fee-calculator/standard"
   },
   {
     "title": "Stripe vs PayPal vs Square 3-Way Fee Comparator (2026)",
     "shortTitle": "Stripe vs PayPal vs Square",
     "category": "gateway-comparator",
     "slug": "stripe-paypal-square",
-    "subtitle": "Side-by-side merchant fee analysis for credit card processing. Compare net payouts, international su",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Side-by-side merchant fee analysis for credit card processing.",
+    "href": "/tools/gateway-comparator/stripe-paypal-square"
   },
   {
     "title": "Profit Margin & Markup Calculator (Gross & Net Profit %)",
     "shortTitle": "Profit Margin Calculator",
     "category": "profit-margin-calculator",
     "slug": "standard",
-    "subtitle": "Calculate Gross Profit Margin, Net Profit, and Markup percentage from your selling price and cost of",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate Gross Profit Margin, Net Profit, and Markup percentage from...",
+    "href": "/tools/profit-margin-calculator/standard"
   },
   {
     "title": "Break-Even Point Calculator (Units, Sales Revenue & Margin)",
     "shortTitle": "Break-Even Calculator",
     "category": "break-even-calculator",
     "slug": "standard",
-    "subtitle": "Determine the exact unit volume and revenue required to cover fixed operating costs and reach profit",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Determine the exact unit volume and revenue required to cover fixed o...",
+    "href": "/tools/break-even-calculator/standard"
   },
   {
     "title": "ROI Calculator (Return on Investment & Annualized CAGR %)",
     "shortTitle": "ROI Calculator",
     "category": "roi-calculator",
     "slug": "standard",
-    "subtitle": "Calculate total return on investment percentage, annualized return rate (CAGR), and net profit multi",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Calculate total return on investment percentage, annualized return ra...",
+    "href": "/tools/roi-calculator/standard"
   },
   {
     "title": "Quarterly Estimated Tax Calculator 2026 (IRS Form 1040-ES)",
     "shortTitle": "Quarterly Tax Calculator",
     "category": "quarterly-tax-calculator",
     "slug": "1040-es",
-    "subtitle": "Estimate quarterly tax vouchers for freelancers and 1099 contractors. Compute Schedule SE self-emplo",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Estimate quarterly tax vouchers for freelancers and 1099 contractors.",
+    "href": "/tools/quarterly-tax-calculator/1040-es"
   },
   {
     "title": "UK IR35 Calculator 2026 (Inside vs Outside IR35 Take-Home Pay)",
     "shortTitle": "UK IR35 Calculator",
     "category": "uk-ir35-calculator",
     "slug": "contractor",
-    "subtitle": "Compare Inside IR35 (umbrella company deemed employment) vs Outside IR35 (PSC limited company). Calc",
-    "stateName": "",
-    "jurisdictionCode": "",
-    "badge": "",
-    "rate": null
+    "subtitle": "Compare Inside IR35 (umbrella company deemed employment) vs Outside I...",
+    "href": "/tools/uk-ir35-calculator/contractor"
   }
 ]

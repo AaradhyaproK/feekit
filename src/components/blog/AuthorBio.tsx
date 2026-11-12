@@ -12,6 +12,11 @@ export function AuthorBio({ post }: AuthorBioProps) {
   const publishedDate = post.datePublished || post.publishedAt;
   const modifiedDate = post.dateModified || post.updatedAt || post.publishedAt;
 
+  // Author identity comes from the post frontmatter so every article can be
+  // attributed to the right person without editing this component.
+  const authorName = post.author?.trim() || 'Aaradhya Pathak';
+  const authorTitle = post.authorTitle?.trim() || 'Founder & Lead Developer';
+
   const formattedPublished = new Date(publishedDate).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -42,11 +47,11 @@ export function AuthorBio({ post }: AuthorBioProps) {
             href="/about"
             className="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
           >
-            Aaradhya Pathak
+            {authorName}
           </Link>
           <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-bold text-blue-700 border border-blue-200 shadow-2xs">
             <UserCheck className="h-3 w-3 text-blue-600" />
-            Founder &amp; Lead Developer
+            {authorTitle}
           </span>
         </div>
       </div>

@@ -18,11 +18,12 @@ import {
 } from 'lucide-react';
 import { BackButton } from '@/components/ui/BackButton';
 import { FastSearchBar } from '@/components/search/FastSearchBar';
+import { TOOL_COUNT_LABEL_PLUS } from '@/lib/site-stats';
 
 export const metadata: Metadata = {
   title: 'About FeeKit: Mission, Standards & Founder | FeeKit',
   description:
-    'Learn about FeeKit: 199+ client-side financial calculators for US & UK merchants and freelancers. Meet founder Aaradhya Pathak and our accuracy standards.',
+    `Learn about FeeKit: ${TOOL_COUNT_LABEL_PLUS} client-side financial calculators for US & UK merchants and freelancers. Meet founder Aaradhya Pathak and our accuracy standards.`,
   alternates: {
     canonical: 'https://www.usefeekit.com/about',
   },
@@ -56,7 +57,7 @@ export default function AboutPage() {
     '@type': 'AboutPage',
     name: 'About FeeKit',
     description:
-      'FeeKit provides 199+ client-side financial calculators for US and UK merchants, contractors, and freelancers.',
+      `FeeKit provides ${TOOL_COUNT_LABEL_PLUS} client-side financial calculators for US and UK merchants, contractors, and freelancers.`,
     url: 'https://www.usefeekit.com/about',
     mainEntity: personSchema,
   };
@@ -68,7 +69,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
       />
 
-      <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-200">
+      <div className="space-y-6 sm:space-y-8 animate-fade-in">
         {/* Navigation & Search Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <BackButton fallbackHref="/" label="Back to previous page" />
@@ -82,7 +83,7 @@ export default function AboutPage() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600 font-mono">
-              Est. September 2026 • 199+ Financial Tools
+              Est. September 2026 • {TOOL_COUNT_LABEL_PLUS} Financial Tools
             </span>
           </div>
           <h1
@@ -105,7 +106,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed">
               <p>
-                Launched in September 2026, <strong>FeeKit</strong> is a specialized financial computation platform offering over <strong>199+ free calculators</strong>. We serve independent freelancers, e-commerce store operators, digital service agencies, and small business owners across the <strong>United States and the United Kingdom</strong> who need exact mathematical certainty without the bloat, cost, or complexity of traditional enterprise software.
+                Launched in September 2026, <strong>FeeKit</strong> is a specialized financial computation platform offering over <strong>{TOOL_COUNT_LABEL_PLUS} free calculators</strong>. We serve independent freelancers, e-commerce store operators, digital service agencies, and small business owners across the <strong>United States and the United Kingdom</strong> who need exact mathematical certainty without the bloat, cost, or complexity of traditional enterprise software.
               </p>
               <p>
                 FeeKit was built to solve a simple but critical problem: standard business calculators are frequently cluttered with intrusive popups, gatekeep basic formulas behind monthly subscriptions, and upload proprietary sales figures to unknown third-party servers. In contrast, FeeKit operates on a strict <strong>100% client-side privacy model</strong>—every formula executes locally in your browser, your financial data never touches an external server, and all tools remain <strong>free forever</strong> with no account creation or credit card required.

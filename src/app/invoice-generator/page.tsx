@@ -35,12 +35,21 @@ export const metadata: Metadata = {
     siteName: 'FeeKit',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: 'https://www.usefeekit.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'FeeKit free invoice generator for freelancers and small businesses',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Free Invoice Generator: Create & Download PDF | FeeKit',
     description:
       'Generate and download professional PDF invoices instantly. Free for freelancers, consultants, contractors, and agencies with zero watermarks.',
+    images: ['https://www.usefeekit.com/og-image.png'],
   },
 };
 
@@ -61,7 +70,7 @@ export default function InvoiceGeneratorPage() {
   };
 
   return (
-    <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-200">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in">
       {/* Schema.org Injection */}
       <script
         type="application/ld+json"

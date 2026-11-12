@@ -6,13 +6,59 @@ import { ShieldCheck, ExternalLink, Calendar, RefreshCw, FileText, ArrowLeft } f
 export const metadata: Metadata = {
   title: 'Statutory & Gateway Rate Changelog | FeeKit',
   description: 'Public ledger of verified statutory sales tax updates, payment gateway fee revisions, and statutory threshold changes with primary source citations.',
+  keywords: [
+    'FeeKit changelog',
+    'payment gateway rate changes',
+    'statutory tax rate updates',
+    'merchant fee changelog',
+    'US sales tax rate changes',
+    'HMRC VAT threshold changes',
+  ],
   alternates: {
     canonical: 'https://www.usefeekit.com/changelog',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    title: 'Statutory & Gateway Rate Changelog | FeeKit',
+    description:
+      'Public ledger of verified statutory sales tax updates, payment gateway fee revisions, and statutory threshold changes with primary source citations.',
+    url: 'https://www.usefeekit.com/changelog',
+    siteName: 'FeeKit',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.usefeekit.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'FeeKit statutory and gateway rate changelog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Statutory & Gateway Rate Changelog | FeeKit',
+    description:
+      'Public ledger of verified statutory sales tax updates, payment gateway fee revisions, and statutory threshold changes with primary source citations.',
+    site: '@usefeekit',
+    images: ['https://www.usefeekit.com/og-image.png'],
   },
 };
 
 interface ChangelogEntry {
   date: string;
+  isoDate: string;
   category: 'Payment Gateways' | 'Sales Tax' | 'Statutory Tax';
   title: string;
   previousValue: string;
@@ -25,6 +71,7 @@ interface ChangelogEntry {
 const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   {
     date: 'October 24, 2026',
+    isoDate: '2026-10-24',
     category: 'Payment Gateways',
     title: 'PayPal US In-Person QR Code Transaction Rate',
     previousValue: '1.90% + $0.10',
@@ -35,6 +82,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   },
   {
     date: 'October 24, 2026',
+    isoDate: '2026-10-24',
     category: 'Payment Gateways',
     title: 'Square Plan-Based Fee Schedule Differentiation',
     previousValue: '2.6% + 10¢ in-person / 2.9% + 30¢ online',
@@ -45,6 +93,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   },
   {
     date: 'October 24, 2026',
+    isoDate: '2026-10-24',
     category: 'Payment Gateways',
     title: 'Stripe UK Domestic Premium Card Pricing',
     previousValue: '2.5% + 20p',
@@ -55,6 +104,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   },
   {
     date: 'October 24, 2026',
+    isoDate: '2026-10-24',
     category: 'Payment Gateways',
     title: 'Gumroad Creator Fee Breakdown Disclosure',
     previousValue: '10% + 50¢ flat',
@@ -65,6 +115,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   },
   {
     date: 'January 1, 2025',
+    isoDate: '2025-01-01',
     category: 'Sales Tax',
     title: 'Louisiana Statutory State Sales Tax Temporary Increase',
     previousValue: '4.45% base (max combined 11.45%)',
@@ -75,6 +126,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   },
   {
     date: 'January 1, 2026',
+    isoDate: '2026-01-01',
     category: 'Statutory Tax',
     title: 'SSA Social Security Maximum Wage Contribution Cap',
     previousValue: '$168,600 (2024) / $176,100 (2025)',
@@ -85,6 +137,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   },
   {
     date: 'January 1, 2026',
+    isoDate: '2026-01-01',
     category: 'Statutory Tax',
     title: 'IRS Form 1099-K Statutory Reporting Threshold',
     previousValue: 'Proposed $600 / $5,000 phase-in',
@@ -95,6 +148,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   },
   {
     date: 'April 1, 2024',
+    isoDate: '2024-04-01',
     category: 'Statutory Tax',
     title: 'UK HMRC VAT Compulsory Registration Threshold',
     previousValue: '£85,000',
@@ -106,8 +160,76 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 ];
 
 export default function ChangelogPage() {
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.usefeekit.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Changelog',
+        item: 'https://www.usefeekit.com/changelog',
+      },
+    ],
+  };
+
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'FeeKit Statutory & Gateway Rate Changelog',
+    description:
+      'Dated, source-cited ledger of verified statutory tax rate updates, government threshold changes, and payment gateway fee revisions.',
+    numberOfItems: CHANGELOG_ENTRIES.length,
+    itemListElement: CHANGELOG_ENTRIES.map((entry, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'BlogPosting',
+        headline: entry.title,
+        description: entry.notes,
+        datePublished: entry.isoDate,
+        dateModified: entry.isoDate,
+        inLanguage: 'en-US',
+        articleSection: entry.category,
+        url: `https://www.usefeekit.com/changelog#entry-${index + 1}`,
+        author: {
+          '@type': 'Person',
+          '@id': 'https://www.usefeekit.com/#person',
+          name: 'Aaradhya Pathak',
+          jobTitle: 'Founder & Lead Developer',
+          url: 'https://www.usefeekit.com/about',
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': 'https://www.usefeekit.com/#organization',
+          name: 'FeeKit',
+          url: 'https://www.usefeekit.com',
+        },
+        citation: {
+          '@type': 'CreativeWork',
+          name: entry.sourceName,
+          url: entry.sourceUrl,
+        },
+      },
+    })),
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
       {/* Top Breadcrumb */}
       <div>
         <Link
@@ -138,6 +260,7 @@ export default function ChangelogPage() {
         {CHANGELOG_ENTRIES.map((entry, idx) => (
           <article
             key={idx}
+            id={`entry-${idx + 1}`}
             className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-xs space-y-3.5 hover:border-slate-300 transition-colors"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">

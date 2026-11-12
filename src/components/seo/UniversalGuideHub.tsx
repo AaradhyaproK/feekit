@@ -18,6 +18,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from 'lucide-react';
+import { TOOL_COUNT_LABEL_PLUS } from '@/lib/site-stats';
 
 interface UniversalGuideHubProps {
   inArticleSlot?: React.ReactNode;
@@ -85,7 +86,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
 
       {/* Domain 1: Payment Processing & Merchant Fees */}
       {activeDomain === 'merchant' && (
-        <div className="space-y-6 animate-in fade-in duration-200">
+        <div className="space-y-6 animate-fade-in">
           {/* Direct Answer Hook */}
           <div className="rounded-xl border border-blue-200 bg-blue-50/50 p-5 space-y-2.5">
             <div className="flex items-center gap-2 text-blue-950 font-bold text-sm">
@@ -143,7 +144,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
 
       {/* Domain 2: US Sales Tax & Economic Nexus */}
       {activeDomain === 'sales-tax' && (
-        <div className="space-y-6 animate-in fade-in duration-200">
+        <div className="space-y-6 animate-fade-in">
           <div className="rounded-xl border border-indigo-200 bg-indigo-50/50 p-5 space-y-2.5">
             <div className="flex items-center gap-2 text-indigo-950 font-bold text-sm">
               <Building2 className="h-4 w-4 text-indigo-600 shrink-0" />
@@ -204,7 +205,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
 
       {/* Domain 3: UK & Global VAT Compliance */}
       {activeDomain === 'vat' && (
-        <div className="space-y-6 animate-in fade-in duration-200">
+        <div className="space-y-6 animate-fade-in">
           <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-5 space-y-2.5">
             <div className="flex items-center gap-2 text-emerald-950 font-bold text-sm">
               <Globe2 className="h-4 w-4 text-emerald-600 shrink-0" />
@@ -265,7 +266,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
 
       {/* Domain 4: 1099 Freelance & Contractor Taxes */}
       {activeDomain === 'freelance' && (
-        <div className="space-y-6 animate-in fade-in duration-200">
+        <div className="space-y-6 animate-fade-in">
           <div className="rounded-xl border border-purple-200 bg-purple-50/50 p-5 space-y-2.5">
             <div className="flex items-center gap-2 text-purple-950 font-bold text-sm">
               <Briefcase className="h-4 w-4 text-purple-600 shrink-0" />
@@ -322,7 +323,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
 
       {/* Domain 5: E-Commerce & ROAS Hub */}
       {activeDomain === 'ecommerce' && (
-        <div className="space-y-6 animate-in fade-in duration-200">
+        <div className="space-y-6 animate-fade-in">
           <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-5 space-y-2.5">
             <div className="flex items-center gap-2 text-amber-950 font-bold text-sm">
               <ShoppingBag className="h-4 w-4 text-amber-600 shrink-0" />
@@ -379,7 +380,7 @@ export function UniversalGuideHub({ inArticleSlot }: UniversalGuideHubProps) {
       {/* Footer Hub Links */}
       <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
         <span className="text-slate-500 font-medium">
-          Need a dedicated calculator? Choose from 199+ tools above.
+          Need a dedicated calculator? Choose from {TOOL_COUNT_LABEL_PLUS} tools above.
         </span>
         <div className="flex items-center gap-3">
           <Link

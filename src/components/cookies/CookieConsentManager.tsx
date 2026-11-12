@@ -2,25 +2,29 @@
 
 import React, { useState, useEffect } from 'react';
 import { Check, ShieldCheck, RefreshCw } from 'lucide-react';
+import { CONSENT_KEY, applyConsentUpdate } from '@/components/analytics/GoogleAnalytics';
 
 export function CookieConsentManager() {
   const [currentConsent, setCurrentConsent] = useState<string>('loading');
   const [justSaved, setJustSaved] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('feekit_cookie_consent') || 'not_set';
+    const consent = localStorage.getItem(CONSENT_KEY) || 'not_set';
     setCurrentConsent(consent);
   }, []);
 
   const updateConsent = (type: 'accepted' | 'essential') => {
-    localStorage.setItem('feekit_cookie_consent', type);
+    localStorage.setItem(CONSENT_KEY, type);
+    applyConsentUpdate(type);
+    window.dispatchEvent(new Event('feekit:consent-change'));
     setCurrentConsent(type);
     setJustSaved(true);
     setTimeout(() => setJustSaved(false), 2500);
   };
 
   const resetConsent = () => {
-    localStorage.removeItem('feekit_cookie_consent');
+    localStorage.removeItem(CONSENT_KEY);
+    window.dispatchEvent(new Event('feekit:consent-change'));
     setCurrentConsent('not_set');
     setJustSaved(true);
     setTimeout(() => setJustSaved(false), 2500);
@@ -36,15 +40,15 @@ export function CookieConsentManager() {
               <span className="text-slate-400">Loading...</span>
             ) : currentConsent === 'accepted' ? (
               <span className="text-emerald-700 font-bold bg-emerald-100/80 px-2 py-0.5 rounded-md">
-                All Cookies Accepted (Essential + Advertising)
+                All Cookies Accepted (Analytics &amp; Personalized Ads Enabled)
               </span>
             ) : currentConsent === 'essential' ? (
               <span className="text-amber-700 font-bold bg-amber-100/80 px-2 py-0.5 rounded-md">
-                Essential Only (Advertising Cookies Disabled)
+                Essential Only (Analytics &amp; Personalized Ad Cookies Disabled)
               </span>
             ) : (
               <span className="text-slate-500 bg-slate-200/80 px-2 py-0.5 rounded-md">
-                Default (Awaiting explicit choice)
+                Default (Google Consent Mode v2 Regional Policy)
               </span>
             )}
           </div>

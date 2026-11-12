@@ -5,6 +5,9 @@ import { CANONICAL_REDIRECTS } from './src/lib/seo/canonical-redirects';
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   poweredByHeader: false,
+  images: {
+    unoptimized: true,
+  },
   outputFileTracingExcludes: {
     '*': [
       './tests/**',
